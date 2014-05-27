@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		339F43D51934BBC9000F6923 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43D41934BBC9000F6923 /* Foundation.framework */; };
+		339F43D71934BBC9000F6923 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43D61934BBC9000F6923 /* CoreGraphics.framework */; };
+		339F43D91934BBC9000F6923 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43D81934BBC9000F6923 /* UIKit.framework */; };
+		339F43DB1934BBC9000F6923 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43DA1934BBC9000F6923 /* CoreData.framework */; };
+		339F43E11934BBC9000F6923 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 339F43DF1934BBC9000F6923 /* InfoPlist.strings */; };
+		339F43E31934BBC9000F6923 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F43E21934BBC9000F6923 /* main.m */; };
+		339F43E71934BBC9000F6923 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F43E61934BBC9000F6923 /* AppDelegate.m */; };
+		339F43EA1934BBC9000F6923 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339F43E81934BBC9000F6923 /* Main_iPhone.storyboard */; };
+		339F43ED1934BBC9000F6923 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339F43EB1934BBC9000F6923 /* Main_iPad.storyboard */; };
+		339F43F01934BBC9000F6923 /* QuantTrader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 339F43EE1934BBC9000F6923 /* QuantTrader.xcdatamodeld */; };
+		339F43F31934BBC9000F6923 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F43F21934BBC9000F6923 /* MasterViewController.m */; };
+		339F43F61934BBC9000F6923 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F43F51934BBC9000F6923 /* DetailViewController.m */; };
+		339F43F81934BBC9000F6923 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339F43F71934BBC9000F6923 /* Images.xcassets */; };
+		339F43FF1934BBC9000F6923 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43FE1934BBC9000F6923 /* XCTest.framework */; };
+		339F44001934BBC9000F6923 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43D41934BBC9000F6923 /* Foundation.framework */; };
+		339F44011934BBC9000F6923 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43D81934BBC9000F6923 /* UIKit.framework */; };
+		339F44021934BBC9000F6923 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43DA1934BBC9000F6923 /* CoreData.framework */; };
+		339F440A1934BBC9000F6923 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 339F44081934BBC9000F6923 /* InfoPlist.strings */; };
+		339F440C1934BBC9000F6923 /* QuantTraderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F440B1934BBC9000F6923 /* QuantTraderTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		339F44031934BBC9000F6923 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 339F43C91934BBC9000F6923 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 339F43D01934BBC9000F6923;
+			remoteInfo = QuantTrader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		339F43D11934BBC9000F6923 /* QuantTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		339F43D41934BBC9000F6923 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		339F43D61934BBC9000F6923 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		339F43D81934BBC9000F6923 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		339F43DA1934BBC9000F6923 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		339F43DE1934BBC9000F6923 /* QuantTrader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuantTrader-Info.plist"; sourceTree = "<group>"; };
+		339F43E01934BBC9000F6923 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		339F43E21934BBC9000F6923 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		339F43E41934BBC9000F6923 /* QuantTrader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuantTrader-Prefix.pch"; sourceTree = "<group>"; };
+		339F43E51934BBC9000F6923 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		339F43E61934BBC9000F6923 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		339F43E91934BBC9000F6923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		339F43EC1934BBC9000F6923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		339F43EF1934BBC9000F6923 /* QuantTrader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuantTrader.xcdatamodel; sourceTree = "<group>"; };
+		339F43F11934BBC9000F6923 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		339F43F21934BBC9000F6923 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		339F43F41934BBC9000F6923 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		339F43F51934BBC9000F6923 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		339F43F71934BBC9000F6923 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		339F43FD1934BBC9000F6923 /* QuantTraderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantTraderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		339F43FE1934BBC9000F6923 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		339F44071934BBC9000F6923 /* QuantTraderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuantTraderTests-Info.plist"; sourceTree = "<group>"; };
+		339F44091934BBC9000F6923 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		339F440B1934BBC9000F6923 /* QuantTraderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuantTraderTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		339F43CE1934BBC9000F6923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339F43D71934BBC9000F6923 /* CoreGraphics.framework in Frameworks */,
+				339F43DB1934BBC9000F6923 /* CoreData.framework in Frameworks */,
+				339F43D91934BBC9000F6923 /* UIKit.framework in Frameworks */,
+				339F43D51934BBC9000F6923 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339F43FA1934BBC9000F6923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339F43FF1934BBC9000F6923 /* XCTest.framework in Frameworks */,
+				339F44021934BBC9000F6923 /* CoreData.framework in Frameworks */,
+				339F44011934BBC9000F6923 /* UIKit.framework in Frameworks */,
+				339F44001934BBC9000F6923 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		339F43C81934BBC9000F6923 = {
+			isa = PBXGroup;
+			children = (
+				339F43DC1934BBC9000F6923 /* QuantTrader */,
+				339F44051934BBC9000F6923 /* QuantTraderTests */,
+				339F43D31934BBC9000F6923 /* Frameworks */,
+				339F43D21934BBC9000F6923 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		339F43D21934BBC9000F6923 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				339F43D11934BBC9000F6923 /* QuantTrader.app */,
+				339F43FD1934BBC9000F6923 /* QuantTraderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		339F43D31934BBC9000F6923 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				339F43D41934BBC9000F6923 /* Foundation.framework */,
+				339F43D61934BBC9000F6923 /* CoreGraphics.framework */,
+				339F43D81934BBC9000F6923 /* UIKit.framework */,
+				339F43DA1934BBC9000F6923 /* CoreData.framework */,
+				339F43FE1934BBC9000F6923 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		339F43DC1934BBC9000F6923 /* QuantTrader */ = {
+			isa = PBXGroup;
+			children = (
+				339F43E51934BBC9000F6923 /* AppDelegate.h */,
+				339F43E61934BBC9000F6923 /* AppDelegate.m */,
+				339F43E81934BBC9000F6923 /* Main_iPhone.storyboard */,
+				339F43EB1934BBC9000F6923 /* Main_iPad.storyboard */,
+				339F43F11934BBC9000F6923 /* MasterViewController.h */,
+				339F43F21934BBC9000F6923 /* MasterViewController.m */,
+				339F43F41934BBC9000F6923 /* DetailViewController.h */,
+				339F43F51934BBC9000F6923 /* DetailViewController.m */,
+				339F43F71934BBC9000F6923 /* Images.xcassets */,
+				339F43EE1934BBC9000F6923 /* QuantTrader.xcdatamodeld */,
+				339F43DD1934BBC9000F6923 /* Supporting Files */,
+			);
+			path = QuantTrader;
+			sourceTree = "<group>";
+		};
+		339F43DD1934BBC9000F6923 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				339F43DE1934BBC9000F6923 /* QuantTrader-Info.plist */,
+				339F43DF1934BBC9000F6923 /* InfoPlist.strings */,
+				339F43E21934BBC9000F6923 /* main.m */,
+				339F43E41934BBC9000F6923 /* QuantTrader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		339F44051934BBC9000F6923 /* QuantTraderTests */ = {
+			isa = PBXGroup;
+			children = (
+				339F440B1934BBC9000F6923 /* QuantTraderTests.m */,
+				339F44061934BBC9000F6923 /* Supporting Files */,
+			);
+			path = QuantTraderTests;
+			sourceTree = "<group>";
+		};
+		339F44061934BBC9000F6923 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				339F44071934BBC9000F6923 /* QuantTraderTests-Info.plist */,
+				339F44081934BBC9000F6923 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		339F43D01934BBC9000F6923 /* QuantTrader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 339F440F1934BBC9000F6923 /* Build configuration list for PBXNativeTarget "QuantTrader" */;
+			buildPhases = (
+				339F43CD1934BBC9000F6923 /* Sources */,
+				339F43CE1934BBC9000F6923 /* Frameworks */,
+				339F43CF1934BBC9000F6923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuantTrader;
+			productName = QuantTrader;
+			productReference = 339F43D11934BBC9000F6923 /* QuantTrader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		339F43FC1934BBC9000F6923 /* QuantTraderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 339F44121934BBC9000F6923 /* Build configuration list for PBXNativeTarget "QuantTraderTests" */;
+			buildPhases = (
+				339F43F91934BBC9000F6923 /* Sources */,
+				339F43FA1934BBC9000F6923 /* Frameworks */,
+				339F43FB1934BBC9000F6923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				339F44041934BBC9000F6923 /* PBXTargetDependency */,
+			);
+			name = QuantTraderTests;
+			productName = QuantTraderTests;
+			productReference = 339F43FD1934BBC9000F6923 /* QuantTraderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		339F43C91934BBC9000F6923 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Colman Marcus-Quinn";
+				TargetAttributes = {
+					339F43FC1934BBC9000F6923 = {
+						TestTargetID = 339F43D01934BBC9000F6923;
+					};
+				};
+			};
+			buildConfigurationList = 339F43CC1934BBC9000F6923 /* Build configuration list for PBXProject "QuantTrader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 339F43C81934BBC9000F6923;
+			productRefGroup = 339F43D21934BBC9000F6923 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				339F43D01934BBC9000F6923 /* QuantTrader */,
+				339F43FC1934BBC9000F6923 /* QuantTraderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		339F43CF1934BBC9000F6923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339F43ED1934BBC9000F6923 /* Main_iPad.storyboard in Resources */,
+				339F43F81934BBC9000F6923 /* Images.xcassets in Resources */,
+				339F43EA1934BBC9000F6923 /* Main_iPhone.storyboard in Resources */,
+				339F43E11934BBC9000F6923 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339F43FB1934BBC9000F6923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339F440A1934BBC9000F6923 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		339F43CD1934BBC9000F6923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339F43F61934BBC9000F6923 /* DetailViewController.m in Sources */,
+				339F43F31934BBC9000F6923 /* MasterViewController.m in Sources */,
+				339F43E71934BBC9000F6923 /* AppDelegate.m in Sources */,
+				339F43F01934BBC9000F6923 /* QuantTrader.xcdatamodeld in Sources */,
+				339F43E31934BBC9000F6923 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339F43F91934BBC9000F6923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339F440C1934BBC9000F6923 /* QuantTraderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		339F44041934BBC9000F6923 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 339F43D01934BBC9000F6923 /* QuantTrader */;
+			targetProxy = 339F44031934BBC9000F6923 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		339F43DF1934BBC9000F6923 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				339F43E01934BBC9000F6923 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		339F43E81934BBC9000F6923 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				339F43E91934BBC9000F6923 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		339F43EB1934BBC9000F6923 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				339F43EC1934BBC9000F6923 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		339F44081934BBC9000F6923 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				339F44091934BBC9000F6923 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		339F440D1934BBC9000F6923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		339F440E1934BBC9000F6923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		339F44101934BBC9000F6923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
+				INFOPLIST_FILE = "QuantTrader/QuantTrader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		339F44111934BBC9000F6923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
+				INFOPLIST_FILE = "QuantTrader/QuantTrader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		339F44131934BBC9000F6923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QuantTrader.app/QuantTrader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "QuantTraderTests/QuantTraderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		339F44141934BBC9000F6923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QuantTrader.app/QuantTrader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
+				INFOPLIST_FILE = "QuantTraderTests/QuantTraderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		339F43CC1934BBC9000F6923 /* Build configuration list for PBXProject "QuantTrader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				339F440D1934BBC9000F6923 /* Debug */,
+				339F440E1934BBC9000F6923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		339F440F1934BBC9000F6923 /* Build configuration list for PBXNativeTarget "QuantTrader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				339F44101934BBC9000F6923 /* Debug */,
+				339F44111934BBC9000F6923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		339F44121934BBC9000F6923 /* Build configuration list for PBXNativeTarget "QuantTraderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				339F44131934BBC9000F6923 /* Debug */,
+				339F44141934BBC9000F6923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		339F43EE1934BBC9000F6923 /* QuantTrader.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				339F43EF1934BBC9000F6923 /* QuantTrader.xcdatamodel */,
+			);
+			currentVersion = 339F43EF1934BBC9000F6923 /* QuantTrader.xcdatamodel */;
+			path = QuantTrader.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 339F43C91934BBC9000F6923 /* Project object */;
+}
