@@ -26,6 +26,22 @@
 		339F44021934BBC9000F6923 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43DA1934BBC9000F6923 /* CoreData.framework */; };
 		339F440A1934BBC9000F6923 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 339F44081934BBC9000F6923 /* InfoPlist.strings */; };
 		339F440C1934BBC9000F6923 /* QuantTraderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F440B1934BBC9000F6923 /* QuantTraderTests.m */; };
+		F32A9B911934BCF700BDE337 /* ql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32A9B901934BCF600BDE337 /* ql.framework */; };
+		F32A9B941934BEA900BDE337 /* CheckQl.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B931934BEA900BDE337 /* CheckQl.mm */; };
+		F32A9BAC1934BF6400BDE337 /* EquityOption_.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B971934BF6400BDE337 /* EquityOption_.mm */; };
+		F32A9BAD1934BF6400BDE337 /* Bond.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B991934BF6400BDE337 /* Bond.mm */; };
+		F32A9BAE1934BF6400BDE337 /* MarketModels.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B9B1934BF6400BDE337 /* MarketModels.mm */; };
+		F32A9BAF1934BF6400BDE337 /* CallableBonds.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B9D1934BF6400BDE337 /* CallableBonds.mm */; };
+		F32A9BB01934BF6400BDE337 /* DiscreteHedging.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B9F1934BF6400BDE337 /* DiscreteHedging.mm */; };
+		F32A9BB11934BF6400BDE337 /* FittedBondCurve.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BA11934BF6400BDE337 /* FittedBondCurve.mm */; };
+		F32A9BB21934BF6400BDE337 /* ForwardRate.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BA31934BF6400BDE337 /* ForwardRate.mm */; };
+		F32A9BB31934BF6400BDE337 /* BermudanSwaption.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BA51934BF6400BDE337 /* BermudanSwaption.mm */; };
+		F32A9BB41934BF6400BDE337 /* Replication.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BA71934BF6400BDE337 /* Replication.mm */; };
+		F32A9BB51934BF6400BDE337 /* Repo.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BA91934BF6400BDE337 /* Repo.mm */; };
+		F32A9BB61934BF6400BDE337 /* Swap.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BAB1934BF6400BDE337 /* Swap.mm */; };
+		F32A9BBC1934BFB800BDE337 /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BB91934BFB800BDE337 /* Date.m */; };
+		F32A9BBD1934BFB800BDE337 /* DateCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BBB1934BFB800BDE337 /* DateCategory.m */; };
+		F32A9BC11934BFEE00BDE337 /* EquityOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BC01934BFEE00BDE337 /* EquityOptionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +79,37 @@
 		339F44071934BBC9000F6923 /* QuantTraderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuantTraderTests-Info.plist"; sourceTree = "<group>"; };
 		339F44091934BBC9000F6923 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		339F440B1934BBC9000F6923 /* QuantTraderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuantTraderTests.m; sourceTree = "<group>"; };
+		F32A9B901934BCF600BDE337 /* ql.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ql.framework; path = ../framework/ql.framework; sourceTree = "<group>"; };
+		F32A9B921934BEA900BDE337 /* CheckQl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckQl.h; sourceTree = "<group>"; };
+		F32A9B931934BEA900BDE337 /* CheckQl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CheckQl.mm; sourceTree = "<group>"; };
+		F32A9B961934BF6400BDE337 /* EquityOption_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquityOption_.h; sourceTree = "<group>"; };
+		F32A9B971934BF6400BDE337 /* EquityOption_.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EquityOption_.mm; sourceTree = "<group>"; };
+		F32A9B981934BF6400BDE337 /* Bond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bond.h; sourceTree = "<group>"; };
+		F32A9B991934BF6400BDE337 /* Bond.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Bond.mm; sourceTree = "<group>"; };
+		F32A9B9A1934BF6400BDE337 /* MarketModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketModels.h; sourceTree = "<group>"; };
+		F32A9B9B1934BF6400BDE337 /* MarketModels.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MarketModels.mm; sourceTree = "<group>"; };
+		F32A9B9C1934BF6400BDE337 /* CallableBonds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallableBonds.h; sourceTree = "<group>"; };
+		F32A9B9D1934BF6400BDE337 /* CallableBonds.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CallableBonds.mm; sourceTree = "<group>"; };
+		F32A9B9E1934BF6400BDE337 /* DiscreteHedging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscreteHedging.h; sourceTree = "<group>"; };
+		F32A9B9F1934BF6400BDE337 /* DiscreteHedging.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DiscreteHedging.mm; sourceTree = "<group>"; };
+		F32A9BA01934BF6400BDE337 /* FittedBondCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FittedBondCurve.h; sourceTree = "<group>"; };
+		F32A9BA11934BF6400BDE337 /* FittedBondCurve.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FittedBondCurve.mm; sourceTree = "<group>"; };
+		F32A9BA21934BF6400BDE337 /* ForwardRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForwardRate.h; sourceTree = "<group>"; };
+		F32A9BA31934BF6400BDE337 /* ForwardRate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ForwardRate.mm; sourceTree = "<group>"; };
+		F32A9BA41934BF6400BDE337 /* BermudanSwaption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BermudanSwaption.h; sourceTree = "<group>"; };
+		F32A9BA51934BF6400BDE337 /* BermudanSwaption.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BermudanSwaption.mm; sourceTree = "<group>"; };
+		F32A9BA61934BF6400BDE337 /* Replication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Replication.h; sourceTree = "<group>"; };
+		F32A9BA71934BF6400BDE337 /* Replication.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Replication.mm; sourceTree = "<group>"; };
+		F32A9BA81934BF6400BDE337 /* Repo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repo.h; sourceTree = "<group>"; };
+		F32A9BA91934BF6400BDE337 /* Repo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Repo.mm; sourceTree = "<group>"; };
+		F32A9BAA1934BF6400BDE337 /* Swap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swap.h; sourceTree = "<group>"; };
+		F32A9BAB1934BF6400BDE337 /* Swap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Swap.mm; sourceTree = "<group>"; };
+		F32A9BB81934BFB800BDE337 /* Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
+		F32A9BB91934BFB800BDE337 /* Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
+		F32A9BBA1934BFB800BDE337 /* DateCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCategory.h; sourceTree = "<group>"; };
+		F32A9BBB1934BFB800BDE337 /* DateCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCategory.m; sourceTree = "<group>"; };
+		F32A9BBF1934BFEE00BDE337 /* EquityOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquityOptionViewController.h; sourceTree = "<group>"; };
+		F32A9BC01934BFEE00BDE337 /* EquityOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquityOptionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F32A9B911934BCF700BDE337 /* ql.framework in Frameworks */,
 				339F43D71934BBC9000F6923 /* CoreGraphics.framework in Frameworks */,
 				339F43DB1934BBC9000F6923 /* CoreData.framework in Frameworks */,
 				339F43D91934BBC9000F6923 /* UIKit.framework in Frameworks */,
@@ -113,6 +161,7 @@
 		339F43D31934BBC9000F6923 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F32A9B901934BCF600BDE337 /* ql.framework */,
 				339F43D41934BBC9000F6923 /* Foundation.framework */,
 				339F43D61934BBC9000F6923 /* CoreGraphics.framework */,
 				339F43D81934BBC9000F6923 /* UIKit.framework */,
@@ -125,6 +174,9 @@
 		339F43DC1934BBC9000F6923 /* QuantTrader */ = {
 			isa = PBXGroup;
 			children = (
+				F32A9BBE1934BFE200BDE337 /* ViewController */,
+				F32A9BB71934BFA500BDE337 /* Date */,
+				F32A9B951934BF5500BDE337 /* Examples */,
 				339F43E51934BBC9000F6923 /* AppDelegate.h */,
 				339F43E61934BBC9000F6923 /* AppDelegate.m */,
 				339F43E81934BBC9000F6923 /* Main_iPhone.storyboard */,
@@ -136,6 +188,8 @@
 				339F43F71934BBC9000F6923 /* Images.xcassets */,
 				339F43EE1934BBC9000F6923 /* QuantTrader.xcdatamodeld */,
 				339F43DD1934BBC9000F6923 /* Supporting Files */,
+				F32A9B921934BEA900BDE337 /* CheckQl.h */,
+				F32A9B931934BEA900BDE337 /* CheckQl.mm */,
 			);
 			path = QuantTrader;
 			sourceTree = "<group>";
@@ -167,6 +221,55 @@
 				339F44081934BBC9000F6923 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F32A9B951934BF5500BDE337 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				F32A9B961934BF6400BDE337 /* EquityOption_.h */,
+				F32A9B971934BF6400BDE337 /* EquityOption_.mm */,
+				F32A9B981934BF6400BDE337 /* Bond.h */,
+				F32A9B991934BF6400BDE337 /* Bond.mm */,
+				F32A9B9A1934BF6400BDE337 /* MarketModels.h */,
+				F32A9B9B1934BF6400BDE337 /* MarketModels.mm */,
+				F32A9B9C1934BF6400BDE337 /* CallableBonds.h */,
+				F32A9B9D1934BF6400BDE337 /* CallableBonds.mm */,
+				F32A9B9E1934BF6400BDE337 /* DiscreteHedging.h */,
+				F32A9B9F1934BF6400BDE337 /* DiscreteHedging.mm */,
+				F32A9BA01934BF6400BDE337 /* FittedBondCurve.h */,
+				F32A9BA11934BF6400BDE337 /* FittedBondCurve.mm */,
+				F32A9BA21934BF6400BDE337 /* ForwardRate.h */,
+				F32A9BA31934BF6400BDE337 /* ForwardRate.mm */,
+				F32A9BA41934BF6400BDE337 /* BermudanSwaption.h */,
+				F32A9BA51934BF6400BDE337 /* BermudanSwaption.mm */,
+				F32A9BA61934BF6400BDE337 /* Replication.h */,
+				F32A9BA71934BF6400BDE337 /* Replication.mm */,
+				F32A9BA81934BF6400BDE337 /* Repo.h */,
+				F32A9BA91934BF6400BDE337 /* Repo.mm */,
+				F32A9BAA1934BF6400BDE337 /* Swap.h */,
+				F32A9BAB1934BF6400BDE337 /* Swap.mm */,
+			);
+			name = Examples;
+			sourceTree = "<group>";
+		};
+		F32A9BB71934BFA500BDE337 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				F32A9BB81934BFB800BDE337 /* Date.h */,
+				F32A9BB91934BFB800BDE337 /* Date.m */,
+				F32A9BBA1934BFB800BDE337 /* DateCategory.h */,
+				F32A9BBB1934BFB800BDE337 /* DateCategory.m */,
+			);
+			name = Date;
+			sourceTree = "<group>";
+		};
+		F32A9BBE1934BFE200BDE337 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F32A9BBF1934BFEE00BDE337 /* EquityOptionViewController.h */,
+				F32A9BC01934BFEE00BDE337 /* EquityOptionViewController.m */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,11 +370,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F32A9BC11934BFEE00BDE337 /* EquityOptionViewController.m in Sources */,
+				F32A9BB31934BF6400BDE337 /* BermudanSwaption.mm in Sources */,
+				F32A9BBC1934BFB800BDE337 /* Date.m in Sources */,
 				339F43F61934BBC9000F6923 /* DetailViewController.m in Sources */,
+				F32A9B941934BEA900BDE337 /* CheckQl.mm in Sources */,
+				F32A9BB41934BF6400BDE337 /* Replication.mm in Sources */,
+				F32A9BAD1934BF6400BDE337 /* Bond.mm in Sources */,
+				F32A9BB51934BF6400BDE337 /* Repo.mm in Sources */,
 				339F43F31934BBC9000F6923 /* MasterViewController.m in Sources */,
+				F32A9BBD1934BFB800BDE337 /* DateCategory.m in Sources */,
+				F32A9BB61934BF6400BDE337 /* Swap.mm in Sources */,
+				F32A9BAF1934BF6400BDE337 /* CallableBonds.mm in Sources */,
+				F32A9BB01934BF6400BDE337 /* DiscreteHedging.mm in Sources */,
+				F32A9BB21934BF6400BDE337 /* ForwardRate.mm in Sources */,
+				F32A9BB11934BF6400BDE337 /* FittedBondCurve.mm in Sources */,
+				F32A9BAE1934BF6400BDE337 /* MarketModels.mm in Sources */,
 				339F43E71934BBC9000F6923 /* AppDelegate.m in Sources */,
 				339F43F01934BBC9000F6923 /* QuantTrader.xcdatamodeld in Sources */,
 				339F43E31934BBC9000F6923 /* main.m in Sources */,
+				F32A9BAC1934BF6400BDE337 /* EquityOption_.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +452,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -373,7 +491,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -406,6 +524,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../boostoniphone-master/ios/framework\\/**",
+					"$(SRCROOT)/../framework_\\framework/**",
+					"\"/Volumes/Untitled\\ 2/framework_/framework\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
 				INFOPLIST_FILE = "QuantTrader/QuantTrader-Info.plist";
@@ -419,6 +543,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../boostoniphone-master/ios/framework\\/**",
+					"$(SRCROOT)/../framework_\\framework/**",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
 				INFOPLIST_FILE = "QuantTrader/QuantTrader-Info.plist";
@@ -486,6 +615,7 @@
 				339F44111934BBC9000F6923 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		339F44121934BBC9000F6923 /* Build configuration list for PBXNativeTarget "QuantTraderTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +624,7 @@
 				339F44141934BBC9000F6923 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
