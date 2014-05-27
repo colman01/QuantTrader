@@ -1,1834 +1,692 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>2DF9A07A6B8540DD970ACFEE</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>339F43C81934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>339F43DC1934BBC9000F6923</string>
-				<string>339F44051934BBC9000F6923</string>
-				<string>339F43D31934BBC9000F6923</string>
-				<string>339F43D21934BBC9000F6923</string>
-				<string>8844B9769D704D08BC6A5EE0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43C91934BBC9000F6923</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0510</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Colman Marcus-Quinn</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>339F43FC1934BBC9000F6923</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>339F43D01934BBC9000F6923</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>339F43CC1934BBC9000F6923</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>339F43C81934BBC9000F6923</string>
-			<key>productRefGroup</key>
-			<string>339F43D21934BBC9000F6923</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>339F43D01934BBC9000F6923</string>
-				<string>339F43FC1934BBC9000F6923</string>
-			</array>
-		</dict>
-		<key>339F43CC1934BBC9000F6923</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>339F440D1934BBC9000F6923</string>
-				<string>339F440E1934BBC9000F6923</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>339F43CD1934BBC9000F6923</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F32A9BC11934BFEE00BDE337</string>
-				<string>F32A9BB31934BF6400BDE337</string>
-				<string>F32A9BBC1934BFB800BDE337</string>
-				<string>339F43F61934BBC9000F6923</string>
-				<string>F32A9B941934BEA900BDE337</string>
-				<string>F32A9BB41934BF6400BDE337</string>
-				<string>F32A9BAD1934BF6400BDE337</string>
-				<string>F32A9BB51934BF6400BDE337</string>
-				<string>339F43F31934BBC9000F6923</string>
-				<string>F32A9BBD1934BFB800BDE337</string>
-				<string>F32A9BB61934BF6400BDE337</string>
-				<string>F32A9BAF1934BF6400BDE337</string>
-				<string>F32A9BB01934BF6400BDE337</string>
-				<string>F32A9BB21934BF6400BDE337</string>
-				<string>F32A9BB11934BF6400BDE337</string>
-				<string>F32A9BAE1934BF6400BDE337</string>
-				<string>339F43E71934BBC9000F6923</string>
-				<string>339F43F01934BBC9000F6923</string>
-				<string>339F43E31934BBC9000F6923</string>
-				<string>F32A9BAC1934BF6400BDE337</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>339F43CE1934BBC9000F6923</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F32A9B911934BCF700BDE337</string>
-				<string>339F43D71934BBC9000F6923</string>
-				<string>339F43DB1934BBC9000F6923</string>
-				<string>339F43D91934BBC9000F6923</string>
-				<string>339F43D51934BBC9000F6923</string>
-				<string>4C59C278E89D42B4AFDED473</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>339F43CF1934BBC9000F6923</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>339F43ED1934BBC9000F6923</string>
-				<string>339F43F81934BBC9000F6923</string>
-				<string>339F43EA1934BBC9000F6923</string>
-				<string>339F43E11934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>339F43D01934BBC9000F6923</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>339F440F1934BBC9000F6923</string>
-			<key>buildPhases</key>
-			<array>
-				<string>ABA7DFD6AADE42EB980957BD</string>
-				<string>339F43CD1934BBC9000F6923</string>
-				<string>339F43CE1934BBC9000F6923</string>
-				<string>339F43CF1934BBC9000F6923</string>
-				<string>5F0EA3D78924472EA86AA8EF</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>QuantTrader</string>
-			<key>productName</key>
-			<string>QuantTrader</string>
-			<key>productReference</key>
-			<string>339F43D11934BBC9000F6923</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>339F43D11934BBC9000F6923</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>QuantTrader.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>339F43D21934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>339F43D11934BBC9000F6923</string>
-				<string>339F43FD1934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43D31934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F32A9B901934BCF600BDE337</string>
-				<string>339F43D41934BBC9000F6923</string>
-				<string>339F43D61934BBC9000F6923</string>
-				<string>339F43D81934BBC9000F6923</string>
-				<string>339F43DA1934BBC9000F6923</string>
-				<string>339F43FE1934BBC9000F6923</string>
-				<string>2DF9A07A6B8540DD970ACFEE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43D41934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>339F43D51934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43D41934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43D61934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>339F43D71934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43D61934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43D81934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>339F43D91934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43D81934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43DA1934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreData.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreData.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>339F43DB1934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43DA1934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43DC1934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F32A9BBE1934BFE200BDE337</string>
-				<string>F32A9BB71934BFA500BDE337</string>
-				<string>F32A9B951934BF5500BDE337</string>
-				<string>339F43E51934BBC9000F6923</string>
-				<string>339F43E61934BBC9000F6923</string>
-				<string>339F43E81934BBC9000F6923</string>
-				<string>339F43EB1934BBC9000F6923</string>
-				<string>339F43F11934BBC9000F6923</string>
-				<string>339F43F21934BBC9000F6923</string>
-				<string>339F43F41934BBC9000F6923</string>
-				<string>339F43F51934BBC9000F6923</string>
-				<string>339F43F71934BBC9000F6923</string>
-				<string>339F43EE1934BBC9000F6923</string>
-				<string>339F43DD1934BBC9000F6923</string>
-				<string>F32A9B921934BEA900BDE337</string>
-				<string>F32A9B931934BEA900BDE337</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>QuantTrader</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43DD1934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>339F43DE1934BBC9000F6923</string>
-				<string>339F43DF1934BBC9000F6923</string>
-				<string>339F43E21934BBC9000F6923</string>
-				<string>339F43E41934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43DE1934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>QuantTrader-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43DF1934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>339F43E01934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43E01934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43E11934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43DF1934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43E21934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43E31934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43E21934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43E41934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>QuantTrader-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43E51934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43E61934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43E71934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43E61934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43E81934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>339F43E91934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main_iPhone.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43E91934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main_iPhone.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43EA1934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43E81934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43EB1934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>339F43EC1934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main_iPad.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43EC1934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main_iPad.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43ED1934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43EB1934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43EE1934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>339F43EF1934BBC9000F6923</string>
-			</array>
-			<key>currentVersion</key>
-			<string>339F43EF1934BBC9000F6923</string>
-			<key>isa</key>
-			<string>XCVersionGroup</string>
-			<key>path</key>
-			<string>QuantTrader.xcdatamodeld</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>versionGroupType</key>
-			<string>wrapper.xcdatamodel</string>
-		</dict>
-		<key>339F43EF1934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.xcdatamodel</string>
-			<key>path</key>
-			<string>QuantTrader.xcdatamodel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43F01934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43EE1934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43F11934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MasterViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43F21934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>MasterViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43F31934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43F21934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43F41934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>DetailViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43F51934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>DetailViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43F61934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43F51934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43F71934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F43F81934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43F71934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F43F91934BBC9000F6923</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>339F440C1934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>339F43FA1934BBC9000F6923</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>339F43FF1934BBC9000F6923</string>
-				<string>339F44021934BBC9000F6923</string>
-				<string>339F44011934BBC9000F6923</string>
-				<string>339F44001934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>339F43FB1934BBC9000F6923</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>339F440A1934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>339F43FC1934BBC9000F6923</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>339F44121934BBC9000F6923</string>
-			<key>buildPhases</key>
-			<array>
-				<string>339F43F91934BBC9000F6923</string>
-				<string>339F43FA1934BBC9000F6923</string>
-				<string>339F43FB1934BBC9000F6923</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>339F44041934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>QuantTraderTests</string>
-			<key>productName</key>
-			<string>QuantTraderTests</string>
-			<key>productReference</key>
-			<string>339F43FD1934BBC9000F6923</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>339F43FD1934BBC9000F6923</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>QuantTraderTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>339F43FE1934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>339F43FF1934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43FE1934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F44001934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43D41934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F44011934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43D81934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F44021934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F43DA1934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F44031934BBC9000F6923</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>339F43C91934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>339F43D01934BBC9000F6923</string>
-			<key>remoteInfo</key>
-			<string>QuantTrader</string>
-		</dict>
-		<key>339F44041934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>339F43D01934BBC9000F6923</string>
-			<key>targetProxy</key>
-			<string>339F44031934BBC9000F6923</string>
-		</dict>
-		<key>339F44051934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>339F440B1934BBC9000F6923</string>
-				<string>339F44061934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>QuantTraderTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F44061934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>339F44071934BBC9000F6923</string>
-				<string>339F44081934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F44071934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>QuantTraderTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F44081934BBC9000F6923</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>339F44091934BBC9000F6923</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F44091934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F440A1934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F44081934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F440B1934BBC9000F6923</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>QuantTraderTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>339F440C1934BBC9000F6923</key>
-		<dict>
-			<key>fileRef</key>
-			<string>339F440B1934BBC9000F6923</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>339F440D1934BBC9000F6923</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libstdc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>339F440E1934BBC9000F6923</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libstdc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.1</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>TARGETED_DEVICE_FAMILY</key>
-				<string>1,2</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>339F440F1934BBC9000F6923</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>339F44101934BBC9000F6923</string>
-				<string>339F44111934BBC9000F6923</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>339F44101934BBC9000F6923</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>8844B9769D704D08BC6A5EE0</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(SRCROOT)/../boostoniphone-master/ios/framework\/**</string>
-					<string>$(SRCROOT)/../framework_\framework/**</string>
-					<string>"/Volumes/Untitled\ 2/framework_/framework"</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>QuantTrader/QuantTrader-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>QuantTrader/QuantTrader-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>339F44111934BBC9000F6923</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>8844B9769D704D08BC6A5EE0</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(inherited)</string>
-					<string>$(SRCROOT)/../boostoniphone-master/ios/framework\/**</string>
-					<string>$(SRCROOT)/../framework_\framework/**</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>QuantTrader/QuantTrader-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>QuantTrader/QuantTrader-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>339F44121934BBC9000F6923</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>339F44131934BBC9000F6923</string>
-				<string>339F44141934BBC9000F6923</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>339F44131934BBC9000F6923</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/QuantTrader.app/QuantTrader</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>QuantTrader/QuantTrader-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>QuantTraderTests/QuantTraderTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>339F44141934BBC9000F6923</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/QuantTrader.app/QuantTrader</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>QuantTrader/QuantTrader-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>QuantTraderTests/QuantTraderTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>4C59C278E89D42B4AFDED473</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2DF9A07A6B8540DD970ACFEE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>5F0EA3D78924472EA86AA8EF</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>8844B9769D704D08BC6A5EE0</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>ABA7DFD6AADE42EB980957BD</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>F32A9B901934BCF600BDE337</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>ql.framework</string>
-			<key>path</key>
-			<string>../framework/ql.framework</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B911934BCF700BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9B901934BCF600BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9B921934BEA900BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CheckQl.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B931934BEA900BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>CheckQl.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B941934BEA900BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9B931934BEA900BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9B951934BF5500BDE337</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F32A9B961934BF6400BDE337</string>
-				<string>F32A9B971934BF6400BDE337</string>
-				<string>F32A9B981934BF6400BDE337</string>
-				<string>F32A9B991934BF6400BDE337</string>
-				<string>F32A9B9A1934BF6400BDE337</string>
-				<string>F32A9B9B1934BF6400BDE337</string>
-				<string>F32A9B9C1934BF6400BDE337</string>
-				<string>F32A9B9D1934BF6400BDE337</string>
-				<string>F32A9B9E1934BF6400BDE337</string>
-				<string>F32A9B9F1934BF6400BDE337</string>
-				<string>F32A9BA01934BF6400BDE337</string>
-				<string>F32A9BA11934BF6400BDE337</string>
-				<string>F32A9BA21934BF6400BDE337</string>
-				<string>F32A9BA31934BF6400BDE337</string>
-				<string>F32A9BA41934BF6400BDE337</string>
-				<string>F32A9BA51934BF6400BDE337</string>
-				<string>F32A9BA61934BF6400BDE337</string>
-				<string>F32A9BA71934BF6400BDE337</string>
-				<string>F32A9BA81934BF6400BDE337</string>
-				<string>F32A9BA91934BF6400BDE337</string>
-				<string>F32A9BAA1934BF6400BDE337</string>
-				<string>F32A9BAB1934BF6400BDE337</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Examples</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B961934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>EquityOption_.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B971934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>EquityOption_.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B981934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Bond.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B991934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>Bond.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B9A1934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>MarketModels.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B9B1934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>MarketModels.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B9C1934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>CallableBonds.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B9D1934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>CallableBonds.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B9E1934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>DiscreteHedging.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9B9F1934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>DiscreteHedging.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BA01934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FittedBondCurve.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BA11934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>FittedBondCurve.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BA21934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>ForwardRate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BA31934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>ForwardRate.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BA41934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>BermudanSwaption.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BA51934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>BermudanSwaption.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BA61934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Replication.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BA71934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>Replication.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BA81934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Repo.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BA91934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>Repo.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BAA1934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Swap.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BAB1934BF6400BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.cpp.objcpp</string>
-			<key>path</key>
-			<string>Swap.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BAC1934BF6400BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9B971934BF6400BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BAD1934BF6400BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9B991934BF6400BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BAE1934BF6400BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9B9B1934BF6400BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BAF1934BF6400BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9B9D1934BF6400BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BB01934BF6400BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9B9F1934BF6400BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BB11934BF6400BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9BA11934BF6400BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BB21934BF6400BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9BA31934BF6400BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BB31934BF6400BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9BA51934BF6400BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BB41934BF6400BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9BA71934BF6400BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BB51934BF6400BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9BA91934BF6400BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BB61934BF6400BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9BAB1934BF6400BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BB71934BFA500BDE337</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F32A9BB81934BFB800BDE337</string>
-				<string>F32A9BB91934BFB800BDE337</string>
-				<string>F32A9BBA1934BFB800BDE337</string>
-				<string>F32A9BBB1934BFB800BDE337</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Date</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BB81934BFB800BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Date.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BB91934BFB800BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>Date.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BBA1934BFB800BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>DateCategory.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BBB1934BFB800BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>DateCategory.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BBC1934BFB800BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9BB91934BFB800BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BBD1934BFB800BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9BBB1934BFB800BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F32A9BBE1934BFE200BDE337</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>F32A9BBF1934BFEE00BDE337</string>
-				<string>F32A9BC01934BFEE00BDE337</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>ViewController</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BBF1934BFEE00BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>EquityOptionViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BC01934BFEE00BDE337</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>EquityOptionViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F32A9BC11934BFEE00BDE337</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F32A9BC01934BFEE00BDE337</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>339F43C91934BBC9000F6923</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		339F43D51934BBC9000F6923 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43D41934BBC9000F6923 /* Foundation.framework */; };
+		339F43D71934BBC9000F6923 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43D61934BBC9000F6923 /* CoreGraphics.framework */; };
+		339F43D91934BBC9000F6923 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43D81934BBC9000F6923 /* UIKit.framework */; };
+		339F43DB1934BBC9000F6923 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43DA1934BBC9000F6923 /* CoreData.framework */; };
+		339F43E11934BBC9000F6923 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 339F43DF1934BBC9000F6923 /* InfoPlist.strings */; };
+		339F43E31934BBC9000F6923 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F43E21934BBC9000F6923 /* main.m */; };
+		339F43E71934BBC9000F6923 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F43E61934BBC9000F6923 /* AppDelegate.m */; };
+		339F43EA1934BBC9000F6923 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339F43E81934BBC9000F6923 /* Main_iPhone.storyboard */; };
+		339F43ED1934BBC9000F6923 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 339F43EB1934BBC9000F6923 /* Main_iPad.storyboard */; };
+		339F43F01934BBC9000F6923 /* QuantTrader.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 339F43EE1934BBC9000F6923 /* QuantTrader.xcdatamodeld */; };
+		339F43F31934BBC9000F6923 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F43F21934BBC9000F6923 /* MasterViewController.m */; };
+		339F43F61934BBC9000F6923 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F43F51934BBC9000F6923 /* DetailViewController.m */; };
+		339F43F81934BBC9000F6923 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 339F43F71934BBC9000F6923 /* Images.xcassets */; };
+		339F43FF1934BBC9000F6923 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43FE1934BBC9000F6923 /* XCTest.framework */; };
+		339F44001934BBC9000F6923 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43D41934BBC9000F6923 /* Foundation.framework */; };
+		339F44011934BBC9000F6923 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43D81934BBC9000F6923 /* UIKit.framework */; };
+		339F44021934BBC9000F6923 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339F43DA1934BBC9000F6923 /* CoreData.framework */; };
+		339F440A1934BBC9000F6923 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 339F44081934BBC9000F6923 /* InfoPlist.strings */; };
+		339F440C1934BBC9000F6923 /* QuantTraderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F440B1934BBC9000F6923 /* QuantTraderTests.m */; };
+		4C59C278E89D42B4AFDED473 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF9A07A6B8540DD970ACFEE /* libPods.a */; };
+		F32A9B911934BCF700BDE337 /* ql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32A9B901934BCF600BDE337 /* ql.framework */; };
+		F32A9B941934BEA900BDE337 /* CheckQl.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B931934BEA900BDE337 /* CheckQl.mm */; };
+		F32A9BAC1934BF6400BDE337 /* EquityOption_.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B971934BF6400BDE337 /* EquityOption_.mm */; };
+		F32A9BAD1934BF6400BDE337 /* Bond.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B991934BF6400BDE337 /* Bond.mm */; };
+		F32A9BAE1934BF6400BDE337 /* MarketModels.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B9B1934BF6400BDE337 /* MarketModels.mm */; };
+		F32A9BAF1934BF6400BDE337 /* CallableBonds.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B9D1934BF6400BDE337 /* CallableBonds.mm */; };
+		F32A9BB01934BF6400BDE337 /* DiscreteHedging.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B9F1934BF6400BDE337 /* DiscreteHedging.mm */; };
+		F32A9BB11934BF6400BDE337 /* FittedBondCurve.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BA11934BF6400BDE337 /* FittedBondCurve.mm */; };
+		F32A9BB21934BF6400BDE337 /* ForwardRate.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BA31934BF6400BDE337 /* ForwardRate.mm */; };
+		F32A9BB31934BF6400BDE337 /* BermudanSwaption.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BA51934BF6400BDE337 /* BermudanSwaption.mm */; };
+		F32A9BB41934BF6400BDE337 /* Replication.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BA71934BF6400BDE337 /* Replication.mm */; };
+		F32A9BB51934BF6400BDE337 /* Repo.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BA91934BF6400BDE337 /* Repo.mm */; };
+		F32A9BB61934BF6400BDE337 /* Swap.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BAB1934BF6400BDE337 /* Swap.mm */; };
+		F32A9BBC1934BFB800BDE337 /* Date.m in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BB91934BFB800BDE337 /* Date.m */; };
+		F32A9BBD1934BFB800BDE337 /* DateCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BBB1934BFB800BDE337 /* DateCategory.m */; };
+		F32A9BC11934BFEE00BDE337 /* EquityOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BC01934BFEE00BDE337 /* EquityOptionViewController.m */; };
+		F32A9BD11934D92000BDE337 /* EquityOptionResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32A9BD01934D92000BDE337 /* EquityOptionResults.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		339F44031934BBC9000F6923 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 339F43C91934BBC9000F6923 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 339F43D01934BBC9000F6923;
+			remoteInfo = QuantTrader;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2DF9A07A6B8540DD970ACFEE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		339F43D11934BBC9000F6923 /* QuantTrader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuantTrader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		339F43D41934BBC9000F6923 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		339F43D61934BBC9000F6923 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		339F43D81934BBC9000F6923 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		339F43DA1934BBC9000F6923 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		339F43DE1934BBC9000F6923 /* QuantTrader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuantTrader-Info.plist"; sourceTree = "<group>"; };
+		339F43E01934BBC9000F6923 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		339F43E21934BBC9000F6923 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		339F43E41934BBC9000F6923 /* QuantTrader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuantTrader-Prefix.pch"; sourceTree = "<group>"; };
+		339F43E51934BBC9000F6923 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		339F43E61934BBC9000F6923 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		339F43E91934BBC9000F6923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		339F43EC1934BBC9000F6923 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		339F43EF1934BBC9000F6923 /* QuantTrader.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuantTrader.xcdatamodel; sourceTree = "<group>"; };
+		339F43F11934BBC9000F6923 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		339F43F21934BBC9000F6923 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		339F43F41934BBC9000F6923 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		339F43F51934BBC9000F6923 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		339F43F71934BBC9000F6923 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		339F43FD1934BBC9000F6923 /* QuantTraderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantTraderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		339F43FE1934BBC9000F6923 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		339F44071934BBC9000F6923 /* QuantTraderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QuantTraderTests-Info.plist"; sourceTree = "<group>"; };
+		339F44091934BBC9000F6923 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		339F440B1934BBC9000F6923 /* QuantTraderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuantTraderTests.m; sourceTree = "<group>"; };
+		8844B9769D704D08BC6A5EE0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		F32A9B901934BCF600BDE337 /* ql.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ql.framework; path = ../framework/ql.framework; sourceTree = "<group>"; };
+		F32A9B921934BEA900BDE337 /* CheckQl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckQl.h; sourceTree = "<group>"; };
+		F32A9B931934BEA900BDE337 /* CheckQl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CheckQl.mm; sourceTree = "<group>"; };
+		F32A9B961934BF6400BDE337 /* EquityOption_.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquityOption_.h; sourceTree = "<group>"; };
+		F32A9B971934BF6400BDE337 /* EquityOption_.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EquityOption_.mm; sourceTree = "<group>"; };
+		F32A9B981934BF6400BDE337 /* Bond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bond.h; sourceTree = "<group>"; };
+		F32A9B991934BF6400BDE337 /* Bond.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Bond.mm; sourceTree = "<group>"; };
+		F32A9B9A1934BF6400BDE337 /* MarketModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketModels.h; sourceTree = "<group>"; };
+		F32A9B9B1934BF6400BDE337 /* MarketModels.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MarketModels.mm; sourceTree = "<group>"; };
+		F32A9B9C1934BF6400BDE337 /* CallableBonds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallableBonds.h; sourceTree = "<group>"; };
+		F32A9B9D1934BF6400BDE337 /* CallableBonds.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CallableBonds.mm; sourceTree = "<group>"; };
+		F32A9B9E1934BF6400BDE337 /* DiscreteHedging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscreteHedging.h; sourceTree = "<group>"; };
+		F32A9B9F1934BF6400BDE337 /* DiscreteHedging.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DiscreteHedging.mm; sourceTree = "<group>"; };
+		F32A9BA01934BF6400BDE337 /* FittedBondCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FittedBondCurve.h; sourceTree = "<group>"; };
+		F32A9BA11934BF6400BDE337 /* FittedBondCurve.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FittedBondCurve.mm; sourceTree = "<group>"; };
+		F32A9BA21934BF6400BDE337 /* ForwardRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForwardRate.h; sourceTree = "<group>"; };
+		F32A9BA31934BF6400BDE337 /* ForwardRate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ForwardRate.mm; sourceTree = "<group>"; };
+		F32A9BA41934BF6400BDE337 /* BermudanSwaption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BermudanSwaption.h; sourceTree = "<group>"; };
+		F32A9BA51934BF6400BDE337 /* BermudanSwaption.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BermudanSwaption.mm; sourceTree = "<group>"; };
+		F32A9BA61934BF6400BDE337 /* Replication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Replication.h; sourceTree = "<group>"; };
+		F32A9BA71934BF6400BDE337 /* Replication.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Replication.mm; sourceTree = "<group>"; };
+		F32A9BA81934BF6400BDE337 /* Repo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repo.h; sourceTree = "<group>"; };
+		F32A9BA91934BF6400BDE337 /* Repo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Repo.mm; sourceTree = "<group>"; };
+		F32A9BAA1934BF6400BDE337 /* Swap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Swap.h; sourceTree = "<group>"; };
+		F32A9BAB1934BF6400BDE337 /* Swap.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Swap.mm; sourceTree = "<group>"; };
+		F32A9BB81934BFB800BDE337 /* Date.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Date.h; sourceTree = "<group>"; };
+		F32A9BB91934BFB800BDE337 /* Date.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Date.m; sourceTree = "<group>"; };
+		F32A9BBA1934BFB800BDE337 /* DateCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCategory.h; sourceTree = "<group>"; };
+		F32A9BBB1934BFB800BDE337 /* DateCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCategory.m; sourceTree = "<group>"; };
+		F32A9BBF1934BFEE00BDE337 /* EquityOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquityOptionViewController.h; sourceTree = "<group>"; };
+		F32A9BC01934BFEE00BDE337 /* EquityOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquityOptionViewController.m; sourceTree = "<group>"; };
+		F32A9BD01934D92000BDE337 /* EquityOptionResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquityOptionResults.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		339F43CE1934BBC9000F6923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32A9B911934BCF700BDE337 /* ql.framework in Frameworks */,
+				339F43D71934BBC9000F6923 /* CoreGraphics.framework in Frameworks */,
+				339F43DB1934BBC9000F6923 /* CoreData.framework in Frameworks */,
+				339F43D91934BBC9000F6923 /* UIKit.framework in Frameworks */,
+				339F43D51934BBC9000F6923 /* Foundation.framework in Frameworks */,
+				4C59C278E89D42B4AFDED473 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339F43FA1934BBC9000F6923 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339F43FF1934BBC9000F6923 /* XCTest.framework in Frameworks */,
+				339F44021934BBC9000F6923 /* CoreData.framework in Frameworks */,
+				339F44011934BBC9000F6923 /* UIKit.framework in Frameworks */,
+				339F44001934BBC9000F6923 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		339F43C81934BBC9000F6923 = {
+			isa = PBXGroup;
+			children = (
+				F32A9BD01934D92000BDE337 /* EquityOptionResults.xib */,
+				339F43DC1934BBC9000F6923 /* QuantTrader */,
+				339F44051934BBC9000F6923 /* QuantTraderTests */,
+				339F43D31934BBC9000F6923 /* Frameworks */,
+				339F43D21934BBC9000F6923 /* Products */,
+				8844B9769D704D08BC6A5EE0 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		339F43D21934BBC9000F6923 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				339F43D11934BBC9000F6923 /* QuantTrader.app */,
+				339F43FD1934BBC9000F6923 /* QuantTraderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		339F43D31934BBC9000F6923 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F32A9B901934BCF600BDE337 /* ql.framework */,
+				339F43D41934BBC9000F6923 /* Foundation.framework */,
+				339F43D61934BBC9000F6923 /* CoreGraphics.framework */,
+				339F43D81934BBC9000F6923 /* UIKit.framework */,
+				339F43DA1934BBC9000F6923 /* CoreData.framework */,
+				339F43FE1934BBC9000F6923 /* XCTest.framework */,
+				2DF9A07A6B8540DD970ACFEE /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		339F43DC1934BBC9000F6923 /* QuantTrader */ = {
+			isa = PBXGroup;
+			children = (
+				F32A9BBE1934BFE200BDE337 /* ViewController */,
+				F32A9BB71934BFA500BDE337 /* Date */,
+				F32A9B951934BF5500BDE337 /* Examples */,
+				339F43E51934BBC9000F6923 /* AppDelegate.h */,
+				339F43E61934BBC9000F6923 /* AppDelegate.m */,
+				339F43E81934BBC9000F6923 /* Main_iPhone.storyboard */,
+				339F43EB1934BBC9000F6923 /* Main_iPad.storyboard */,
+				339F43F11934BBC9000F6923 /* MasterViewController.h */,
+				339F43F21934BBC9000F6923 /* MasterViewController.m */,
+				339F43F41934BBC9000F6923 /* DetailViewController.h */,
+				339F43F51934BBC9000F6923 /* DetailViewController.m */,
+				339F43F71934BBC9000F6923 /* Images.xcassets */,
+				339F43EE1934BBC9000F6923 /* QuantTrader.xcdatamodeld */,
+				339F43DD1934BBC9000F6923 /* Supporting Files */,
+				F32A9B921934BEA900BDE337 /* CheckQl.h */,
+				F32A9B931934BEA900BDE337 /* CheckQl.mm */,
+			);
+			path = QuantTrader;
+			sourceTree = "<group>";
+		};
+		339F43DD1934BBC9000F6923 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				339F43DE1934BBC9000F6923 /* QuantTrader-Info.plist */,
+				339F43DF1934BBC9000F6923 /* InfoPlist.strings */,
+				339F43E21934BBC9000F6923 /* main.m */,
+				339F43E41934BBC9000F6923 /* QuantTrader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		339F44051934BBC9000F6923 /* QuantTraderTests */ = {
+			isa = PBXGroup;
+			children = (
+				339F440B1934BBC9000F6923 /* QuantTraderTests.m */,
+				339F44061934BBC9000F6923 /* Supporting Files */,
+			);
+			path = QuantTraderTests;
+			sourceTree = "<group>";
+		};
+		339F44061934BBC9000F6923 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				339F44071934BBC9000F6923 /* QuantTraderTests-Info.plist */,
+				339F44081934BBC9000F6923 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F32A9B951934BF5500BDE337 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				F32A9B961934BF6400BDE337 /* EquityOption_.h */,
+				F32A9B971934BF6400BDE337 /* EquityOption_.mm */,
+				F32A9B981934BF6400BDE337 /* Bond.h */,
+				F32A9B991934BF6400BDE337 /* Bond.mm */,
+				F32A9B9A1934BF6400BDE337 /* MarketModels.h */,
+				F32A9B9B1934BF6400BDE337 /* MarketModels.mm */,
+				F32A9B9C1934BF6400BDE337 /* CallableBonds.h */,
+				F32A9B9D1934BF6400BDE337 /* CallableBonds.mm */,
+				F32A9B9E1934BF6400BDE337 /* DiscreteHedging.h */,
+				F32A9B9F1934BF6400BDE337 /* DiscreteHedging.mm */,
+				F32A9BA01934BF6400BDE337 /* FittedBondCurve.h */,
+				F32A9BA11934BF6400BDE337 /* FittedBondCurve.mm */,
+				F32A9BA21934BF6400BDE337 /* ForwardRate.h */,
+				F32A9BA31934BF6400BDE337 /* ForwardRate.mm */,
+				F32A9BA41934BF6400BDE337 /* BermudanSwaption.h */,
+				F32A9BA51934BF6400BDE337 /* BermudanSwaption.mm */,
+				F32A9BA61934BF6400BDE337 /* Replication.h */,
+				F32A9BA71934BF6400BDE337 /* Replication.mm */,
+				F32A9BA81934BF6400BDE337 /* Repo.h */,
+				F32A9BA91934BF6400BDE337 /* Repo.mm */,
+				F32A9BAA1934BF6400BDE337 /* Swap.h */,
+				F32A9BAB1934BF6400BDE337 /* Swap.mm */,
+			);
+			name = Examples;
+			sourceTree = "<group>";
+		};
+		F32A9BB71934BFA500BDE337 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				F32A9BB81934BFB800BDE337 /* Date.h */,
+				F32A9BB91934BFB800BDE337 /* Date.m */,
+				F32A9BBA1934BFB800BDE337 /* DateCategory.h */,
+				F32A9BBB1934BFB800BDE337 /* DateCategory.m */,
+			);
+			name = Date;
+			sourceTree = "<group>";
+		};
+		F32A9BBE1934BFE200BDE337 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F32A9BBF1934BFEE00BDE337 /* EquityOptionViewController.h */,
+				F32A9BC01934BFEE00BDE337 /* EquityOptionViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		339F43D01934BBC9000F6923 /* QuantTrader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 339F440F1934BBC9000F6923 /* Build configuration list for PBXNativeTarget "QuantTrader" */;
+			buildPhases = (
+				ABA7DFD6AADE42EB980957BD /* Check Pods Manifest.lock */,
+				339F43CD1934BBC9000F6923 /* Sources */,
+				339F43CE1934BBC9000F6923 /* Frameworks */,
+				339F43CF1934BBC9000F6923 /* Resources */,
+				5F0EA3D78924472EA86AA8EF /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuantTrader;
+			productName = QuantTrader;
+			productReference = 339F43D11934BBC9000F6923 /* QuantTrader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		339F43FC1934BBC9000F6923 /* QuantTraderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 339F44121934BBC9000F6923 /* Build configuration list for PBXNativeTarget "QuantTraderTests" */;
+			buildPhases = (
+				339F43F91934BBC9000F6923 /* Sources */,
+				339F43FA1934BBC9000F6923 /* Frameworks */,
+				339F43FB1934BBC9000F6923 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				339F44041934BBC9000F6923 /* PBXTargetDependency */,
+			);
+			name = QuantTraderTests;
+			productName = QuantTraderTests;
+			productReference = 339F43FD1934BBC9000F6923 /* QuantTraderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		339F43C91934BBC9000F6923 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Colman Marcus-Quinn";
+				TargetAttributes = {
+					339F43FC1934BBC9000F6923 = {
+						TestTargetID = 339F43D01934BBC9000F6923;
+					};
+				};
+			};
+			buildConfigurationList = 339F43CC1934BBC9000F6923 /* Build configuration list for PBXProject "QuantTrader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 339F43C81934BBC9000F6923;
+			productRefGroup = 339F43D21934BBC9000F6923 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				339F43D01934BBC9000F6923 /* QuantTrader */,
+				339F43FC1934BBC9000F6923 /* QuantTraderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		339F43CF1934BBC9000F6923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339F43ED1934BBC9000F6923 /* Main_iPad.storyboard in Resources */,
+				339F43F81934BBC9000F6923 /* Images.xcassets in Resources */,
+				339F43EA1934BBC9000F6923 /* Main_iPhone.storyboard in Resources */,
+				339F43E11934BBC9000F6923 /* InfoPlist.strings in Resources */,
+				F32A9BD11934D92000BDE337 /* EquityOptionResults.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339F43FB1934BBC9000F6923 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339F440A1934BBC9000F6923 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F0EA3D78924472EA86AA8EF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABA7DFD6AADE42EB980957BD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		339F43CD1934BBC9000F6923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F32A9BC11934BFEE00BDE337 /* EquityOptionViewController.m in Sources */,
+				F32A9BB31934BF6400BDE337 /* BermudanSwaption.mm in Sources */,
+				F32A9BBC1934BFB800BDE337 /* Date.m in Sources */,
+				339F43F61934BBC9000F6923 /* DetailViewController.m in Sources */,
+				F32A9B941934BEA900BDE337 /* CheckQl.mm in Sources */,
+				F32A9BB41934BF6400BDE337 /* Replication.mm in Sources */,
+				F32A9BAD1934BF6400BDE337 /* Bond.mm in Sources */,
+				F32A9BB51934BF6400BDE337 /* Repo.mm in Sources */,
+				339F43F31934BBC9000F6923 /* MasterViewController.m in Sources */,
+				F32A9BBD1934BFB800BDE337 /* DateCategory.m in Sources */,
+				F32A9BB61934BF6400BDE337 /* Swap.mm in Sources */,
+				F32A9BAF1934BF6400BDE337 /* CallableBonds.mm in Sources */,
+				F32A9BB01934BF6400BDE337 /* DiscreteHedging.mm in Sources */,
+				F32A9BB21934BF6400BDE337 /* ForwardRate.mm in Sources */,
+				F32A9BB11934BF6400BDE337 /* FittedBondCurve.mm in Sources */,
+				F32A9BAE1934BF6400BDE337 /* MarketModels.mm in Sources */,
+				339F43E71934BBC9000F6923 /* AppDelegate.m in Sources */,
+				339F43F01934BBC9000F6923 /* QuantTrader.xcdatamodeld in Sources */,
+				339F43E31934BBC9000F6923 /* main.m in Sources */,
+				F32A9BAC1934BF6400BDE337 /* EquityOption_.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		339F43F91934BBC9000F6923 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				339F440C1934BBC9000F6923 /* QuantTraderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		339F44041934BBC9000F6923 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 339F43D01934BBC9000F6923 /* QuantTrader */;
+			targetProxy = 339F44031934BBC9000F6923 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		339F43DF1934BBC9000F6923 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				339F43E01934BBC9000F6923 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		339F43E81934BBC9000F6923 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				339F43E91934BBC9000F6923 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		339F43EB1934BBC9000F6923 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				339F43EC1934BBC9000F6923 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		339F44081934BBC9000F6923 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				339F44091934BBC9000F6923 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		339F440D1934BBC9000F6923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		339F440E1934BBC9000F6923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		339F44101934BBC9000F6923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8844B9769D704D08BC6A5EE0 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../boostoniphone-master/ios/framework\\/**",
+					"$(SRCROOT)/../framework_\\framework/**",
+					"\"/Volumes/Untitled\\ 2/framework_/framework\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
+				INFOPLIST_FILE = "QuantTrader/QuantTrader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		339F44111934BBC9000F6923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8844B9769D704D08BC6A5EE0 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../boostoniphone-master/ios/framework\\/**",
+					"$(SRCROOT)/../framework_\\framework/**",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
+				INFOPLIST_FILE = "QuantTrader/QuantTrader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		339F44131934BBC9000F6923 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QuantTrader.app/QuantTrader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "QuantTraderTests/QuantTraderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		339F44141934BBC9000F6923 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QuantTrader.app/QuantTrader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
+				INFOPLIST_FILE = "QuantTraderTests/QuantTraderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		339F43CC1934BBC9000F6923 /* Build configuration list for PBXProject "QuantTrader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				339F440D1934BBC9000F6923 /* Debug */,
+				339F440E1934BBC9000F6923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		339F440F1934BBC9000F6923 /* Build configuration list for PBXNativeTarget "QuantTrader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				339F44101934BBC9000F6923 /* Debug */,
+				339F44111934BBC9000F6923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		339F44121934BBC9000F6923 /* Build configuration list for PBXNativeTarget "QuantTraderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				339F44131934BBC9000F6923 /* Debug */,
+				339F44141934BBC9000F6923 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		339F43EE1934BBC9000F6923 /* QuantTrader.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				339F43EF1934BBC9000F6923 /* QuantTrader.xcdatamodel */,
+			);
+			currentVersion = 339F43EF1934BBC9000F6923 /* QuantTrader.xcdatamodel */;
+			path = QuantTrader.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 339F43C91934BBC9000F6923 /* Project object */;
+}

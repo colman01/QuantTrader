@@ -100,11 +100,12 @@ mcLongstaffSchwatz_ao;
 
 - (IBAction)calculate {
     
-    NSArray *nibObjects_wait = [[NSBundle mainBundle] loadNibNamed:@"Waiting" owner:self options:nil];
-    UIView *nibVC_wait = [nibObjects_wait objectAtIndex:0];
-    waiting = [[UIViewController alloc] init];
-    [waiting setView:nibVC_wait];
-    [waiting setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+//    NSArray *nibObjects_wait = [[NSBundle mainBundle] loadNibNamed:@"Waiting" owner:self options:nil];
+//    UIView *nibVC_wait = [nibObjects_wait objectAtIndex:0];
+//    waiting = [[UIViewController alloc] init];
+//    [waiting setView:nibVC_wait];
+//    [waiting setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+//    [self performSegueWithIdentifier:@"Waiting" sender:nil];
     
     [self setCalcValues];
     
@@ -114,16 +115,26 @@ mcLongstaffSchwatz_ao;
     [results setView:nibVC];
     [self setResultsVC];
     [results setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+
+    [eq calculate];
+    [self setResultsVC];
+    [[self navigationController] pushViewController:results animated:YES ];
     
-    [[super navigationController] presentViewController:waiting animated:YES completion:^{
-        [eq calculate];
-        [self setResultsVC];
-        [self dismissViewControllerAnimated:YES
-                                 completion:^{
-                                     [[super navigationController] pushViewController:results animated:YES ];
-                                  }
-        ];
-    }];
+//    [self dismissViewControllerAnimated:YES
+//                             completion:^{
+//                                 [[super navigationController] pushViewController:results animated:YES ];
+//                             }
+//     ];
+    
+//    [[super navigationController] presentViewController:waiting animated:YES completion:^{
+//        [eq calculate];
+//        [self setResultsVC];
+//        [self dismissViewControllerAnimated:YES
+//                                 completion:^{
+//                                     [[super navigationController] pushViewController:results animated:YES ];
+//                                  }
+//        ];
+//    }];
     
     
 
