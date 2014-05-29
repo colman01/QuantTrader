@@ -44,6 +44,9 @@
 		F32A9BBD1934BFB800BDE337 /* DateCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BBB1934BFB800BDE337 /* DateCategory.m */; };
 		F32A9BC11934BFEE00BDE337 /* EquityOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F32A9BC01934BFEE00BDE337 /* EquityOptionViewController.m */; };
 		F32A9BD11934D92000BDE337 /* EquityOptionResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = F32A9BD01934D92000BDE337 /* EquityOptionResults.xib */; };
+		F37DB305193742AD00F91F66 /* MarketMViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F37DB303193742AC00F91F66 /* MarketMViewController.mm */; };
+		F37DB306193742AD00F91F66 /* MarketMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F37DB304193742AC00F91F66 /* MarketMViewController.xib */; };
+		F37DB30C193753F200F91F66 /* Thing.mm in Sources */ = {isa = PBXBuildFile; fileRef = F37DB30B193753F200F91F66 /* Thing.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +117,12 @@
 		F32A9BBB1934BFB800BDE337 /* DateCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCategory.m; sourceTree = "<group>"; };
 		F32A9BBF1934BFEE00BDE337 /* EquityOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquityOptionViewController.h; sourceTree = "<group>"; };
 		F32A9BC01934BFEE00BDE337 /* EquityOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquityOptionViewController.m; sourceTree = "<group>"; };
-		F32A9BD01934D92000BDE337 /* EquityOptionResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquityOptionResults.xib; sourceTree = "<group>"; };
+		F32A9BD01934D92000BDE337 /* EquityOptionResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EquityOptionResults.xib; path = ../EquityOptionResults.xib; sourceTree = "<group>"; };
+		F37DB302193742AC00F91F66 /* MarketMViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarketMViewController.h; path = ../MarketMViewController.h; sourceTree = "<group>"; };
+		F37DB303193742AC00F91F66 /* MarketMViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MarketMViewController.mm; path = ../MarketMViewController.mm; sourceTree = "<group>"; };
+		F37DB304193742AC00F91F66 /* MarketMViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MarketMViewController.xib; path = ../MarketMViewController.xib; sourceTree = "<group>"; };
+		F37DB30A193753F200F91F66 /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
+		F37DB30B193753F200F91F66 /* Thing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Thing.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +156,6 @@
 		339F43C81934BBC9000F6923 = {
 			isa = PBXGroup;
 			children = (
-				F32A9BD01934D92000BDE337 /* EquityOptionResults.xib */,
 				339F43DC1934BBC9000F6923 /* QuantTrader */,
 				339F44051934BBC9000F6923 /* QuantTraderTests */,
 				339F43D31934BBC9000F6923 /* Frameworks */,
@@ -183,19 +190,16 @@
 		339F43DC1934BBC9000F6923 /* QuantTrader */ = {
 			isa = PBXGroup;
 			children = (
+				F37DB309193753DD00F91F66 /* CPP Container */,
+				F37DB3081937438E00F91F66 /* Example ViewCons */,
+				F37DB3071937434700F91F66 /* Nibs */,
+				F37DB301193741C800F91F66 /* Delegate */,
+				F37DB300193741BA00F91F66 /* DM */,
+				F37DB2FF193741AE00F91F66 /* IB */,
+				F37DB2FE1937419D00F91F66 /* UI */,
 				F32A9BBE1934BFE200BDE337 /* ViewController */,
 				F32A9BB71934BFA500BDE337 /* Date */,
 				F32A9B951934BF5500BDE337 /* Examples */,
-				339F43E51934BBC9000F6923 /* AppDelegate.h */,
-				339F43E61934BBC9000F6923 /* AppDelegate.m */,
-				339F43E81934BBC9000F6923 /* Main_iPhone.storyboard */,
-				339F43EB1934BBC9000F6923 /* Main_iPad.storyboard */,
-				339F43F11934BBC9000F6923 /* MasterViewController.h */,
-				339F43F21934BBC9000F6923 /* MasterViewController.m */,
-				339F43F41934BBC9000F6923 /* DetailViewController.h */,
-				339F43F51934BBC9000F6923 /* DetailViewController.m */,
-				339F43F71934BBC9000F6923 /* Images.xcassets */,
-				339F43EE1934BBC9000F6923 /* QuantTrader.xcdatamodeld */,
 				339F43DD1934BBC9000F6923 /* Supporting Files */,
 				F32A9B921934BEA900BDE337 /* CheckQl.h */,
 				F32A9B931934BEA900BDE337 /* CheckQl.mm */,
@@ -281,6 +285,71 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
+		F37DB2FE1937419D00F91F66 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				339F43F11934BBC9000F6923 /* MasterViewController.h */,
+				339F43F21934BBC9000F6923 /* MasterViewController.m */,
+				339F43F41934BBC9000F6923 /* DetailViewController.h */,
+				339F43F51934BBC9000F6923 /* DetailViewController.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		F37DB2FF193741AE00F91F66 /* IB */ = {
+			isa = PBXGroup;
+			children = (
+				339F43E81934BBC9000F6923 /* Main_iPhone.storyboard */,
+				339F43EB1934BBC9000F6923 /* Main_iPad.storyboard */,
+			);
+			name = IB;
+			sourceTree = "<group>";
+		};
+		F37DB300193741BA00F91F66 /* DM */ = {
+			isa = PBXGroup;
+			children = (
+				339F43F71934BBC9000F6923 /* Images.xcassets */,
+				339F43EE1934BBC9000F6923 /* QuantTrader.xcdatamodeld */,
+			);
+			name = DM;
+			sourceTree = "<group>";
+		};
+		F37DB301193741C800F91F66 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				339F43E51934BBC9000F6923 /* AppDelegate.h */,
+				339F43E61934BBC9000F6923 /* AppDelegate.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		F37DB3071937434700F91F66 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				F37DB304193742AC00F91F66 /* MarketMViewController.xib */,
+				F32A9BD01934D92000BDE337 /* EquityOptionResults.xib */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		F37DB3081937438E00F91F66 /* Example ViewCons */ = {
+			isa = PBXGroup;
+			children = (
+				F37DB302193742AC00F91F66 /* MarketMViewController.h */,
+				F37DB303193742AC00F91F66 /* MarketMViewController.mm */,
+			);
+			name = "Example ViewCons";
+			sourceTree = "<group>";
+		};
+		F37DB309193753DD00F91F66 /* CPP Container */ = {
+			isa = PBXGroup;
+			children = (
+				F37DB30A193753F200F91F66 /* Thing.h */,
+				F37DB30B193753F200F91F66 /* Thing.mm */,
+			);
+			name = "CPP Container";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -361,6 +430,7 @@
 			files = (
 				339F43ED1934BBC9000F6923 /* Main_iPad.storyboard in Resources */,
 				339F43F81934BBC9000F6923 /* Images.xcassets in Resources */,
+				F37DB306193742AD00F91F66 /* MarketMViewController.xib in Resources */,
 				339F43EA1934BBC9000F6923 /* Main_iPhone.storyboard in Resources */,
 				339F43E11934BBC9000F6923 /* InfoPlist.strings in Resources */,
 				F32A9BD11934D92000BDE337 /* EquityOptionResults.xib in Resources */,
@@ -425,6 +495,7 @@
 				F32A9BB51934BF6400BDE337 /* Repo.mm in Sources */,
 				339F43F31934BBC9000F6923 /* MasterViewController.m in Sources */,
 				F32A9BBD1934BFB800BDE337 /* DateCategory.m in Sources */,
+				F37DB30C193753F200F91F66 /* Thing.mm in Sources */,
 				F32A9BB61934BF6400BDE337 /* Swap.mm in Sources */,
 				F32A9BAF1934BF6400BDE337 /* CallableBonds.mm in Sources */,
 				F32A9BB01934BF6400BDE337 /* DiscreteHedging.mm in Sources */,
@@ -433,6 +504,7 @@
 				F32A9BAE1934BF6400BDE337 /* MarketModels.mm in Sources */,
 				339F43E71934BBC9000F6923 /* AppDelegate.m in Sources */,
 				339F43F01934BBC9000F6923 /* QuantTrader.xcdatamodeld in Sources */,
+				F37DB305193742AD00F91F66 /* MarketMViewController.mm in Sources */,
 				339F43E31934BBC9000F6923 /* main.m in Sources */,
 				F32A9BAC1934BF6400BDE337 /* EquityOption_.mm in Sources */,
 			);
@@ -572,9 +644,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../boostoniphone-master/ios/framework\\/**",
-					"$(SRCROOT)/../framework_\\framework/**",
-					"\"/Volumes/Untitled\\ 2/framework_/framework\"",
+					"\"/Volumes/Untitled_3/copy\\ from\\ temp\\ drive/Neuer\\ Ordner/orig/zips/QuantLib-1.2.1/framework\"/**",
+					"\"/Volumes/Untitled_3/copy\\ from\\ temp\\ drive/Neuer\\ Ordner/orig/boostoniphone-master/ios/framework\"/**",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";

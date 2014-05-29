@@ -12,6 +12,11 @@
 
 #import <CoreData/CoreData.h>
 
+#import "CorePlot-CocoaTouch.h"
+//#import "CPDConstants.h"
+//#import "CPDStockPriceStore.h"
+
+
 @interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) DetailViewController *detailViewController;

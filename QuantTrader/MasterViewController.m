@@ -12,6 +12,8 @@
 
 #import "EquityOptionViewController.h"
 
+#import "MarketMViewController.h"
+
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -30,12 +32,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationItem.rightBarButtonItem = addButton;
-//    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,20 +64,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//    return [[self.fetchedResultsController sections] count];
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-//    return [sectionInfo numberOfObjects];
-    return 1;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Equity" forIndexPath:indexPath];
+    UITableViewCell *cell;
+    if (indexPath.row == 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Equity" forIndexPath:indexPath];
+    }
+    if (indexPath.row == 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"MarketModel" forIndexPath:indexPath];
+    }
 //    [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -110,7 +109,6 @@
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // The table view should not be re-orderable.
     return NO;
 }
 
@@ -137,6 +135,15 @@
 //        [[segue destinationViewController] setDetailItem:eqVC];
         id dest = segue.destinationViewController;
         dest = eqVC;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"MarketModel"]) {
+        //        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        //        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        MarketMViewController *marketVC = [[MarketMViewController alloc] init];
+        //        [[segue destinationViewController] setDetailItem:eqVC];
+        id dest = segue.destinationViewController;
+        dest = marketVC;
     }
 }
 
