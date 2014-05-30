@@ -13,7 +13,7 @@
     bool exitCalc;
 }
 
-@property (weak, nonatomic) NSMutableArray *delta;
+@property (strong, nonatomic) NSMutableArray *delta;
 @property (weak, nonatomic) NSMutableArray *vega;
 
 @property bool exitCalc;

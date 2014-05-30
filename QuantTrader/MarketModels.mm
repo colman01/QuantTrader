@@ -1126,6 +1126,8 @@ std::vector<Real> values_result,errors_result;
         
         for (int i=0; i < numberRates; ++i, ++r) {
             std::cout << " Delta, " << i << ", " << values[r] << ", " << errors[r] << "\n";
+            
+            std::cout << " Delta will be added, " << i << ", " << values[r] << ", " << errors[r] << "\n";
             [self.delta addObject:[NSNumber numberWithInt:values[r] ]];
         }
         
@@ -1293,7 +1295,7 @@ std::vector<Real> values_result,errors_result;
 #endif
     
     
-    std::cout <<  " inverse floater \n";
+    std::cout << " inverse floater \n";
     std::cout << " fixed strikes :  "  << strike << "\n";
     std::cout << " number rates :  " << numberRates << "\n";
     
@@ -1474,6 +1476,8 @@ std::vector<Real> values_result,errors_result;
         
         std::cout << " price estimate, " << values[r++] << "\n";
         
+        if(!self.delta)
+            self.delta = [[NSMutableArray alloc] init];
         for (int i=0; i < numberRates; ++i, ++r) {
             [self.delta addObject:[NSNumber numberWithInt:values[r] ]];
             std::cout << " Code reached Delta, " << i << ", " << values[r] << ", " << errors[r] << "\n";
@@ -1586,6 +1590,7 @@ std::vector<Real> values_result,errors_result;
 
 NSThread * thread ;
 -(void) calcHit {
+    self.delta = [[NSMutableArray alloc] init];
    
     thread = [[NSThread alloc] initWithTarget:self selector:@selector(demo) object:nil];
     [thread start];
@@ -1594,7 +1599,7 @@ NSThread * thread ;
 -(void) demo {
     
     while (![[NSThread currentThread]  isCancelled]) {
-        for (int i=5; i < 10; ++i) {
+        for (int i=5; i < 6; ++i) {
             NSLog(@"here in calculation");
             if([[NSThread currentThread]  isCancelled]) {
                 return;

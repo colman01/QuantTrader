@@ -13,6 +13,8 @@
     MarketModels * market;
 }
 
+@property (nonatomic, strong) CPTGraphHostingView *hostView;
+
 -(IBAction)btnCalc:(id)sender;
 -(IBAction)quitCalc:(id)sender;
 
