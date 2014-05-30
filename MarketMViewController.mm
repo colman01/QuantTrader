@@ -260,10 +260,6 @@
 
 //			if ([plot.identifier isEqual:CPDTickerSymbolAAPL] == YES) {
 //				return [[[CPDStockPriceStore sharedInstance] monthlyPrices:CPDTickerSymbolAAPL] objectAtIndex:index];
-//			} else if ([plot.identifier isEqual:CPDTickerSymbolGOOG] == YES) {
-//				return [[[CPDStockPriceStore sharedInstance] monthlyPrices:CPDTickerSymbolGOOG] objectAtIndex:index];
-//			} else if ([plot.identifier isEqual:CPDTickerSymbolMSFT] == YES) {
-//				return [[[CPDStockPriceStore sharedInstance] monthlyPrices:CPDTickerSymbolMSFT] objectAtIndex:index];
 //			}
 //			break;
 	}
