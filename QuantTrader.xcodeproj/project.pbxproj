@@ -47,6 +47,7 @@
 		F37DB305193742AD00F91F66 /* MarketMViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F37DB303193742AC00F91F66 /* MarketMViewController.mm */; };
 		F37DB306193742AD00F91F66 /* MarketMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F37DB304193742AC00F91F66 /* MarketMViewController.xib */; };
 		F37DB30C193753F200F91F66 /* Thing.mm in Sources */ = {isa = PBXBuildFile; fileRef = F37DB30B193753F200F91F66 /* Thing.mm */; };
+		F38033A2193B5CB800B6DA1E /* MarketModelParameterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F38033A1193B5CB800B6DA1E /* MarketModelParameterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,8 @@
 		F37DB304193742AC00F91F66 /* MarketMViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MarketMViewController.xib; path = ../MarketMViewController.xib; sourceTree = "<group>"; };
 		F37DB30A193753F200F91F66 /* Thing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thing.h; sourceTree = "<group>"; };
 		F37DB30B193753F200F91F66 /* Thing.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Thing.mm; sourceTree = "<group>"; };
+		F38033A0193B5CB800B6DA1E /* MarketModelParameterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarketModelParameterViewController.h; sourceTree = "<group>"; };
+		F38033A1193B5CB800B6DA1E /* MarketModelParameterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarketModelParameterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +340,8 @@
 			children = (
 				F37DB302193742AC00F91F66 /* MarketMViewController.h */,
 				F37DB303193742AC00F91F66 /* MarketMViewController.mm */,
+				F38033A0193B5CB800B6DA1E /* MarketModelParameterViewController.h */,
+				F38033A1193B5CB800B6DA1E /* MarketModelParameterViewController.m */,
 			);
 			name = "Example ViewCons";
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 				F32A9BBC1934BFB800BDE337 /* Date.m in Sources */,
 				339F43F61934BBC9000F6923 /* DetailViewController.m in Sources */,
 				F32A9B941934BEA900BDE337 /* CheckQl.mm in Sources */,
+				F38033A2193B5CB800B6DA1E /* MarketModelParameterViewController.m in Sources */,
 				F32A9BB41934BF6400BDE337 /* Replication.mm in Sources */,
 				F32A9BAD1934BF6400BDE337 /* Bond.mm in Sources */,
 				F32A9BB51934BF6400BDE337 /* Repo.mm in Sources */,

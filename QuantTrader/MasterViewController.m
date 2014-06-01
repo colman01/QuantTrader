@@ -14,6 +14,8 @@
 
 #import "MarketMViewController.h"
 
+#import "MarketModelParameterViewController.h"
+
 @interface MasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -69,7 +71,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,8 +81,12 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"Equity" forIndexPath:indexPath];
     }
     if (indexPath.row == 1) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"MarketSetup" forIndexPath:indexPath];
+    }
+    if (indexPath.row == 2) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"MarketModel" forIndexPath:indexPath];
     }
+
 //    [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
@@ -144,6 +150,12 @@
         //        [[segue destinationViewController] setDetailItem:eqVC];
         id dest = segue.destinationViewController;
         dest = marketVC;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"MarketSetup"]) {
+        MarketModelParameterViewController *marketParameters = [[MarketModelParameterViewController alloc] init];
+        id dest = segue.destinationViewController;
+        dest = marketParameters;
     }
 }
 

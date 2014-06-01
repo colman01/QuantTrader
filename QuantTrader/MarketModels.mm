@@ -52,50 +52,6 @@ namespace QuantLib {
 @implementation MarketModels
 @synthesize exitCalc;
 @synthesize delta;
-//@synthesize dataStore;
-
-
-
-
-// thrown together as a quick demo. this could be improved.
-NSArray * NSIntegerVectorToNSArrayOfNSIntegers(const std::vector<NSInteger>& vec) {
-    
-    struct MONCallback {
-        static const void* retain(CFAllocatorRef allocator, const void* value) {
-            /* nothing to do */
-            return value;
-        }
-        
-        static void release(CFAllocatorRef allocator, const void* value) {
-            /* nothing to do */
-        }
-        
-        static CFStringRef copyDescription(const void* value) {
-            const NSInteger i(*(NSInteger*)&value);
-            return CFStringCreateWithFormat(0, 0, CFSTR("MON - %d"), i);
-        }
-        
-        static Boolean equal(const void* value1, const void* value2) {
-            const NSInteger a(*(NSInteger*)&value1);
-            const NSInteger b(*(NSInteger*)&value2);
-            return a == b;
-        }
-    };
-    
-
-    
-    const CFArrayCallBacks callbacks = {
-        .version = 0,
-        .retain = MONCallback::retain,
-        .release = MONCallback::release,
-        .copyDescription = MONCallback::copyDescription,
-        .equal = MONCallback::equal
-    };
-    
-    const void** p((const void**)&vec.front());
-    NSArray * result((NSArray*)CFBridgingRelease(CFArrayCreate(0, p, vec.size(), &callbacks)));
-    return result ;
-}
 
 
 std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
@@ -107,12 +63,9 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     int numberRates= marketModel->numberOfRates();
     
     std::vector<VolatilityBumpInstrumentJacobian::Cap> caps;
-    
     if (doCaps)
     {
-        
         Rate capStrike = marketModel->initialRates()[0];
-        
         for (int i=0; i< numberRates-1; i=i+1)
         {
             VolatilityBumpInstrumentJacobian::Cap nextCap;
@@ -121,12 +74,8 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
             nextCap.strike_ = capStrike;
             caps.push_back(nextCap);
         }
-        
-        
     }
-    
-    
-    
+
     std::vector<VolatilityBumpInstrumentJacobian::Swaption> swaptions(numberRates);
     
     for (int i=0; i < numberRates; ++i)
@@ -222,10 +171,16 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     // parameters for models
     
     
+//    int seed = 12332; // for Sobol generator
+//    int trainingPaths = 65536;
+//    int paths = 16384;
+//    int vegaPaths = 16384*64;
+    
     int seed = 12332; // for Sobol generator
-    int trainingPaths = 65536;
-    int paths = 16384;
-    int vegaPaths = 16384*64;
+    int trainingPaths = 10;
+    int paths = 2;
+    int vegaPaths = 2*64;
+    
     
     std::cout << "training paths, " << trainingPaths << "\n";
     std::cout << "paths, " << paths << "\n";
@@ -352,7 +307,6 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     std::cout << " time to price, " << (t3-t2)/static_cast<Real>(CLOCKS_PER_SEC)<< ", seconds.\n";
     
     // vegas
-    
     // do it twice once with factorwise bumping, once without
     int pathsToDoVegas = vegaPaths;
     
@@ -362,10 +316,6 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         bool allowFactorwiseBumping = i % 2 > 0 ;
         
         bool doCaps = i / 2 > 0 ;
-        
-        
-        
-        
         
         LogNormalFwdRateEuler evolverEuler(marketModel,
                                            generatorFactory,
@@ -397,9 +347,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                               initialNumeraireValue);
         
         std::vector<Real> values,errors;
-        
         accountingEngineVegas.multiplePathValues(values,errors,pathsToDoVegas);
-        
         
         std::cout << "vega output \n";
         std::cout << " factorwise bumping " << allowFactorwiseBumping << "\n";
@@ -430,10 +378,8 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     }
     
     bool doUpperBound = true;
-    
     if (doUpperBound)
     {
-        
         // upper bound
         
         MTBrownianGeneratorFactory uFactory(seed+142);
@@ -445,9 +391,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                                                                                   ));
         
         std::vector<boost::shared_ptr<MarketModelEvolver> > innerEvolvers;
-        
         std::valarray<bool> isExerciseTime =   isInSubset(evolution.evolutionTimes(),    exerciseStrategy.exerciseTimes());
-        
         for (int s=0; s < isExerciseTime.size(); ++s)
         {
             if (isExerciseTime[s])
@@ -461,8 +405,6 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                 innerEvolvers.push_back(e);
             }
         }
-        
-        
         
         UpperBoundEngine uEngine(upperEvolver,  // does outer paths
                                  innerEvolvers, // for sub-simulations that do continuation values
@@ -500,11 +442,10 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     Real accrual = 0.5;
     Real firstTime = 0.5;
     
-    Real strike =0.15;
+    Real strike =200.15;
     Real fixedMultiplier = 2.0;
     Real floatingSpread =0.0;
     bool payer = true;
-    
     
     std::vector<Real> rateTimes(numberRates+1);
     for (int i=0; i < rateTimes.size(); ++i)
@@ -529,9 +470,6 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                                            paymentTimes,
                                            payer);
     
-    
-    
-    
     //exercise schedule, we can exercise on any rate time except the last one
     std::vector<Rate> exerciseTimes(rateTimes);
     exerciseTimes.pop_back();
@@ -551,8 +489,6 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     SwapForwardBasisSystem basisSystem(rateTimes,exerciseTimes);
     //    SwapBasisSystem basisSystem(rateTimes,exerciseTimes);
     
-    
-    
     // rebate that does nothing, need it because some rebate is expected
     // when you break a swap nothing happens.
     NothingExerciseValue nullRebate(rateTimes);
@@ -560,24 +496,26 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     CallSpecifiedMultiProduct dummyProduct =
     CallSpecifiedMultiProduct(inverseFloater, naifStrategy,
                               ExerciseAdapter(nullRebate));
-    
     EvolutionDescription evolution = dummyProduct.evolution();
-    
     
     // parameters for models
     
     
+//    int seed = 12332; // for Sobol generator
+//    int trainingPaths = 65536;
+//    int paths = 65536;
+//    int vegaPaths =16384;
+    
     int seed = 12332; // for Sobol generator
-    int trainingPaths = 65536;
-    int paths = 65536;
-    int vegaPaths =16384;
+    int trainingPaths = 10;
+    int paths = 10;
+    int vegaPaths =2;
     
 #ifdef _DEBUG
     trainingPaths = 8192;
     paths = 8192;
     vegaPaths = 1024;
 #endif
-    
     
     std::cout << " inverse floater \n";
     std::cout << " fixed strikes :  "  << strike << "\n";
@@ -744,18 +682,11 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                               marketModel,
                               theBumps,
                               initialNumeraireValue);
-        
         std::vector<Real> values,errors;
-        
         accountingEngineVegas.multiplePathValues(values,errors,pathsToDoVegas);
-        
-        
         std::cout << "vega output \n";
         std::cout << " factorwise bumping " << allowFactorwiseBumping << "\n";
         std::cout << " doCaps " << doCaps << "\n";
-        
-        
-        
         int r=0;
         
         std::cout << " price estimate, " << values[r++] << "\n";
@@ -782,12 +713,8 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     
     if (doUpperBound)
     {
-        
         // upper bound
-        
         MTBrownianGeneratorFactory uFactory(seed+142);
-        
-        
         boost::shared_ptr<MarketModelEvolver> upperEvolver(new LogNormalFwdRatePc( boost::shared_ptr<MarketModel>(new FlatVol(calibration)),
                                                                                   uFactory,
                                                                                   numeraires   // numeraires for each step
@@ -810,9 +737,6 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                 innerEvolvers.push_back(e);
             }
         }
-        
-        
-        
         UpperBoundEngine uEngine(upperEvolver,  // does outer paths
                                  innerEvolvers, // for sub-simulations that do continuation values
                                  inverseFloater,
@@ -833,59 +757,37 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         Real upperSE = uStats.errorEstimate();
         
         int t5=clock();
-        
         std::cout << " Upper - lower is, " << upperBound << ", with standard error " << upperSE << "\n";
         std::cout << " time to compute upper bound is,  " << (t5-t4)/static_cast<Real>(CLOCKS_PER_SEC) << ", seconds.\n";
-        
     }
     return 0;
 }
 
-
-
--(void) calculate {
-    exitCalc = NO;
-    while(!exitCalc) {
-        for (int i=5; i < 6; ++i)
-            [self newInverseFloater: [NSNumber numberWithInt:i]];
-    }
-}
-
-
 NSThread * thread ;
 -(void) calcHit {
     self.delta = [[NSMutableArray alloc] init];
-   
     thread = [[NSThread alloc] initWithTarget:self selector:@selector(demo) object:nil];
     [thread start];
 }
 
 -(void) demo {
-    
     while (![[NSThread currentThread]  isCancelled]) {
-        for (int i=5; i < 6; ++i) {
-            if([[NSThread currentThread]  isCancelled]) {
-                return;
-            }
-            [self newInverseFloater:[NSNumber numberWithInt:1]];
-        }
+        [self newInverseFloater: [NSNumber numberWithInt:1]];
+//        for (int i=5; i < 10; ++i) {
+//            if([[NSThread currentThread]  isCancelled]) {
+//                return;
+//            }
+//            [self newInverseFloater:[NSNumber numberWithInt:1]];
+//        }
     }
 }
 
 -(void) stopCalc {  
     [thread cancel];
-    thread = nil;
+//    thread = nil;
     
 }
 
--(void) realCalc {
-    exitCalc = NO;
-    
-    while(!exitCalc) {
-        for (int i=5; i < 10; ++i)
-            [self newInverseFloater:[NSNumber numberWithInt:i]];
-    }
-    
-}
+
 
 @end

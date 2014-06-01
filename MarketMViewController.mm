@@ -15,6 +15,25 @@
 
 @implementation MarketMViewController
 
+@synthesize numberRates;
+@synthesize accrual;
+@synthesize firstTime;
+@synthesize fixedRate;
+@synthesize receive;
+@synthesize seed;
+@synthesize trainingPaths;
+@synthesize paths;
+@synthesize vegaPaths;
+@synthesize rateLevel;
+@synthesize initialNumeraireValue;
+@synthesize volLevel;
+@synthesize gamma;
+@synthesize beta;
+@synthesize numberOfFactors;
+@synthesize displacementLevel;
+@synthesize innerPaths;
+@synthesize outterPaths;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,14 +63,15 @@
 
 -(IBAction)quitCalc:(id)sender {
 //    [market setExitCalc:YES];
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"myAlert" message:@"pressed" delegate:self cancelButtonTitle:@"can cel" otherButtonTitles:@"", nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Cancel Computation" message:@"press to cancel" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"", nil];
     [alert show];
     [market stopCalc];
 }
 
 -(IBAction)reloadGraph:(id)sender {
 //    [self.hostView reloadInputViews];
-    [self initPlot];
+//    [self initPlot];
+    [self.hostView.hostedGraph reloadData];
 }
 
 
@@ -88,8 +108,8 @@
 	graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
 	graph.titleDisplacement = CGPointMake(0.0f, 10.0f);
 	// 4 - Set padding for plot area
-	[graph.plotAreaFrame setPaddingLeft:30.0f];
-	[graph.plotAreaFrame setPaddingBottom:30.0f];
+	[graph.plotAreaFrame setPaddingLeft:1.0f];
+	[graph.plotAreaFrame setPaddingBottom:1.0f];
 	// 5 - Enable user interactions for plot space
 	CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
 	plotSpace.allowsUserInteraction = YES;
@@ -107,14 +127,15 @@
 	[graph addPlot:aaplPlot toPlotSpace:plotSpace];
 	CPTScatterPlot *googPlot = [[CPTScatterPlot alloc] init];
 	googPlot.dataSource = self;
-	CPTColor *googColor = [CPTColor greenColor];
-	[graph addPlot:googPlot toPlotSpace:plotSpace];
-	CPTScatterPlot *msftPlot = [[CPTScatterPlot alloc] init];
-	msftPlot.dataSource = self;
-	CPTColor *msftColor = [CPTColor blueColor];
-	[graph addPlot:msftPlot toPlotSpace:plotSpace];
+//	CPTColor *googColor = [CPTColor greenColor];
+//	[graph addPlot:googPlot toPlotSpace:plotSpace];
+//	CPTScatterPlot *msftPlot = [[CPTScatterPlot alloc] init];
+//	msftPlot.dataSource = self;
+//	CPTColor *msftColor = [CPTColor blueColor];
+//	[graph addPlot:msftPlot toPlotSpace:plotSpace];
 	// 3 - Set up plot space
-	[plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, googPlot, msftPlot, nil]];
+//	[plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, googPlot, msftPlot, nil]];
+   [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, nil]];
 	CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
 	[xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
 	plotSpace.xRange = xRange;
@@ -133,28 +154,28 @@
 	aaplSymbol.lineStyle = aaplSymbolLineStyle;
 	aaplSymbol.size = CGSizeMake(6.0f, 6.0f);
 	aaplPlot.plotSymbol = aaplSymbol;
-	CPTMutableLineStyle *googLineStyle = [googPlot.dataLineStyle mutableCopy];
-	googLineStyle.lineWidth = 1.0;
-	googLineStyle.lineColor = googColor;
-	googPlot.dataLineStyle = googLineStyle;
-	CPTMutableLineStyle *googSymbolLineStyle = [CPTMutableLineStyle lineStyle];
-	googSymbolLineStyle.lineColor = googColor;
-	CPTPlotSymbol *googSymbol = [CPTPlotSymbol starPlotSymbol];
-	googSymbol.fill = [CPTFill fillWithColor:googColor];
-	googSymbol.lineStyle = googSymbolLineStyle;
-	googSymbol.size = CGSizeMake(6.0f, 6.0f);
-	googPlot.plotSymbol = googSymbol;
-	CPTMutableLineStyle *msftLineStyle = [msftPlot.dataLineStyle mutableCopy];
-	msftLineStyle.lineWidth = 2.0;
-	msftLineStyle.lineColor = msftColor;
-	msftPlot.dataLineStyle = msftLineStyle;
-	CPTMutableLineStyle *msftSymbolLineStyle = [CPTMutableLineStyle lineStyle];
-	msftSymbolLineStyle.lineColor = msftColor;
-	CPTPlotSymbol *msftSymbol = [CPTPlotSymbol diamondPlotSymbol];
-	msftSymbol.fill = [CPTFill fillWithColor:msftColor];
-	msftSymbol.lineStyle = msftSymbolLineStyle;
-	msftSymbol.size = CGSizeMake(6.0f, 6.0f);
-	msftPlot.plotSymbol = msftSymbol;
+//	CPTMutableLineStyle *googLineStyle = [googPlot.dataLineStyle mutableCopy];
+//	googLineStyle.lineWidth = 1.0;
+//	googLineStyle.lineColor = googColor;
+//	googPlot.dataLineStyle = googLineStyle;
+//	CPTMutableLineStyle *googSymbolLineStyle = [CPTMutableLineStyle lineStyle];
+//	googSymbolLineStyle.lineColor = googColor;
+//	CPTPlotSymbol *googSymbol = [CPTPlotSymbol starPlotSymbol];
+//	googSymbol.fill = [CPTFill fillWithColor:googColor];
+//	googSymbol.lineStyle = googSymbolLineStyle;
+//	googSymbol.size = CGSizeMake(6.0f, 6.0f);
+//	googPlot.plotSymbol = googSymbol;
+//	CPTMutableLineStyle *msftLineStyle = [msftPlot.dataLineStyle mutableCopy];
+//	msftLineStyle.lineWidth = 2.0;
+//	msftLineStyle.lineColor = msftColor;
+//	msftPlot.dataLineStyle = msftLineStyle;
+//	CPTMutableLineStyle *msftSymbolLineStyle = [CPTMutableLineStyle lineStyle];
+//	msftSymbolLineStyle.lineColor = msftColor;
+//	CPTPlotSymbol *msftSymbol = [CPTPlotSymbol diamondPlotSymbol];
+//	msftSymbol.fill = [CPTFill fillWithColor:msftColor];
+//	msftSymbol.lineStyle = msftSymbolLineStyle;
+//	msftSymbol.size = CGSizeMake(6.0f, 6.0f);
+//	msftPlot.plotSymbol = msftSymbol;
 }
 
 -(void)configureAxes {
@@ -164,7 +185,7 @@
 	axisTitleStyle.fontName = @"Helvetica-Bold";
 	axisTitleStyle.fontSize = 12.0f;
 	CPTMutableLineStyle *axisLineStyle = [CPTMutableLineStyle lineStyle];
-	axisLineStyle.lineWidth = 2.0f;
+	axisLineStyle.lineWidth = 0.5f;
 	axisLineStyle.lineColor = [CPTColor whiteColor];
 	CPTMutableTextStyle *axisTextStyle = [[CPTMutableTextStyle alloc] init];
 	axisTextStyle.color = [CPTColor whiteColor];
@@ -172,7 +193,7 @@
 	axisTextStyle.fontSize = 11.0f;
 	CPTMutableLineStyle *tickLineStyle = [CPTMutableLineStyle lineStyle];
 	tickLineStyle.lineColor = [CPTColor whiteColor];
-	tickLineStyle.lineWidth = 2.0f;
+	tickLineStyle.lineWidth = 0.5f;
 	CPTMutableLineStyle *gridLineStyle = [CPTMutableLineStyle lineStyle];
 	tickLineStyle.lineColor = [CPTColor blackColor];
 	tickLineStyle.lineWidth = 1.0f;
@@ -187,10 +208,8 @@
 	x.labelingPolicy = CPTAxisLabelingPolicyNone;
 	x.labelTextStyle = axisTextStyle;
 	x.majorTickLineStyle = axisLineStyle;
-	x.majorTickLength = 4.0f;
+	x.majorTickLength = 1.0f;
 	x.tickDirection = CPTSignNegative;
-
-//	NSInteger i = 0;
 
 	// 4 - Configure y-axis
 	CPTAxis *y = axisSet.yAxis;
@@ -203,8 +222,8 @@
 	y.labelTextStyle = axisTextStyle;
 	y.labelOffset = 16.0f;
 	y.majorTickLineStyle = axisLineStyle;
-	y.majorTickLength = 4.0f;
-	y.minorTickLength = 2.0f;
+	y.majorTickLength = 0.5f;
+	y.minorTickLength = 0.5f;
 	y.tickDirection = CPTSignPositive;
 	NSInteger majorIncrement = 100;
 	NSInteger minorIncrement = 50;

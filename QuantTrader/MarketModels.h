@@ -18,9 +18,7 @@
 
 @property bool exitCalc;
 
--(void) calcualte;
 -(void) calcHit;
--(void) realCalc;
 -(void) stopCalc;
 -(int) newInverseFloater:(NSNumber *) rateLevel;
 
