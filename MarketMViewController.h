@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) CPTGraphHostingView *hostView;
 
+@property (nonatomic, strong) IBOutlet UIView *graphContainer;
+
 -(IBAction)btnCalc:(id)sender;
 -(IBAction)quitCalc:(id)sender;
 
