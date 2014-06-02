@@ -15,6 +15,8 @@
 
 @implementation MarketMViewController
 
+@synthesize market;
+
 @synthesize numberRates = _numberRates;
 @synthesize accrual = _accrual;
 @synthesize firstTime;
@@ -105,8 +107,9 @@
 
 -(void)configureHost {
 	self.hostView = [(CPTGraphHostingView *) [CPTGraphHostingView alloc] initWithFrame:graphContainer.bounds];
+    self.market.hostView = self.hostView;
 	self.hostView.allowPinchScaling = YES;
-//	[self.view addSubview:self.hostView];
+
     self.hostView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [graphContainer addSubview:self.hostView];
 }

@@ -50,8 +50,33 @@ namespace QuantLib {
 
 
 @implementation MarketModels
+
+@synthesize hostView;
 @synthesize exitCalc;
 @synthesize delta;
+
+@synthesize numberRates;
+@synthesize accrual;
+@synthesize firstTime;
+@synthesize fixedRate;
+@synthesize receive;
+@synthesize seed;
+@synthesize trainingPaths;
+@synthesize paths;
+@synthesize vegaPaths;
+@synthesize rateLevel;
+@synthesize initialNumeraireValue;
+@synthesize volLevel;
+@synthesize gamma;
+@synthesize beta;
+@synthesize numberOfFactors;
+@synthesize displacementLevel;
+@synthesize innerPaths;
+@synthesize outterPaths;
+@synthesize strike;
+@synthesize fixedMultiplier;
+@synthesize floatingSpread;
+@synthesize payer;
 
 
 std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
@@ -108,9 +133,9 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 - (int) NewBermudan
 {
     
-    int numberRates =20;
-    Real accrual = 0.5;
-    Real firstTime = 0.5;
+//    int numberRates =20;
+//    Real accrual = 0.5;
+//    Real firstTime = 0.5;
     
     
     std::vector<Real> rateTimes(numberRates+1);
@@ -125,7 +150,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     
     
     
-    Real fixedRate = 0.05;
+//    Real fixedRate = 0.05;
     std::vector<Real> strikes(numberRates,fixedRate);
     Real receive = -1.0;
     
@@ -176,10 +201,10 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 //    int paths = 16384;
 //    int vegaPaths = 16384*64;
     
-    int seed = 12332; // for Sobol generator
-    int trainingPaths = 10;
-    int paths = 2;
-    int vegaPaths = 2*64;
+//    int seed = 12332; // for Sobol generator
+//    int trainingPaths = 10;
+//    int paths = 2;
+//    int vegaPaths = 2*64;
     
     
     std::cout << "training paths, " << trainingPaths << "\n";
@@ -196,17 +221,18 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     
     
     
-    Real rateLevel =0.05;
-    
-    
-    Real initialNumeraireValue = 0.95;
-    
-    Real volLevel = 0.11;
-    Real beta = 0.2;
-    Real gamma = 1.0;
+//    Real rateLevel =0.05;
+//    
+//    
+//    Real initialNumeraireValue = 0.95;
+//    
+//    Real volLevel = 0.11;
+//    Real beta = 0.2;
+//    Real gamma = 1.0;
     int numberOfFactors = std::min<int>(5,numberRates);
     
-    Spread displacementLevel =0.02;
+//    Spread displacementLevel =0.02;
+    Spread displacementLevel =self.displacementLevel;
     
     // set up vectors
     std::vector<Rate> initialRates(numberRates,rateLevel);
@@ -684,6 +710,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                               initialNumeraireValue);
         std::vector<Real> values,errors;
         accountingEngineVegas.multiplePathValues(values,errors,pathsToDoVegas);
+        [self.hostView.hostedGraph reloadData];
         std::cout << "vega output \n";
         std::cout << " factorwise bumping " << allowFactorwiseBumping << "\n";
         std::cout << " doCaps " << doCaps << "\n";

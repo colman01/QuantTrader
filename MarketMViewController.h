@@ -10,8 +10,9 @@
 #import "MarketModels.h"
 
 @interface MarketMViewController : UIViewController <CPTPlotDataSource> {
-    MarketModels * market;
+//    MarketModels * market;
 }
+@property (nonatomic, strong) MarketModels * market;;
 
 @property (nonatomic, strong) CPTGraphHostingView *hostView;
 
