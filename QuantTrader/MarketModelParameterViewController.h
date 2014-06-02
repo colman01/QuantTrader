@@ -36,4 +36,21 @@
 
 
 
+
+
+
+////
+//Real strike =200.15;
+
+//Real fixedMultiplier = 2.0;
+//Real floatingSpread =0.0;
+//bool payer = true;
+//
+//Real initialNumeraireValue = 0.95;
+//
+//Real beta = 0.2;
+//Real gamma = 1.0;
+
+
+
 @end

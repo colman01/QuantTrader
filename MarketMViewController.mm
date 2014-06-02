@@ -15,8 +15,8 @@
 
 @implementation MarketMViewController
 
-@synthesize numberRates;
-@synthesize accrual;
+@synthesize numberRates = _numberRates;
+@synthesize accrual = _accrual;
 @synthesize firstTime;
 @synthesize fixedRate;
 @synthesize receive;
@@ -38,9 +38,13 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     }
+    
+    
     return self;
 }
 
@@ -49,6 +53,18 @@
     [super viewDidLoad];
     market = [[MarketModels alloc] init];
     [self initPlot];
+    
+    self.numberRates = 1;
+    self.accrual = 1;
+    
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    NSLog(@"");
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    NSLog(@"%i", innerPaths);
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,11 +87,8 @@
 }
 
 -(IBAction)reloadGraph:(id)sender {
-//    [self.hostView reloadInputViews];
-//    [self initPlot];
     [self.hostView.hostedGraph reloadData];
 }
-
 
 #pragma mark - Chart behavior
 -(void)initPlot {
@@ -122,9 +135,6 @@
     self.hostView.hostedGraph.borderLineStyle = nil;
 //    [graph applyTheme:nil];
 
-
-    
-
 }
 
 -(void)configurePlots {
@@ -166,28 +176,6 @@
 	aaplSymbol.lineStyle = aaplSymbolLineStyle;
 	aaplSymbol.size = CGSizeMake(6.0f, 6.0f);
 	aaplPlot.plotSymbol = aaplSymbol;
-//	CPTMutableLineStyle *googLineStyle = [googPlot.dataLineStyle mutableCopy];
-//	googLineStyle.lineWidth = 1.0;
-//	googLineStyle.lineColor = googColor;
-//	googPlot.dataLineStyle = googLineStyle;
-//	CPTMutableLineStyle *googSymbolLineStyle = [CPTMutableLineStyle lineStyle];
-//	googSymbolLineStyle.lineColor = googColor;
-//	CPTPlotSymbol *googSymbol = [CPTPlotSymbol starPlotSymbol];
-//	googSymbol.fill = [CPTFill fillWithColor:googColor];
-//	googSymbol.lineStyle = googSymbolLineStyle;
-//	googSymbol.size = CGSizeMake(6.0f, 6.0f);
-//	googPlot.plotSymbol = googSymbol;
-//	CPTMutableLineStyle *msftLineStyle = [msftPlot.dataLineStyle mutableCopy];
-//	msftLineStyle.lineWidth = 2.0;
-//	msftLineStyle.lineColor = msftColor;
-//	msftPlot.dataLineStyle = msftLineStyle;
-//	CPTMutableLineStyle *msftSymbolLineStyle = [CPTMutableLineStyle lineStyle];
-//	msftSymbolLineStyle.lineColor = msftColor;
-//	CPTPlotSymbol *msftSymbol = [CPTPlotSymbol diamondPlotSymbol];
-//	msftSymbol.fill = [CPTFill fillWithColor:msftColor];
-//	msftSymbol.lineStyle = msftSymbolLineStyle;
-//	msftSymbol.size = CGSizeMake(6.0f, 6.0f);
-//	msftPlot.plotSymbol = msftSymbol;
 }
 
 -(void)configureAxes {
@@ -215,7 +203,7 @@
 	CPTAxis *x = axisSet.xAxis;
 	x.title = @"Index of Delta";
 	x.titleTextStyle = axisTitleStyle;
-	x.titleOffset = 15.0f;
+	x.titleOffset = 2.0f;
 	x.axisLineStyle = axisLineStyle;
 	x.labelingPolicy = CPTAxisLabelingPolicyNone;
 	x.labelTextStyle = axisTextStyle;
@@ -227,7 +215,7 @@
 	CPTAxis *y = axisSet.yAxis;
 	y.title = @"Value of Delta";
 	y.titleTextStyle = axisTitleStyle;
-	y.titleOffset = -40.0f;
+	y.titleOffset = -18.0f;
 	y.axisLineStyle = axisLineStyle;
 	y.majorGridLineStyle = gridLineStyle;
 	y.labelingPolicy = CPTAxisLabelingPolicyNone;
@@ -288,11 +276,6 @@
                     return num;
                 }
                 break;
-
-//			if ([plot.identifier isEqual:CPDTickerSymbolAAPL] == YES) {
-//				return [[[CPDStockPriceStore sharedInstance] monthlyPrices:CPDTickerSymbolAAPL] objectAtIndex:index];
-//			}
-//			break;
 	}
 	return [NSDecimalNumber zero];
 }

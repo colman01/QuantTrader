@@ -404,6 +404,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Colman Marcus-Quinn";
 				TargetAttributes = {
+					339F43D01934BBC9000F6923 = {
+						DevelopmentTeam = 7Q5PH58GL9;
+					};
 					339F43FC1934BBC9000F6923 = {
 						TestTargetID = 339F43D01934BBC9000F6923;
 					};
@@ -586,7 +589,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -625,7 +629,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -648,6 +653,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"/Volumes/Untitled_3/copy\\ from\\ temp\\ drive/Neuer\\ Ordner/orig/zips/QuantLib-1.2.1/framework\"/**",
@@ -657,6 +664,8 @@
 				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
 				INFOPLIST_FILE = "QuantTrader/QuantTrader-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -667,15 +676,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../boostoniphone-master/ios/framework\\/**",
 					"$(SRCROOT)/../framework_\\framework/**",
+					"\"/Volumes/Untitled_3/copy\\ from\\ temp\\ drive/Neuer\\ Ordner/orig/boostoniphone-master/ios/framework\"",
+					"\"/Volumes/Untitled_3/copy\\ from\\ temp\\ drive/Neuer\\ Ordner/orig/zips/QuantLib-1.2.1/framework\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuantTrader/QuantTrader-Prefix.pch";
 				INFOPLIST_FILE = "QuantTrader/QuantTrader-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -33,7 +33,7 @@
 
 // Bermudan
 
-@property int numberRates;
+@property (nonatomic, assign) int numberRates;
 @property float accrual;
 @property float firstTime;
 //int numberRates =20;
