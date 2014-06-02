@@ -33,6 +33,10 @@
 @synthesize displacementLevel;
 @synthesize innerPaths;
 @synthesize outterPaths;
+@synthesize strike;
+@synthesize fixedMultiplier;
+@synthesize floatingSpread;
+@synthesize payer;
 
 @synthesize graphContainer;
 

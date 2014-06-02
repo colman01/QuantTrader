@@ -82,6 +82,12 @@
 @property int outterPaths;
 //int outerPaths =256;
 
+@property float strike;
+@property int fixedMultiplier;
+
+
+@property float floatingSpread;
+@property bool payer;
 
 //// new  inverse
 //@property float rateLevel_inverse;

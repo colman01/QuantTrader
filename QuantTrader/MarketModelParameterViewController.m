@@ -34,12 +34,15 @@
 @synthesize displacementLevel;
 @synthesize innerPaths;
 @synthesize outerPaths;
+@synthesize strike;
+@synthesize fixedMultiplier;
+@synthesize floatingSpread;
+@synthesize payer;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -57,7 +60,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -85,9 +87,7 @@
 
 
 - (void) setupMarketModelParameters:(MarketMViewController  *) market {
-//    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-//    [f setNumberStyle:NSNumberFormatterDecimalStyle];
-//    NSNumber * myNumber = [f numberFromString:@"42"];
+
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
@@ -229,19 +229,31 @@
         market.outterPaths = [num intValue];
     }
     
-//    num = [f numberFromString:self.accrual.text];
-//    market.accrual = [num floatValue];
-//    
-//    num = [f numberFromString:self.accrual.text];
-//    market.accrual = [num floatValue];
-//    
-//    num = [f numberFromString:self.accrual.text];
-//    market.accrual = [num floatValue];
-//    
-//    num = [f numberFromString:self.accrual.text];
-//    market.accrual = [num floatValue];
+    if (self.strike.text.length > 0) {
+        num = [f numberFromString:self.strike.text];
+        market.strike = [num intValue];
+    } else {
+        num = [f numberFromString:self.strike.placeholder];
+        market.strike = [num intValue];
+    }
     
+    if (self.fixedMultiplier.text.length > 0) {
+        num = [f numberFromString:self.outerPaths.text];
+        market.fixedMultiplier = [num intValue];
+    } else {
+        num = [f numberFromString:self.fixedMultiplier.placeholder];
+        market.fixedMultiplier = [num intValue];
+    }
     
+    if (self.floatingSpread.text.length > 0) {
+        num = [f numberFromString:self.floatingSpread.text];
+        market.floatingSpread = [num intValue];
+    } else {
+        num = [f numberFromString:self.floatingSpread.placeholder];
+        market.floatingSpread = [num intValue];
+    }
+    
+    self.payer.selected = market.payer;
 }
 
 #pragma mark - Navigation
@@ -256,12 +268,6 @@
         [self setupMarketModelParameters:marketModel];
         
     }
-}
-
-
-
-- (IBAction)setParameters:(id)sender {
-    
 }
 
 
