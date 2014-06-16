@@ -71,7 +71,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -85,6 +85,9 @@
     }
     if (indexPath.row == 2) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"MarketModel" forIndexPath:indexPath];
+    }
+    if (indexPath.row == 3) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Bond" forIndexPath:indexPath];
     }
 
 //    [self configureCell:cell atIndexPath:indexPath];
