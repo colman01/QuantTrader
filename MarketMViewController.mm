@@ -57,7 +57,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    market = [[MarketModels alloc] init];
+    if (!market) {
+        market = [[MarketModels alloc] init];
+    }
+    
     [self initPlot];
     
     self.numberRates = 1;
@@ -232,10 +235,13 @@
 	y.majorTickLength = 0.5f;
 	y.minorTickLength = 0.5f;
 	y.tickDirection = CPTSignPositive;
-	NSInteger majorIncrement = 100;
-	NSInteger minorIncrement = 50;
+//	NSInteger majorIncrement = 100;
+//	NSInteger minorIncrement = 50;
+    NSInteger majorIncrement = 1;
+    NSInteger minorIncrement = 1;
 //	CGFloat yMax = 700.0f;  // should determine dynamically based on max price
-     CGFloat yMax = 10.0f;  // should determine dynamically based on max price
+//     CGFloat yMax = 10.0f;  // should determine dynamically based on max price
+    CGFloat yMax = 0.00001;  // should determine dynamically based on max price
 	NSMutableSet *yLabels = [NSMutableSet set];
 	NSMutableSet *yMajorLocations = [NSMutableSet set];
 	NSMutableSet *yMinorLocations = [NSMutableSet set];
@@ -280,7 +286,8 @@
 		case CPTScatterPlotFieldY:
                 if (index < valueCount) {
                     NSNumber *num = [market.delta objectAtIndex:index];
-                    return num;
+                    NSLog(@"int val num %f", [num floatValue]);
+                    return num = [NSNumber numberWithFloat:[num floatValue]*10];
                 }
                 break;
 	}

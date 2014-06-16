@@ -207,6 +207,14 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 //    int vegaPaths = 2*64;
     
     
+    int seed = 12332; // for Sobol generator
+    int trainingPaths = 13107;
+    int paths = 3276;
+    int vegaPaths = 3276*64;
+
+    
+    
+    
     std::cout << "training paths, " << trainingPaths << "\n";
     std::cout << "paths, " << paths << "\n";
     std::cout << "vega Paths, " << vegaPaths << "\n";
@@ -532,10 +540,16 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 //    int paths = 65536;
 //    int vegaPaths =16384;
     
+//    int seed = 12332; // for Sobol generator
+//    int trainingPaths = 10;
+//    int paths = 10;
+//    int vegaPaths =2;
+    
     int seed = 12332; // for Sobol generator
-    int trainingPaths = 10;
-    int paths = 10;
-    int vegaPaths =2;
+    int trainingPaths = 13107;
+    int paths = 13107;
+    int vegaPaths = 3276;
+
     
 #ifdef _DEBUG
     trainingPaths = 8192;
@@ -721,7 +735,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         if(!self.delta)
             self.delta = [[NSMutableArray alloc] init];
         for (int i=0; i < numberRates; ++i, ++r) {
-            [self.delta addObject:[NSNumber numberWithInt:values[r] ]];
+            [self.delta addObject:[NSNumber numberWithFloat:values[r] ]];
             std::cout << "Delta, " << i << ", " << values[r] << ", " << errors[r] << "\n";
         }
         

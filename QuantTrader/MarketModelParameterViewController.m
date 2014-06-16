@@ -72,8 +72,8 @@
     
     receive.placeholder = @"-1.0";
     seed.placeholder = @"12332";
-    trainingPaths.placeholder = @"10";
-    paths.placeholder = @"2";
+    trainingPaths.placeholder = @"13107";
+    paths.placeholder = @"13107";
     vegaPaths.placeholder = @"2*64";
     rateLevel.placeholder = @"0.05";
     initialNumeraireValue.placeholder = @"0.95";
@@ -88,6 +88,10 @@
 
 
 - (void) setupMarketModelParameters:(MarketMViewController  *) market {
+    
+    if (!market.market) {
+        market.market = [[MarketModels alloc] init];
+    }
 
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
