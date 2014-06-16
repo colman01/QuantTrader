@@ -286,7 +286,6 @@
 		case CPTScatterPlotFieldY:
                 if (index < valueCount) {
                     NSNumber *num = [market.delta objectAtIndex:index];
-                    NSLog(@"int val num %f", [num floatValue]);
                     return num = [NSNumber numberWithFloat:[num floatValue]*10];
                 }
                 break;
