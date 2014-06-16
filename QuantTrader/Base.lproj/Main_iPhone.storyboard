@@ -501,6 +501,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="P0u-4m-bGE" secondAttribute="bottom" constant="73" id="0LR-z4-bFY"/>
                                     <constraint firstAttribute="trailing" secondItem="IF5-Fn-IOa" secondAttribute="trailing" constant="20" id="1Q7-jJ-ATF"/>
+                                    <constraint firstItem="QEj-yX-p0j" firstAttribute="top" secondItem="IF5-Fn-IOa" secondAttribute="bottom" constant="8" id="5ZR-C0-NKy"/>
                                     <constraint firstAttribute="trailing" secondItem="QEj-yX-p0j" secondAttribute="trailing" constant="20" id="EQ9-cE-kBb"/>
                                     <constraint firstAttribute="trailing" secondItem="P0u-4m-bGE" secondAttribute="trailing" constant="23" id="TJ2-om-DPZ"/>
                                     <constraint firstItem="AZZ-vh-nfm" firstAttribute="leading" secondItem="daA-zP-hG9" secondAttribute="leading" constant="17" id="WsN-DI-zWo"/>
