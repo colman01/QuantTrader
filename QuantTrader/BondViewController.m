@@ -127,6 +127,7 @@
                 string = [dateFormatter stringFromDate:_zeroCouponDate1];
                 if(string)
                     [bondValuesViewController.values addObject:string];
+                break;
             }
             case 12:
             {
@@ -136,44 +137,82 @@
                 string = [dateFormatter stringFromDate:_fixedRateBondDate];
                 if(string)
                     [bondValuesViewController.values addObject:string];
+                break;
             }
-                
-            case 99:
-                string = [NSString stringWithFormat:@"%i", _settleMentDays];
+            case 13:
+            {
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+                [dateFormatter setDateFormat:@"dd-MM-yy"];
+                string = [dateFormatter stringFromDate:_floatingBondScheduleDate_1];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
+                string = [dateFormatter stringFromDate:_floatingBondScheduleDate_2];
                 if(string)
                     [bondValuesViewController.values addObject:string];
                 break;
-            
-            case 9999:
-                string = [NSString stringWithFormat:@"%f", _redemp];
+            }
+            case 14:
+                string = [NSString stringWithFormat:@"%f", _zeroCouponBondDirtyPrice];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
+                string = [NSString stringWithFormat:@"%f", _fixedRateBondDirtyPrice];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
+                string = [NSString stringWithFormat:@"%f", _floatingRateBondDirtyPrice];
                 if(string)
                     [bondValuesViewController.values addObject:string];
                 break;
-
-
-
-            case 101:
-                for (NSString *var in _couponRates) {
-                    string = var;
-                    if(string)
-                        [bondValuesViewController.values addObject:string];
-                }
-                break;
-            
-
-
-
             case 15:
+                string = [NSString stringWithFormat:@"%f", _zeroCouponBondAccruedAmount];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
+                string = [NSString stringWithFormat:@"%f", _fixedRateBondAccruedAmount];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
+                string = [NSString stringWithFormat:@"%f", _floatingRateBondAccruedAmount];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
                 break;
             case 16:
+                string = [NSString stringWithFormat:@"%f", _fixedrateBondPreviousCouponRate];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
+                string = [NSString stringWithFormat:@"%f", _floatingRateBontPreviousCouponRate];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
                 break;
             case 17:
+                string = [NSString stringWithFormat:@"%f", _fixedRateBondNextCouponRate];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
+                string = [NSString stringWithFormat:@"%f", _floatingRateBoneNextCouponRate];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
                 break;
             case 18:
+                string = [NSString stringWithFormat:@"%f", _zeroCouponBondYieldActual360CompoundedAnnual];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
+                string = [NSString stringWithFormat:@"%f", _fixedRateBondYieldActual360CompoundedAnnual];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
+                string = [NSString stringWithFormat:@"%f", _floatingRateBondYieldActual360CompoundedAnnual];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
                 break;
             case 19:
+                string = [NSString stringWithFormat:@"%f", _zeroCoupon3mQuote];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
+                string = [NSString stringWithFormat:@"%f", _zeroCoupon6mQuote];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
+                string = [NSString stringWithFormat:@"%f", _zeroCoupon1yQuote];
+                if(string)
+                    [bondValuesViewController.values addObject:string];
                 break;
-
+                
             default:
                 if(string)
                     [bondValuesViewController.values addObject:string];

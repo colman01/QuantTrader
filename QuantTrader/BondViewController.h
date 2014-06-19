@@ -59,7 +59,7 @@
 @property (nonatomic) NSDate * floatingRateBondDate;
 
 // dirty price 14
-@property (nonatomic) double zeroCoupongBondDirtyPrice;
+@property (nonatomic) double zeroCouponBondDirtyPrice;
 @property (nonatomic) double fixedRateBondDirtyPrice;
 @property (nonatomic) double floatingRateBondDirtyPrice;
 
@@ -72,11 +72,11 @@
 @property (nonatomic) double fixedrateBondPreviousCouponRate;
 @property (nonatomic) double floatingRateBontPreviousCouponRate;
 
-// Next Coupon 16
+// Next Coupon 17
 @property (nonatomic) double fixedRateBondNextCouponRate;
 @property (nonatomic) double floatingRateBoneNextCouponRate;
 
-// Yield 17
+// Yield 18
 @property (nonatomic) double zeroCouponBondYieldActual360CompoundedAnnual;
 @property (nonatomic) double fixedRateBondYieldActual360CompoundedAnnual;
 @property (nonatomic) double floatingRateBondYieldActual360CompoundedAnnual;
