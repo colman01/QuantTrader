@@ -23,6 +23,7 @@
 @property (nonatomic) int fiXingDays;
 @property (nonatomic) int settleMentDays;
 
+//19
 @property (nonatomic) float zeroCoupon3mQuote;
 @property (nonatomic) float zeroCoupon6mQuote;
 @property (nonatomic) float zeroCoupon1yQuote;
@@ -47,35 +48,35 @@
 
 @property (nonatomic) NSDate * fixedBondScheduleDate_1;
 @property (nonatomic) NSDate * fixedBondScheduleDate_2;
-
+//12
 @property (nonatomic) NSDate * fixedRateBondDate;
 
 //libor
-
+//13
 @property (nonatomic) NSDate * floatingBondScheduleDate_1;
 @property (nonatomic) NSDate * floatingBondScheduleDate_2;
 
 @property (nonatomic) NSDate * floatingRateBondDate;
 
-// dirty price
+// dirty price 14
 @property (nonatomic) double zeroCoupongBondDirtyPrice;
 @property (nonatomic) double fixedRateBondDirtyPrice;
 @property (nonatomic) double floatingRateBondDirtyPrice;
 
-// Accured amount
+// Accured amount 15
 @property (nonatomic) double zeroCouponBondAccruedAmount;
 @property (nonatomic) double fixedRateBondAccruedAmount;
 @property (nonatomic) double floatingRateBondAccruedAmount;
 
-// Previous Coupon
+// Previous Coupon 16
 @property (nonatomic) double fixedrateBondPreviousCouponRate;
 @property (nonatomic) double floatingRateBontPreviousCouponRate;
 
-// Next Coupon
+// Next Coupon 16
 @property (nonatomic) double fixedRateBondNextCouponRate;
 @property (nonatomic) double floatingRateBoneNextCouponRate;
 
-// Yield
+// Yield 17
 @property (nonatomic) double zeroCouponBondYieldActual360CompoundedAnnual;
 @property (nonatomic) double fixedRateBondYieldActual360CompoundedAnnual;
 @property (nonatomic) double floatingRateBondYieldActual360CompoundedAnnual;

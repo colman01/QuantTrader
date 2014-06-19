@@ -71,12 +71,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+//      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"other" forIndexPath:indexPath];
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Equity" forIndexPath:indexPath];
     UITableViewCell *cell;
+//    if (indexPath.row == 0) {
+//        cell = [tableView dequeueReusableCellWithIdentifier:@"Scroll" forIndexPath:indexPath];
+//    }
     if (indexPath.row == 0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Equity" forIndexPath:indexPath];
     }
@@ -84,11 +90,11 @@
         cell = [tableView dequeueReusableCellWithIdentifier:@"MarketSetup" forIndexPath:indexPath];
     }
     if (indexPath.row == 2) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"MarketModel" forIndexPath:indexPath];
-    }
-    if (indexPath.row == 3) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"Bond" forIndexPath:indexPath];
     }
+//    if (indexPath.row == 3) {
+//        cell = [tableView dequeueReusableCellWithIdentifier:@"Bond" forIndexPath:indexPath];
+//    }
 
 //    [self configureCell:cell atIndexPath:indexPath];
     return cell;
