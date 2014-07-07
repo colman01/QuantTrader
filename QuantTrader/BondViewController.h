@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Bond.h"
 
 @interface BondViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) Bond *bond;
 
 @property (nonatomic, weak) IBOutlet UITableView *table;
 

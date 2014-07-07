@@ -31,9 +31,101 @@ fixedRateBondNextCouponRate,
 floatingRateBoneNextCouponRate,
 zeroCouponBondYieldActual360CompoundedAnnual,
 fixedRateBondYieldActual360CompoundedAnnual,
-floatingRateBondYieldActual360CompoundedAnnual;
+floatingRateBondYieldActual360CompoundedAnnual,
+formatedIssueDates;
+
+@synthesize fiXingDays;
 
 
+
+std::string dateToString(const QuantLib::Date d, const std::string format)
+//-(NSString *) dateToString:(const QuantLib::Date *)  d :(const std::string *) format
+{
+    std::stringstream stream;
+    
+    if( format == "d-mmm-yyyy") // for example: 7-May-2015
+    {
+        stream << d.dayOfMonth() << "-" << d.month() << "-" << d.year();
+    }
+    else // could extend this function to deal with date formats other than d-mmm-yyyy
+    {
+        QL_FAIL("Unsupported format: " << format << ", could try d-mmm-yyyy.");
+    }
+    return stream.str();
+}
+
+
+- (void) setupParameters {
+    
+    using namespace QuantLib;
+    
+    zeroCoupon3mQuote=0.0096;
+    zeroCoupon6mQuote=0.0145;
+    zeroCoupon1yQuote=0.0194;
+    
+    redemp = 100;
+    numBonds = 5;
+    
+    
+    QuantLib::Date issueDates[] = {
+        QuantLib::Date (15, QuantLib::March, 2005),
+        QuantLib::Date (15, QuantLib::June, 2005),
+        QuantLib::Date (30, QuantLib::June, 2006),
+        QuantLib::Date (15, QuantLib::November, 2002),
+        QuantLib::Date (15, QuantLib::May, 1987)
+    };
+    
+    int size = sizeof(issueDates); // 20 issueDates showing in debug?
+//    for(int i =0; i<  sizeof(issueDates) - 1; i++) {
+    for(int i =0; i<  5; i++) {
+        QuantLib::Date &date = issueDates[i];
+        std::stringstream stream;
+//        std::string format = "d-mmm-yyyy";
+        try {
+            stream << date.dayOfMonth() << "-" << date.month() << "-" << date.year();
+        }
+        catch (std::exception &e) {
+        }
+        std::string result = stream.str() ;
+        if (!formatedIssueDates)
+            formatedIssueDates = [[NSMutableArray alloc] init];
+        [formatedIssueDates addObject:[NSString stringWithFormat:@"%s",result.c_str()]];
+    }
+    
+
+    
+    
+//    self.newIssueDates = issueDates;
+//    
+//    QuantLib::Date maturities[] = {
+//        QuantLib::Date (31, QuantLib::August, 2010),
+//        QuantLib::Date (31, QuantLib::August, 2011),
+//        QuantLib::Date (31, QuantLib::August, 2013),
+//        QuantLib::Date (15, QuantLib::August, 2018),
+//        QuantLib::Date (15, QuantLib::May, 2038)
+//    };
+//    
+//    self.maturityDates = maturities;
+//    
+//    
+//    
+//    Real couponRates[] = {
+//        0.02375,
+//        0.04625,
+//        0.03125,
+//        0.04000,
+//        0.04500
+//    };
+//    
+//    Real marketQuotes[] = {
+//        100.390625,
+//        106.21875,
+//        100.59375,
+//        101.6875,
+//        102.140625
+//    };
+    
+}
 
 -(void) calculate {
     
@@ -85,12 +177,15 @@ floatingRateBondYieldActual360CompoundedAnnual;
         // Common data
         
         // ZC rates for the short end
-        Rate zc3mQuote=0.0096;
-        Rate zc6mQuote=0.0145;
-        Rate zc1yQuote=0.0194;
-//        Rate zc3mQuote = zeroCoupon3mQuote;
-//        Rate zc6mQuote = zeroCoupon6mQuote;
-//        Rate zc1yQuote = zeroCoupon1yQuote;
+//        Rate zc3mQuote=0.0096;
+//        Rate zc6mQuote=0.0145;
+//        Rate zc1yQuote=0.0194;
+        
+
+
+        Rate zc3mQuote = zeroCoupon3mQuote;
+        Rate zc6mQuote = zeroCoupon6mQuote;
+        Rate zc1yQuote = zeroCoupon1yQuote;
         
         boost::shared_ptr<Quote> zc3mRate(new SimpleQuote(zc3mQuote));
         boost::shared_ptr<Quote> zc6mRate(new SimpleQuote(zc6mQuote));
@@ -634,7 +729,7 @@ floatingRateBondYieldActual360CompoundedAnnual;
 
 
 -(void) setFixingDays:(int)numberOfDays {
-    fiXingDays = numberOfDays;
+    fiXingDays = self.fiXingDays;
 }
 -(void) setSettlementDays:(int)numberOfDays {
     settleMentDays = numberOfDays;

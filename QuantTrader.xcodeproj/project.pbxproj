@@ -34,6 +34,7 @@
 		C0CE8C45194F4C30009BAD80 /* BondResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE8C44194F4C30009BAD80 /* BondResultViewController.m */; };
 		C0CE8C4A194F4F9B009BAD80 /* PreviousResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE8C49194F4F9B009BAD80 /* PreviousResultsTableViewController.m */; };
 		C0CE8C4D194F5A1E009BAD80 /* BondSetValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE8C4C194F5A1E009BAD80 /* BondSetValueViewController.m */; };
+		C0F9B6E71966D00B00DAC4E8 /* BondImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F9B6E61966D00B00DAC4E8 /* BondImportViewController.m */; };
 		F32A9B911934BCF700BDE337 /* ql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32A9B901934BCF600BDE337 /* ql.framework */; };
 		F32A9B941934BEA900BDE337 /* CheckQl.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B931934BEA900BDE337 /* CheckQl.mm */; };
 		F32A9BAC1934BF6400BDE337 /* EquityOption_.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B971934BF6400BDE337 /* EquityOption_.mm */; };
@@ -108,6 +109,8 @@
 		C0CE8C49194F4F9B009BAD80 /* PreviousResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviousResultsTableViewController.m; sourceTree = "<group>"; };
 		C0CE8C4B194F5A1E009BAD80 /* BondSetValueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BondSetValueViewController.h; sourceTree = "<group>"; };
 		C0CE8C4C194F5A1E009BAD80 /* BondSetValueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BondSetValueViewController.m; sourceTree = "<group>"; };
+		C0F9B6E51966D00B00DAC4E8 /* BondImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BondImportViewController.h; sourceTree = "<group>"; };
+		C0F9B6E61966D00B00DAC4E8 /* BondImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BondImportViewController.m; sourceTree = "<group>"; };
 		F32A9B901934BCF600BDE337 /* ql.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ql.framework; path = ../framework/ql.framework; sourceTree = "<group>"; };
 		F32A9B921934BEA900BDE337 /* CheckQl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckQl.h; sourceTree = "<group>"; };
 		F32A9B931934BEA900BDE337 /* CheckQl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CheckQl.mm; sourceTree = "<group>"; };
@@ -275,6 +278,8 @@
 				C0CE8C49194F4F9B009BAD80 /* PreviousResultsTableViewController.m */,
 				C0CE8C4B194F5A1E009BAD80 /* BondSetValueViewController.h */,
 				C0CE8C4C194F5A1E009BAD80 /* BondSetValueViewController.m */,
+				C0F9B6E51966D00B00DAC4E8 /* BondImportViewController.h */,
+				C0F9B6E61966D00B00DAC4E8 /* BondImportViewController.m */,
 			);
 			name = Bond;
 			sourceTree = "<group>";
@@ -550,6 +555,7 @@
 				339F43F61934BBC9000F6923 /* DetailViewController.m in Sources */,
 				F32A9B941934BEA900BDE337 /* CheckQl.mm in Sources */,
 				F38033A2193B5CB800B6DA1E /* MarketModelParameterViewController.m in Sources */,
+				C0F9B6E71966D00B00DAC4E8 /* BondImportViewController.m in Sources */,
 				F32A9BB41934BF6400BDE337 /* Replication.mm in Sources */,
 				F32A9BAD1934BF6400BDE337 /* Bond.mm in Sources */,
 				F32A9BB51934BF6400BDE337 /* Repo.mm in Sources */,

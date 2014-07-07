@@ -41,7 +41,7 @@
     double floatingRateBondYieldActual360CompoundedAnnual;
     
     
-    int fiXingDays;
+//    int fiXingDays;
     int settleMentDays;
     
     float zeroCoupon3mQuote;
@@ -52,7 +52,7 @@
     
     int numBonds;
     
-    NSMutableArray * newIssueDates;
+//    NSMutableArray * formatedIssueDates;
     NSMutableArray * maturityDates;
     NSMutableArray * newCouponRates;
     NSMutableArray * newMarketQuotes;
@@ -80,16 +80,18 @@
     
 }
 
+-(void) setupParameters;
+
 -(void) setFixingDays:(int)numberOfDays;
 -(void) setSettlementDays:(int)numberOfDays;
 -(void) setRedemption:(double)redemption;
 -(void) setBondNumber:(int)bondNumber;
 -(void) setFaceAmount:(float)amount;
--(void) setZeroCouponDate:(NSDate *)first:(NSDate *)second;
--(void) setFixedBondDate:(NSDate *)first:(NSDate *)second;
+-(void) setZeroCouponDate:(NSDate *) first:(NSDate *)second;
+-(void) setFixedBondDate:(NSDate *) first:(NSDate *)second;
 -(void) setFixedRateBondDate:(NSDate *)first;
 
--(void) setFloatBondSchedule:(NSDate *)first:(NSDate *)second;
+-(void) setFloatBondSchedule:(NSDate *) first:(NSDate *)second;
 -(void) setFloatingBondRate:(NSDate *)first;
 
 
@@ -115,6 +117,11 @@
 @property (nonatomic) double zeroCouponBondYieldActual360CompoundedAnnual;
 @property (nonatomic) double fixedRateBondYieldActual360CompoundedAnnual;
 @property (nonatomic) double floatingRateBondYieldActual360CompoundedAnnual;
+
+@property (nonatomic) int fiXingDays;
+
+
+@property (strong, nonatomic)     NSMutableArray * formatedIssueDates;
 
 -(void) calculate;
 

@@ -8,6 +8,7 @@
 
 #import "BondViewController.h"
 #import "BondValuesViewController.h"
+#import "Bond.h"
 
 @interface BondViewController ()
 
@@ -16,6 +17,9 @@
 @implementation BondViewController
 
 @synthesize table;
+
+
+@synthesize bond;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +33,35 @@
 {
     [super viewDidLoad];
     self.table.delegate = self;
+    [self initBond];
     
+    
+}
+
+- (void) initBond {
+    self.bond = [[Bond alloc] init];
+    [bond setupParameters];
+
+
+
+//    -(void) setFixingDays:(int)numberOfDays;
+//    -(void) setSettlementDays:(int)numberOfDays;
+//    -(void) setRedemption:(double)redemption;
+//    -(void) setBondNumber:(int)bondNumber;
+//    -(void) setFaceAmount:(float)amount;
+//    -(void) setZeroCouponDate:(NSDate *) first:(NSDate *)second;
+//    -(void) setFixedBondDate:(NSDate *) first:(NSDate *)second;
+//    -(void) setFixedRateBondDate:(NSDate *)first;
+//    
+//    -(void) setFloatBondSchedule:(NSDate *) first:(NSDate *)second;
+//    -(void) setFloatingBondRate:(NSDate *)first;
+    
+}
+
+#pragma mark Bond calculate
+
+- (IBAction)calculate:(id)sender{
+    [self.bond calculate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,13 +72,18 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"SetBond"]) {
         id destination = segue.destinationViewController;
         BondValuesViewController *bondValuesViewController = (BondValuesViewController *) destination;
-        bondValuesViewController.values = [[NSMutableArray alloc] init];
+        
+        bondValuesViewController.bond = self.bond;
+        if (!bondValuesViewController.values )
+            bondValuesViewController.values = [[NSMutableArray alloc] init];
+        
+        
+        
         UITableViewCell *cell = (UITableViewCell *) sender;
         NSString *string = [NSString stringWithFormat:@"%i", cell.tag];
         switch (cell.tag) {
@@ -71,10 +108,11 @@
                 [bondValuesViewController.values addObject:string];
                 break;
             case 4:
-                for (NSString *var in _issueDates) {
-                    string = var;
-                    [bondValuesViewController.values addObject:string];
-                }
+                bondValuesViewController.values = bond.formatedIssueDates;
+//                for (NSString *var in _issueDates) {
+//                    string = var;
+//                    [bondValuesViewController.values addObject:string];
+//                }
                 break;
             case 5:
                 for (NSString *var in _maturityDates) {
@@ -306,15 +344,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
     return 20;
 }
 

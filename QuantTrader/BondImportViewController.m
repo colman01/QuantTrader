@@ -1,21 +1,18 @@
 //
-//  BondResultViewController.m
+//  BondImportViewController.m
 //  QuantTrader
 //
-//  Created by colman on 16/06/14.
+//  Created by colman on 04/07/14.
 //  Copyright (c) 2014 Colman Marcus-Quinn. All rights reserved.
 //
 
-#import "BondResultViewController.h"
+#import "BondImportViewController.h"
 
-
-
-@interface BondResultViewController ()
+@interface BondImportViewController ()
 
 @end
 
-@implementation BondResultViewController
-@synthesize bond;
+@implementation BondImportViewController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

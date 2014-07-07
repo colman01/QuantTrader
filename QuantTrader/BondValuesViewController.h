@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Bond.h"
 
 @interface BondValuesViewController : UIViewController<UITableViewDelegate>
 
+@property (nonatomic, strong) Bond *bond;
 
 @property (nonatomic, weak) IBOutlet UITableView *table;
 @property (nonatomic, strong) NSMutableArray  *values;
+
+
 
 
 @end

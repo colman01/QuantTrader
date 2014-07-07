@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Bond.h"
 
 @interface BondResultViewController : UIViewController
+
+@property (strong, nonatomic) Bond *bond;
 
 @end
