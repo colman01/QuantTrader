@@ -34,6 +34,11 @@ fixedRateBondYieldActual360CompoundedAnnual,
 floatingRateBondYieldActual360CompoundedAnnual,
 formatedIssueDates;
 
+@synthesize zeroCoupon3mQuote, zeroCoupon6mQuote, zeroCoupon1yQuote;
+@synthesize redemp;
+
+
+
 @synthesize fiXingDays;
 
 
@@ -59,13 +64,17 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
     
     using namespace QuantLib;
     
-    zeroCoupon3mQuote=0.0096;
-    zeroCoupon6mQuote=0.0145;
-    zeroCoupon1yQuote=0.0194;
     
-    redemp = 100;
+    
+    self.zeroCoupon3mQuote=0.0096;
+    self.zeroCoupon6mQuote=0.0145;
+    self.zeroCoupon1yQuote=0.0194;
+    
+    self.redemp = 100;
+    
+    self.fiXingDays = 100;
+    
     numBonds = 5;
-    
     
     QuantLib::Date issueDates[] = {
         QuantLib::Date (15, QuantLib::March, 2005),
@@ -75,7 +84,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         QuantLib::Date (15, QuantLib::May, 1987)
     };
     
-    int size = sizeof(issueDates); // 20 issueDates showing in debug?
+//    int size = sizeof(issueDates); // 20 issueDates showing in debug?
 //    for(int i =0; i<  sizeof(issueDates) - 1; i++) {
     for(int i =0; i<  5; i++) {
         QuantLib::Date &date = issueDates[i];
@@ -93,37 +102,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
     }
     
 
-    
-    
-//    self.newIssueDates = issueDates;
-//    
-//    QuantLib::Date maturities[] = {
-//        QuantLib::Date (31, QuantLib::August, 2010),
-//        QuantLib::Date (31, QuantLib::August, 2011),
-//        QuantLib::Date (31, QuantLib::August, 2013),
-//        QuantLib::Date (15, QuantLib::August, 2018),
-//        QuantLib::Date (15, QuantLib::May, 2038)
-//    };
-//    
-//    self.maturityDates = maturities;
-//    
-//    
-//    
-//    Real couponRates[] = {
-//        0.02375,
-//        0.04625,
-//        0.03125,
-//        0.04000,
-//        0.04500
-//    };
-//    
-//    Real marketQuotes[] = {
-//        100.390625,
-//        106.21875,
-//        100.59375,
-//        101.6875,
-//        102.140625
-//    };
     
 }
 
@@ -183,9 +161,9 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         
 
 
-        Rate zc3mQuote = zeroCoupon3mQuote;
-        Rate zc6mQuote = zeroCoupon6mQuote;
-        Rate zc1yQuote = zeroCoupon1yQuote;
+        Rate zc3mQuote = self.zeroCoupon3mQuote;
+        Rate zc6mQuote = self.zeroCoupon6mQuote;
+        Rate zc1yQuote = self.zeroCoupon1yQuote;
         
         boost::shared_ptr<Quote> zc3mRate(new SimpleQuote(zc3mQuote));
         boost::shared_ptr<Quote> zc6mRate(new SimpleQuote(zc6mQuote));
@@ -479,10 +457,14 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         // Pricing engine
         boost::shared_ptr<PricingEngine> bondEngine(
                                                     new DiscountingBondEngine(discountingTermStructure));
-        
+
         // Zero coupon bond
-        Date zcDate1 = [self changeDate:zeroCouponDate1];
-        Date zcDate2 = [self changeDate:zeroCouponDate2];
+//        QuantLib::Date (15, QuantLib::March, 2005)
+//        Date(21, October, 2005)
+//        Date zcDate1 = [self changeDate:zeroCouponDate1];
+//        Date zcDate2 = [self changeDate:zeroCouponDate2];
+        Date zcDate1 = QuantLib::Date (21, QuantLib::October, 2005);
+        Date zcDate2 = QuantLib::Date (15, QuantLib::May, 2007);
 
         Date fbDate1 = [self changeDate:fixedBondScheduleDate_1];
         Date fbDate2 = [self changeDate:fixedBondScheduleDate_2];

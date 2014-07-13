@@ -88,6 +88,9 @@
         NSString *string = [NSString stringWithFormat:@"%i", cell.tag];
         switch (cell.tag) {
             case 0:
+                _ZeroC3mQuote = bond.zeroCoupon3mQuote;
+                _ZeroC6mQuote = bond.zeroCoupon6mQuote;
+                _ZeroC1yQuote = bond.zeroCoupon1yQuote;
                 string = [NSString stringWithFormat:@"%f", _ZeroC3mQuote];
                 [bondValuesViewController.values addObject:string];
                 string = [NSString stringWithFormat:@"%f", _ZeroC6mQuote];
@@ -96,6 +99,7 @@
                 [bondValuesViewController.values addObject:string];
                 break;
             case 1:
+                _redemption_ = bond.redemp;
                 string = [NSString stringWithFormat:@"%i", _redemption_];
                 [bondValuesViewController.values addObject:string];
                 break;
