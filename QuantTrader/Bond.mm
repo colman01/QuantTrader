@@ -34,7 +34,16 @@ fixedRateBondYieldActual360CompoundedAnnual,
 floatingRateBondYieldActual360CompoundedAnnual,
 formatedIssueDates,
 formatedMaturiyDates,
-bondMarketQuotes;
+bondMarketQuotes,
+bondLiborForcastingCurveQuotes,
+bondSwapQuotes,
+faceamount,
+zeroCouponDate1,
+zeroCouponDate2,
+fixedBondScheduleDate_1,
+fixedBondScheduleDate_2,
+floatingBondScheduleDate_1,
+floatingBondScheduleDate_2;
 
 @synthesize zeroCoupon3mQuote, zeroCoupon6mQuote, zeroCoupon1yQuote;
 @synthesize redemp;
@@ -109,6 +118,16 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         101.6875,
         102.140625
     };
+    
+//    Rate d1wQuote=0.043375;
+//    Rate d1mQuote=0.031875;
+//    Rate d3mQuote=0.0320375;
+//    Rate d6mQuote=0.03385;
+//    Rate d9mQuote=0.0338125;
+//    Rate d1yQuote=0.0335125;
+
+    
+    
 
     
 //    int size = sizeof(issueDates); // 20 issueDates showing in debug?
@@ -157,18 +176,70 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         
     }
     
+    Rate d1wQuote=0.043375;
+    Rate d1mQuote=0.031875;
+    Rate d3mQuote=0.0320375;
+    Rate d6mQuote=0.03385;
+    Rate d9mQuote=0.0338125;
+    Rate d1yQuote=0.0335125;
     
-//    Real couponRates[] = {
-//        0.02375,
-//        0.04625,
-//        0.03125,
-//        0.04000,
-//        0.04500
-//    };
+    
+    if(!bondLiborForcastingCurveQuotes)
+        bondLiborForcastingCurveQuotes = [[NSMutableArray alloc] init];
+    
+    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d1wQuote] ];
+    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d1mQuote]];
+    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d3mQuote]];
+    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d6mQuote]];
+    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d9mQuote]];
+    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d1yQuote]];
+    
+    Rate s2yQuote=0.0295;
+    Rate s3yQuote=0.0323;
+    Rate s5yQuote=0.0359;
+    Rate s10yQuote=0.0412;
+    Rate s15yQuote=0.0433;
+    
+    if(!bondSwapQuotes)
+        bondSwapQuotes = [[NSMutableArray alloc] init];
+    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s2yQuote] ];
+    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s3yQuote]];
+    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s5yQuote]];
+    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s10yQuote]];
+    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s15yQuote]];
+    
+    
+    self.faceamount = 100;
     
 
+//    Date zcDate1 = QuantLib::Date (21, QuantLib::October, 2005);
+//    Date zcDate2 = QuantLib::Date (15, QuantLib::May, 2007);
+    std::stringstream stream;
+    stream.str("");
+    Date zcDate1 = QuantLib::Date (21, QuantLib::October, 2005);
+    try {
+        stream << zcDate1.dayOfMonth() << "-" << zcDate1.month() << "-" << zcDate1.year();
+    }
+    catch (std::exception &e) {
+    }
+    std::string result = stream.str() ;
+    self.zeroCouponDate1 = [NSString stringWithFormat:@"%s",result.c_str()];
     
-
+    stream.str("");
+    Date zcDate2 = QuantLib::Date (15, QuantLib::May, 2007);
+    try {
+        stream << zcDate2.dayOfMonth() << "-" << zcDate2.month() << "-" << zcDate2.year();
+    }
+    catch (std::exception &e) {
+    }
+    result = stream.str() ;
+    self.zeroCouponDate2 = [NSString stringWithFormat:@"%s",result.c_str()];
+    
+    
+    //        Date(21, October, 2005)
+    //        Date(21, October, 2010)
+    
+    
     
 }
 
@@ -372,13 +443,13 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         Rate d3mQuote=0.0320375;
         Rate d6mQuote=0.03385;
         Rate d9mQuote=0.0338125;
-        Rate d1yQuote=0.0335125;
+        Rate d1yQuote=0.0335125; // now used in 'Libor Forcasting curve'
         // swaps
         Rate s2yQuote=0.0295;
         Rate s3yQuote=0.0323;
         Rate s5yQuote=0.0359;
         Rate s10yQuote=0.0412;
-        Rate s15yQuote=0.0433;
+        Rate s15yQuote=0.0433;  // now used in 'Swap quotes'
         
         
         /********************
@@ -525,6 +596,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         boost::shared_ptr<PricingEngine> bondEngine(
                                                     new DiscountingBondEngine(discountingTermStructure));
 
+        // zerocoupondate
         // Zero coupon bond
 //        QuantLib::Date (15, QuantLib::March, 2005)
 //        Date(21, October, 2005)
@@ -792,10 +864,10 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
 -(void) setFaceAmount:(float)FaceAmount {
     faceamount = FaceAmount;
 }
--(void) setZeroCouponDate:(NSDate *)first:(NSDate *)second {
-    zeroCouponDate1 = first;
-    zeroCouponDate2 = second;
-}
+//-(void) setZeroCouponDate:(NSDate *)first:(NSDate *)second {
+//    zeroCouponDate1 = first;
+//    zeroCouponDate2 = second;
+//}
 -(void) setFixedBondDate:(NSDate *)first:(NSDate *)second {
     fixedBondScheduleDate_1 = first;
     fixedBondScheduleDate_2 = second;

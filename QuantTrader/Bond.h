@@ -60,20 +60,20 @@
     NSMutableArray * liborForcastingCurveQuotes;
     NSMutableArray * swapQuotes;
     
-    float faceamount;
+//    float faceamount;
     
-    NSDate * zeroCouponDate1;
-    NSDate * zeroCouponDate2;
+//    NSDate * zeroCouponDate1;
+//    NSDate * zeroCouponDate2;
     
-    NSDate * fixedBondScheduleDate_1;
-    NSDate * fixedBondScheduleDate_2;
+//    NSDate * fixedBondScheduleDate_1;
+//    NSDate * fixedBondScheduleDate_2;
     
     NSDate * fixedRateBondDate;
 
     //libor
     
-    NSDate * floatingBondScheduleDate_1;
-    NSDate * floatingBondScheduleDate_2;
+//    NSDate * floatingBondScheduleDate_1;
+//    NSDate * floatingBondScheduleDate_2;
     
     NSDate * floatingRateBondDate;
     
@@ -135,6 +135,22 @@
 
 @property (strong, nonatomic) NSMutableArray * bondCouponRates;
 @property (strong, nonatomic) NSMutableArray * bondMarketQuotes;
+
+@property (strong, nonatomic) NSMutableArray * bondLiborForcastingCurveQuotes;
+
+@property (strong, nonatomic) NSMutableArray * bondSwapQuotes;
+
+@property (nonatomic) float faceamount;
+
+
+@property (strong, nonatomic) NSString * zeroCouponDate1;
+@property (strong, nonatomic) NSString * zeroCouponDate2;
+
+@property (strong, nonatomic) NSDate * fixedBondScheduleDate_1;
+@property (strong, nonatomic) NSDate * fixedBondScheduleDate_2;
+
+@property (strong, nonatomic) NSDate * floatingBondScheduleDate_1;
+@property (strong, nonatomic) NSDate * floatingBondScheduleDate_2;
 
 -(void) calculate;
 

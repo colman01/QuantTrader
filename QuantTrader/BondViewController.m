@@ -122,33 +122,30 @@
                 bondValuesViewController.values = bond.bondMarketQuotes;
                 break;
             case 8:
-                for (NSString *var in _liborForcastingCurveQuotes) {
-                    string = var;
-                    if(string)
-                        [bondValuesViewController.values addObject:string];
-                }
+                bondValuesViewController.values = bond.bondLiborForcastingCurveQuotes;
+//                for (NSString *var in _liborForcastingCurveQuotes) {
+//                    string = var;
+//                    if(string)
+//                        [bondValuesViewController.values addObject:string];
+//                }
                 break;
             case 9:
-                for (NSString *var in _swapQuotes) {
-                    string = var;
-                    if(string)
-                        [bondValuesViewController.values addObject:string];
-                }
+                bondValuesViewController.values = bond.bondSwapQuotes;
+//                for (NSString *var in _swapQuotes) {
+//                    string = var;
+//                    if(string)
+//                        [bondValuesViewController.values addObject:string];
+//                }
                 break;
             case 10:
-                string = [NSString stringWithFormat:@"%f", _faceamount];
+                string = [NSString stringWithFormat:@"%f", bond.faceamount];
                 if(string)
                     [bondValuesViewController.values addObject:string];
                 break;
             case 11:
             {
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                
-                [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-                [dateFormatter setDateFormat:@"dd-MM-yy"];
-                string = [dateFormatter stringFromDate:_zeroCouponDate1];
-                if(string)
-                    [bondValuesViewController.values addObject:string];
+                [bondValuesViewController.values addObject:bond.zeroCouponDate1];
+                [bondValuesViewController.values addObject:bond.zeroCouponDate2];
                 break;
             }
             case 12:
