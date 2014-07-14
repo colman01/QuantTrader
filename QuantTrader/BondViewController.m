@@ -82,8 +82,6 @@
         if (!bondValuesViewController.values )
             bondValuesViewController.values = [[NSMutableArray alloc] init];
         
-        
-        
         UITableViewCell *cell = (UITableViewCell *) sender;
         NSString *string = [NSString stringWithFormat:@"%i", cell.tag];
         switch (cell.tag) {
@@ -108,38 +106,20 @@
                 [bondValuesViewController.values addObject:string];
                 break;
             case 3:
-                string = [NSString stringWithFormat:@"%i", _numBonds];
+                string = [NSString stringWithFormat:@"%i", bondValuesViewController.bond.numBonds];
                 [bondValuesViewController.values addObject:string];
                 break;
             case 4:
                 bondValuesViewController.values = bond.formatedIssueDates;
-//                for (NSString *var in _issueDates) {
-//                    string = var;
-//                    [bondValuesViewController.values addObject:string];
-//                }
                 break;
             case 5:
-                for (NSString *var in _maturityDates) {
-                    string = var;
-                    [bondValuesViewController.values addObject:string];
-                }
+                bondValuesViewController.values = bond.formatedMaturiyDates;
                 break;
             case 6:
-                string = [NSString stringWithFormat:@"%f", _zeroCoupon3mQuote];
-                if(string)
-                    [bondValuesViewController.values addObject:string];
-                string = [NSString stringWithFormat:@"%f", _zeroCoupon3mQuote];
-                if(string)
-                    [bondValuesViewController.values addObject:string];
-                string = [NSString stringWithFormat:@"%f", _zeroCoupon1yQuote];
-                if(string)
-                    [bondValuesViewController.values addObject:string];
+                bondValuesViewController.values = bond.bondCouponRates;
                 break;
             case 7:
-                for (NSString *var in _marketQuotes) {
-                    string = var;
-                    [bondValuesViewController.values addObject:string];
-                }
+                bondValuesViewController.values = bond.bondMarketQuotes;
                 break;
             case 8:
                 for (NSString *var in _liborForcastingCurveQuotes) {

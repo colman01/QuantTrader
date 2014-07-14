@@ -32,7 +32,9 @@ floatingRateBoneNextCouponRate,
 zeroCouponBondYieldActual360CompoundedAnnual,
 fixedRateBondYieldActual360CompoundedAnnual,
 floatingRateBondYieldActual360CompoundedAnnual,
-formatedIssueDates;
+formatedIssueDates,
+formatedMaturiyDates,
+bondMarketQuotes;
 
 @synthesize zeroCoupon3mQuote, zeroCoupon6mQuote, zeroCoupon1yQuote;
 @synthesize redemp;
@@ -74,7 +76,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
     
     self.fiXingDays = 100;
     
-    numBonds = 5;
+    _numBonds = 5;
     
     QuantLib::Date issueDates[] = {
         QuantLib::Date (15, QuantLib::March, 2005),
@@ -83,6 +85,31 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         QuantLib::Date (15, QuantLib::November, 2002),
         QuantLib::Date (15, QuantLib::May, 1987)
     };
+    
+    QuantLib::Date maturitieDates[] = {
+        QuantLib::Date (31, QuantLib::August, 2010),
+        QuantLib::Date (31, QuantLib::August, 2011),
+        QuantLib::Date (30, QuantLib::August, 2013),
+        QuantLib::Date (15, QuantLib::August, 2018),
+        QuantLib::Date (15, QuantLib::August, 2038)
+    };
+    
+    Real couponRates[] = {
+        0.02375,
+        0.04625,
+        0.03125,
+        0.04000,
+        0.04500
+    };
+    
+    Real marketQuotes[] = {
+        100.390625,
+        106.21875,
+        100.59375,
+        101.6875,
+        102.140625
+    };
+
     
 //    int size = sizeof(issueDates); // 20 issueDates showing in debug?
 //    for(int i =0; i<  sizeof(issueDates) - 1; i++) {
@@ -95,11 +122,51 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         }
         catch (std::exception &e) {
         }
+        
         std::string result = stream.str() ;
         if (!formatedIssueDates)
             formatedIssueDates = [[NSMutableArray alloc] init];
         [formatedIssueDates addObject:[NSString stringWithFormat:@"%s",result.c_str()]];
+        stream.str("");
+        
+        date = maturitieDates[i];
+        try {
+            stream << date.dayOfMonth() << "-" << date.month() << "-" << date.year();
+        }
+        catch (std::exception &e) {
+        }
+
+        result = stream.str() ;
+        if (!formatedMaturiyDates)
+            formatedMaturiyDates = [[NSMutableArray alloc] init];
+        [formatedMaturiyDates addObject:[NSString stringWithFormat:@"%s",result.c_str()]];
+        
+        stream.str("");
+        
+        float rate = (float)couponRates[i];
+        if (!_bondCouponRates)
+            _bondCouponRates = [[NSMutableArray alloc] init];
+        [_bondCouponRates addObject:[NSString stringWithFormat:@"%f",rate]];
+
+//        bondCouponRates
+        
+        float marketQuote = (float)marketQuotes[i];
+        if(!bondMarketQuotes)
+            bondMarketQuotes = [[NSMutableArray alloc] init];
+        [bondMarketQuotes addObject:[NSString stringWithFormat:@"%f",marketQuote]];
+        
     }
+    
+    
+//    Real couponRates[] = {
+//        0.02375,
+//        0.04625,
+//        0.03125,
+//        0.04000,
+//        0.04500
+//    };
+    
+
     
 
     
@@ -192,7 +259,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         Real redemption = redemp;
         
 //        const Size numberOfBonds = 5;
-        int numberOfBonds = numBonds;
+        int numberOfBonds = _numBonds;
 //        int numb = 5;
 //        int numberOfBonds = numb;
         
@@ -720,7 +787,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
     redemp = redemption;
 }
 -(void) setBondNumber:(int)bondNumber {
-    numBonds = bondNumber;
+    _numBonds = bondNumber;
 }
 -(void) setFaceAmount:(float)FaceAmount {
     faceamount = FaceAmount;

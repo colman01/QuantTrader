@@ -50,7 +50,7 @@
     
 //    double redemp;
     
-    int numBonds;
+//    int numBonds;
     
 //    NSMutableArray * formatedIssueDates;
     NSMutableArray * maturityDates;
@@ -122,6 +122,7 @@
 
 
 @property (strong, nonatomic)     NSMutableArray * formatedIssueDates;
+@property (strong, nonatomic)     NSMutableArray * formatedMaturiyDates;
 
 @property ( nonatomic) float zeroCoupon3mQuote;
 @property ( nonatomic) float zeroCoupon6mQuote;
@@ -129,6 +130,11 @@
 
 
 @property (nonatomic) double redemp;
+
+@property (nonatomic) int numBonds;
+
+@property (strong, nonatomic) NSMutableArray * bondCouponRates;
+@property (strong, nonatomic) NSMutableArray * bondMarketQuotes;
 
 -(void) calculate;
 
