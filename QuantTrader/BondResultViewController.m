@@ -75,16 +75,31 @@
             break;
         case 1:
             [titleLabel setText:@"Clean price"];
-            [res1 setText:[bond.zeroCouponBondCleanPrice stringValue]];
+            [res1 setText:[NSString stringWithFormat:@"%.2f", [bond.zeroCouponBondCleanPrice floatValue]]];
+            [res2 setText:[NSString stringWithFormat:@"%.2f", [bond.fixedRateBondCleanPrice floatValue]]];
+            [res3 setText:[NSString stringWithFormat:@"%.2f", [bond.floatingRateBondCleanPrice floatValue]]];
             break;
         case 2:
             [titleLabel setText:@"Dirty price"];
+            
+            [res1 setText:[NSString stringWithFormat:@"%.2f", [bond.zeroCouponBondDirtyPrice floatValue]]];
+            [res2 setText:[NSString stringWithFormat:@"%.2f", [bond.fixedRateBondDirtyPrice floatValue]]];
+            [res3 setText:[NSString stringWithFormat:@"%.2f", [bond.floatingRateBondDirtyPrice floatValue]]];
             break;
         case 3:
             [titleLabel setText:@"Accrued coupon"];
+            
+            [res1 setText:[NSString stringWithFormat:@"%.2f", [bond.zeroCouponBondAccruedAmount floatValue]]];
+            [res2 setText:[NSString stringWithFormat:@"%.2f", [bond.flxedRateBondAccruedAmount floatValue]]];
+            [res3 setText:[NSString stringWithFormat:@"%.2f", [bond.floatingRateBondAccruedAmount floatValue]]];
             break;
         case 4:
             [titleLabel setText:@"Previous coupon"];
+            
+            [res1 setText:[NSString stringWithFormat:@"%.2f", [bond.zeroCouponBondPreviousCoupon floatValue]]];
+            [res2 setText:[NSString stringWithFormat:@"%.2f", [bond.fixedRateBondPreviousCoupon floatValue]]];
+            [res3 setText:[NSString stringWithFormat:@"%.2f", [bond.floatingRateBondPreviousCoupon floatValue]]];
+            
             break;
         case 5:
             [titleLabel setText:@"Next coupon"];
