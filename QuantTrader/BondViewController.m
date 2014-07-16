@@ -38,6 +38,11 @@
     
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    if(!bond.bondCouponRates)
+        [bond setupParameters];
+}
+
 - (void) initBond {
     self.bond = [[Bond alloc] init];
     [bond setupParameters];

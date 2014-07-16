@@ -16,6 +16,7 @@
 
 @implementation BondResultViewController
 @synthesize bond;
+@synthesize table;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +33,7 @@
         bond = [[Bond alloc] init];
     [bond calculate];
     NSLog(@"calc running");
+    self.table.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,5 +51,67 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Table view data source
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    UILabel *titleLabel = (UILabel *)[cell viewWithTag:4];
+    UILabel *res1 = (UILabel *)[cell viewWithTag:1];
+    UILabel *res2 = (UILabel *)[cell viewWithTag:2];
+    UILabel *res3 = (UILabel *)[cell viewWithTag:3];
+    
+    [titleLabel setText:@""];
+    [res1 setText:@""];
+    [res2 setText:@""];
+    [res3 setText:@""];
+    
+    switch (indexPath.row) {
+        case 0:
+            [titleLabel setText:@"Net present value"];
+            
+            break;
+        case 1:
+            [titleLabel setText:@"Clean price"];
+            [res1 setText:[bond.zeroCouponBondCleanPrice stringValue]];
+            break;
+        case 2:
+            [titleLabel setText:@"Dirty price"];
+            break;
+        case 3:
+            [titleLabel setText:@"Accrued coupon"];
+            break;
+        case 4:
+            [titleLabel setText:@"Previous coupon"];
+            break;
+        case 5:
+            [titleLabel setText:@"Next coupon"];
+            break;
+        case 6:
+            [titleLabel setText:@"Yield"];
+            break;
+            
+        default:
+            break;
+    }
+    
+//    NSString *value = [values objectAtIndex:indexPath.row];
+
+//    NSString *value = @"tbf";
+//    cell.textLabel.text = value;
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 7;
+}
 
 @end

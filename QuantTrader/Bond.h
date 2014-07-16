@@ -19,13 +19,13 @@
     
     // dirty price
     double zeroCoupongBondDirtyPrice;
-    double fixedRateBondDirtyPrice;
-    double floatingRateBondDirtyPrice;
+//    double fixedRateBondDirtyPrice;
+//    double floatingRateBondDirtyPrice;
     
     // Accured amount
-    double zeroCouponBondAccruedAmount;
-    double fixedRateBondAccruedAmount;
-    double floatingRateBondAccruedAmount;
+//    double zeroCouponBondAccruedAmount;
+//    double fixedRateBondAccruedAmount;
+//    double floatingRateBondAccruedAmount;
     
     // Previous Coupon
     double fixedrateBondPreviousCouponRate;
@@ -96,22 +96,22 @@
 
 
 // dirty price
-@property (nonatomic) double zeroCoupongBondDirtyPrice;
-@property (nonatomic) double fixedRateBondDirtyPrice;
-@property (nonatomic) double floatingRateBondDirtyPrice;
+//@property (nonatomic) double zeroCoupongBondDirtyPrice;
+//@property (nonatomic) double fixedRateBondDirtyPrice;
+//@property (nonatomic) double floatingRateBondDirtyPrice;
 
 // Accured amount
-@property (nonatomic) double zeroCouponBondAccruedAmount;
-@property (nonatomic) double fixedRateBondAccruedAmount;
-@property (nonatomic) double floatingRateBondAccruedAmount;
+//@property (nonatomic) double zeroCouponBondAccruedAmount;
+//@property (nonatomic) double fixedRateBondAccruedAmount;
+//@property (nonatomic) double floatingRateBondAccruedAmount;
 
 // Previous Coupon
-@property (nonatomic) double fixedrateBondPreviousCouponRate;
-@property (nonatomic) double floatingRateBontPreviousCouponRate;
+//@property (nonatomic) double fixedrateBondPreviousCouponRate;
+//@property (nonatomic) double floatingRateBontPreviousCouponRate;
 
 // Next Coupon
-@property (nonatomic) double fixedRateBondNextCouponRate;
-@property (nonatomic) double floatingRateBoneNextCouponRate;
+//@property (nonatomic) double fixedRateBondNextCouponRate;
+//@property (nonatomic) double floatingRateBoneNextCouponRate;
 
 // Yield
 @property (nonatomic) double zeroCouponBondYieldActual360CompoundedAnnual;
@@ -129,7 +129,7 @@
 @property ( nonatomic) float zeroCoupon1yQuote;
 
 
-@property (nonatomic) double redemp;
+@property (nonatomic, strong) NSNumber *redemp;
 
 @property (nonatomic) int numBonds;
 
@@ -151,6 +151,42 @@
 
 @property (strong, nonatomic) NSDate * floatingBondScheduleDate_1;
 @property (strong, nonatomic) NSDate * floatingBondScheduleDate_2;
+
+// Net present value
+@property (strong, nonatomic) NSNumber *zeroCouponBondNPV;
+@property (strong, nonatomic) NSNumber *fixedRateBondNPV;
+@property (strong, nonatomic) NSNumber *floatingRateBondNPV;
+
+// Clean price
+@property (strong, nonatomic) NSNumber *zeroCouponBondCleanPrice;
+@property (strong, nonatomic) NSNumber *fixedRateBondCleanPrice;
+@property (strong, nonatomic) NSNumber *floatingRateBondCleanPrice;
+
+// Dirty price
+@property (strong, nonatomic) NSNumber *zeroCouponBondDirtyPrice;
+@property (strong, nonatomic) NSNumber *fixedRateBondDirtyPrice;
+@property (strong, nonatomic) NSNumber *floatingRateBondDirtyPrice;
+
+// Accruced coupon
+@property (strong, nonatomic) NSNumber *zeroCouponBondAccruedAmount;
+@property (strong, nonatomic) NSNumber *flxedRateBondAccruedAmount;
+@property (strong, nonatomic) NSNumber *floatingRateBondAccruedAmount;
+
+// Previous coupon
+@property (strong, nonatomic) NSNumber *zeroCouponBondPreviousCoupon;
+@property (strong, nonatomic) NSNumber *fixedRateBondPreviousCoupon;
+@property (strong, nonatomic) NSNumber *floatingRateBondPreviousCoupon;
+
+// Next coupon
+@property (strong, nonatomic) NSNumber *zeroCouponBondNextCoupon;
+@property (strong, nonatomic) NSNumber *fixedRateBondNextCoupon;
+@property (strong, nonatomic) NSNumber *floatingRateBondNextCoupon;
+
+// Yield
+@property (strong, nonatomic) NSNumber *zeroCouponBondYield;
+@property (strong, nonatomic) NSNumber *fixedRateBondYield;
+@property (strong, nonatomic) NSNumber *floatingRateBondYield;
+
 
 -(void) calculate;
 

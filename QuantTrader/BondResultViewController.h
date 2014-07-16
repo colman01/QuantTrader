@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Bond.h"
 
-@interface BondResultViewController : UIViewController
+@interface BondResultViewController : UIViewController<UITableViewDelegate>
 
 @property (strong, nonatomic) Bond *bond;
+
+@property (strong, nonatomic) IBOutlet UITableView *table;
 
 @end
