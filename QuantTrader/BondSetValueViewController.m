@@ -14,6 +14,8 @@
 
 @implementation BondSetValueViewController
 
+@synthesize value, valueField;
+
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,6 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [valueField setText:value];
+    valueField.delegate = self;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

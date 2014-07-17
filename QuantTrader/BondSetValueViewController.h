@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BondSetValueViewController : UIViewController
+@interface BondSetValueViewController : UIViewController <UITextFieldDelegate>
+
+
+@property (strong, nonatomic) IBOutlet UITextField *valueField;
+
+@property (strong, nonatomic) NSString *value;
 
 @end

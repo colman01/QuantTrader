@@ -1313,8 +1313,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         
         
         
-        
-        
         std::string separator = " | ";
         QuantLib::Size width = widths[0]
         + widths[1]

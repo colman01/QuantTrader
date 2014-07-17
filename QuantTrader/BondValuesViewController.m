@@ -7,6 +7,7 @@
 //
 
 #import "BondValuesViewController.h"
+#import "BondSetValueViewController.h"
 
 @interface BondValuesViewController ()
 
@@ -34,16 +35,24 @@
     [super didReceiveMemoryWarning];
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    UITableViewCell *cell = (UITableViewCell *) sender;
+    
+    BondSetValueViewController  * dest = [segue destinationViewController];
+    dest.value = cell.textLabel.text;
+    
+    
+
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
 }
-*/
+
 
 #pragma mark - Table view data source
 
@@ -64,4 +73,5 @@
 {
     return values.count;
 }
-@end
+
+    @end
