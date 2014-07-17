@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="cUi-kZ-frf">
             <objects>
-                <navigationController id="rS3-R9-Ivy" sceneMemberID="viewController">
+                <navigationController id="rS3-R9-Ivy" customClass="NavigationViewController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yXu-0R-QUA">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1114,19 +1114,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set new value:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8N-NX-bAi">
-                                <rect key="frame" x="0.0" y="111" width="198" height="30"/>
+                                <rect key="frame" x="20" y="81" width="198" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="I7C-AB-vv8"/>
+                                    <constraint firstAttribute="height" constant="30" id="alf-oZ-rax"/>
+                                    <constraint firstAttribute="width" constant="198" id="mqa-Et-nH7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eqD-UM-FNG">
-                                <rect key="frame" x="223" y="111" width="97" height="30"/>
+                                <rect key="frame" x="20" y="119" width="280" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="O12-tp-ZvI"/>
-                                    <constraint firstAttribute="height" constant="30" id="sQe-Sb-bVA"/>
+                                    <constraint firstAttribute="height" constant="30" id="4Js-MP-DPT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1134,17 +1134,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="o8N-NX-bAi" firstAttribute="leading" secondItem="fzx-O2-cwS" secondAttribute="leading" id="CUG-T7-gZV"/>
-                            <constraint firstItem="o8N-NX-bAi" firstAttribute="top" secondItem="fdj-17-kDm" secondAttribute="bottom" constant="47" id="Of3-Eg-Q1B"/>
-                            <constraint firstItem="eqD-UM-FNG" firstAttribute="top" secondItem="fdj-17-kDm" secondAttribute="bottom" constant="47" id="mlw-Iw-j8c"/>
-                            <constraint firstItem="eqD-UM-FNG" firstAttribute="leading" secondItem="o8N-NX-bAi" secondAttribute="trailing" constant="25" id="ub9-jC-KsP"/>
-                            <constraint firstAttribute="trailing" secondItem="eqD-UM-FNG" secondAttribute="trailing" id="vns-tN-AvE"/>
+                            <constraint firstItem="eqD-UM-FNG" firstAttribute="top" secondItem="o8N-NX-bAi" secondAttribute="bottom" constant="8" id="BJY-Nx-7cj"/>
+                            <constraint firstItem="o8N-NX-bAi" firstAttribute="leading" secondItem="fzx-O2-cwS" secondAttribute="leading" constant="20" id="HNc-V7-b1q"/>
+                            <constraint firstItem="eqD-UM-FNG" firstAttribute="leading" secondItem="fzx-O2-cwS" secondAttribute="leading" constant="20" id="JlF-es-hMV"/>
+                            <constraint firstItem="o8N-NX-bAi" firstAttribute="top" secondItem="fdj-17-kDm" secondAttribute="bottom" constant="17" id="gd7-pn-jhv"/>
+                            <constraint firstAttribute="trailing" secondItem="eqD-UM-FNG" secondAttribute="trailing" constant="20" id="kBh-rI-DBt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8Vc-Qf-zqm">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="myh-Td-eIx"/>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="valueField" destination="eqD-UM-FNG" id="Xu3-ex-C98"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxu-hu-u8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

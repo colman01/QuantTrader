@@ -34,6 +34,7 @@
 		C0CE8C45194F4C30009BAD80 /* BondResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE8C44194F4C30009BAD80 /* BondResultViewController.m */; };
 		C0CE8C4A194F4F9B009BAD80 /* PreviousResultsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE8C49194F4F9B009BAD80 /* PreviousResultsTableViewController.m */; };
 		C0CE8C4D194F5A1E009BAD80 /* BondSetValueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CE8C4C194F5A1E009BAD80 /* BondSetValueViewController.m */; };
+		C0F502991978271700E8D448 /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F502981978271700E8D448 /* NavigationViewController.m */; };
 		C0F9B6E71966D00B00DAC4E8 /* BondImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F9B6E61966D00B00DAC4E8 /* BondImportViewController.m */; };
 		F32A9B911934BCF700BDE337 /* ql.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32A9B901934BCF600BDE337 /* ql.framework */; };
 		F32A9B941934BEA900BDE337 /* CheckQl.mm in Sources */ = {isa = PBXBuildFile; fileRef = F32A9B931934BEA900BDE337 /* CheckQl.mm */; };
@@ -109,6 +110,8 @@
 		C0CE8C49194F4F9B009BAD80 /* PreviousResultsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviousResultsTableViewController.m; sourceTree = "<group>"; };
 		C0CE8C4B194F5A1E009BAD80 /* BondSetValueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BondSetValueViewController.h; sourceTree = "<group>"; };
 		C0CE8C4C194F5A1E009BAD80 /* BondSetValueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BondSetValueViewController.m; sourceTree = "<group>"; };
+		C0F502971978271700E8D448 /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		C0F502981978271700E8D448 /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		C0F9B6E51966D00B00DAC4E8 /* BondImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BondImportViewController.h; sourceTree = "<group>"; };
 		C0F9B6E61966D00B00DAC4E8 /* BondImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BondImportViewController.m; sourceTree = "<group>"; };
 		F32A9B901934BCF600BDE337 /* ql.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ql.framework; path = ../framework/ql.framework; sourceTree = "<group>"; };
@@ -217,6 +220,7 @@
 		339F43DC1934BBC9000F6923 /* QuantTrader */ = {
 			isa = PBXGroup;
 			children = (
+				C0F50296197826E800E8D448 /* Navigaiton Con */,
 				F37DB309193753DD00F91F66 /* CPP Container */,
 				F37DB3081937438E00F91F66 /* Example ViewCons */,
 				F37DB3071937434700F91F66 /* Nibs */,
@@ -293,6 +297,15 @@
 				F38033A1193B5CB800B6DA1E /* MarketModelParameterViewController.m */,
 			);
 			name = "Market Model";
+			sourceTree = "<group>";
+		};
+		C0F50296197826E800E8D448 /* Navigaiton Con */ = {
+			isa = PBXGroup;
+			children = (
+				C0F502971978271700E8D448 /* NavigationViewController.h */,
+				C0F502981978271700E8D448 /* NavigationViewController.m */,
+			);
+			name = "Navigaiton Con";
 			sourceTree = "<group>";
 		};
 		F32A9B951934BF5500BDE337 /* Examples */ = {
@@ -553,6 +566,7 @@
 				F32A9BB31934BF6400BDE337 /* BermudanSwaption.mm in Sources */,
 				F32A9BBC1934BFB800BDE337 /* Date.m in Sources */,
 				339F43F61934BBC9000F6923 /* DetailViewController.m in Sources */,
+				C0F502991978271700E8D448 /* NavigationViewController.m in Sources */,
 				F32A9B941934BEA900BDE337 /* CheckQl.mm in Sources */,
 				F38033A2193B5CB800B6DA1E /* MarketModelParameterViewController.m in Sources */,
 				C0F9B6E71966D00B00DAC4E8 /* BondImportViewController.m in Sources */,
