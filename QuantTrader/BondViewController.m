@@ -66,7 +66,7 @@
 #pragma mark Bond calculate
 
 - (IBAction)calculate:(id)sender{
-    [self.bond calculate];
+//    [self.bond calculate];
 }
 
 - (void)didReceiveMemoryWarning

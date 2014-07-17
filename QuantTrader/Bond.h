@@ -28,8 +28,8 @@
 //    double floatingRateBondAccruedAmount;
     
     // Previous Coupon
-    double fixedrateBondPreviousCouponRate;
-    double floatingRateBontPreviousCouponRate;
+//    double fixedrateBondPreviousCouponRate;
+//    double floatingRateBontPreviousCouponRate;
     
     // Next Coupon
     double fixedRateBondNextCouponRate;
@@ -169,7 +169,7 @@
 
 // Accruced coupon
 @property (strong, nonatomic) NSNumber *zeroCouponBondAccruedAmount;
-@property (strong, nonatomic) NSNumber *flxedRateBondAccruedAmount;
+@property (strong, nonatomic) NSNumber *fixedRateBondAccruedAmount;
 @property (strong, nonatomic) NSNumber *floatingRateBondAccruedAmount;
 
 // Previous coupon
@@ -186,6 +186,8 @@
 @property (strong, nonatomic) NSNumber *zeroCouponBondYield;
 @property (strong, nonatomic) NSNumber *fixedRateBondYield;
 @property (strong, nonatomic) NSNumber *floatingRateBondYield;
+
+
 
 
 -(void) calculate;

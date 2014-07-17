@@ -71,6 +71,10 @@
     switch (indexPath.row) {
         case 0:
             [titleLabel setText:@"Net present value"];
+            [res1 setText:[NSString stringWithFormat:@"%.2f", [bond.zeroCouponBondNPV floatValue]]];
+            [res2 setText:[NSString stringWithFormat:@"%.2f", [bond.fixedRateBondNPV floatValue]]];
+            [res3 setText:[NSString stringWithFormat:@"%.2f", [bond.floatingRateBondNPV floatValue]]];
+            
             
             break;
         case 1:
@@ -90,7 +94,7 @@
             [titleLabel setText:@"Accrued coupon"];
             
             [res1 setText:[NSString stringWithFormat:@"%.2f", [bond.zeroCouponBondAccruedAmount floatValue]]];
-            [res2 setText:[NSString stringWithFormat:@"%.2f", [bond.flxedRateBondAccruedAmount floatValue]]];
+            [res2 setText:[NSString stringWithFormat:@"%.2f", [bond.fixedRateBondAccruedAmount floatValue]]];
             [res3 setText:[NSString stringWithFormat:@"%.2f", [bond.floatingRateBondAccruedAmount floatValue]]];
             break;
         case 4:
@@ -103,19 +107,21 @@
             break;
         case 5:
             [titleLabel setText:@"Next coupon"];
+            [res1 setText:[NSString stringWithFormat:@"%.2f", [bond.zeroCouponBondNextCoupon floatValue]]];
+            [res2 setText:[NSString stringWithFormat:@"%.2f", [bond.fixedRateBondNextCoupon floatValue]]];
+            [res3 setText:[NSString stringWithFormat:@"%.2f", [bond.floatingRateBondNextCoupon floatValue]]];
             break;
         case 6:
             [titleLabel setText:@"Yield"];
+            
+            [res1 setText:[NSString stringWithFormat:@"%.2f", [bond.zeroCouponBondYield floatValue]]];
+            [res2 setText:[NSString stringWithFormat:@"%.2f", [bond.fixedRateBondYield floatValue]]];
+            [res3 setText:[NSString stringWithFormat:@"%.2f", [bond.floatingRateBondYield floatValue]]];
             break;
             
         default:
             break;
     }
-    
-//    NSString *value = [values objectAtIndex:indexPath.row];
-
-//    NSString *value = @"tbf";
-//    cell.textLabel.text = value;
     return cell;
 }
 

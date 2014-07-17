@@ -28,8 +28,8 @@ zeroCouponBondAccruedAmount,
 //floatingRateBondAccruedAmount,
 //fixedrateBondPreviousCouponRate,
 //floatingRateBontPreviousCouponRate,
-//fixedRateBondNextCouponRate,
-//floatingRateBoneNextCouponRate,
+fixedRateBondNextCoupon,
+floatingRateBondNextCoupon,
 zeroCouponBondYieldActual360CompoundedAnnual,
 fixedRateBondYieldActual360CompoundedAnnual,
 floatingRateBondYieldActual360CompoundedAnnual,
@@ -1279,6 +1279,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         // write column headings
         QuantLib::Size widths[] = { 18, 10, 10, 10 };
 
+        
 
         self.zeroCouponBondNPV = [[NSNumber alloc] initWithDouble:zeroCouponBond.NPV()];
         self.fixedRateBondNPV =[[NSNumber alloc] initWithDouble:fixedRateBond.NPV()];
@@ -1294,8 +1295,23 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         
         
         self.zeroCouponBondAccruedAmount = [[NSNumber alloc] initWithDouble:zeroCouponBond.accruedAmount()];
-        self.fixedRateBondDirtyPrice =[[NSNumber alloc] initWithDouble:fixedRateBond.accruedAmount()];
+        self.fixedRateBondAccruedAmount =[[NSNumber alloc] initWithDouble:fixedRateBond.accruedAmount()];
         self.floatingRateBondAccruedAmount = [[NSNumber alloc] initWithDouble:floatingRateBond.accruedAmount()];
+        
+//        self.zeroCouponBondPreviousCoupon = [[NSNumber alloc] initWithDouble:zeroCouponBond.accruedAmount()];
+        self.fixedRateBondPreviousCoupon =[[NSNumber alloc] initWithDouble:fixedRateBond.previousCouponRate()];
+        self.floatingRateBondPreviousCoupon = [[NSNumber alloc] initWithDouble:floatingRateBond.previousCouponRate()];
+        
+        
+        self.fixedRateBondNextCoupon =[[NSNumber alloc] initWithDouble:fixedRateBond.nextCouponRate()];
+        self.floatingRateBondNextCoupon = [[NSNumber alloc] initWithDouble:floatingRateBond.nextCouponRate()];
+        
+        self.zeroCouponBondYield = [[NSNumber alloc] initWithDouble:zeroCouponBond.yield(Actual360(),Compounded,Annual)];
+        self.fixedRateBondYield = [[NSNumber alloc] initWithDouble:fixedRateBond.yield(Actual360(),Compounded,Annual)];
+        self.floatingRateBondYield = [[NSNumber alloc] initWithDouble:floatingRateBond.yield(Actual360(),Compounded,Annual)];
+        
+        
+        
         
         
         
@@ -1343,7 +1359,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         << std::endl;
         
         std::cout << std::setw(widths[0]) << "Next coupon"
-        << std::setw(widths[1]) << "N/A" // zeroCouponBond@property (strong, nonatomic) NSNumber *zeroCouponBondNPV;
+        << std::setw(widths[1]) << "N/A" // zeroCouponBond
         << std::setw(widths[2]) << io::rate(fixedRateBond.nextCouponRate())
         << std::setw(widths[3]) << io::rate(floatingRateBond.nextCouponRate())
         << std::endl;
