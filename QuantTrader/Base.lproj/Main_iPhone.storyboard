@@ -994,7 +994,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kJu-DB-V4x">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="kJu-DB-V4x">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1054,6 +1054,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kJu-DB-V4x" firstAttribute="leading" secondItem="LMz-iw-ldY" secondAttribute="leading" id="Edt-t4-5iA"/>
+                            <constraint firstItem="kJu-DB-V4x" firstAttribute="top" secondItem="LMz-iw-ldY" secondAttribute="top" id="Vu3-uS-HMT"/>
+                            <constraint firstItem="Kqa-iH-Nuw" firstAttribute="top" secondItem="kJu-DB-V4x" secondAttribute="bottom" id="jp1-jJ-HL3"/>
+                            <constraint firstAttribute="trailing" secondItem="kJu-DB-V4x" secondAttribute="trailing" id="pen-u5-adE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fAX-5f-kAl"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
