@@ -55,7 +55,7 @@ static PersistManager *instance = NULL;
 		return persistentStoreCoordinator;
 	}
 	NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
-											   stringByAppendingPathComponent: @"Quiz.sqlite"]];
+											   stringByAppendingPathComponent: @"QuantTrader.sqlite"]];
 	NSError *error;
 	
 	persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]

@@ -883,8 +883,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nbI-JO-xAp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nbI-JO-xAp">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="428"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="mkk-lz-nDf">
@@ -903,8 +903,12 @@
                                     <outlet property="delegate" destination="Ahc-IV-u3g" id="Fa6-Zz-IZO"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrI-yg-vN6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrI-yg-vN6">
                                 <rect key="frame" x="0.0" y="436" width="97" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="7XH-w3-W5O"/>
+                                    <constraint firstAttribute="height" constant="44" id="nLN-xo-yH5"/>
+                                </constraints>
                                 <state key="normal" title="Calculate">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -912,8 +916,12 @@
                                     <segue destination="sh4-BA-Ex8" kind="push" identifier="ResultBond" id="9bG-7s-GCB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UC2-vE-mVg">
-                                <rect key="frame" x="221" y="436" width="97" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UC2-vE-mVg">
+                                <rect key="frame" x="220" y="443" width="94" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="ATn-HF-tIK"/>
+                                    <constraint firstAttribute="height" constant="30" id="a9Z-yT-mFr"/>
+                                </constraints>
                                 <state key="normal" title="Show Results">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -921,17 +929,18 @@
                                     <segue destination="1RQ-fc-sxD" kind="push" id="T1q-Pu-vBC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zA0-kq-rfL">
-                                <rect key="frame" x="142" y="443" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="calculate:" destination="Ahc-IV-u3g" eventType="touchUpInside" id="2zJ-eZ-Cz4"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mrI-yg-vN6" firstAttribute="leading" secondItem="khy-T9-oZd" secondAttribute="leading" id="6sd-pE-Xib"/>
+                            <constraint firstItem="sYf-L3-ctv" firstAttribute="top" secondItem="UC2-vE-mVg" secondAttribute="bottom" constant="7" id="DzL-g6-WVx"/>
+                            <constraint firstAttribute="trailing" secondItem="UC2-vE-mVg" secondAttribute="trailing" constant="6" id="IbB-dC-QGC"/>
+                            <constraint firstAttribute="trailing" secondItem="nbI-JO-xAp" secondAttribute="trailing" id="PL3-8q-Kuj"/>
+                            <constraint firstItem="sYf-L3-ctv" firstAttribute="top" secondItem="mrI-yg-vN6" secondAttribute="bottom" id="f5f-Hb-7uK"/>
+                            <constraint firstItem="mrI-yg-vN6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nbI-JO-xAp" secondAttribute="bottom" constant="14" id="ff5-kD-WD1"/>
+                            <constraint firstItem="nbI-JO-xAp" firstAttribute="leading" secondItem="khy-T9-oZd" secondAttribute="leading" id="jbh-n6-RN5"/>
+                            <constraint firstItem="nbI-JO-xAp" firstAttribute="top" secondItem="khy-T9-oZd" secondAttribute="top" id="qJh-Fe-6hG"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gJy-2f-ohp"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -1068,9 +1077,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1YF-2s-7si">
-                                <rect key="frame" x="-5" y="0.0" width="320" height="480"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1YF-2s-7si">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="480" id="09J-r9-EMV"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="aIP-T2-uBG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="480" id="ojI-8l-ySd"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="hOU-Gv-KQr">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1090,6 +1104,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1YF-2s-7si" firstAttribute="leading" secondItem="M3n-tB-Vox" secondAttribute="leading" id="1wC-Hx-FRX"/>
+                            <constraint firstItem="1YF-2s-7si" firstAttribute="top" secondItem="M3n-tB-Vox" secondAttribute="top" id="gFJ-fe-ZJN"/>
+                            <constraint firstAttribute="trailing" secondItem="1YF-2s-7si" secondAttribute="trailing" id="msF-J6-hVg"/>
+                            <constraint firstItem="0a6-CG-Bhd" firstAttribute="top" secondItem="1YF-2s-7si" secondAttribute="bottom" id="ovY-eS-yhe"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="95D-iC-pY3"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -1187,6 +1207,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kPo-h5-7Nt"/>
+        <segue reference="9bG-7s-GCB"/>
     </inferredMetricsTieBreakers>
 </document>

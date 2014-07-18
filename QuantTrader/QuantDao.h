@@ -14,4 +14,11 @@
 
 @property (strong, nonatomic) DmBond *bond;
 
+
++ (QuantDao *) instance;
+- (NSMutableArray*) getQuiz;
+- (DmBond *) loadById:(NSNumber *) id;
+- (void)remove:(DmBond *)bond;
+
+
 @end
