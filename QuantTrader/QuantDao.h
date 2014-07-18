@@ -16,7 +16,7 @@
 
 
 + (QuantDao *) instance;
-- (NSMutableArray*) getQuiz;
+- (NSMutableArray*) getBond;
 - (DmBond *) loadById:(NSNumber *) id;
 - (void)remove:(DmBond *)bond;
 

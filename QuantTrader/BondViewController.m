@@ -35,6 +35,30 @@
     self.table.delegate = self;
     [self initBond];
     
+    DmBond *bondParameters;
+    
+    NSMutableArray *results = [[QuantDao instance] getBond];
+    
+
+    // To clear the local store
+    //    results = nil;
+    //    [[PersistManager instance] save ];
+    //    exit(0);
+    //    for (int i=0; i< results.count; i++) {
+    //        DmBond *bond_ = results[i];
+    //        [[QuantDao instance] remove:user];
+    //    }
+    //    [[PersistManager instance] save];
+    //    exit(0);
+    
+    @try {
+        bondParameters = results[0];
+    }
+    @catch (NSException *exception) {
+        ;
+        bondParameters = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
+    }
+    
     
 }
 
@@ -46,20 +70,6 @@
 - (void) initBond {
     self.bond = [[Bond alloc] init];
     [bond setupParameters];
-
-
-
-//    -(void) setFixingDays:(int)numberOfDays;
-//    -(void) setSettlementDays:(int)numberOfDays;
-//    -(void) setRedemption:(double)redemption;
-//    -(void) setBondNumber:(int)bondNumber;
-//    -(void) setFaceAmount:(float)amount;
-//    -(void) setZeroCouponDate:(NSDate *) first:(NSDate *)second;
-//    -(void) setFixedBondDate:(NSDate *) first:(NSDate *)second;
-//    -(void) setFixedRateBondDate:(NSDate *)first;
-//    
-//    -(void) setFloatBondSchedule:(NSDate *) first:(NSDate *)second;
-//    -(void) setFloatingBondRate:(NSDate *)first;
     
 }
 

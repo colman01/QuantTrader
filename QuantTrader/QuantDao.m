@@ -78,16 +78,18 @@ static QuantDao *instance = NULL;
         if (result.count > 0)
             return  result[0];
         
-        DmBond * bond    = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
-        return bond;
+        DmBond * bond_    = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
+        return bond_;
     }
     @catch (NSException *exception) {
-        DmBond * bond    = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
-        return bond;
+        DmBond * bond_    = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
+        return bond_;
     }
     
     
 }
+
+
 
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Bond.h"
+#import "QuantDao.h"
 
 @interface BondViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
