@@ -51,12 +51,23 @@
     //    [[PersistManager instance] save];
     //    exit(0);
     
+
+//    for (int i=0; i< results.count; i++) {
+//        DmBond *bond_ = results[i];
+//        [[QuantDao instance] remove:bond_];
+//    }
+//    [[PersistManager instance] save];
+//    exit(0);
+    
     @try {
         bondParameters = results[0];
     }
     @catch (NSException *exception) {
-        ;
         bondParameters = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
+        bondParameters.fixingDays = [[NSNumber alloc ] initWithDouble:100]  ;
+
+        NSLog(@"got a bond?");
+        [[PersistManager instance] save];
     }
     
     
