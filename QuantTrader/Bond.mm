@@ -102,6 +102,51 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
     [[PersistManager instance] save];
     
     
+//    DmBond * bond_    = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
+    DmIssueDates *dmIssueDates = [NSEntityDescription insertNewObjectForEntityForName:@"IssueDates" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
+    
+//    dmIssueDates.date = [[NSDate dateW]
+    
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"dd/mmm/yyyy"];
+    
+    NSString *str =@"15/03/2005";
+    dmIssueDates.date = [formatter dateFromString:str];
+    [bondParameters addIssueDatesObject:dmIssueDates];
+    
+    str =@"15/06/2005";
+    dmIssueDates.date = [formatter dateFromString:str];
+    [bondParameters addIssueDatesObject:dmIssueDates];
+    
+    str =@"30/06/2006";
+    dmIssueDates.date = [formatter dateFromString:str];
+    [bondParameters addIssueDatesObject:dmIssueDates];
+    
+    str =@"15/11/2006";
+    dmIssueDates.date = [formatter dateFromString:str];
+    [bondParameters addIssueDatesObject:dmIssueDates];
+    
+    str =@"15/05/1987";
+    dmIssueDates.date = [formatter dateFromString:str];
+    [bondParameters addIssueDatesObject:dmIssueDates];
+    
+    [[PersistManager instance] save];
+    
+    
+    
+  
+//  15, QuantLib::March, 2005
+//  15, QuantLib::June, 2005
+//  30, QuantLib::June, 2006)
+//  15, QuantLib::November, 2002
+//  15, QuantLib::May, 1987
+  
+  
+    
+
+    
+//    - (void)addIssueDatesOject:(DmIssueDates *)value;
     
     self.zeroCoupon3mQuote=0.0096;
     self.zeroCoupon6mQuote=0.0145;

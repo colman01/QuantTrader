@@ -23,7 +23,7 @@
 @property (nonatomic, retain) NSNumber * previousCoupon;
 @property (nonatomic, retain) NSNumber * redemption;
 @property (nonatomic, retain) NSNumber * yield;
-@property (nonatomic, retain) NSNumber * zeroCouponQuote;
+@property (nonatomic, retain) NSData * zeroCouponQuote;
 @property (nonatomic, retain) NSNumber * zeroDateCoupon;
 @property (nonatomic, retain) NSSet *accruedAmountLink;
 @property (nonatomic, retain) NSSet *couponRates;
@@ -84,8 +84,8 @@
 - (void)addSwapQuotes:(NSSet *)values;
 - (void)removeSwapQuotes:(NSSet *)values;
 
-- (void)addZeroCouponQuoteAsNumber:(NSNumber *)value;
 - (void)addZeroCouponQuotesObject:(DmZeroCouponQuotes *)value;
+- (void)addZeroCouponQuoteAsNumber:(NSNumber *)value;
 - (void)removeZeroCouponQuotesObject:(DmZeroCouponQuotes *)value;
 - (void)addZeroCouponQuotes:(NSSet *)values;
 - (void)removeZeroCouponQuotes:(NSSet *)values;

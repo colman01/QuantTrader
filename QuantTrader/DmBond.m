@@ -47,16 +47,20 @@
 
 - (void)addZeroCouponQuoteAsNumber:(NSNumber *)value{
     
-    NSArray *quotes = [self.zeroCouponQuotes allObjects];
-    NSMutableArray *quotes_ = [[NSMutableArray alloc] initWithArray:quotes];
+    NSMutableArray *quotes_;
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.zeroCouponQuote];
     [quotes_ addObject:value];
-    self.zeroCouponQuotes = [[NSSet alloc] initWithArray:[[NSArray alloc] initWithArray:quotes_]];
-    if (!self.zeroCouponQuotes) {
-        self.zeroCouponQuotes = [NSEntityDescription insertNewObjectForEntityForName:@"ZeroCouponQuotes" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
+    
+    NSSet *set = [[NSSet alloc] initWithArray:quotes_];
+    if (!self.zeroCouponQuote) {
+        self.zeroCouponQuote = [NSEntityDescription insertNewObjectForEntityForName:@"ZeroCouponQuote" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
     }
-    self.zeroCouponQuotes = [NSSet setWithArray:quotes_];
- 
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:quotes_];
+    self.zeroCouponQuote = arrayData;
+    
+    [[PersistManager instance] save];
+    
+    
 }
-
 
 @end
