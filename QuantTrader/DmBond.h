@@ -2,14 +2,15 @@
 //  DmBond.h
 //  QuantTrader
 //
-//  Created by colman on 18/07/14.
+//  Created by colman on 19/07/14.
 //  Copyright (c) 2014 Colman Marcus-Quinn. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "PersistManager.h"
 
-@class DmFixedBondScheduleRateAndDate, DmAccruedAmount, DmCouponRates, DmFloatingBondScheduleRateAndDate, DmIssueDates, DmLiborForcastingCurveQutotes, DmMarketQuotes, DmMaturityDates, DmSwapQuotes;
+@class DmAccruedAmount, DmCouponRates, DmFixedBondScheduleRateAndDate, DmFloatingBondScheduleRateAndDate, DmIssueDates, DmLiborForcastingCurveQutotes, DmMarketQuotes, DmMaturityDates, DmSwapQuotes, DmZeroCouponQuotes;
 
 @interface DmBond : NSManagedObject
 
@@ -25,14 +26,15 @@
 @property (nonatomic, retain) NSNumber * zeroCouponQuote;
 @property (nonatomic, retain) NSNumber * zeroDateCoupon;
 @property (nonatomic, retain) NSSet *accruedAmountLink;
+@property (nonatomic, retain) NSSet *couponRates;
 @property (nonatomic, retain) NSSet *fixedBondScheduleRateAndDate;
 @property (nonatomic, retain) NSSet *floatingBondScheduleRateAndDate;
+@property (nonatomic, retain) NSSet *issueDates;
 @property (nonatomic, retain) NSSet *liborForcastingCurveQuotes;
 @property (nonatomic, retain) NSSet *marketQuotes;
 @property (nonatomic, retain) NSSet *maturityDates;
 @property (nonatomic, retain) NSSet *swapQuotes;
-@property (nonatomic, retain) NSSet *issueDates;
-@property (nonatomic, retain) NSSet *couponRates;
+@property (nonatomic, retain) NSSet *zeroCouponQuotes;
 @end
 
 @interface DmBond (CoreDataGeneratedAccessors)
@@ -41,6 +43,11 @@
 - (void)removeAccruedAmountLinkObject:(DmAccruedAmount *)value;
 - (void)addAccruedAmountLink:(NSSet *)values;
 - (void)removeAccruedAmountLink:(NSSet *)values;
+
+- (void)addCouponRatesObject:(DmCouponRates *)value;
+- (void)removeCouponRatesObject:(DmCouponRates *)value;
+- (void)addCouponRates:(NSSet *)values;
+- (void)removeCouponRates:(NSSet *)values;
 
 - (void)addFixedBondScheduleRateAndDateObject:(DmFixedBondScheduleRateAndDate *)value;
 - (void)removeFixedBondScheduleRateAndDateObject:(DmFixedBondScheduleRateAndDate *)value;
@@ -51,6 +58,11 @@
 - (void)removeFloatingBondScheduleRateAndDateObject:(DmFloatingBondScheduleRateAndDate *)value;
 - (void)addFloatingBondScheduleRateAndDate:(NSSet *)values;
 - (void)removeFloatingBondScheduleRateAndDate:(NSSet *)values;
+
+- (void)addIssueDatesObject:(DmIssueDates *)value;
+- (void)removeIssueDatesObject:(DmIssueDates *)value;
+- (void)addIssueDates:(NSSet *)values;
+- (void)removeIssueDates:(NSSet *)values;
 
 - (void)addLiborForcastingCurveQuotesObject:(DmLiborForcastingCurveQutotes *)value;
 - (void)removeLiborForcastingCurveQuotesObject:(DmLiborForcastingCurveQutotes *)value;
@@ -72,14 +84,10 @@
 - (void)addSwapQuotes:(NSSet *)values;
 - (void)removeSwapQuotes:(NSSet *)values;
 
-- (void)addIssueDatesObject:(DmIssueDates *)value;
-- (void)removeIssueDatesObject:(DmIssueDates *)value;
-- (void)addIssueDates:(NSSet *)values;
-- (void)removeIssueDates:(NSSet *)values;
-
-- (void)addCouponRatesObject:(DmCouponRates *)value;
-- (void)removeCouponRatesObject:(DmCouponRates *)value;
-- (void)addCouponRates:(NSSet *)values;
-- (void)removeCouponRates:(NSSet *)values;
+- (void)addZeroCouponQuoteAsNumber:(NSNumber *)value;
+- (void)addZeroCouponQuotesObject:(DmZeroCouponQuotes *)value;
+- (void)removeZeroCouponQuotesObject:(DmZeroCouponQuotes *)value;
+- (void)addZeroCouponQuotes:(NSSet *)values;
+- (void)removeZeroCouponQuotes:(NSSet *)values;
 
 @end

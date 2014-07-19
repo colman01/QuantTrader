@@ -82,6 +82,27 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
     
     
     
+    
+    DmBond *bondParameters;
+    
+    NSMutableArray *results = [[QuantDao instance] getBond];
+
+    @try {
+        bondParameters = results[0];
+    }
+    @catch (NSException *exception) {
+    }
+    
+    
+    
+//    [bondParameters addZeroCouponQuotes:<#(NSSet *)#>];
+    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0096]];
+    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0145]];
+    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0194]];
+    [[PersistManager instance] save];
+    
+    
+    
     self.zeroCoupon3mQuote=0.0096;
     self.zeroCoupon6mQuote=0.0145;
     self.zeroCoupon1yQuote=0.0194;

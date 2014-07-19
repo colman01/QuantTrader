@@ -24,6 +24,7 @@
         <relationship name="marketQuotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MarketQuotes" syncable="YES"/>
         <relationship name="maturityDates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MaturityDates" syncable="YES"/>
         <relationship name="swapQuotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SwapQuotes" syncable="YES"/>
+        <relationship name="zeroCouponQuotes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ZeroCouponQuotes" syncable="YES"/>
     </entity>
     <entity name="CouponRates" representedClassName="DmCouponRates" syncable="YES">
         <attribute name="rate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -51,16 +52,20 @@
     <entity name="SwapQuotes" representedClassName="DmSwapQuotes" syncable="YES">
         <attribute name="quote" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
+    <entity name="ZeroCouponQuotes" representedClassName="DmZeroCouponQuotes" syncable="YES">
+        <attribute name="quote" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
     <elements>
         <element name="AccruedAmount" positionX="522" positionY="54" width="128" height="58"/>
-        <element name="Bond" positionX="567" positionY="198" width="128" height="343"/>
+        <element name="Bond" positionX="567" positionY="198" width="128" height="358"/>
         <element name="CouponRates" positionX="421" positionY="180" width="128" height="58"/>
-        <element name="FixedBondScheduleRateAndDate" positionX="810" positionY="315" width="128" height="28"/>
+        <element name="FixedBondScheduleRateAndDate" positionX="810" positionY="315" width="128" height="73"/>
         <element name="FloatingBondScheduleRateAndDate" positionX="234" positionY="-18" width="128" height="73"/>
         <element name="IssueDates" positionX="979" positionY="405" width="128" height="58"/>
         <element name="LiborForcastingCurveQutotes" positionX="18" positionY="252" width="128" height="58"/>
         <element name="MarketQuotes" positionX="270" positionY="639" width="128" height="58"/>
-        <element name="MaturityDates" positionX="790" positionY="495" width="128" height="58"/>
+        <element name="MaturityDates" positionX="907" positionY="500" width="128" height="58"/>
         <element name="SwapQuotes" positionX="702" positionY="621" width="128" height="58"/>
+        <element name="ZeroCouponQuotes" positionX="988" positionY="603" width="128" height="58"/>
     </elements>
 </model>
