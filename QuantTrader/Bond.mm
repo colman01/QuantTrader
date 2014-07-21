@@ -93,60 +93,38 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
     @catch (NSException *exception) {
     }
     
+
+    //  15, QuantLib::March, 2005
+    //  15, QuantLib::June, 2005
+    //  30, QuantLib::June, 2006)
+    //  15, QuantLib::November, 2002
+    //  15, QuantLib::May, 1987
     
-    
-//    [bondParameters addZeroCouponQuotes:<#(NSSet *)#>];
     [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0096]];
     [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0145]];
     [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0194]];
-    [[PersistManager instance] save];
-    
-    
-//    DmBond * bond_    = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
-    DmIssueDates *dmIssueDates = [NSEntityDescription insertNewObjectForEntityForName:@"IssueDates" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
-    
-//    dmIssueDates.date = [[NSDate dateW]
-    
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"dd/mmm/yyyy"];
     
     NSString *str =@"15/03/2005";
-    dmIssueDates.date = [formatter dateFromString:str];
-    [bondParameters addIssueDatesObject:dmIssueDates];
+    [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
     
     str =@"15/06/2005";
-    dmIssueDates.date = [formatter dateFromString:str];
-    [bondParameters addIssueDatesObject:dmIssueDates];
-    
+    [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
+
+
     str =@"30/06/2006";
-    dmIssueDates.date = [formatter dateFromString:str];
-    [bondParameters addIssueDatesObject:dmIssueDates];
+    [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
     
     str =@"15/11/2006";
-    dmIssueDates.date = [formatter dateFromString:str];
-    [bondParameters addIssueDatesObject:dmIssueDates];
+    [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
     
     str =@"15/05/1987";
-    dmIssueDates.date = [formatter dateFromString:str];
-    [bondParameters addIssueDatesObject:dmIssueDates];
+    [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
     
     [[PersistManager instance] save];
     
-    
-    
-  
-//  15, QuantLib::March, 2005
-//  15, QuantLib::June, 2005
-//  30, QuantLib::June, 2006)
-//  15, QuantLib::November, 2002
-//  15, QuantLib::May, 1987
-  
-  
-    
-
-    
-//    - (void)addIssueDatesOject:(DmIssueDates *)value;
     
     self.zeroCoupon3mQuote=0.0096;
     self.zeroCoupon6mQuote=0.0145;
@@ -198,11 +176,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
 //    Rate d1yQuote=0.0335125;
 
     
-    
-
-    
-//    int size = sizeof(issueDates); // 20 issueDates showing in debug?
-//    for(int i =0; i<  sizeof(issueDates) - 1; i++) {
     for(int i =0; i<  5; i++) {
         QuantLib::Date &date = issueDates[i];
         std::stringstream stream;

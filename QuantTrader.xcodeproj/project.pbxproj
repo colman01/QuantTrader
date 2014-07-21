@@ -28,7 +28,7 @@
 		339F440C1934BBC9000F6923 /* QuantTraderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 339F440B1934BBC9000F6923 /* QuantTraderTests.m */; };
 		4C59C278E89D42B4AFDED473 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF9A07A6B8540DD970ACFEE /* libPods.a */; };
 		C0094DA5197A7220006AAB94 /* DmZeroCouponQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DA4197A7220006AAB94 /* DmZeroCouponQuotes.m */; };
-		C0094DA8197A9F88006AAB94 /* DmBond.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DA7197A9F88006AAB94 /* DmBond.m */; };
+		C0094DAB197D1BC2006AAB94 /* DmBond.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DAA197D1BC2006AAB94 /* DmBond.m */; };
 		C03CAACE19790DE900BFD8A8 /* DmMaturityDates.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CAACD19790DE900BFD8A8 /* DmMaturityDates.m */; };
 		C03CAAD119790DEA00BFD8A8 /* DmSwapQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CAAD019790DEA00BFD8A8 /* DmSwapQuotes.m */; };
 		C03CAAD419790DEA00BFD8A8 /* DmAccruedAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CAAD319790DEA00BFD8A8 /* DmAccruedAmount.m */; };
@@ -111,8 +111,8 @@
 		8844B9769D704D08BC6A5EE0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C0094DA3197A7220006AAB94 /* DmZeroCouponQuotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmZeroCouponQuotes.h; sourceTree = "<group>"; };
 		C0094DA4197A7220006AAB94 /* DmZeroCouponQuotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmZeroCouponQuotes.m; sourceTree = "<group>"; };
-		C0094DA6197A9F88006AAB94 /* DmBond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmBond.h; sourceTree = "<group>"; };
-		C0094DA7197A9F88006AAB94 /* DmBond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmBond.m; sourceTree = "<group>"; };
+		C0094DA9197D1BC2006AAB94 /* DmBond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmBond.h; sourceTree = "<group>"; };
+		C0094DAA197D1BC2006AAB94 /* DmBond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmBond.m; sourceTree = "<group>"; };
 		C03CAACC19790DE900BFD8A8 /* DmMaturityDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmMaturityDates.h; sourceTree = "<group>"; };
 		C03CAACD19790DE900BFD8A8 /* DmMaturityDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmMaturityDates.m; sourceTree = "<group>"; };
 		C03CAACF19790DEA00BFD8A8 /* DmSwapQuotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmSwapQuotes.h; sourceTree = "<group>"; };
@@ -432,12 +432,12 @@
 		F37DB300193741BA00F91F66 /* DM */ = {
 			isa = PBXGroup;
 			children = (
+				C0094DA9197D1BC2006AAB94 /* DmBond.h */,
+				C0094DAA197D1BC2006AAB94 /* DmBond.m */,
 				C0094DA3197A7220006AAB94 /* DmZeroCouponQuotes.h */,
 				C0094DA4197A7220006AAB94 /* DmZeroCouponQuotes.m */,
 				339F43F71934BBC9000F6923 /* Images.xcassets */,
 				339F43EE1934BBC9000F6923 /* QuantTrader.xcdatamodeld */,
-				C0094DA6197A9F88006AAB94 /* DmBond.h */,
-				C0094DA7197A9F88006AAB94 /* DmBond.m */,
 				C03CAAE719790DEB00BFD8A8 /* DmIssueDates.h */,
 				C03CAAE819790DEB00BFD8A8 /* DmIssueDates.m */,
 				C03CAAE119790DEB00BFD8A8 /* DmMarketQuotes.h */,
@@ -658,7 +658,7 @@
 				C03CAAF419792B3100BFD8A8 /* QuantDao.m in Sources */,
 				C0CE8C4D194F5A1E009BAD80 /* BondSetValueViewController.m in Sources */,
 				F37DB30C193753F200F91F66 /* Thing.mm in Sources */,
-				C0094DA8197A9F88006AAB94 /* DmBond.m in Sources */,
+				C0094DAB197D1BC2006AAB94 /* DmBond.m in Sources */,
 				F32A9BB61934BF6400BDE337 /* Swap.mm in Sources */,
 				C03CAADA19790DEA00BFD8A8 /* DmFixedBondScheduleRateAndDate.m in Sources */,
 				C0CE8C42194F492E009BAD80 /* BondValuesViewController.m in Sources */,
