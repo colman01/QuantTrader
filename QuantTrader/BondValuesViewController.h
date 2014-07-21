@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Bond.h"
 
-@interface BondValuesViewController : UIViewController<UITableViewDelegate>
+@interface BondValuesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) Bond *bond;
 
