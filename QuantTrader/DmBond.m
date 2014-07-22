@@ -103,15 +103,14 @@
         dates_ = [[NSMutableArray alloc] init];
     [dates_ addObject:value];
     // create nsdata for all dates
-    
-    // set back and save
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:dates_];
     dateArray = arrayData;
     [[PersistManager instance] save];
     
 }
 
 
-- (void) removeDate:(NSDate *)value fromData:(NSData) dateArray {
+- (void) removeDate:(NSDate *)value fromData:(NSData *) dateArray {
     NSMutableArray *dates_;
     dates_ = [NSKeyedUnarchiver unarchiveObjectWithData:dateArray];
     for (NSDate *existingDate in dates_) {
@@ -121,6 +120,33 @@
     }
     NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:dates_];
     dateArray = arrayData;
+    [[PersistManager instance] save];
+}
+
+- (void)addValue:(NSNumber *)value toData:(NSData *) dataArray{
+    // array to add value
+    NSMutableArray *data_;
+    data_ = [NSKeyedUnarchiver unarchiveObjectWithData:dataArray];
+    if (!data_)
+        data_ = [[NSMutableArray alloc] init];
+    [data_ addObject:value];
+    // create nsdata for all dates
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:data_];
+    dataArray = arrayData;
+    [[PersistManager instance] save];
+    
+}
+
+- (void) removeValue:(NSNumber *)value fromData:(NSData *) dataArray {
+    NSMutableArray *data_;
+    data_ = [NSKeyedUnarchiver unarchiveObjectWithData:dataArray];
+    for (NSNumber *coupon in data_) {
+        if ([coupon isEqualToValue:value]) {
+            [data_ removeObject:coupon];
+        }
+    }
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:data_];
+    dataArray = arrayData;
     [[PersistManager instance] save];
 }
 

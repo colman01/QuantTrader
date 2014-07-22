@@ -55,11 +55,17 @@
 - (void)removeLiborForcastingCurveQuotes:(NSSet *)values;
 
 - (void)addZeroCouponQuoteAsNumber:(NSNumber *)value;
-- (void) removeZeroCouponQuoteAsNumber:(NSNumber *)value;
+- (void)removeZeroCouponQuoteAsNumber:(NSNumber *)value;
 
 - (void)addissueDateAsDate:(NSDate *)value;
 
 - (void)addDate:(NSDate *)value toData:(NSData *) dateArray;
-- (void) removeDate:(NSDate *)value fromData:(NSData) dateArray;
+- (void)removeDate:(NSDate *)value fromData:(NSData *) dateArray;
+
+- (void)addValue:(NSNumber *)value toData:(NSData *) dataArray;
+- (void)removeValue:(NSNumber *)value fromData:(NSData *) dataArray;
+
+
+
 
 @end

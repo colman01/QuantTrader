@@ -75,21 +75,10 @@
     [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     str =@"15/08/2038";
     [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
+//    [bondParameters
+    
+    
 
-    
-    
-    
-    
-//    - (void)addDate:(NSDate *)value toData:(NSData *) dateArray
-    
-    
-//    QuantLib::Date maturitieDates[] = {
-//        QuantLib::Date (31, QuantLib::August, 2010),
-//        QuantLib::Date (31, QuantLib::August, 2011),
-//        QuantLib::Date (30, QuantLib::August, 2013),
-//        QuantLib::Date (15, QuantLib::August, 2018),
-//        QuantLib::Date (15, QuantLib::August, 2038)
-//    };
 //    
 //    Real couponRates[] = {
 //        0.02375,
