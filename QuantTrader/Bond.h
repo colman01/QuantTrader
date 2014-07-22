@@ -31,7 +31,7 @@
     double fixedRateBondYieldActual360CompoundedAnnual;
     double floatingRateBondYieldActual360CompoundedAnnual;
     
-        int settleMentDays;
+    int settleMentDays;
 
     NSMutableArray * maturityDates;
     NSMutableArray * newCouponRates;

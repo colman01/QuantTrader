@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.15" systemVersion="14A283o" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="BermudanSwaption" syncable="YES">
+    <entity name="BermudanSwaption" representedClassName="DmBermudanSwaption" syncable="YES">
         <attribute name="flatRateSimpleQuote" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="numCols" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="numRows" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -164,17 +164,17 @@
         <attribute name="vegaPaths" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="volLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="Replication" syncable="YES">
+    <entity name="Replication" representedClassName="DmReplication" syncable="YES">
         <attribute name="barrierType" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="optionType" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="rebate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="riskFreeRate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="strike" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="today" optional="YES" syncable="YES"/>
+        <attribute name="today" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="underlyingValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="volatility" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="Repo" syncable="YES">
+    <entity name="Repo" representedClassName="DmRepo" syncable="YES">
         <attribute name="bondCleanPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="bondCoupon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="bondDatedDate" optional="YES" attributeType="Date" syncable="YES"/>

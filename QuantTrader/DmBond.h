@@ -59,4 +59,6 @@
 
 - (void)addissueDateAsDate:(NSDate *)value;
 
+- (void)addDate:(NSDate *)value toData:(NSData *) dateArray;
+
 @end

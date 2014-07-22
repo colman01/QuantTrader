@@ -93,4 +93,21 @@
     
 }
 
+
+
+- (void)addDate:(NSDate *)value toData:(NSData *) dateArray{
+    // array to add value
+    NSMutableArray *dates_;
+    dates_ = [NSKeyedUnarchiver unarchiveObjectWithData:dateArray];
+    if (!dates_)
+        dates_ = [[NSMutableArray alloc] init];
+    [dates_ addObject:value];
+    // create nsdata for all dates
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:dateArray];
+    // set back and save
+    dateArray = arrayData;
+    [[PersistManager instance] save];
+    
+}
+
 @end

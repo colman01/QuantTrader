@@ -29,6 +29,16 @@
 		4C59C278E89D42B4AFDED473 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DF9A07A6B8540DD970ACFEE /* libPods.a */; };
 		C0094DA5197A7220006AAB94 /* DmZeroCouponQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DA4197A7220006AAB94 /* DmZeroCouponQuotes.m */; };
 		C0094DAB197D1BC2006AAB94 /* DmBond.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DAA197D1BC2006AAB94 /* DmBond.m */; };
+		C0094DAE197EA5A8006AAB94 /* ParameterInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DAD197EA5A8006AAB94 /* ParameterInitializer.m */; };
+		C0094DB1197EBBE3006AAB94 /* DmDiscreteHedging.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DB0197EBBE3006AAB94 /* DmDiscreteHedging.m */; };
+		C0094DB4197EBBF9006AAB94 /* DmFittedBondCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DB3197EBBF9006AAB94 /* DmFittedBondCurve.m */; };
+		C0094DB7197EBBF9006AAB94 /* DmForwardRate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DB6197EBBF9006AAB94 /* DmForwardRate.m */; };
+		C0094DBA197EBBFA006AAB94 /* DmBermudanSwaption.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DB9197EBBFA006AAB94 /* DmBermudanSwaption.m */; };
+		C0094DBD197EBBFA006AAB94 /* DmEquity.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DBC197EBBFA006AAB94 /* DmEquity.m */; };
+		C0094DC0197EBBFA006AAB94 /* DmMarketModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DBF197EBBFA006AAB94 /* DmMarketModel.m */; };
+		C0094DC3197EBBFA006AAB94 /* DmRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DC2197EBBFA006AAB94 /* DmRepo.m */; };
+		C0094DC6197EBBFA006AAB94 /* DmCallableBonds.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DC5197EBBFA006AAB94 /* DmCallableBonds.m */; };
+		C0094DC9197EBBFA006AAB94 /* DmReplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DC8197EBBFA006AAB94 /* DmReplication.m */; };
 		C03CAACE19790DE900BFD8A8 /* DmMaturityDates.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CAACD19790DE900BFD8A8 /* DmMaturityDates.m */; };
 		C03CAAD119790DEA00BFD8A8 /* DmSwapQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CAAD019790DEA00BFD8A8 /* DmSwapQuotes.m */; };
 		C03CAAD419790DEA00BFD8A8 /* DmAccruedAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CAAD319790DEA00BFD8A8 /* DmAccruedAmount.m */; };
@@ -113,6 +123,26 @@
 		C0094DA4197A7220006AAB94 /* DmZeroCouponQuotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmZeroCouponQuotes.m; sourceTree = "<group>"; };
 		C0094DA9197D1BC2006AAB94 /* DmBond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmBond.h; sourceTree = "<group>"; };
 		C0094DAA197D1BC2006AAB94 /* DmBond.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmBond.m; sourceTree = "<group>"; };
+		C0094DAC197EA5A8006AAB94 /* ParameterInitializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterInitializer.h; sourceTree = "<group>"; };
+		C0094DAD197EA5A8006AAB94 /* ParameterInitializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterInitializer.m; sourceTree = "<group>"; };
+		C0094DAF197EBBE3006AAB94 /* DmDiscreteHedging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmDiscreteHedging.h; sourceTree = "<group>"; };
+		C0094DB0197EBBE3006AAB94 /* DmDiscreteHedging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmDiscreteHedging.m; sourceTree = "<group>"; };
+		C0094DB2197EBBF9006AAB94 /* DmFittedBondCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmFittedBondCurve.h; sourceTree = "<group>"; };
+		C0094DB3197EBBF9006AAB94 /* DmFittedBondCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmFittedBondCurve.m; sourceTree = "<group>"; };
+		C0094DB5197EBBF9006AAB94 /* DmForwardRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmForwardRate.h; sourceTree = "<group>"; };
+		C0094DB6197EBBF9006AAB94 /* DmForwardRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmForwardRate.m; sourceTree = "<group>"; };
+		C0094DB8197EBBFA006AAB94 /* DmBermudanSwaption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmBermudanSwaption.h; sourceTree = "<group>"; };
+		C0094DB9197EBBFA006AAB94 /* DmBermudanSwaption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmBermudanSwaption.m; sourceTree = "<group>"; };
+		C0094DBB197EBBFA006AAB94 /* DmEquity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmEquity.h; sourceTree = "<group>"; };
+		C0094DBC197EBBFA006AAB94 /* DmEquity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmEquity.m; sourceTree = "<group>"; };
+		C0094DBE197EBBFA006AAB94 /* DmMarketModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmMarketModel.h; sourceTree = "<group>"; };
+		C0094DBF197EBBFA006AAB94 /* DmMarketModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmMarketModel.m; sourceTree = "<group>"; };
+		C0094DC1197EBBFA006AAB94 /* DmRepo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmRepo.h; sourceTree = "<group>"; };
+		C0094DC2197EBBFA006AAB94 /* DmRepo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmRepo.m; sourceTree = "<group>"; };
+		C0094DC4197EBBFA006AAB94 /* DmCallableBonds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmCallableBonds.h; sourceTree = "<group>"; };
+		C0094DC5197EBBFA006AAB94 /* DmCallableBonds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmCallableBonds.m; sourceTree = "<group>"; };
+		C0094DC7197EBBFA006AAB94 /* DmReplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmReplication.h; sourceTree = "<group>"; };
+		C0094DC8197EBBFA006AAB94 /* DmReplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmReplication.m; sourceTree = "<group>"; };
 		C03CAACC19790DE900BFD8A8 /* DmMaturityDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmMaturityDates.h; sourceTree = "<group>"; };
 		C03CAACD19790DE900BFD8A8 /* DmMaturityDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmMaturityDates.m; sourceTree = "<group>"; };
 		C03CAACF19790DEA00BFD8A8 /* DmSwapQuotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmSwapQuotes.h; sourceTree = "<group>"; };
@@ -432,6 +462,24 @@
 		F37DB300193741BA00F91F66 /* DM */ = {
 			isa = PBXGroup;
 			children = (
+				C0094DC7197EBBFA006AAB94 /* DmReplication.h */,
+				C0094DC8197EBBFA006AAB94 /* DmReplication.m */,
+				C0094DC4197EBBFA006AAB94 /* DmCallableBonds.h */,
+				C0094DC5197EBBFA006AAB94 /* DmCallableBonds.m */,
+				C0094DC1197EBBFA006AAB94 /* DmRepo.h */,
+				C0094DC2197EBBFA006AAB94 /* DmRepo.m */,
+				C0094DBE197EBBFA006AAB94 /* DmMarketModel.h */,
+				C0094DBF197EBBFA006AAB94 /* DmMarketModel.m */,
+				C0094DBB197EBBFA006AAB94 /* DmEquity.h */,
+				C0094DBC197EBBFA006AAB94 /* DmEquity.m */,
+				C0094DB8197EBBFA006AAB94 /* DmBermudanSwaption.h */,
+				C0094DB9197EBBFA006AAB94 /* DmBermudanSwaption.m */,
+				C0094DB5197EBBF9006AAB94 /* DmForwardRate.h */,
+				C0094DB6197EBBF9006AAB94 /* DmForwardRate.m */,
+				C0094DB2197EBBF9006AAB94 /* DmFittedBondCurve.h */,
+				C0094DB3197EBBF9006AAB94 /* DmFittedBondCurve.m */,
+				C0094DAF197EBBE3006AAB94 /* DmDiscreteHedging.h */,
+				C0094DB0197EBBE3006AAB94 /* DmDiscreteHedging.m */,
 				C0094DA9197D1BC2006AAB94 /* DmBond.h */,
 				C0094DAA197D1BC2006AAB94 /* DmBond.m */,
 				C0094DA3197A7220006AAB94 /* DmZeroCouponQuotes.h */,
@@ -457,6 +505,8 @@
 				C03CAACC19790DE900BFD8A8 /* DmMaturityDates.h */,
 				C03CAACD19790DE900BFD8A8 /* DmMaturityDates.m */,
 				C03CAAEE1979283000BFD8A8 /* Data.h */,
+				C0094DAC197EA5A8006AAB94 /* ParameterInitializer.h */,
+				C0094DAD197EA5A8006AAB94 /* ParameterInitializer.m */,
 			);
 			name = DM;
 			sourceTree = "<group>";
@@ -653,21 +703,29 @@
 				F32A9BAD1934BF6400BDE337 /* Bond.mm in Sources */,
 				F32A9BB51934BF6400BDE337 /* Repo.mm in Sources */,
 				339F43F31934BBC9000F6923 /* MasterViewController.m in Sources */,
+				C0094DBD197EBBFA006AAB94 /* DmEquity.m in Sources */,
 				C0CE8C45194F4C30009BAD80 /* BondResultViewController.m in Sources */,
 				F32A9BBD1934BFB800BDE337 /* DateCategory.m in Sources */,
+				C0094DAE197EA5A8006AAB94 /* ParameterInitializer.m in Sources */,
+				C0094DBA197EBBFA006AAB94 /* DmBermudanSwaption.m in Sources */,
 				C03CAAF419792B3100BFD8A8 /* QuantDao.m in Sources */,
 				C0CE8C4D194F5A1E009BAD80 /* BondSetValueViewController.m in Sources */,
 				F37DB30C193753F200F91F66 /* Thing.mm in Sources */,
 				C0094DAB197D1BC2006AAB94 /* DmBond.m in Sources */,
+				C0094DB4197EBBF9006AAB94 /* DmFittedBondCurve.m in Sources */,
 				F32A9BB61934BF6400BDE337 /* Swap.mm in Sources */,
 				C03CAADA19790DEA00BFD8A8 /* DmFixedBondScheduleRateAndDate.m in Sources */,
+				C0094DB7197EBBF9006AAB94 /* DmForwardRate.m in Sources */,
 				C0CE8C42194F492E009BAD80 /* BondValuesViewController.m in Sources */,
 				F32A9BAF1934BF6400BDE337 /* CallableBonds.mm in Sources */,
+				C0094DC9197EBBFA006AAB94 /* DmReplication.m in Sources */,
 				C0CE8C3F194F351C009BAD80 /* TableTableViewController.m in Sources */,
+				C0094DC0197EBBFA006AAB94 /* DmMarketModel.m in Sources */,
 				F32A9BB01934BF6400BDE337 /* DiscreteHedging.mm in Sources */,
 				C03CAADD19790DEB00BFD8A8 /* DmLiborForcastingCurveQutotes.m in Sources */,
 				C03CAAD719790DEA00BFD8A8 /* DmCouponRates.m in Sources */,
 				F32A9BB21934BF6400BDE337 /* ForwardRate.mm in Sources */,
+				C0094DB1197EBBE3006AAB94 /* DmDiscreteHedging.m in Sources */,
 				C03CAAD419790DEA00BFD8A8 /* DmAccruedAmount.m in Sources */,
 				F32A9BB11934BF6400BDE337 /* FittedBondCurve.mm in Sources */,
 				C0094DA5197A7220006AAB94 /* DmZeroCouponQuotes.m in Sources */,
@@ -677,6 +735,8 @@
 				339F43F01934BBC9000F6923 /* QuantTrader.xcdatamodeld in Sources */,
 				C03CAAD119790DEA00BFD8A8 /* DmSwapQuotes.m in Sources */,
 				F37DB305193742AD00F91F66 /* MarketMViewController.mm in Sources */,
+				C0094DC6197EBBFA006AAB94 /* DmCallableBonds.m in Sources */,
+				C0094DC3197EBBFA006AAB94 /* DmRepo.m in Sources */,
 				339F43E31934BBC9000F6923 /* main.m in Sources */,
 				C03CAAED197923C000BFD8A8 /* PersistManager.m in Sources */,
 				C0CE8C3C194F23D5009BAD80 /* BondResultsViewController.m in Sources */,
