@@ -329,13 +329,10 @@ void calibrateModel(
         std::cout << std::fixed << std::setprecision(0)
         << seconds << " s\n" << std::endl;
         
-//        return 0;
     } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
-//        return 1;
     } catch (...) {
         std::cerr << "unknown error" << std::endl;
-//        return 1;
     }
     
 }

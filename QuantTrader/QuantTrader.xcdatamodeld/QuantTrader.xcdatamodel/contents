@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.15" systemVersion="14A283o" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="BermudanSwaption" syncable="YES">
+        <attribute name="flatRateSimpleQuote" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="numCols" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="numRows" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="settlementDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="swapLenghts" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="swaptionVols" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="today" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <entity name="Bond" representedClassName="DmBond" syncable="YES">
         <attribute name="accruedAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="couponRates" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -118,6 +127,19 @@
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="rate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
+    <entity name="ForwardRate" representedClassName="DmForwardRate" syncable="YES">
+        <attribute name="forwardRate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="forwardValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fraNotional" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fraTermMonths" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="freStrike" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="impliedYield" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="monthsToStart" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="spotValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="threeMonth" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="threeMonthFraQuote" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="todaysDate" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
     <entity name="MarketModel" representedClassName="DmMarketModel" syncable="YES">
         <attribute name="accrual" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="beta" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -142,6 +164,39 @@
         <attribute name="vegaPaths" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="volLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
+    <entity name="Replication" syncable="YES">
+        <attribute name="barrierType" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="optionType" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="rebate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="riskFreeRate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="strike" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="today" optional="YES" syncable="YES"/>
+        <attribute name="underlyingValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="volatility" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Repo" syncable="YES">
+        <attribute name="bondCleanPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="bondCoupon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="bondDatedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="bondIssueDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="bondRedemption" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="bondSettlementDays" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="dummyStrike" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="faceAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fwdType" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="repoDeliveryDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="repoRate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="repoSettlementDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="repoSettlementDays" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Swap" syncable="YES">
+        <attribute name="deposits" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="fixingDays" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fras" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="futures" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="settlementDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="swaps" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Bond" positionX="565" positionY="297" width="128" height="343"/>
         <element name="FixedBondScheduleRateAndDate" positionX="810" positionY="315" width="128" height="73"/>
@@ -151,5 +206,10 @@
         <element name="CallableBonds" positionX="1456" positionY="297" width="128" height="343"/>
         <element name="DiscreteHedging" positionX="1629" positionY="297" width="128" height="118"/>
         <element name="FittedBondCurve" positionX="1809" positionY="296" width="128" height="163"/>
+        <element name="ForwardRate" positionX="1971" positionY="297" width="128" height="208"/>
+        <element name="BermudanSwaption" positionX="1629" positionY="594" width="128" height="148"/>
+        <element name="Replication" positionX="1771" positionY="594" width="128" height="163"/>
+        <element name="Repo" positionX="1933" positionY="594" width="128" height="238"/>
+        <element name="Swap" positionX="1620" positionY="792" width="128" height="133"/>
     </elements>
 </model>

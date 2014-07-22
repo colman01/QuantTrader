@@ -251,7 +251,7 @@ using namespace QuantLib;
             float forwardValue = myFRA.forwardRate();
             float impliedYield = myFRA.impliedYield(myFRA.spotValue(), myFRA.forwardRate(), settlementDate, Simple, fraDayCounter);
             
-            NSLog(@" Forward Rate data: %i, %f, %f, %f, %f, %f", monthtoStart, freStrike, forwardRate, threeMonth, spotVal, forwardValue, impliedYield); //// looking good
+            NSLog(@" Forward Rate data: %i, %f, %f, %f, %f, %f", monthtoStart, freStrike, forwardRate, threeMonth, spotVal, forwardValue, impliedYield); //
             
             
         }

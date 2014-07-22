@@ -15,19 +15,14 @@
 #include <iomanip>
 
 //using namespace QuantLib;
-//
 //#if defined(QL_ENABLE_SESSIONS)
 //namespace QuantLib {
-//    
 //    Integer sessionId() { return 0; }
-//    
 //}
 //#endif
 
-//NSLog(@"------------------------------------------------------------");
-//NSLog(@"------------------- even higher ----------------------------");
 //NSLog(@"%f, %f, %f, %f, %f, %f", piecewiseBootstrap, exponentialSplines, simplePolynomial, nelsonSiegel, cubicBsplines, svensson);
-//NSLog(@"------------------------------------------------------------");
+
 
 @implementation Replication
 
@@ -549,18 +544,11 @@ using namespace std;
 //        "risk-free rate are changed. Feel free to experiment with \n"
 //        "the example and contribute a patch if you spot any errors."
         
-        
-        
-        
-        
-        
-//        return 0;
+    
     } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
-//        return 1;
     } catch (...) {
         std::cerr << "unknown error" << std::endl;
-//        return 1;
     }
 
 }
