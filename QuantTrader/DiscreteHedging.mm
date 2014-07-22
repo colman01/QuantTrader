@@ -349,8 +349,7 @@ void ReplicationError::compute(int nTimeSteps, int nSamples)
     float theorStd = theorStd;
     float plKurt = PLKurt;
     
-    NSLog(@" reading? %i, %i, %f, %f, %f", samples, timeSteps, plMean, theorStd, plKurt);
-    //    NSString * value = N
+    NSLog(@" reading values %i, %i, %f, %f, %f", samples, timeSteps, plMean, theorStd, plKurt);
 }
 
 
@@ -367,7 +366,7 @@ NSThread * thread_2 ;
 }
 
 -(void) stopCalc_ {
-    NSLog(@"in stop");
+    NSLog(@"stopping");
     [thread_2 cancel];
     thread_2 = nil;
 

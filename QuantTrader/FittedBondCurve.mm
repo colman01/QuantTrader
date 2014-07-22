@@ -54,7 +54,7 @@ void printOutput(const std::string& tag,
     float curve2 = curve->fitResults().numberOfIterations();
     
     NSLog(@"------------------------------------------------------------");
-    NSLog(@" inside of printOut %f" , curve2);
+    NSLog(@" Curve 2 %f" , curve2);
     NSLog(@"------------------------------------------------------------");
 }
 
@@ -308,7 +308,7 @@ void printOutput(const std::string& tag,
             float svensson = 100.*parRate(*ts5,keyDates,dc);
             
             NSLog(@"------------------------------------------------------------");
-            NSLog(@"------------------- even higher ----------------------------");
+            NSLog(@"-----------------------------------------------");
             NSLog(@"%f, %f, %f, %f, %f, %f", piecewiseBootstrap, exponentialSplines, simplePolynomial, nelsonSiegel, cubicBsplines, svensson);
             NSLog(@"------------------------------------------------------------");
             
@@ -405,7 +405,7 @@ void printOutput(const std::string& tag,
             float svensson = 100.*parRate(*ts5,keyDates,dc);
             
             NSLog(@"------------------------------------------------------------");
-            NSLog(@"------------------- again somewhere ------------------------");
+            NSLog(@"-------------------------------------------");
             NSLog(@"%f, %f, %f, %f, %f, %f", piecewiseBootstrap, exponentialSplines, simplePolynomial, nelsonSiegel, cubicBsplines, svensson);
             NSLog(@"------------------------------------------------------------");
             
@@ -554,7 +554,7 @@ void printOutput(const std::string& tag,
             float simplePolynomial4= 100.*parRate(*ts55,keyDates,dc);
             
             NSLog(@"------------------------------------------------------------");
-            NSLog(@"------------------- where am i -----------------------------");
+            NSLog(@"------------------------------------------------");
             NSLog(@" %f, %f, %f, %f",  exponentialSplines, simplePolynomial, simplePolynomial2, simplePolynomial3, simplePolynomial4   );
             NSLog(@"------------------------------------------------------------");
             NSLog(@"------------------------------------------------------------");
@@ -655,7 +655,7 @@ void printOutput(const std::string& tag,
             float Svensson = 100.*parRate(*ts55,keyDates,dc);
             
             NSLog(@"------------------------------------------------------------");
-            NSLog(@"------------------- am i here -----------------------------");
+            NSLog(@"------------------------------------------------");
             NSLog(@" %f, %f, %f, %f, %f",  exponentialSplines2, piecewiseBootstrap, simplePolynomial, nelsonSiegel, exponentialSplines, Svensson   );
             NSLog(@"------------------------------------------------------------");
             NSLog(@"------------------------------------------------------------");
@@ -675,14 +675,11 @@ void printOutput(const std::string& tag,
         std::cout << std::fixed << std::setprecision(0)
         << seconds << " s\n" << std::endl;
         
-//        return 0;
         
     } catch (std::exception& e) {
         cerr << e.what() << endl;
-//        return 1;
     } catch (...) {
         cerr << "unknown error" << endl;
-//        return 1;
     }
 }
 

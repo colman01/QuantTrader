@@ -22,6 +22,94 @@
         <relationship name="fixedBondScheduleRateAndDate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FixedBondScheduleRateAndDate" syncable="YES"/>
         <relationship name="floatingBondScheduleRateAndDate" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FloatingBondScheduleRateAndDate" syncable="YES"/>
     </entity>
+    <entity name="CallableBonds" representedClassName="DmCallableBonds" syncable="YES">
+        <attribute name="accuracy" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="bbCurveRate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="callDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="callPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="compounding" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="coupon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="daycounter" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="faceAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="forward" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="frequency" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="gridIntervals" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="issue" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="maturity" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="maxIterations" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberOfCallDates" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="redemption" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="reversionParameter" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="settlementDays" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="today" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <entity name="DiscreteHedging" representedClassName="DmDiscreteHedging" syncable="YES">
+        <attribute name="maturity" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="strike" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="underlying" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="volatility" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Equity" representedClassName="DmEquity" syncable="YES">
+        <attribute name="additiveEquiprobabilities_ao" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="additiveEquiprobabilities_bo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="additiveEquiprobabilities_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="baroneAdesiWhaleySemiAna_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="batesSemiAna_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialCoxRossRubinstein_ao" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialCoxRossRubinstein_bo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialCoxRossRubinstein_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialJarrowRudd_ao" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialJarrowRudd_bo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialJarrowRudd_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialJoshi_ao" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialJoshi_bo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialJoshi_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialLeisenReimer_ao" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialLeisenReimer_bo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialLeisenReimer_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialTian_ao" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialTian_bo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialTian_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialTrigeorgis_ao" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialTrigeorgis_bo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="binomialTrigeorgis_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="bjerksundStenslandSemiAna_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="blackScholes_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dividendYield_eq" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dividentYieldValue" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="finiteDifference_ao" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="finiteDifference_bo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="finiteDifference_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="hestonSemiAnalytic_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="integral_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="maturityDate_1" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="maturityDate_2" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="maturityDate_3" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="mcCrude_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="mcLongstaffSchwatz_ao" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="qmcSobol_eo" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="quote" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="riskFreeRate_eq" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="settlementDate_1" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="settlementDate_2" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="settlementDate_3" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="strike_eq" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="strikePrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="underlying_eq" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="volatility_eq" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="FittedBondCurve" representedClassName="DmFittedBondCurve" syncable="YES">
+        <attribute name="bondSettlementDays" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="coupons" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="curveSettlementDays" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="dayCounter" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="frequency" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="lengths" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="numberOfBonds" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="redemption" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
     <entity name="FixedBondScheduleRateAndDate" representedClassName="DmFixedBondScheduleRateAndDate" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="rate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -30,9 +118,38 @@
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="rate" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
+    <entity name="MarketModel" representedClassName="DmMarketModel" syncable="YES">
+        <attribute name="accrual" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="beta" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="displacementLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="firstTime" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fixedMultiplier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fixedRate" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="floatingSpread" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="gamma" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="initialNumeraireValue" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="innerPaths" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberOfFactors" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberRates" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="outterPaths" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="paths" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="payer" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="rateLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="receive" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="seed" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="strike" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="trainingPaths" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="vegaPaths" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="volLevel" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Bond" positionX="565" positionY="297" width="128" height="343"/>
         <element name="FixedBondScheduleRateAndDate" positionX="810" positionY="315" width="128" height="73"/>
         <element name="FloatingBondScheduleRateAndDate" positionX="241" positionY="449" width="128" height="73"/>
+        <element name="Equity" positionX="1044" positionY="297" width="128" height="748"/>
+        <element name="MarketModel" positionX="1249" positionY="297" width="128" height="373"/>
+        <element name="CallableBonds" positionX="1456" positionY="297" width="128" height="343"/>
+        <element name="DiscreteHedging" positionX="1629" positionY="297" width="128" height="118"/>
+        <element name="FittedBondCurve" positionX="1809" positionY="296" width="128" height="163"/>
     </elements>
 </model>
