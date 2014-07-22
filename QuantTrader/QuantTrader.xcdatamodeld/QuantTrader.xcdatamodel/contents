@@ -12,6 +12,7 @@
     <entity name="Bond" representedClassName="DmBond" syncable="YES">
         <attribute name="accruedAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="couponRates" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="depositQuotes" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="dirtyPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="faceAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="fixingDays" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -198,7 +199,7 @@
         <attribute name="swaps" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bond" positionX="565" positionY="297" width="128" height="343"/>
+        <element name="Bond" positionX="565" positionY="297" width="128" height="358"/>
         <element name="FixedBondScheduleRateAndDate" positionX="810" positionY="315" width="128" height="73"/>
         <element name="FloatingBondScheduleRateAndDate" positionX="241" positionY="449" width="128" height="73"/>
         <element name="Equity" positionX="1044" positionY="297" width="128" height="748"/>

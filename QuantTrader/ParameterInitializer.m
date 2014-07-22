@@ -60,7 +60,7 @@
     str =@"15/05/1987";
     [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
     
-//    [[PersistManager instance] save];
+//
     
     bondParameters.fixingDays = [NSNumber numberWithDouble:100];
     bondParameters.numberOfBonds = [NSNumber numberWithDouble:5];
@@ -75,35 +75,86 @@
     [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     str =@"15/08/2038";
     [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
-//    [bondParameters
     
     
+    [bondParameters addValue:[NSNumber numberWithDouble:0.02375] toData:bondParameters.couponRates];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.04625] toData:bondParameters.couponRates];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.03125] toData:bondParameters.couponRates];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.04000] toData:bondParameters.couponRates];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.04500] toData:bondParameters.couponRates];
+    
+    [bondParameters addValue:[NSNumber numberWithDouble:100.390625] toData:bondParameters.marketQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:106.21875]  toData:bondParameters.marketQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:100.59375]  toData:bondParameters.marketQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:101.6875]   toData:bondParameters.marketQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:102.140625] toData:bondParameters.marketQuotes];
 
+    [bondParameters addValue:[NSNumber numberWithDouble:0.043375]   toData:bondParameters.depositQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.031875]   toData:bondParameters.depositQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.0320375]  toData:bondParameters.depositQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.03385]    toData:bondParameters.depositQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.0338125]  toData:bondParameters.depositQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.0335125]  toData:bondParameters.depositQuotes];
+    
+    [bondParameters addValue:[NSNumber numberWithDouble:0.0295] toData:bondParameters.swapQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.0323] toData:bondParameters.swapQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.0359] toData:bondParameters.swapQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.0412] toData:bondParameters.swapQuotes];
+    [bondParameters addValue:[NSNumber numberWithDouble:0.0433] toData:bondParameters.swapQuotes];
+    
+    [[PersistManager instance] save];
+    
+//    // Common data
+//    Real faceAmount = 100;
 //    
-//    Real couponRates[] = {
-//        0.02375,
-//        0.04625,
-//        0.03125,
-//        0.04000,
-//        0.04500
-//    };
+//    // Pricing engine
+//    boost::shared_ptr<PricingEngine> bondEngine(
+//                                                new DiscountingBondEngine(discountingTermStructure));
 //    
-//    Real marketQuotes[] = {
-//        100.390625,
-//        106.21875,
-//        100.59375,
-//        101.6875,
-//        102.140625
-//    };
+//    // Zero coupon bond
+//    ZeroCouponBond zeroCouponBond(
+//                                  settlementDays,
+//                                  UnitedStates(UnitedStates::GovernmentBond),
+//                                  faceAmount,
+//                                  Date(15,August,2013),
+//                                  Following,
+//                                  Real(116.92),
+//                                  Date(15,August,2003));
 //    
-//    //    Rate d1wQuote=0.043375;
-//    //    Rate d1mQuote=0.031875;
-//    //    Rate d3mQuote=0.0320375;
-//    //    Rate d6mQuote=0.03385;
-//    //    Rate d9mQuote=0.0338125;
-//    //    Rate d1yQuote=0.0335125;
+//    zeroCouponBond.setPricingEngine(bondEngine);
+//    
+//    // Fixed 4.5% US Treasury Note
+//    Schedule fixedBondSchedule(Date(15, May, 2007),
+//                               Date(15,May,2017), Period(Semiannual),
+//                               UnitedStates(UnitedStates::GovernmentBond),
+//                               Unadjusted, Unadjusted, DateGeneration::Backward, false);
+//    
+//    FixedRateBond fixedRateBond(
+//                                settlementDays,
+//                                faceAmount,
+//                                fixedBondSchedule,
+//                                std::vector<Rate>(1, 0.045),
+//                                ActualActual(ActualActual::Bond),
+//                                ModifiedFollowing,
+//                                100.0, Date(15, May, 2007));
+//    
+//    fixedRateBond.setPricingEngine(bondEngine);
+//    
+//    // Floating rate bond (3M USD Libor + 0.1%)
+//    // Should and will be priced on another curve later...
+//    
+//    RelinkableHandle<YieldTermStructure> liborTermStructure;
+//    const boost::shared_ptr<IborIndex> libor3m(
+//                                               new USDLibor(Period(3,Months),liborTermStructure));
+//    libor3m->addFixing(Date(17, July, 2008),0.0278625);
+//    
+//    Schedule floatingBondSchedule(Date(21, October, 2005),
+//                                  Date(21, October, 2010), Period(Quarterly),
+//                                  UnitedStates(UnitedStates::NYSE),
+//                                  Unadjusted, Unadjusted, DateGeneration::Backward, true);
 //    
 //    
+//
 //    for(int i =0; i<  5; i++) {
 //        QuantLib::Date &date = issueDates[i];
 //        std::stringstream stream;

@@ -28,6 +28,7 @@
 @dynamic issueDates;
 @dynamic maturityDates;
 @dynamic swapQuotes;
+@dynamic depositQuotes;
 @dynamic zeroCouponQuotes;
 @dynamic marketQuotes;
 @dynamic couponRates;

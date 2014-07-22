@@ -29,6 +29,7 @@
 @property (nonatomic, retain) NSData * issueDates;
 @property (nonatomic, retain) NSData * maturityDates;
 @property (nonatomic, retain) NSData * swapQuotes;
+@property (nonatomic, retain) NSData * depositQuotes;
 @property (nonatomic, retain) NSData * zeroCouponQuotes;
 @property (nonatomic, retain) NSData * marketQuotes;
 @property (nonatomic, retain) NSData * couponRates;
