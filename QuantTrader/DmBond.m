@@ -103,11 +103,25 @@
         dates_ = [[NSMutableArray alloc] init];
     [dates_ addObject:value];
     // create nsdata for all dates
-    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:dateArray];
+    
     // set back and save
     dateArray = arrayData;
     [[PersistManager instance] save];
     
+}
+
+
+- (void) removeDate:(NSDate *)value fromData:(NSData) dateArray {
+    NSMutableArray *dates_;
+    dates_ = [NSKeyedUnarchiver unarchiveObjectWithData:dateArray];
+    for (NSDate *existingDate in dates_) {
+        if ([existingDate compare:value]) {
+            [dates_ removeObject:existingDate];
+        }
+    }
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:dates_];
+    dateArray = arrayData;
+    [[PersistManager instance] save];
 }
 
 @end
