@@ -658,11 +658,52 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         
         zeroCouponBond.setPricingEngine(bondEngine);
         
+        
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         // Fixed 4.5% US Treasury Note
-        Schedule fixedBondSchedule(Date(15, May, 2007),
-                                   Date(15,May,2017), Period(Semiannual),
+//        Schedule fixedBondSchedule(Date(15, May, 2007),
+//                                   Date(15,May,2017), Period(Semiannual),
+//                                   UnitedStates(UnitedStates::GovernmentBond),
+//                                   Unadjusted, Unadjusted, DateGeneration::Backward, false);
+        
+        components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.fixedBondScheduleFirstDate];
+        year = [components year];
+        m = [components month];
+        day = [components day];
+        month = intToMonth(m_secondDate);
+        
+        components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.fixedBondScheduleSecondDate];
+        year_secondDate = [components year];
+        m_secondDate = [components month];
+        day_secondDate = [components day];
+        
+        int m_second = intToMonth(m_secondDate);
+        QuantLib::Month month_second = intToMonth(m);
+        
+        
+        
+        Schedule fixedBondSchedule(Date(day, month, year),
+                                   Date(day_secondDate, month_second, year_secondDate), Period(Semiannual),
                                    UnitedStates(UnitedStates::GovernmentBond),
                                    Unadjusted, Unadjusted, DateGeneration::Backward, false);
+        
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+//        FixedRateBond fixedRateBond(
+//                                    settlementDays,
+//                                    faceAmount,
+//                                    fixedBondSchedule,
+//                                    std::vector<Rate>(1, 0.045),
+//                                    ActualActual(ActualActual::Bond),
+//                                    ModifiedFollowing,
+//                                    100.0, Date(15, May, 2007));
+        
+        components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.fixedRateBondFirstDate];
+        year = [components year];
+        m = [components month];
+        day = [components day];
+        month = intToMonth(m_secondDate);
         
         FixedRateBond fixedRateBond(
                                     settlementDays,
@@ -671,7 +712,19 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
                                     std::vector<Rate>(1, 0.045),
                                     ActualActual(ActualActual::Bond),
                                     ModifiedFollowing,
-                                    100.0, Date(15, May, 2007));
+                                    100.0, Date(day, month, year));
+        
+//
+        
+
+        
+//        components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.fixedBondScheduleSecondDate];
+//        year_secondDate = [components year];
+//        m_secondDate = [components month];
+//        day_secondDate = [components day];
+//        
+//        int m_second = intToMonth(m_secondDate);
+//        QuantLib::Month month_second = intToMonth(m);
         
         fixedRateBond.setPricingEngine(bondEngine);
         
@@ -681,12 +734,44 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         RelinkableHandle<YieldTermStructure> liborTermStructure;
         const boost::shared_ptr<IborIndex> libor3m(
                                                    new USDLibor(Period(3,Months),liborTermStructure));
-        libor3m->addFixing(Date(17, July, 2008),0.0278625);
         
-        Schedule floatingBondSchedule(Date(21, October, 2005),
-                                      Date(21, October, 2010), Period(Quarterly),
+        components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.fixedRateBondFirstDate];
+        year = [components year];
+        m = [components month];
+        day = [components day];
+        month = intToMonth(m_secondDate);
+//        libor3m->addFixing(Date(17, July, 2008),0.0278625);
+        libor3m->addFixing(Date(day, month, year),0.0278625);
+        
+
+        
+        
+
+        
+        
+        components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.floatingBondScheduleFirstDate];
+        year = [components year];
+        m = [components month];
+        day = [components day];
+        month = intToMonth(m_secondDate);
+        
+        components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.floatingBondScheduleSecondDate];
+        year_secondDate = [components year];
+        m_secondDate = [components month];
+        day_secondDate = [components day];
+        
+        m_second = intToMonth(m_secondDate);
+        month_second = intToMonth(m);
+
+        Schedule floatingBondSchedule(Date(day, month, year),
+                                      Date(day_secondDate, month_second, year_secondDate), Period(Quarterly),
                                       UnitedStates(UnitedStates::NYSE),
                                       Unadjusted, Unadjusted, DateGeneration::Backward, true);
+        
+//        Schedule floatingBondSchedule(Date(21, October, 2005),
+//                                      Date(21, October, 2010), Period(Quarterly),
+//                                      UnitedStates(UnitedStates::NYSE),
+//                                      Unadjusted, Unadjusted, DateGeneration::Backward, true);
         
         FloatingRateBond floatingRateBond(
                                           settlementDays,
