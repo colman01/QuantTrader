@@ -11,4 +11,7 @@
 
 @interface ParameterInitializer : NSObject
 
+
+- (void) setupParameters;
+    
 @end

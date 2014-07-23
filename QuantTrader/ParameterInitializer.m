@@ -111,6 +111,8 @@
     
     
     str =@"15/08/2013";
+    if(!bondParameters.zeroCouponBondFirstDate)
+        bondParameters.zeroCouponBondFirstDate = [[NSDate alloc] init];
     bondParameters.zeroCouponBondFirstDate  = [formatter dateFromString:str]; // date_1
     str =@"15/08/2003";
     bondParameters.zeroCouponBondSecondDate  = [formatter dateFromString:str]; // date_2

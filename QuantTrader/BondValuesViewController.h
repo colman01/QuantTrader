@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Bond.h"
+#import "ParameterInitializer.h"
 
 @interface BondValuesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) Bond *bond;
+
+
+
 
 @property (nonatomic, weak) IBOutlet UITableView *table;
 @property (nonatomic, strong) NSMutableArray  *values;

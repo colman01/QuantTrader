@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Bond.h"
 #import "QuantDao.h"
+#import "ParameterInitializer.h"
 
 @interface BondViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) Bond *bond;
+
+@property (nonatomic, strong) ParameterInitializer *bondParameterInit;
 
 @property (nonatomic, weak) IBOutlet UITableView *table;
 

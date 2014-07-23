@@ -20,6 +20,7 @@
 
 
 @synthesize bond;
+@synthesize bondParameterInit;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -74,6 +75,10 @@
 - (void) viewDidAppear:(BOOL)animated {
     if(!bond.bondCouponRates)
         [bond setupParameters];
+    if (!bondParameterInit) {
+        bondParameterInit =  [[ParameterInitializer alloc] init];
+        [bondParameterInit setupParameters];
+    }
 }
 
 - (void) initBond {

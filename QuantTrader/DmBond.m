@@ -36,6 +36,16 @@
 @dynamic floatingBondScheduleRateAndDate;
 @dynamic liborForcastingCurveQuotes;
 
+@dynamic zeroCouponBondFirstDate;
+@dynamic zeroCouponBondSecondDate;
+@dynamic fixedBondScheduleFirstDate;
+@dynamic fixedBondScheduleSecondDate;
+@dynamic fixedRateBondFirstDate;
+@dynamic addFixingFirstDate;
+@dynamic floatingBondScheduleFirstDate;
+@dynamic floatingBondScheduleSecondDate;
+@dynamic floatingRateBondScheduleFirstDate;
+
 
 
 - (void)addZeroCouponQuoteAsNumber:(NSNumber *)value{

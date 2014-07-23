@@ -605,7 +605,28 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
          **********************/
         
 
-        Date date = [self changeDate:bondParameters.zeroCouponBondFirstDate];
+//        Date date = [self changeDate:bondParameters.zeroCouponBondFirstDate];
+        
+        
+        NSCalendar *cal = [NSCalendar currentCalendar];
+        [cal setTimeZone:[NSTimeZone localTimeZone]];
+        [cal setLocale:[NSLocale currentLocale]];
+        NSDateComponents *components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.zeroCouponBondFirstDate];
+        int year = [components year];
+        int m = [components month];
+        int day = [components day];
+        QuantLib::Month month = intToMonth(m);
+        QuantLib::Date(day,month,year);
+        
+        
+        components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.zeroCouponBondSecondDate];
+        int year_secondDate = [components year];
+        int m_secondDate = [components month];
+        int day_secondDate = [components day];
+        
+        
+//        QuantLib::Month month = intToMonth(m_secondDate);
+//        QuantLib::Date(day_secondDate,month,year_secondDate);
         
         // Common data
         Real faceAmount = 100;
@@ -614,15 +635,26 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         boost::shared_ptr<PricingEngine> bondEngine(
                                                     new DiscountingBondEngine(discountingTermStructure));
         
+//        // Zero coupon bond
+//        ZeroCouponBond zeroCouponBond(
+//                                      settlementDays,
+//                                      UnitedStates(UnitedStates::GovernmentBond),
+//                                      faceAmount,
+//                                      Date(15,August,2013),
+//                                      Following,
+//                                      Real(116.92),
+//                                      Date(15,August,2003));
+        
         // Zero coupon bond
         ZeroCouponBond zeroCouponBond(
                                       settlementDays,
                                       UnitedStates(UnitedStates::GovernmentBond),
                                       faceAmount,
-                                      Date(15,August,2013),
+                                      Date(day,month,year),
                                       Following,
                                       Real(116.92),
-                                      Date(15,August,2003));
+                                      Date(day_secondDate,month,year_secondDate));
+        
         
         zeroCouponBond.setPricingEngine(bondEngine);
         
