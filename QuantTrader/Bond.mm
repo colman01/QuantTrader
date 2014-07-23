@@ -41,6 +41,7 @@ fixedBondScheduleDate_2,
 floatingBondScheduleDate_1,
 floatingBondScheduleDate_2;
 
+
 @synthesize zeroCoupon3mQuote, zeroCoupon6mQuote, zeroCoupon1yQuote;
 @synthesize redemp;
 
@@ -295,6 +296,16 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         boost::timer timer;
 
         [self setupRedemption];
+        
+        DmBond *bondParameters;
+        
+        NSMutableArray *results = [[QuantDao instance] getBond];
+        
+        @try {
+            bondParameters = results[0];
+        }
+        @catch (NSException *exception) {
+        }
         
         
         /*********************
@@ -592,6 +603,9 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         /*********************
          * BONDS TO BE PRICED *
          **********************/
+        
+
+        Date date = [self changeDate:bondParameters.zeroCouponBondFirstDate];
         
         // Common data
         Real faceAmount = 100;

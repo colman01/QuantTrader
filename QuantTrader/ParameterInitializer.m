@@ -13,13 +13,7 @@
 
 
 - (void) setupParameters {
-    
-    
 //    using namespace QuantLib;
-    
-    
-    
-    
     DmBond *bondParameters;
     
     NSMutableArray *results = [[QuantDao instance] getBond];
@@ -29,13 +23,6 @@
     }
     @catch (NSException *exception) {
     }
-    
-    
-    //  15, QuantLib::March, 2005
-    //  15, QuantLib::June, 2005
-    //  30, QuantLib::June, 2006)
-    //  15, QuantLib::November, 2002
-    //  15, QuantLib::May, 1987
     
     [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0096]];
     [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0145]];
@@ -59,8 +46,6 @@
     
     str =@"15/05/1987";
     [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
-    
-//
     
     bondParameters.fixingDays = [NSNumber numberWithDouble:100];
     bondParameters.numberOfBonds = [NSNumber numberWithDouble:5];
@@ -102,10 +87,13 @@
     [bondParameters addValue:[NSNumber numberWithDouble:0.0412] toData:bondParameters.swapQuotes];
     [bondParameters addValue:[NSNumber numberWithDouble:0.0433] toData:bondParameters.swapQuotes];
     
-    [[PersistManager instance] save];
-    
+//    /*********************
+//     * BONDS TO BE PRICED *
+//     **********************/
+//    
 //    // Common data
 //    Real faceAmount = 100;
+         bondParameters.faceAmount = [NSNumber numberWithInt:100];
 //    
 //    // Pricing engine
 //    boost::shared_ptr<PricingEngine> bondEngine(
@@ -120,6 +108,14 @@
 //                                  Following,
 //                                  Real(116.92),
 //                                  Date(15,August,2003));
+    
+    
+    str =@"15/08/2013";
+    bondParameters.zeroCouponBondFirstDate  = [formatter dateFromString:str]; // date_1
+    str =@"15/08/2003";
+    bondParameters.zeroCouponBondSecondDate  = [formatter dateFromString:str]; // date_2
+
+    
 //    
 //    zeroCouponBond.setPricingEngine(bondEngine);
 //    
@@ -128,7 +124,12 @@
 //                               Date(15,May,2017), Period(Semiannual),
 //                               UnitedStates(UnitedStates::GovernmentBond),
 //                               Unadjusted, Unadjusted, DateGeneration::Backward, false);
-//    
+    
+    str =@"15/05/2007";
+    bondParameters.fixedBondScheduleFirstDate  = [formatter dateFromString:str]; // date_3
+    str =@"15/05/2017";
+    bondParameters.fixedBondScheduleSecondDate  = [formatter dateFromString:str]; // date_4
+//
 //    FixedRateBond fixedRateBond(
 //                                settlementDays,
 //                                faceAmount,
@@ -137,7 +138,12 @@
 //                                ActualActual(ActualActual::Bond),
 //                                ModifiedFollowing,
 //                                100.0, Date(15, May, 2007));
-//    
+    
+    str =@"15/05/2007";
+    bondParameters.fixedRateBondFirstDate  = [formatter dateFromString:str]; // date_5
+
+    
+//
 //    fixedRateBond.setPricingEngine(bondEngine);
 //    
 //    // Floating rate bond (3M USD Libor + 0.1%)
@@ -147,119 +153,72 @@
 //    const boost::shared_ptr<IborIndex> libor3m(
 //                                               new USDLibor(Period(3,Months),liborTermStructure));
 //    libor3m->addFixing(Date(17, July, 2008),0.0278625);
-//    
+    str =@"17/07/2008";
+    bondParameters.addFixingFirstDate  = [formatter dateFromString:str]; // date_6
+//
 //    Schedule floatingBondSchedule(Date(21, October, 2005),
 //                                  Date(21, October, 2010), Period(Quarterly),
 //                                  UnitedStates(UnitedStates::NYSE),
 //                                  Unadjusted, Unadjusted, DateGeneration::Backward, true);
-//    
-//    
+    str =@"21/10/2005";
+    bondParameters.floatingBondScheduleFirstDate  = [formatter dateFromString:str]; // date_7
+    str =@"21/10/2010";
+    bondParameters.floatingBondScheduleSecondDate  = [formatter dateFromString:str]; // date_8
 //
-//    for(int i =0; i<  5; i++) {
-//        QuantLib::Date &date = issueDates[i];
-//        std::stringstream stream;
-//        //        std::string format = "d-mmm-yyyy";
-//        try {
-//            stream << date.dayOfMonth() << "-" << date.month() << "-" << date.year();
-//        }
-//        catch (std::exception &e) {
-//        }
-//        
-//        std::string result = stream.str() ;
-//        if (!formatedIssueDates)
-//            formatedIssueDates = [[NSMutableArray alloc] init];
-//        [formatedIssueDates addObject:[NSString stringWithFormat:@"%s",result.c_str()]];
-//        stream.str("");
-//        
-//        date = maturitieDates[i];
-//        try {
-//            stream << date.dayOfMonth() << "-" << date.month() << "-" << date.year();
-//        }
-//        catch (std::exception &e) {
-//        }
-//        
-//        result = stream.str() ;
-//        if (!formatedMaturiyDates)
-//            formatedMaturiyDates = [[NSMutableArray alloc] init];
-//        [formatedMaturiyDates addObject:[NSString stringWithFormat:@"%s",result.c_str()]];
-//        
-//        stream.str("");
-//        
-//        float rate = (float)couponRates[i];
-//        if (!_bondCouponRates)
-//            _bondCouponRates = [[NSMutableArray alloc] init];
-//        [_bondCouponRates addObject:[NSString stringWithFormat:@"%f",rate]];
-//        
-//        
-//        float marketQuote = (float)marketQuotes[i];
-//        if(!bondMarketQuotes)
-//            bondMarketQuotes = [[NSMutableArray alloc] init];
-//        [bondMarketQuotes addObject:[NSString stringWithFormat:@"%f",marketQuote]];
-//        
-//    }
-//    
-//    Rate d1wQuote=0.043375;
-//    Rate d1mQuote=0.031875;
-//    Rate d3mQuote=0.0320375;
-//    Rate d6mQuote=0.03385;
-//    Rate d9mQuote=0.0338125;
-//    Rate d1yQuote=0.0335125;
-//    
-//    
-//    if(!bondLiborForcastingCurveQuotes)
-//        bondLiborForcastingCurveQuotes = [[NSMutableArray alloc] init];
-//    
-//    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d1wQuote] ];
-//    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d1mQuote]];
-//    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d3mQuote]];
-//    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d6mQuote]];
-//    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d9mQuote]];
-//    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d1yQuote]];
-//    
-//    Rate s2yQuote=0.0295;
-//    Rate s3yQuote=0.0323;
-//    Rate s5yQuote=0.0359;
-//    Rate s10yQuote=0.0412;
-//    Rate s15yQuote=0.0433;
-//    
-//    if(!bondSwapQuotes)
-//        bondSwapQuotes = [[NSMutableArray alloc] init];
-//    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s2yQuote] ];
-//    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s3yQuote]];
-//    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s5yQuote]];
-//    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s10yQuote]];
-//    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s15yQuote]];
-//    
-//    
-//    self.faceamount = 100;
-//    
-//    
-//    //    Date zcDate1 = QuantLib::Date (21, QuantLib::October, 2005);
-//    //    Date zcDate2 = QuantLib::Date (15, QuantLib::May, 2007);
-//    std::stringstream stream;
-//    stream.str("");
-//    Date zcDate1 = QuantLib::Date (21, QuantLib::October, 2005);
-//    try {
-//        stream << zcDate1.dayOfMonth() << "-" << zcDate1.month() << "-" << zcDate1.year();
-//    }
-//    catch (std::exception &e) {
-//    }
-//    std::string result = stream.str() ;
-//    self.zeroCouponDate1 = [NSString stringWithFormat:@"%s",result.c_str()];
-//    
-//    stream.str("");
-//    Date zcDate2 = QuantLib::Date (15, QuantLib::May, 2007);
-//    try {
-//        stream << zcDate2.dayOfMonth() << "-" << zcDate2.month() << "-" << zcDate2.year();
-//    }
-//    catch (std::exception &e) {
-//    }
-//    result = stream.str() ;
-//    self.zeroCouponDate2 = [NSString stringWithFormat:@"%s",result.c_str()];
+//    FloatingRateBond floatingRateBond(
+//                                      settlementDays,
+//                                      faceAmount,
+//                                      floatingBondSchedule,
+//                                      libor3m,
+//                                      Actual360(),
+//                                      ModifiedFollowing,
+//                                      Natural(2),
+//                                      // Gearings
+//                                      std::vector<Real>(1, 1.0),
+//                                      // Spreads
+//                                      std::vector<Rate>(1, 0.001),
+//                                      // Caps
+//                                      std::vector<Rate>(),
+//                                      // Floors
+//                                      std::vector<Rate>(),
+//                                      // Fixing in arrears
+//                                      true,
+//                                      Real(100.0),
+//                                      Date(21, October, 2005));
     
+    str =@"21/10/2005";
+    bondParameters.floatingRateBondScheduleFirstDate  = [formatter dateFromString:str]; // date_9
     
-    //        Date(21, October, 2005)
-    //        Date(21, October, 2010)
+//    
+//    floatingRateBond.setPricingEngine(bondEngine);
+//    
+//    // Coupon pricers
+//    boost::shared_ptr<IborCouponPricer> pricer(new BlackIborCouponPricer);
+//    
+//    // optionLet volatilities
+//    Volatility volatility = 0.0;
+//    Handle<OptionletVolatilityStructure> vol;
+//    vol = Handle<OptionletVolatilityStructure>(
+//                                               boost::shared_ptr<OptionletVolatilityStructure>(new
+//                                                                                               ConstantOptionletVolatility(
+//                                                                                                                           settlementDays,
+//                                                                                                                           calendar,
+//                                                                                                                           ModifiedFollowing,
+//                                                                                                                           volatility,
+//                                                                                                                           Actual365Fixed())));
+//    
+//    pricer->setCapletVolatility(vol);
+//    setCouponPricer(floatingRateBond.cashflows(),pricer);
+//    
+//    // Yield curve bootstrapping
+//    forecastingTermStructure.linkTo(depoSwapTermStructure);
+//    discountingTermStructure.linkTo(bondDiscountingTermStructure);
+//    
+//    // We are using the depo & swap curve to estimate the future Libor rates
+//    liborTermStructure.linkTo(depoSwapTermStructure);
+    
+    [[PersistManager instance] save];
+
     
 }
 

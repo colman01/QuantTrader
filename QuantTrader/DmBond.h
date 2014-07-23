@@ -36,6 +36,18 @@
 @property (nonatomic, retain) NSSet *fixedBondScheduleRateAndDate;
 @property (nonatomic, retain) NSSet *floatingBondScheduleRateAndDate;
 @property (nonatomic, retain) NSSet *liborForcastingCurveQuotes;
+
+@property (nonatomic, retain) NSDate *zeroCouponBondFirstDate            ; // date_1
+@property (nonatomic, retain) NSDate *zeroCouponBondSecondDate           ; // date_2
+@property (nonatomic, retain) NSDate *fixedBondScheduleFirstDate         ; // date_3
+@property (nonatomic, retain) NSDate *fixedBondScheduleSecondDate        ; // date_4
+@property (nonatomic, retain) NSDate *fixedRateBondFirstDate             ; // date_5
+@property (nonatomic, retain) NSDate *addFixingFirstDate                 ; // date_6
+@property (nonatomic, retain) NSDate *floatingBondScheduleFirstDate      ; // date_7
+@property (nonatomic, retain) NSDate *floatingBondScheduleSecondDate     ; // date_8
+@property (nonatomic, retain) NSDate *floatingRateBondScheduleFirstDate  ; // date_9
+
+
 @end
 
 @interface DmBond (CoreDataGeneratedAccessors)
