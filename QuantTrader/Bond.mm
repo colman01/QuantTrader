@@ -646,6 +646,9 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
 //                                      Date(15,August,2003));
         
         // Zero coupon bond
+        
+        
+        
         ZeroCouponBond zeroCouponBond(
                                       settlementDays,
                                       UnitedStates(UnitedStates::GovernmentBond),
@@ -773,6 +776,34 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
 //                                      UnitedStates(UnitedStates::NYSE),
 //                                      Unadjusted, Unadjusted, DateGeneration::Backward, true);
         
+//        FloatingRateBond floatingRateBond(
+//                                          settlementDays,
+//                                          faceAmount,
+//                                          floatingBondSchedule,
+//                                          libor3m,
+//                                          Actual360(),
+//                                          ModifiedFollowing,
+//                                          Natural(2),
+//                                          // Gearings
+//                                          std::vector<Real>(1, 1.0),
+//                                          // Spreads
+//                                          std::vector<Rate>(1, 0.001),
+//                                          // Caps
+//                                          std::vector<Rate>(),
+//                                          // Floors
+//                                          std::vector<Rate>(),
+//                                          // Fixing in arrears
+//                                          true,
+//                                          Real(100.0),
+//                                          Date(21, October, 2005));
+        
+        
+        components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.floatingRateBondScheduleFirstDate];
+        year = [components year];
+        m = [components month];
+        day = [components day];
+        month = intToMonth(m_secondDate);
+        
         FloatingRateBond floatingRateBond(
                                           settlementDays,
                                           faceAmount,
@@ -792,7 +823,9 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
                                           // Fixing in arrears
                                           true,
                                           Real(100.0),
-                                          Date(21, October, 2005));
+                                          Date(day, month, year));
+        
+//        floatingRateBondScheduleFirstDate
         
         floatingRateBond.setPricingEngine(bondEngine);
         
