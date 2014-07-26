@@ -7,6 +7,8 @@
 //
 
 #import "BondSetValueViewController.h"
+#import "QuantDao.h"
+#import "DmBond.h"
 
 @interface BondSetValueViewController ()
 
@@ -31,9 +33,14 @@
 
     [valueField setText:value];
     valueField.delegate = self;
-    
+    // set bond as object
     
 }
+
+
+//- (void) viewWillDisappear:(BOOL)animated {
+//    DmBond *bond =  [[QuantDao instance] getBond];
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -50,5 +57,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
 
 @end
