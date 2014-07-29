@@ -40,6 +40,11 @@
     
     NSMutableArray *results = [[QuantDao instance] getBond];
     
+    if (!bondParameterInit) {
+        bondParameterInit =  [[ParameterInitializer alloc] init];
+        [bondParameterInit setupParameters];
+    }
+    
 
     // To clear the local store
     //    results = nil;

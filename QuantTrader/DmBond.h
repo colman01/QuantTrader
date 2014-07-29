@@ -78,7 +78,13 @@
 - (void)addValue:(NSNumber *)value toData:(NSData *) dataArray;
 - (void)removeValue:(NSNumber *)value fromData:(NSData *) dataArray;
 
+- (NSNumber *)getValue:(int)position fromData:(NSData *) dataArray;
 
 
+
+- (void)addSwapQuoteAsNumber:(NSNumber *)value;
+
+
+- (void) removeSwapQuoteAsNumber:(NSNumber *)value;
 
 @end

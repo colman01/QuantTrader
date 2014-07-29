@@ -469,11 +469,31 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         Rate d9mQuote=0.0338125;
         Rate d1yQuote=0.0335125;
         
-        Rate s2yQuote=0.0295;
-        Rate s3yQuote=0.0323;
-        Rate s5yQuote=0.0359;
-        Rate s10yQuote=0.0412;
-        Rate s15yQuote=0.0433;
+//        Rate s2yQuote=0.0295;
+//        Rate s3yQuote=0.0323;
+//        Rate s5yQuote=0.0359;
+//        Rate s10yQuote=0.0412;
+//        Rate s15yQuote=0.0433;
+//        NSNumber *num = [bondParameters.swapQuotes objectAtIndex:0];
+//        NSNumber *num = [bondParameters getValue:0 fromData:bondParameters.swapQuotes];
+        
+        NSMutableArray *data_;
+        data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.swapQuotes];
+        NSNumber *num = [data_ objectAtIndex:0];
+        
+        Rate s2yQuote= (Rate)[num doubleValue];
+        
+        num = [data_ objectAtIndex:1];
+        Rate s3yQuote=(Rate)[num doubleValue];
+        
+        num = [data_ objectAtIndex:1];
+        Rate s5yQuote=(Rate)[num doubleValue];
+        
+        num = [data_ objectAtIndex:3];
+        Rate s10yQuote=(Rate)[num doubleValue];
+        
+        num = [data_ objectAtIndex:4];
+        Rate s15yQuote=(Rate)[num doubleValue];
         
         
         /********************

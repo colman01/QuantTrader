@@ -80,12 +80,30 @@
     [bondParameters addValue:[NSNumber numberWithDouble:0.03385]    toData:bondParameters.depositQuotes];
     [bondParameters addValue:[NSNumber numberWithDouble:0.0338125]  toData:bondParameters.depositQuotes];
     [bondParameters addValue:[NSNumber numberWithDouble:0.0335125]  toData:bondParameters.depositQuotes];
+
+//    NSMutableArray *data_;
+//    data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.swapQuotes];
     
-    [bondParameters addValue:[NSNumber numberWithDouble:0.0295] toData:bondParameters.swapQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.0323] toData:bondParameters.swapQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.0359] toData:bondParameters.swapQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.0412] toData:bondParameters.swapQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.0433] toData:bondParameters.swapQuotes];
+//    if (!bondParameters.swapQuotes) {
+//        bondParameters.swapQuotes = [[NSData alloc] init];
+//        [[PersistManager instance ] save];
+//    }
+//        bondParameters.swapQuotes = [NSKeyedArchiver archivedDataWithRootObject:@""];
+    
+
+    
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.0295] toData:bondParameters.swapQuotes];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.0323] toData:bondParameters.swapQuotes];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.0359] toData:bondParameters.swapQuotes];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.0412] toData:bondParameters.swapQuotes];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.0433] toData:bondParameters.swapQuotes];
+    
+//    - (void)addSwapQuoteAsNumber:(NSNumber *)value{
+    [bondParameters addSwapQuoteAsNumber:[NSNumber numberWithDouble:0.0295]];
+    [bondParameters addSwapQuoteAsNumber:[NSNumber numberWithDouble:0.0323]];
+    [bondParameters addSwapQuoteAsNumber:[NSNumber numberWithDouble:0.0359]];
+    [bondParameters addSwapQuoteAsNumber:[NSNumber numberWithDouble:0.0412]];
+    [bondParameters addSwapQuoteAsNumber:[NSNumber numberWithDouble:0.0433]];
     
 //    /*********************
 //     * BONDS TO BE PRICED *

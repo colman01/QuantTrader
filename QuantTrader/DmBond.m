@@ -142,8 +142,9 @@
         data_ = [[NSMutableArray alloc] init];
     [data_ addObject:value];
     // create nsdata for all dates
-    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:data_];
-    dataArray = arrayData;
+//    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:data_];
+//    dataArray = arrayData;
+    dataArray = [NSKeyedArchiver archivedDataWithRootObject:data_];
     [[PersistManager instance] save];
     
 }
@@ -158,6 +159,55 @@
     }
     NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:data_];
     dataArray = arrayData;
+    [[PersistManager instance] save];
+}
+
+
+- (NSNumber *)getValue:(int)position fromData:(NSData *) dataArray{
+    // array to add value
+    NSMutableArray *data_;
+    data_ = [NSKeyedUnarchiver unarchiveObjectWithData:dataArray];
+    if (!data_)
+        data_ = [[NSMutableArray alloc] init];
+    // create nsdata for all dates
+//    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:data_];
+//    dataArray = arrayData;
+    return [data_ objectAtIndex:position];
+    
+    
+    
+    
+    
+}
+
+
+
+- (void)addSwapQuoteAsNumber:(NSNumber *)value{
+    
+    NSMutableArray *quotes_;
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.swapQuotes];
+    if (!quotes_) {
+        quotes_ = [[NSMutableArray alloc] init];
+    }
+    [quotes_ addObject:value];
+    if (!self.swapQuotes)
+        self.swapQuotes  = [[NSData alloc] init];
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:quotes_];
+    self.swapQuotes = arrayData;
+    
+    [[PersistManager instance] save];
+}
+
+
+- (void) removeSwapQuoteAsNumber:(NSNumber *)value {
+    NSMutableArray *quotes_;
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.swapQuotes];
+    
+    for (NSNumber *num in quotes_) {
+        if ([num doubleValue] == [value doubleValue]) {
+            [quotes_ removeObject:num];
+        }
+    }
     [[PersistManager instance] save];
 }
 
