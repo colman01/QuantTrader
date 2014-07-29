@@ -62,25 +62,47 @@
     [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     
     
+    if (!bondParameters.couponRates)
+        bondParameters.couponRates = [[NSData alloc] init];
+    
     [bondParameters addValue:[NSNumber numberWithDouble:0.02375] toData:bondParameters.couponRates];
     [bondParameters addValue:[NSNumber numberWithDouble:0.04625] toData:bondParameters.couponRates];
     [bondParameters addValue:[NSNumber numberWithDouble:0.03125] toData:bondParameters.couponRates];
     [bondParameters addValue:[NSNumber numberWithDouble:0.04000] toData:bondParameters.couponRates];
     [bondParameters addValue:[NSNumber numberWithDouble:0.04500] toData:bondParameters.couponRates];
     
+    if (!bondParameters.marketQuotes)
+        bondParameters.marketQuotes = [[NSData alloc] init];
+    
     [bondParameters addValue:[NSNumber numberWithDouble:100.390625] toData:bondParameters.marketQuotes];
     [bondParameters addValue:[NSNumber numberWithDouble:106.21875]  toData:bondParameters.marketQuotes];
     [bondParameters addValue:[NSNumber numberWithDouble:100.59375]  toData:bondParameters.marketQuotes];
     [bondParameters addValue:[NSNumber numberWithDouble:101.6875]   toData:bondParameters.marketQuotes];
     [bondParameters addValue:[NSNumber numberWithDouble:102.140625] toData:bondParameters.marketQuotes];
+    
+    if (!bondParameters.depositQuotes)
+        bondParameters.depositQuotes = [[NSData alloc] init];
 
-    [bondParameters addValue:[NSNumber numberWithDouble:0.043375]   toData:bondParameters.depositQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.031875]   toData:bondParameters.depositQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.0320375]  toData:bondParameters.depositQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.03385]    toData:bondParameters.depositQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.0338125]  toData:bondParameters.depositQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.0335125]  toData:bondParameters.depositQuotes];
-
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.043375]   toData:bondParameters.depositQuotes];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.031875]   toData:bondParameters.depositQuotes];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.0320375]  toData:bondParameters.depositQuotes];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.03385]    toData:bondParameters.depositQuotes];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.0338125]  toData:bondParameters.depositQuotes];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.0335125]  toData:bondParameters.depositQuotes];
+    
+//    [bondParameters addNumber:[NSNumber numberWithDouble:0.043375] toData:bondParameters.depositQuotes];
+//    [bondParameters addNumber:[NSNumber numberWithDouble:0.031875] toData:bondParameters.depositQuotes];
+//    [bondParameters addNumber:[NSNumber numberWithDouble:0.0320375] toData:bondParameters.depositQuotes];
+//    [bondParameters addNumber:[NSNumber numberWithDouble:0.03385] toData:bondParameters.depositQuotes];
+//    [bondParameters addNumber:[NSNumber numberWithDouble:0.0338125] toData:bondParameters.depositQuotes];
+//    [bondParameters addNumber:[NSNumber numberWithDouble:0.0335125] toData:bondParameters.depositQuotes];
+    
+    [bondParameters addDepositQuoteAsNumber:[NSNumber numberWithDouble:0.043375]];
+    [bondParameters addDepositQuoteAsNumber:[NSNumber numberWithDouble:0.031875]];
+    [bondParameters addDepositQuoteAsNumber:[NSNumber numberWithDouble:0.0320375]];
+    [bondParameters addDepositQuoteAsNumber:[NSNumber numberWithDouble:0.03385]];
+    [bondParameters addDepositQuoteAsNumber:[NSNumber numberWithDouble:0.0338125]];
+    [bondParameters addDepositQuoteAsNumber:[NSNumber numberWithDouble:0.0338125]];    
 //    NSMutableArray *data_;
 //    data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.swapQuotes];
     

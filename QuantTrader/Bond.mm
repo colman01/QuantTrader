@@ -460,14 +460,40 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
                                                                            new PiecewiseYieldCurve<Discount,LogLinear>(
                                                                                                                        settlementDate, bondInstruments,
                                                                                                                        termStructureDayCounter,
+        
+                                                                                                                       
                                                                                                                        tolerance));
         
-        Rate d1wQuote=0.043375;
-        Rate d1mQuote=0.031875;
-        Rate d3mQuote=0.0320375;
-        Rate d6mQuote=0.03385;
-        Rate d9mQuote=0.0338125;
-        Rate d1yQuote=0.0335125;
+        NSMutableArray *data_;;
+        NSNumber *num;
+        
+//        Rate d1wQuote=0.043375;
+//        Rate d1mQuote=0.031875;
+//        Rate d3mQuote=0.0320375;
+//        Rate d6mQuote=0.03385;
+//        Rate d9mQuote=0.0338125;
+//        Rate d1yQuote=0.0335125;
+        
+        data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.depositQuotes];
+        num = [data_ objectAtIndex:0];
+        Rate d1wQuote=(Rate)[num doubleValue];
+        
+        num = [data_ objectAtIndex:1];
+        Rate d1mQuote=(Rate)[num doubleValue];;
+        
+        num = [data_ objectAtIndex:2];
+        Rate d3mQuote=(Rate)[num doubleValue];;
+        
+        num = [data_ objectAtIndex:3];
+        Rate d6mQuote=(Rate)[num doubleValue];;
+        
+        num = [data_ objectAtIndex:4];
+        Rate d9mQuote=(Rate)[num doubleValue];;
+        
+        num = [data_ objectAtIndex:5];
+        Rate d1yQuote=(Rate)[num doubleValue];;
+        
+        
         
 //        Rate s2yQuote=0.0295;
 //        Rate s3yQuote=0.0323;
@@ -477,9 +503,9 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
 //        NSNumber *num = [bondParameters.swapQuotes objectAtIndex:0];
 //        NSNumber *num = [bondParameters getValue:0 fromData:bondParameters.swapQuotes];
         
-        NSMutableArray *data_;
+        
         data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.swapQuotes];
-        NSNumber *num = [data_ objectAtIndex:0];
+        num = [data_ objectAtIndex:0];
         
         Rate s2yQuote= (Rate)[num doubleValue];
         

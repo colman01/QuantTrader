@@ -211,6 +211,65 @@
     [[PersistManager instance] save];
 }
 
+- (void)addDepositQuoteAsNumber:(NSNumber *)value{
+    
+    NSMutableArray *quotes_;
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.depositQuotes];
+    if (!quotes_) {
+        quotes_ = [[NSMutableArray alloc] init];
+    }
+    [quotes_ addObject:value];
+    if (!self.depositQuotes)
+        self.depositQuotes  = [[NSData alloc] init];
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:quotes_];
+    self.depositQuotes = arrayData;
+    
+    [[PersistManager instance] save];
+}
+
+
+- (void) removeDepositQuoteAsNumber:(NSNumber *)value {
+    NSMutableArray *quotes_;
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.depositQuotes];
+    
+    for (NSNumber *num in quotes_) {
+        if ([num doubleValue] == [value doubleValue]) {
+            [quotes_ removeObject:num];
+        }
+    }
+    [[PersistManager instance] save];
+}
+
+
+- (void)addNumber:(NSNumber *)value toData:(NSData *) target{
+    
+    NSMutableArray *quotes_;
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:target];
+    if (!quotes_) {
+        quotes_ = [[NSMutableArray alloc] init];
+    }
+    [quotes_ addObject:value];
+    if (!target)
+        target  = [[NSData alloc] init];
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:quotes_];
+    target = arrayData;
+    
+    [[PersistManager instance] save];
+}
+
+
+- (void) removeNumber:(NSNumber *)value fromData:(NSData *) target {
+    NSMutableArray *quotes_;
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:target];
+    
+    for (NSNumber *num in quotes_) {
+        if ([num doubleValue] == [value doubleValue]) {
+            [quotes_ removeObject:num];
+        }
+    }
+    [[PersistManager instance] save];
+}
+
 
 
 

@@ -87,4 +87,10 @@
 
 - (void) removeSwapQuoteAsNumber:(NSNumber *)value;
 
+- (void)addNumber:(NSNumber *)value toData:(NSData *) target;
+- (void)removeNumber:(NSNumber *)value fromData:(NSData *) target;
+
+- (void)addDepositQuoteAsNumber:(NSNumber *)value;
+- (void)removeDepositQuoteAsNumber:(NSNumber *)value;
+
 @end
