@@ -105,6 +105,31 @@
 }
 
 
+- (void)addMaturityDateAsDate:(NSDate *)value{
+    
+    NSMutableArray *dates_;
+    if (!dates_)
+        dates_ = [[NSMutableArray alloc] init];
+    dates_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.maturityDates];
+    [dates_ addObject:value];
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:dates_];
+    self.maturityDates = arrayData;
+    [[PersistManager instance] save];
+}
+
+- (void) removeMaturityeDateAsDate:(NSDate *) value {
+    NSMutableArray *dates_;
+    dates_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.maturityDates];
+    
+    for (NSDate *existingDate in dates_) {
+        if ([existingDate compare:value]) {
+            [dates_ removeObject:existingDate];
+        }
+    }
+    [[PersistManager instance] save];
+    
+}
+
 
 - (void)addDate:(NSDate *)value toData:(NSData *) dateArray{
     // array to add value
@@ -239,6 +264,65 @@
     }
     [[PersistManager instance] save];
 }
+
+- (void)addCouponRateAsNumber:(NSNumber *)value{
+    
+    NSMutableArray *quotes_;
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.couponRates];
+    if (!quotes_) {
+        quotes_ = [[NSMutableArray alloc] init];
+    }
+    [quotes_ addObject:value];
+    if (!self.couponRates)
+        self.couponRates  = [[NSData alloc] init];
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:quotes_];
+    self.couponRates = arrayData;
+    
+    [[PersistManager instance] save];
+}
+
+
+- (void) removeCouponRateAsNumber:(NSNumber *)value {
+    NSMutableArray *quotes_;
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.couponRates];
+    
+    for (NSNumber *num in quotes_) {
+        if ([num doubleValue] == [value doubleValue]) {
+            [quotes_ removeObject:num];
+        }
+    }
+    [[PersistManager instance] save];
+}
+
+- (void)addMarketQuoteAsNumber:(NSNumber *)value{
+    
+    NSMutableArray *quotes_;
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.marketQuotes];
+    if (!quotes_) {
+        quotes_ = [[NSMutableArray alloc] init];
+    }
+    [quotes_ addObject:value];
+    if (!self.marketQuotes)
+        self.marketQuotes  = [[NSData alloc] init];
+    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:quotes_];
+    self.marketQuotes = arrayData;
+    
+    [[PersistManager instance] save];
+}
+
+
+- (void) removeMarketQuoteAsNumber:(NSNumber *)value {
+    NSMutableArray *quotes_;
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.marketQuotes];
+    
+    for (NSNumber *num in quotes_) {
+        if ([num doubleValue] == [value doubleValue]) {
+            [quotes_ removeObject:num];
+        }
+    }
+    [[PersistManager instance] save];
+}
+
 
 
 - (void)addNumber:(NSNumber *)value toData:(NSData *) target{

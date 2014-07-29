@@ -51,34 +51,50 @@
     bondParameters.numberOfBonds = [NSNumber numberWithDouble:5];
     
     str =@"31/08/2010";
-    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
+
+    [bondParameters addMaturityDateAsDate:[formatter dateFromString:str]];
     str =@"31/08/2011";
-    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
+    [bondParameters addMaturityDateAsDate:[formatter dateFromString:str]];
+//    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     str =@"30/08/2013";
-    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
+    [bondParameters addMaturityDateAsDate:[formatter dateFromString:str]];
+//    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     str =@"15/08/2018";
-    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
+    [bondParameters addMaturityDateAsDate:[formatter dateFromString:str]];
+//    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     str =@"15/08/2038";
-    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
+    [bondParameters addMaturityDateAsDate:[formatter dateFromString:str]];
+//    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     
     
     if (!bondParameters.couponRates)
         bondParameters.couponRates = [[NSData alloc] init];
     
-    [bondParameters addValue:[NSNumber numberWithDouble:0.02375] toData:bondParameters.couponRates];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.04625] toData:bondParameters.couponRates];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.03125] toData:bondParameters.couponRates];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.04000] toData:bondParameters.couponRates];
-    [bondParameters addValue:[NSNumber numberWithDouble:0.04500] toData:bondParameters.couponRates];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.02375] toData:bondParameters.couponRates];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.04625] toData:bondParameters.couponRates];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.03125] toData:bondParameters.couponRates];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.04000] toData:bondParameters.couponRates];
+//    [bondParameters addValue:[NSNumber numberWithDouble:0.04500] toData:bondParameters.couponRates];
+    
+    [bondParameters addCouponRateAsNumber:[NSNumber numberWithDouble:0.02375] ];
+    [bondParameters addCouponRateAsNumber:[NSNumber numberWithDouble:0.04625] ];
+    [bondParameters addCouponRateAsNumber:[NSNumber numberWithDouble:0.03125] ];
+    [bondParameters addCouponRateAsNumber:[NSNumber numberWithDouble:0.04000] ];
+    [bondParameters addCouponRateAsNumber:[NSNumber numberWithDouble:0.04500] ];
     
     if (!bondParameters.marketQuotes)
         bondParameters.marketQuotes = [[NSData alloc] init];
+    [bondParameters addMarketQuoteAsNumber:[NSNumber numberWithDouble:100.390625]];
+    [bondParameters addMarketQuoteAsNumber:[NSNumber numberWithDouble:106.21875]  ];
+    [bondParameters addMarketQuoteAsNumber:[NSNumber numberWithDouble:100.59375]  ];
+    [bondParameters addMarketQuoteAsNumber:[NSNumber numberWithDouble:101.6875]   ];
+    [bondParameters addMarketQuoteAsNumber:[NSNumber numberWithDouble:102.140625] ];
     
-    [bondParameters addValue:[NSNumber numberWithDouble:100.390625] toData:bondParameters.marketQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:106.21875]  toData:bondParameters.marketQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:100.59375]  toData:bondParameters.marketQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:101.6875]   toData:bondParameters.marketQuotes];
-    [bondParameters addValue:[NSNumber numberWithDouble:102.140625] toData:bondParameters.marketQuotes];
+//    [bondParameters addValue:[NSNumber numberWithDouble:100.390625] ];
+//    [bondParameters addValue:[NSNumber numberWithDouble:106.21875]  ];
+//    [bondParameters addValue:[NSNumber numberWithDouble:100.59375]  ];
+//    [bondParameters addValue:[NSNumber numberWithDouble:101.6875]   ];
+//    [bondParameters addValue:[NSNumber numberWithDouble:102.140625] ];
     
     if (!bondParameters.depositQuotes)
         bondParameters.depositQuotes = [[NSData alloc] init];

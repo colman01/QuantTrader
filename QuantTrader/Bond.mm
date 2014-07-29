@@ -291,6 +291,8 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
     
     using namespace QuantLib;
     
+
+    
     try {
         
         boost::timer timer;
@@ -306,6 +308,10 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         }
         @catch (NSException *exception) {
         }
+        
+        
+        NSMutableArray *data_;;
+        NSNumber *num;
         
         
         /*********************
@@ -386,21 +392,98 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
             Date (15, May, 2038)
         };
         
+        data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
+//        NSDate date = [data_ objectAtIndex:0];
+        
+        
+        NSCalendar *cal_ = [NSCalendar currentCalendar];
+        [cal_ setTimeZone:[NSTimeZone localTimeZone]];
+        [cal_ setLocale:[NSLocale currentLocale]];
+
+//        int year = [components year];
+//        int m = [components month];
+//        int day = [components day];
+//        QuantLib::Month month = intToMonth(m);
+//        QuantLib::Date(day,month,year);
+        
+        QuantLib::Date(
+        [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day],
+        intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] month]),
+                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] year]);
+        
+        QuantLib::Date(
+                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] day],
+                       intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] month]),
+                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] year]);
+        
+
+        
+//        Date maturities[] = {
+//            QuantLib::Date(
+//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day],
+//                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] month]),
+//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] year]) ,
+//            QuantLib::Date(
+//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] day],
+//                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] month]),
+//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] year]) ,
+//            QuantLib::Date(
+//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] day],
+//                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] month]),
+//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] year]) ,
+//            QuantLib::Date(
+//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] day],
+//                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] month]),
+//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] year]) ,
+//            QuantLib::Date(
+//                          [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] day],
+//                          intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] month]),
+//                          [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] year])
+//        };
+        
+//        Real couponRates[] = {
+//            0.02375,
+//            0.04625,
+//            0.03125,
+//            0.04000,
+//            0.04500
+//        };
+        
+        
+        data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.couponRates];
+        num = [data_ objectAtIndex:0];
         Real couponRates[] = {
-            0.02375,
-            0.04625,
-            0.03125,
-            0.04000,
-            0.04500
+            [[data_ objectAtIndex:0] doubleValue],
+            [[data_ objectAtIndex:1] doubleValue],
+            [[data_ objectAtIndex:2] doubleValue],
+            [[data_ objectAtIndex:3] doubleValue],
+            [[data_ objectAtIndex:4] doubleValue]
         };
         
+        
+//        Real marketQuotes[] = {
+//            100.390625,
+//            106.21875,
+//            100.59375,
+//            101.6875,
+//            102.140625
+//        };
+        
+
+        
+        data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.marketQuotes];
+        num = [data_ objectAtIndex:0];
         Real marketQuotes[] = {
-            100.390625,
-            106.21875,
-            100.59375,
-            101.6875,
-            102.140625
+            (Real)[[data_ objectAtIndex:0] doubleValue],
+            (Real)[[data_ objectAtIndex:1] doubleValue],
+            (Real)[[data_ objectAtIndex:2] doubleValue],
+            (Real)[[data_ objectAtIndex:3] doubleValue],
+            (Real)[[data_ objectAtIndex:4] doubleValue]
         };
+        
+        
+//        Rate d1wQuote=(Rate)[num doubleValue];
+//        bondParameters.marketQuotes
         
         std::vector< boost::shared_ptr<SimpleQuote> > quote;
         for (int i=0; i<numberOfBonds; i++) {
@@ -464,8 +547,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
                                                                                                                        
                                                                                                                        tolerance));
         
-        NSMutableArray *data_;;
-        NSNumber *num;
+
         
 //        Rate d1wQuote=0.043375;
 //        Rate d1mQuote=0.031875;
@@ -473,6 +555,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
 //        Rate d6mQuote=0.03385;
 //        Rate d9mQuote=0.0338125;
 //        Rate d1yQuote=0.0335125;
+
         
         data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.depositQuotes];
         num = [data_ objectAtIndex:0];
@@ -493,16 +576,11 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         num = [data_ objectAtIndex:5];
         Rate d1yQuote=(Rate)[num doubleValue];;
         
-        
-        
 //        Rate s2yQuote=0.0295;
 //        Rate s3yQuote=0.0323;
 //        Rate s5yQuote=0.0359;
 //        Rate s10yQuote=0.0412;
 //        Rate s15yQuote=0.0433;
-//        NSNumber *num = [bondParameters.swapQuotes objectAtIndex:0];
-//        NSNumber *num = [bondParameters getValue:0 fromData:bondParameters.swapQuotes];
-        
         
         data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.swapQuotes];
         num = [data_ objectAtIndex:0];
@@ -650,9 +728,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
          * BONDS TO BE PRICED *
          **********************/
         
-
 //        Date date = [self changeDate:bondParameters.zeroCouponBondFirstDate];
-        
         
         NSCalendar *cal = [NSCalendar currentCalendar];
         [cal setTimeZone:[NSTimeZone localTimeZone]];
