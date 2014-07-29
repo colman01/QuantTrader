@@ -90,24 +90,13 @@
 //    /*********************
 //     * BONDS TO BE PRICED *
 //     **********************/
-//    
-//    // Common data
-//    Real faceAmount = 100;
          bondParameters.faceAmount = [NSNumber numberWithInt:100];
 //    
 //    // Pricing engine
 //    boost::shared_ptr<PricingEngine> bondEngine(
 //                                                new DiscountingBondEngine(discountingTermStructure));
-//    
-//    // Zero coupon bond
-//    ZeroCouponBond zeroCouponBond(
-//                                  settlementDays,
-//                                  UnitedStates(UnitedStates::GovernmentBond),
-//                                  faceAmount,
-//                                  Date(15,August,2013),
-//                                  Following,
-//                                  Real(116.92),
-//                                  Date(15,August,2003));
+// Zero coupon bond
+//    ZeroCouponBond zeroCouponBond();
     
     
     str =@"15/08/2013";
@@ -118,39 +107,21 @@
     bondParameters.zeroCouponBondSecondDate  = [formatter dateFromString:str]; // date_2
 
     
-//    
 //    zeroCouponBond.setPricingEngine(bondEngine);
-//    
 //    // Fixed 4.5% US Treasury Note
-//    Schedule fixedBondSchedule(Date(15, May, 2007),
-//                               Date(15,May,2017), Period(Semiannual),
-//                               UnitedStates(UnitedStates::GovernmentBond),
-//                               Unadjusted, Unadjusted, DateGeneration::Backward, false);
+//    Schedule fixedBondSchedule(;
     
     str =@"15/05/2007";
     bondParameters.fixedBondScheduleFirstDate  = [formatter dateFromString:str]; // date_3
     str =@"15/05/2017";
     bondParameters.fixedBondScheduleSecondDate  = [formatter dateFromString:str]; // date_4
-//
-//    FixedRateBond fixedRateBond(
-//                                settlementDays,
-//                                faceAmount,
-//                                fixedBondSchedule,
-//                                std::vector<Rate>(1, 0.045),
-//                                ActualActual(ActualActual::Bond),
-//                                ModifiedFollowing,
-//                                100.0, Date(15, May, 2007));
+//    FixedRateBond fixedRateBond(;
     
     str =@"15/05/2007";
     bondParameters.fixedRateBondFirstDate  = [formatter dateFromString:str]; // date_5
 
-    
-//
-//    fixedRateBond.setPricingEngine(bondEngine);
-//    
 //    // Floating rate bond (3M USD Libor + 0.1%)
 //    // Should and will be priced on another curve later...
-//    
 //    RelinkableHandle<YieldTermStructure> liborTermStructure;
 //    const boost::shared_ptr<IborIndex> libor3m(
 //                                               new USDLibor(Period(3,Months),liborTermStructure));
@@ -158,35 +129,13 @@
     str =@"17/07/2008";
     bondParameters.addFixingFirstDate  = [formatter dateFromString:str]; // date_6
 //
-//    Schedule floatingBondSchedule(Date(21, October, 2005),
-//                                  Date(21, October, 2010), Period(Quarterly),
-//                                  UnitedStates(UnitedStates::NYSE),
-//                                  Unadjusted, Unadjusted, DateGeneration::Backward, true);
+//    Schedule floatingBondSchedule();
     str =@"21/10/2005";
     bondParameters.floatingBondScheduleFirstDate  = [formatter dateFromString:str]; // date_7
     str =@"21/10/2010";
     bondParameters.floatingBondScheduleSecondDate  = [formatter dateFromString:str]; // date_8
 //
-//    FloatingRateBond floatingRateBond(
-//                                      settlementDays,
-//                                      faceAmount,
-//                                      floatingBondSchedule,
-//                                      libor3m,
-//                                      Actual360(),
-//                                      ModifiedFollowing,
-//                                      Natural(2),
-//                                      // Gearings
-//                                      std::vector<Real>(1, 1.0),
-//                                      // Spreads
-//                                      std::vector<Rate>(1, 0.001),
-//                                      // Caps
-//                                      std::vector<Rate>(),
-//                                      // Floors
-//                                      std::vector<Rate>(),
-//                                      // Fixing in arrears
-//                                      true,
-//                                      Real(100.0),
-//                                      Date(21, October, 2005));
+//    FloatingRateBond floatingRateBond();
     
     str =@"21/10/2005";
     bondParameters.floatingRateBondScheduleFirstDate  = [formatter dateFromString:str]; // date_9
@@ -200,14 +149,7 @@
 //    // optionLet volatilities
 //    Volatility volatility = 0.0;
 //    Handle<OptionletVolatilityStructure> vol;
-//    vol = Handle<OptionletVolatilityStructure>(
-//                                               boost::shared_ptr<OptionletVolatilityStructure>(new
-//                                                                                               ConstantOptionletVolatility(
-//                                                                                                                           settlementDays,
-//                                                                                                                           calendar,
-//                                                                                                                           ModifiedFollowing,
-//                                                                                                                           volatility,
-//                                                                                                                           Actual365Fixed())));
+//    vol = Handle<OptionletVolatilityStructure>();
 //    
 //    pricer->setCapletVolatility(vol);
 //    setCouponPricer(floatingRateBond.cashflows(),pricer);
