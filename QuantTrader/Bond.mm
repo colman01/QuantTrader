@@ -375,30 +375,61 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         Real redemption = [self.redemp doubleValue];
         
         QuantLib::Size numberOfBonds = 5;
-        
-        Date issueDates[] = {
-            Date (15, March, 2005),
-            Date (15, June, 2005),
-            Date (30, June, 2006),
-            Date (15, November, 2002),
-            Date (15, May, 1987)
-        };
-        
-        Date maturities[] = {
-            Date (31, August, 2010),
-            Date (31, August, 2011),
-            Date (31, August, 2013),
-            Date (15, August, 2018),
-            Date (15, May, 2038)
-        };
-        
-        data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
-//        NSDate date = [data_ objectAtIndex:0];
+//        
+//        Date issueDates[] = {
+//            Date (15, March, 2005),
+//            Date (15, June, 2005),
+//            Date (30, June, 2006),
+//            Date (15, November, 2002),
+//            Date (15, May, 1987)
+//        };
+        data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.issueDates];
+        //        NSDate date = [data_ objectAtIndex:0];
         
         
         NSCalendar *cal_ = [NSCalendar currentCalendar];
         [cal_ setTimeZone:[NSTimeZone localTimeZone]];
         [cal_ setLocale:[NSLocale currentLocale]];
+        
+        Date issueDates[] = {
+            QuantLib::Date(
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day],
+                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] month]),
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] year]) ,
+            QuantLib::Date(
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] day],
+                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] month]),
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] year]) ,
+            QuantLib::Date(
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] day],
+                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] month]),
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] year]) ,
+            QuantLib::Date(
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] day],
+                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] month]),
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] year]) ,
+            QuantLib::Date(
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] day],
+                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] month]),
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] year])
+        };
+        
+        
+//        Date maturities[] = {
+//            Date (31, August, 2010),
+//            Date (31, August, 2011),
+//            Date (31, August, 2013),
+//            Date (15, August, 2018),
+//            Date (15, May, 2038)
+//        };
+        
+        data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
+//        NSDate date = [data_ objectAtIndex:0];
+        
+        
+//        NSCalendar *cal_ = [NSCalendar currentCalendar];
+//        [cal_ setTimeZone:[NSTimeZone localTimeZone]];
+//        [cal_ setLocale:[NSLocale currentLocale]];
 
 //        int year = [components year];
 //        int m = [components month];
@@ -418,28 +449,28 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         
 
         
-//        Date maturities[] = {
-//            QuantLib::Date(
-//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day],
-//                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] month]),
-//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] year]) ,
-//            QuantLib::Date(
-//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] day],
-//                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] month]),
-//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] year]) ,
-//            QuantLib::Date(
-//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] day],
-//                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] month]),
-//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] year]) ,
-//            QuantLib::Date(
-//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] day],
-//                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] month]),
-//                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] year]) ,
-//            QuantLib::Date(
-//                          [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] day],
-//                          intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] month]),
-//                          [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] year])
-//        };
+        Date maturities[] = {
+            QuantLib::Date(
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day],
+                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] month]),
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] year]) ,
+            QuantLib::Date(
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] day],
+                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] month]),
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] year]) ,
+            QuantLib::Date(
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] day],
+                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] month]),
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:2]] year]) ,
+            QuantLib::Date(
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] day],
+                           intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] month]),
+                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:3]] year]) ,
+            QuantLib::Date(
+                          [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] day],
+                          intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] month]),
+                          [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] year])
+        };
         
 //        Real couponRates[] = {
 //            0.02375,

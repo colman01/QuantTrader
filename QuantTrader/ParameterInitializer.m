@@ -52,9 +52,14 @@
     
     str =@"31/08/2010";
 
-    [bondParameters addMaturityDateAsDate:[formatter dateFromString:str]];
+    if (!bondParameters.maturityDates) {
+        bondParameters.maturityDates = [[NSData alloc] init];
+    }
+    NSDate *date = [formatter dateFromString:str];
+    [bondParameters addMaturityDateAsDate:date];
     str =@"31/08/2011";
-    [bondParameters addMaturityDateAsDate:[formatter dateFromString:str]];
+    date = [formatter dateFromString:str];
+    [bondParameters addMaturityDateAsDate:date];
 //    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     str =@"30/08/2013";
     [bondParameters addMaturityDateAsDate:[formatter dateFromString:str]];

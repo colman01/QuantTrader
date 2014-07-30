@@ -82,9 +82,10 @@
 - (void)addissueDateAsDate:(NSDate *)value{
     
     NSMutableArray *dates_;
+
+    dates_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.issueDates];
     if (!dates_)
         dates_ = [[NSMutableArray alloc] init];
-    dates_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.issueDates];
     [dates_ addObject:value];
     NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:dates_];
     self.issueDates = arrayData;
@@ -108,9 +109,10 @@
 - (void)addMaturityDateAsDate:(NSDate *)value{
     
     NSMutableArray *dates_;
+
+    dates_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.maturityDates];
     if (!dates_)
         dates_ = [[NSMutableArray alloc] init];
-    dates_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.maturityDates];
     [dates_ addObject:value];
     NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:dates_];
     self.maturityDates = arrayData;
