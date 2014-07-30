@@ -406,15 +406,15 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
 //        QuantLib::Month month = intToMonth(m);
 //        QuantLib::Date(day,month,year);
         
-        QuantLib::Date(
-        [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day],
-        intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] month]),
-                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] year]);
-        
-        QuantLib::Date(
-                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] day],
-                       intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] month]),
-                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] year]);
+//        QuantLib::Date(
+//        [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day],
+//        intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] month]),
+//                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] year]);
+//        
+//        QuantLib::Date(
+//                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] day],
+//                       intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] month]),
+//                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] year]);
         
 
         
@@ -468,8 +468,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
 //            101.6875,
 //            102.140625
 //        };
-        
-
         
         data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.marketQuotes];
         num = [data_ objectAtIndex:0];

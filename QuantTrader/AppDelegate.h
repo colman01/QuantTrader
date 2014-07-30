@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NUIAppearance.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

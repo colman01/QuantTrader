@@ -1,3 +1,4 @@
+pod 'NUI'
 pod 'IQKeyboardManager'
 pod 'CorePlot',         '~> 1.2'
 #platform :ios, :deployment_target => '6.1'
