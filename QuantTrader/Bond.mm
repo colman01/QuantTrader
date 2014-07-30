@@ -76,217 +76,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
     self.redemp = [NSNumber numberWithDouble:100.0];
 }
 
-
-- (void) setupParameters {
-    
-    using namespace QuantLib;
-    
-    
-    
-    
-    DmBond *bondParameters;
-    
-    NSMutableArray *results = [[QuantDao instance] getBond];
-
-    @try {
-        bondParameters = results[0];
-    }
-    @catch (NSException *exception) {
-    }
-    
-
-    //  15, QuantLib::March, 2005
-    //  15, QuantLib::June, 2005
-    //  30, QuantLib::June, 2006)
-    //  15, QuantLib::November, 2002
-    //  15, QuantLib::May, 1987
-    
-    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0096]];
-    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0145]];
-    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0194]];
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"dd/mmm/yyyy"];
-    
-    NSString *str =@"15/03/2005";
-    [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
-    
-    str =@"15/06/2005";
-    [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
-
-
-    str =@"30/06/2006";
-    [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
-    
-    str =@"15/11/2006";
-    [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
-    
-    str =@"15/05/1987";
-    [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
-    
-    [[PersistManager instance] save];
-    
-    
-    self.zeroCoupon3mQuote=0.0096;
-    self.zeroCoupon6mQuote=0.0145;
-    self.zeroCoupon1yQuote=0.0194;
-    
-
-    
-    self.fiXingDays = 100;
-    
-    _numBonds = 5;
-    
-    QuantLib::Date issueDates[] = {
-        QuantLib::Date (15, QuantLib::March, 2005),
-        QuantLib::Date (15, QuantLib::June, 2005),
-        QuantLib::Date (30, QuantLib::June, 2006),
-        QuantLib::Date (15, QuantLib::November, 2002),
-        QuantLib::Date (15, QuantLib::May, 1987)
-    };
-    
-    QuantLib::Date maturitieDates[] = {
-        QuantLib::Date (31, QuantLib::August, 2010),
-        QuantLib::Date (31, QuantLib::August, 2011),
-        QuantLib::Date (30, QuantLib::August, 2013),
-        QuantLib::Date (15, QuantLib::August, 2018),
-        QuantLib::Date (15, QuantLib::August, 2038)
-    };
-    
-    Real couponRates[] = {
-        0.02375,
-        0.04625,
-        0.03125,
-        0.04000,
-        0.04500
-    };
-    
-    Real marketQuotes[] = {
-        100.390625,
-        106.21875,
-        100.59375,
-        101.6875,
-        102.140625
-    };
-    
-//    Rate d1wQuote=0.043375;
-//    Rate d1mQuote=0.031875;
-//    Rate d3mQuote=0.0320375;
-//    Rate d6mQuote=0.03385;
-//    Rate d9mQuote=0.0338125;
-//    Rate d1yQuote=0.0335125;
-
-    
-    for(int i =0; i<  5; i++) {
-        QuantLib::Date &date = issueDates[i];
-        std::stringstream stream;
-//        std::string format = "d-mmm-yyyy";
-        try {
-            stream << date.dayOfMonth() << "-" << date.month() << "-" << date.year();
-        }
-        catch (std::exception &e) {
-        }
-        
-        std::string result = stream.str() ;
-        if (!formatedIssueDates)
-            formatedIssueDates = [[NSMutableArray alloc] init];
-        [formatedIssueDates addObject:[NSString stringWithFormat:@"%s",result.c_str()]];
-        stream.str("");
-        
-        date = maturitieDates[i];
-        try {
-            stream << date.dayOfMonth() << "-" << date.month() << "-" << date.year();
-        }
-        catch (std::exception &e) {
-        }
-
-        result = stream.str() ;
-        if (!formatedMaturiyDates)
-            formatedMaturiyDates = [[NSMutableArray alloc] init];
-        [formatedMaturiyDates addObject:[NSString stringWithFormat:@"%s",result.c_str()]];
-        
-        stream.str("");
-        
-        float rate = (float)couponRates[i];
-        if (!_bondCouponRates)
-            _bondCouponRates = [[NSMutableArray alloc] init];
-        [_bondCouponRates addObject:[NSString stringWithFormat:@"%f",rate]];
-
-        
-        float marketQuote = (float)marketQuotes[i];
-        if(!bondMarketQuotes)
-            bondMarketQuotes = [[NSMutableArray alloc] init];
-        [bondMarketQuotes addObject:[NSString stringWithFormat:@"%f",marketQuote]];
-        
-    }
-    
-    Rate d1wQuote=0.043375;
-    Rate d1mQuote=0.031875;
-    Rate d3mQuote=0.0320375;
-    Rate d6mQuote=0.03385;
-    Rate d9mQuote=0.0338125;
-    Rate d1yQuote=0.0335125;
-    
-    
-    if(!bondLiborForcastingCurveQuotes)
-        bondLiborForcastingCurveQuotes = [[NSMutableArray alloc] init];
-    
-    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d1wQuote] ];
-    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d1mQuote]];
-    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d3mQuote]];
-    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d6mQuote]];
-    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d9mQuote]];
-    [bondLiborForcastingCurveQuotes addObject:[NSString stringWithFormat:@"%f",(float)d1yQuote]];
-    
-    Rate s2yQuote=0.0295;
-    Rate s3yQuote=0.0323;
-    Rate s5yQuote=0.0359;
-    Rate s10yQuote=0.0412;
-    Rate s15yQuote=0.0433;
-    
-    if(!bondSwapQuotes)
-        bondSwapQuotes = [[NSMutableArray alloc] init];
-    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s2yQuote] ];
-    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s3yQuote]];
-    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s5yQuote]];
-    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s10yQuote]];
-    [bondSwapQuotes addObject:[NSString stringWithFormat:@"%f",(float)s15yQuote]];
-    
-    
-    self.faceamount = 100;
-    
-
-//    Date zcDate1 = QuantLib::Date (21, QuantLib::October, 2005);
-//    Date zcDate2 = QuantLib::Date (15, QuantLib::May, 2007);
-    std::stringstream stream;
-    stream.str("");
-    Date zcDate1 = QuantLib::Date (21, QuantLib::October, 2005);
-    try {
-        stream << zcDate1.dayOfMonth() << "-" << zcDate1.month() << "-" << zcDate1.year();
-    }
-    catch (std::exception &e) {
-    }
-    std::string result = stream.str() ;
-    self.zeroCouponDate1 = [NSString stringWithFormat:@"%s",result.c_str()];
-    
-    stream.str("");
-    Date zcDate2 = QuantLib::Date (15, QuantLib::May, 2007);
-    try {
-        stream << zcDate2.dayOfMonth() << "-" << zcDate2.month() << "-" << zcDate2.year();
-    }
-    catch (std::exception &e) {
-    }
-    result = stream.str() ;
-    self.zeroCouponDate2 = [NSString stringWithFormat:@"%s",result.c_str()];
-    
-    
-    //        Date(21, October, 2005)
-    //        Date(21, October, 2010)
-    
-    
-    
-}
-
 -(void) calculate {
     
     using namespace QuantLib;
@@ -375,17 +164,8 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         Real redemption = [self.redemp doubleValue];
         
         QuantLib::Size numberOfBonds = 5;
-//        
-//        Date issueDates[] = {
-//            Date (15, March, 2005),
-//            Date (15, June, 2005),
-//            Date (30, June, 2006),
-//            Date (15, November, 2002),
-//            Date (15, May, 1987)
-//        };
+
         data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.issueDates];
-        //        NSDate date = [data_ objectAtIndex:0];
-        
         
         NSCalendar *cal_ = [NSCalendar currentCalendar];
         [cal_ setTimeZone:[NSTimeZone localTimeZone]];
@@ -415,40 +195,9 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         };
         
         
-//        Date maturities[] = {
-//            Date (31, August, 2010),
-//            Date (31, August, 2011),
-//            Date (31, August, 2013),
-//            Date (15, August, 2018),
-//            Date (15, May, 2038)
-//        };
+
         
         data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
-//        NSDate date = [data_ objectAtIndex:0];
-        
-        
-//        NSCalendar *cal_ = [NSCalendar currentCalendar];
-//        [cal_ setTimeZone:[NSTimeZone localTimeZone]];
-//        [cal_ setLocale:[NSLocale currentLocale]];
-
-//        int year = [components year];
-//        int m = [components month];
-//        int day = [components day];
-//        QuantLib::Month month = intToMonth(m);
-//        QuantLib::Date(day,month,year);
-        
-//        QuantLib::Date(
-//        [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day],
-//        intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] month]),
-//                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] year]);
-//        
-//        QuantLib::Date(
-//                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] day],
-//                       intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] month]),
-//                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:1]] year]);
-        
-
-        
         Date maturities[] = {
             QuantLib::Date(
                            [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day],
@@ -472,14 +221,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
                           [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:4]] year])
         };
         
-//        Real couponRates[] = {
-//            0.02375,
-//            0.04625,
-//            0.03125,
-//            0.04000,
-//            0.04500
-//        };
-        
         
         data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.couponRates];
         num = [data_ objectAtIndex:0];
@@ -491,15 +232,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
             [[data_ objectAtIndex:4] doubleValue]
         };
         
-        
-//        Real marketQuotes[] = {
-//            100.390625,
-//            106.21875,
-//            100.59375,
-//            101.6875,
-//            102.140625
-//        };
-        
         data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.marketQuotes];
         num = [data_ objectAtIndex:0];
         Real marketQuotes[] = {
@@ -510,9 +242,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
             (Real)[[data_ objectAtIndex:4] doubleValue]
         };
         
-        
-//        Rate d1wQuote=(Rate)[num doubleValue];
-//        bondParameters.marketQuotes
+    
         
         std::vector< boost::shared_ptr<SimpleQuote> > quote;
         for (int i=0; i<numberOfBonds; i++) {
@@ -577,16 +307,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
                                                                                                                        tolerance));
         
 
-        
-//        Rate d1wQuote=0.043375;
-//        Rate d1mQuote=0.031875;
-//        Rate d3mQuote=0.0320375;
-//        Rate d6mQuote=0.03385;
-//        Rate d9mQuote=0.0338125;
-//        Rate d1yQuote=0.0335125;
-
-        
-        data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.depositQuotes];
+            data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.depositQuotes];
         num = [data_ objectAtIndex:0];
         Rate d1wQuote=(Rate)[num doubleValue];
         
@@ -604,12 +325,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         
         num = [data_ objectAtIndex:5];
         Rate d1yQuote=(Rate)[num doubleValue];;
-        
-//        Rate s2yQuote=0.0295;
-//        Rate s3yQuote=0.0323;
-//        Rate s5yQuote=0.0359;
-//        Rate s10yQuote=0.0412;
-//        Rate s15yQuote=0.0433;
         
         data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.swapQuotes];
         num = [data_ objectAtIndex:0];
@@ -786,19 +501,8 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         boost::shared_ptr<PricingEngine> bondEngine(
                                                     new DiscountingBondEngine(discountingTermStructure));
         
-//        // Zero coupon bond
-//        ZeroCouponBond zeroCouponBond(
-//                                      settlementDays,
-//                                      UnitedStates(UnitedStates::GovernmentBond),
-//                                      faceAmount,
-//                                      Date(15,August,2013),
-//                                      Following,
-//                                      Real(116.92),
-//                                      Date(15,August,2003));
-        
+
         // Zero coupon bond
-        
-        
         
         ZeroCouponBond zeroCouponBond(
                                       settlementDays,
@@ -811,9 +515,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         
         
         zeroCouponBond.setPricingEngine(bondEngine);
-        
-        
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         
         // Fixed 4.5% US Treasury Note
 //        Schedule fixedBondSchedule(Date(15, May, 2007),
@@ -842,16 +544,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
                                    UnitedStates(UnitedStates::GovernmentBond),
                                    Unadjusted, Unadjusted, DateGeneration::Backward, false);
         
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
-//        FixedRateBond fixedRateBond(
-//                                    settlementDays,
-//                                    faceAmount,
-//                                    fixedBondSchedule,
-//                                    std::vector<Rate>(1, 0.045),
-//                                    ActualActual(ActualActual::Bond),
-//                                    ModifiedFollowing,
-//                                    100.0, Date(15, May, 2007));
         
         components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.fixedRateBondFirstDate];
         year = [components year];
@@ -868,17 +560,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
                                     ModifiedFollowing,
                                     100.0, Date(day, month, year));
         
-//
-        
-
-        
-//        components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.fixedBondScheduleSecondDate];
-//        year_secondDate = [components year];
-//        m_secondDate = [components month];
-//        day_secondDate = [components day];
-//        
-//        int m_second = intToMonth(m_secondDate);
-//        QuantLib::Month month_second = intToMonth(m);
         
         fixedRateBond.setPricingEngine(bondEngine);
         
@@ -896,13 +577,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         month = intToMonth(m_secondDate);
 //        libor3m->addFixing(Date(17, July, 2008),0.0278625);
         libor3m->addFixing(Date(day, month, year),0.0278625);
-        
 
-        
-        
-
-        
-        
         components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.floatingBondScheduleFirstDate];
         year = [components year];
         m = [components month];
@@ -922,32 +597,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
                                       UnitedStates(UnitedStates::NYSE),
                                       Unadjusted, Unadjusted, DateGeneration::Backward, true);
         
-//        Schedule floatingBondSchedule(Date(21, October, 2005),
-//                                      Date(21, October, 2010), Period(Quarterly),
-//                                      UnitedStates(UnitedStates::NYSE),
-//                                      Unadjusted, Unadjusted, DateGeneration::Backward, true);
-        
-//        FloatingRateBond floatingRateBond(
-//                                          settlementDays,
-//                                          faceAmount,
-//                                          floatingBondSchedule,
-//                                          libor3m,
-//                                          Actual360(),
-//                                          ModifiedFollowing,
-//                                          Natural(2),
-//                                          // Gearings
-//                                          std::vector<Real>(1, 1.0),
-//                                          // Spreads
-//                                          std::vector<Rate>(1, 0.001),
-//                                          // Caps
-//                                          std::vector<Rate>(),
-//                                          // Floors
-//                                          std::vector<Rate>(),
-//                                          // Fixing in arrears
-//                                          true,
-//                                          Real(100.0),
-//                                          Date(21, October, 2005));
-        
+
         
         components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.floatingRateBondScheduleFirstDate];
         year = [components year];
@@ -1033,7 +683,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         self.fixedRateBondAccruedAmount =[[NSNumber alloc] initWithDouble:fixedRateBond.accruedAmount()];
         self.floatingRateBondAccruedAmount = [[NSNumber alloc] initWithDouble:floatingRateBond.accruedAmount()];
         
-//        self.zeroCouponBondPreviousCoupon = [[NSNumber alloc] initWithDouble:zeroCouponBond.accruedAmount()];
         self.fixedRateBondPreviousCoupon =[[NSNumber alloc] initWithDouble:fixedRateBond.previousCouponRate()];
         self.floatingRateBondPreviousCoupon = [[NSNumber alloc] initWithDouble:floatingRateBond.previousCouponRate()];
         

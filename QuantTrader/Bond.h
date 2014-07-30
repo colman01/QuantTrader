@@ -49,9 +49,6 @@
     
 }
 
--(void) setupParameters;
-
-
 
 // Yield
 @property (nonatomic) double zeroCouponBondYieldActual360CompoundedAnnual;
@@ -127,45 +124,7 @@
 @property (strong, nonatomic) NSNumber *fixedRateBondYield;
 @property (strong, nonatomic) NSNumber *floatingRateBondYield;
 
-
-
-
 -(void) calculate;
 
 
-
 @end
-
-
-////////////////////////////
-// chunk setupParameters
-////////////////////////////
-
-//    self.newIssueDates = issueDates;
-//
-//    QuantLib::Date maturities[] = {
-//        QuantLib::Date (31, QuantLib::August, 2010),
-//        QuantLib::Date (31, QuantLib::August, 2011),
-//        QuantLib::Date (31, QuantLib::August, 2013),
-//        QuantLib::Date (15, QuantLib::August, 2018),
-//        QuantLib::Date (15, QuantLib::May, 2038)
-//    };
-//
-//    self.maturityDates = maturities;
-//    Real couponRates[] = {
-//        0.02375,
-//        0.04625,
-//        0.03125,
-//        0.04000,
-//        0.04500
-//    };
-//
-//    Real marketQuotes[] = {
-//        100.390625,
-//        106.21875,
-//        100.59375,
-//        101.6875,
-//        102.140625
-//    };
-
-// end chunk

@@ -78,8 +78,6 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    if(!bond.bondCouponRates)
-        [bond setupParameters];
     if (!bondParameterInit) {
         bondParameterInit =  [[ParameterInitializer alloc] init];
         [bondParameterInit setupParameters];
@@ -88,7 +86,6 @@
 
 - (void) initBond {
     self.bond = [[Bond alloc] init];
-    [bond setupParameters];
     
 }
 
