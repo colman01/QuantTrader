@@ -107,9 +107,30 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
          ***  MARKET DATA  ***
          *********************/
         
+        NSCalendar *cal_ = [NSCalendar currentCalendar];
+        [cal_ setTimeZone:[NSTimeZone localTimeZone]];
+        [cal_ setLocale:[NSLocale currentLocale]];
+        
         Calendar calendar = TARGET();
+        QuantLib::Month monthC = intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.settlementDate] month]);
+//        Date settlementDate([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day], monthC, [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.settlementDate] year]);
+
+        
         
         Date settlementDate(18, September, 2008);
+//        Date settlementDate([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day], September, [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] year]);
+
+
+        
+//        QuantLib::Date(
+//                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day],
+//                       intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] month]),
+//                       [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] year])
+        
+//        Date settlementDate([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.settlementDate] day],
+//                            intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.settlementDate] month]),
+//                            [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.settlementDate] year]);
+        
         // must be a business day
         settlementDate = calendar.adjust(settlementDate);
         
@@ -167,9 +188,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
 
         data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.issueDates];
         
-        NSCalendar *cal_ = [NSCalendar currentCalendar];
-        [cal_ setTimeZone:[NSTimeZone localTimeZone]];
-        [cal_ setLocale:[NSLocale currentLocale]];
+
         
         Date issueDates[] = {
             QuantLib::Date(

@@ -31,6 +31,7 @@
         <attribute name="numberOfBonds" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="previousCoupon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="redemption" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="settlementDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="swapQuotes" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="yield" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="zeroCouponBondFirstDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -209,7 +210,7 @@
     </entity>
     <elements>
         <element name="BermudanSwaption" positionX="1629" positionY="594" width="128" height="148"/>
-        <element name="Bond" positionX="565" positionY="297" width="128" height="495"/>
+        <element name="Bond" positionX="565" positionY="297" width="128" height="510"/>
         <element name="CallableBonds" positionX="1456" positionY="297" width="128" height="343"/>
         <element name="DiscreteHedging" positionX="1629" positionY="297" width="128" height="118"/>
         <element name="Equity" positionX="1044" positionY="297" width="128" height="748"/>

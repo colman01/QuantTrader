@@ -45,6 +45,7 @@
 @dynamic floatingBondScheduleFirstDate;
 @dynamic floatingBondScheduleSecondDate;
 @dynamic floatingRateBondScheduleFirstDate;
+@dynamic settlementDate;
 
 
 

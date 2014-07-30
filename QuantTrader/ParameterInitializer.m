@@ -30,8 +30,10 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"dd/mmm/yyyy"];
+    NSString *str =@"18/09/2008";
+    bondParameters.settlementDate = [formatter dateFromString:str];
     
-    NSString *str =@"15/03/2005";
+    str =@"15/03/2005";
     [bondParameters addissueDateAsDate:[formatter dateFromString:str]];
     
     str =@"15/06/2005";

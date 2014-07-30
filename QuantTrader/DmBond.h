@@ -47,6 +47,8 @@
 @property (nonatomic, retain) NSDate *floatingBondScheduleSecondDate     ; // date_8
 @property (nonatomic, retain) NSDate *floatingRateBondScheduleFirstDate  ; // date_9
 
+@property (nonatomic, retain) NSDate *settlementDate;
+
 
 @end
 
