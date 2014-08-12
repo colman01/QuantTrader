@@ -65,8 +65,24 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    NSString *value = [values objectAtIndex:indexPath.row];
-    cell.textLabel.text = value;
+    
+    if ([ [values objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]) {
+        NSString *value = [values objectAtIndex:indexPath.row];
+        cell.textLabel.text = value;
+    }
+    
+    if ([ [values objectAtIndex:indexPath.row] isKindOfClass:[NSDate class]]) {
+        NSDate *value = [values objectAtIndex:indexPath.row];
+        
+        NSString *dateString = [NSDateFormatter localizedStringFromDate:value
+                                                              dateStyle:NSDateFormatterShortStyle
+                                                              timeStyle:NSDateFormatterFullStyle];
+        
+        
+        cell.textLabel.text = dateString;
+    }
+    
+
     return cell;
 }
 
@@ -77,6 +93,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+//    return values.count;
     return values.count;
 }
 
