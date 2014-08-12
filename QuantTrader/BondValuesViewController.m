@@ -15,6 +15,7 @@
 
 @implementation BondValuesViewController
 @synthesize values;
+@synthesize modelData;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +30,13 @@
     [super viewDidLoad];
     self.table.delegate = self;
     self.table.dataSource = self;
+    
 
+}
+
+
+- (void) viewWillDisappear:(BOOL)animated   {
+    modelData = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,13 +72,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    if ([ [values objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]) {
+    if (modelData) {
+        values = modelData;
+        NSDate *value = [values objectAtIndex:indexPath.row];
+        
+        NSString *dateString = [NSDateFormatter localizedStringFromDate:value
+                                                              dateStyle:NSDateFormatterShortStyle
+                                                              timeStyle:NSDateFormatterFullStyle];
+        
+        
+        cell.textLabel.text = dateString;
+    } else if ([ [values objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]) {
         NSString *value = [values objectAtIndex:indexPath.row];
         cell.textLabel.text = value;
-    }
-    
-    if ([ [values objectAtIndex:indexPath.row] isKindOfClass:[NSDate class]]) {
+    } else if ([ [values objectAtIndex:indexPath.row] isKindOfClass:[NSDate class]]) {
         NSDate *value = [values objectAtIndex:indexPath.row];
         
         NSString *dateString = [NSDateFormatter localizedStringFromDate:value
@@ -94,6 +108,12 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 //    return values.count;
+    if(modelData) {
+        NSMutableArray *data = (NSMutableArray * ) modelData;
+        return data.count;
+        
+    }
+    
     return values.count;
 }
 

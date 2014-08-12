@@ -110,6 +110,19 @@ DmBond *bondParameters;
 {
     if ([segue.identifier isEqualToString:@"SetBond"]) {
         id destination = segue.destinationViewController;
+        
+        //                @try {
+        //
+        //
+        //                }
+        //                @catch (NSException *exception) {
+        //                    return;
+        //                }
+        //                @finally {
+        //                    return;
+        //                }
+
+        
         BondValuesViewController *bondValuesViewController = (BondValuesViewController *) destination;
         
         bondValuesViewController.bond = self.bond;
@@ -120,62 +133,49 @@ DmBond *bondParameters;
         NSString *string = [NSString stringWithFormat:@"%i", cell.tag];
         switch (cell.tag) {
             case 0:
-                _ZeroC3mQuote = bond.zeroCoupon3mQuote;
-                _ZeroC6mQuote = bond.zeroCoupon6mQuote;
-                _ZeroC1yQuote = bond.zeroCoupon1yQuote;
-                string = [NSString stringWithFormat:@"%f", _ZeroC3mQuote];
-                [bondValuesViewController.values addObject:string];
-                string = [NSString stringWithFormat:@"%f", _ZeroC6mQuote];
-                [bondValuesViewController.values addObject:string];
-                string = [NSString stringWithFormat:@"%f", _ZeroC1yQuote];
-                [bondValuesViewController.values addObject:string];
+                bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.zeroCouponQuote];
                 break;
             case 1:
-                _redemption_ = bond.redemp;
-                string = [NSString stringWithFormat:@"%i", _redemption_];
-                [bondValuesViewController.values addObject:string];
+//                _redemption_ = [bond.redemp intValue];
+//                string = [NSString stringWithFormat:@"%i", _redemption_];
+//                [bondValuesViewController.values addObject:string];
+                
+                bondValuesViewController.modelData = bondParameters.redemption;
                 break;
             case 2:
-                string = [NSString stringWithFormat:@"%i", _fiXingDays];
-                [bondValuesViewController.values addObject:string];
+//                string = [NSString stringWithFormat:@"%i", _fiXingDays];
+//                [bondValuesViewController.values addObject:string];
+                bondValuesViewController.modelData = bondParameters.fixingDays;
                 break;
             case 3:
-                string = [NSString stringWithFormat:@"%i", bondValuesViewController.bond.numBonds];
-                [bondValuesViewController.values addObject:string];
+//                string = [NSString stringWithFormat:@"%i", bondValuesViewController.bond.numBonds];
+                bondValuesViewController.modelData = bondParameters.numberOfBonds;
+//                [bondValuesViewController.values addObject:string];
                 break;
             case 4:
             {
-                @try {
-                    NSMutableArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.issueDates];
-                    
-                    bondValuesViewController.values = array;
-                }
-                @catch (NSException *exception) {
-                    return;
-                }
-                @finally {
-                    return;
-                }
+                bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
 
             }
-//                bondValuesViewController.values = bond.formatedIssueDates;
                 break;
             case 5:
             {
-                bondValuesViewController.values = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
-                
-//                bondValuesViewController.values = bond.formatedMaturiyDates;
+
+                bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
                    break;
             }
              
             case 6:
-                bondValuesViewController.values = bond.bondCouponRates;
+//                bondValuesViewController.values = bond.bondCouponRates;
+                bondValuesViewController.modelData = bondParameters.couponRates;
                 break;
             case 7:
-                bondValuesViewController.values = bond.bondMarketQuotes;
+//                bondValuesViewController.values = bond.bondMarketQuotes;
+                bondValuesViewController.modelData = bondParameters.marketQuotes;
                 break;
             case 8:
-                bondValuesViewController.values = bond.bondLiborForcastingCurveQuotes;
+                bondValuesViewController.modelData = bondParameters.liborForcastingCurveQuotes;
+//                bondValuesViewController.values = bond.bondLiborForcastingCurveQuotes;
 //                for (NSString *var in _liborForcastingCurveQuotes) {
 //                    string = var;
 //                    if(string)
@@ -183,7 +183,8 @@ DmBond *bondParameters;
 //                }
                 break;
             case 9:
-                bondValuesViewController.values = bond.bondSwapQuotes;
+                bondValuesViewController.modelData = bondParameters.swapQuotes;
+//                bondValuesViewController.values = bond.bondSwapQuotes;
 //                for (NSString *var in _swapQuotes) {
 //                    string = var;
 //                    if(string)
@@ -191,14 +192,17 @@ DmBond *bondParameters;
 //                }
                 break;
             case 10:
-                string = [NSString stringWithFormat:@"%f", bond.faceamount];
-                if(string)
-                    [bondValuesViewController.values addObject:string];
+                bondValuesViewController.modelData = bondParameters.faceAmount;
+//                string = [NSString stringWithFormat:@"%f", bond.faceamount];
+//                if(string)
+//                    [bondValuesViewController.values addObject:string];
                 break;
             case 11:
             {
-                [bondValuesViewController.values addObject:bond.zeroCouponDate1];
-                [bondValuesViewController.values addObject:bond.zeroCouponDate2];
+
+                bondValuesViewController.modelData = [[NSMutableArray alloc] initWithObjects:bondParameters.zeroCouponBondFirstDate,bondParameters.zeroCouponBondSecondDate, nil];
+//                [bondValuesViewController.values addObject:bond.zeroCouponDate1];
+//                [bondValuesViewController.values addObject:bond.zeroCouponDate2];
                 break;
             }
             case 12:
@@ -206,9 +210,8 @@ DmBond *bondParameters;
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
                 [dateFormatter setDateFormat:@"dd-MM-yy"];
-                string = [dateFormatter stringFromDate:_fixedRateBondDate];
-                if(string)
-                    [bondValuesViewController.values addObject:string];
+                bondValuesViewController.modelData = bondParameters.fixedRateBondFirstDate;
+                
                 break;
             }
             case 13:
@@ -216,12 +219,14 @@ DmBond *bondParameters;
                 NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
                 [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
                 [dateFormatter setDateFormat:@"dd-MM-yy"];
-                string = [dateFormatter stringFromDate:_floatingBondScheduleDate_1];
-                if(string)
-                    [bondValuesViewController.values addObject:string];
-                string = [dateFormatter stringFromDate:_floatingBondScheduleDate_2];
-                if(string)
-                    [bondValuesViewController.values addObject:string];
+                bondValuesViewController.modelData = [[NSMutableArray alloc] initWithObjects:bondParameters.floatingBondScheduleFirstDate,bondParameters.floatingBondScheduleSecondDate, nil];
+                
+//                string = [dateFormatter stringFromDate:_floatingBondScheduleDate_1];
+//                if(string)
+//                    [bondValuesViewController.values addObject:string];
+//                string = [dateFormatter stringFromDate:_floatingBondScheduleDate_2];
+//                if(string)
+//                    [bondValuesViewController.values addObject:string];
                 break;
             }
             case 14:
@@ -234,6 +239,9 @@ DmBond *bondParameters;
                 string = [NSString stringWithFormat:@"%f", _floatingRateBondDirtyPrice];
                 if(string)
                     [bondValuesViewController.values addObject:string];
+                
+//                bondValuesViewController.modelData = [[NSMutableArray alloc] initWithObjects:bondParameters.zeroCouponQuote,bondParameters.fix, nil];
+                
                 break;
             case 15:
                 string = [NSString stringWithFormat:@"%f", _zeroCouponBondAccruedAmount];

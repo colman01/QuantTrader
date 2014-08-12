@@ -16,7 +16,7 @@
 
 @implementation BondSetValueViewController
 
-@synthesize value, valueField;
+@synthesize value, valueField, item;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,6 +42,22 @@
 
 
 - (void) saveAction {
+    if ([item class] == [NSString class]) {
+        item = valueField.text;
+    }
+    if ([item class] == [NSNumber class]) {
+
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        item = [f numberFromString:valueField.text];
+
+    }
+    if ([item class] == [NSDate class]) {
+        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"dd/mmm/yyyy"];
+        item = [formatter dateFromString:valueField.text];
+    }
+    
     [[PersistManager instance] save];
 }
 

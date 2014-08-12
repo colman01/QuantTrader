@@ -13,7 +13,7 @@
 
 
 @property (strong, nonatomic) IBOutlet UITextField *valueField;
-
+@property (nonatomic) id item;
 @property (strong, nonatomic) NSString *value;
 
 @end
