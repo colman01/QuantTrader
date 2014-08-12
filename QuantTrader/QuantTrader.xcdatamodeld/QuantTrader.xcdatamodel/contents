@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6208.6" systemVersion="14A298i" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6208.6" systemVersion="14A314h" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BermudanSwaption" representedClassName="DmBermudanSwaption" syncable="YES">
         <attribute name="flatRateSimpleQuote" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="numCols" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -18,11 +18,23 @@
         <attribute name="faceAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="fixedBondScheduleFirstDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="fixedBondScheduleSecondDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="fixedRateBondAccruedAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="fixedRateBondFirstDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="fixedRateBondleanPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fixedRateBondNextCoupon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fixedRateBondPreviousCoupon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fixedRateBondYield" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="fixedRateNPV" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="fixingDays" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="floatingBondScheduleFirstDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="floatingBondScheduleSecondDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="floatingRateBondAccruedAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="floatingRateBondCleanPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="floatingRateBondNextCoupon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="floatingRateBondPreviousCoupon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="floatingRateBondScheduleFirstDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="floatingRateBondYield" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="floatingRateNPV" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="issueDates" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="liborForcastingCurveQutotes" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="marketQuotes" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -34,8 +46,12 @@
         <attribute name="settlementDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="swapQuotes" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="yield" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="zeroCouponBondAccruedAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="zeroCouponBondCleanPrice" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="zeroCouponBondFirstDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="zeroCouponBondSecondDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="zeroCouponBondYield" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="zeroCouponNPV" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="zeroCouponQuote" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="zeroCouponQuotes" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="zeroDateCoupon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -210,7 +226,7 @@
     </entity>
     <elements>
         <element name="BermudanSwaption" positionX="1629" positionY="594" width="128" height="148"/>
-        <element name="Bond" positionX="565" positionY="297" width="128" height="510"/>
+        <element name="Bond" positionX="565" positionY="297" width="128" height="750"/>
         <element name="CallableBonds" positionX="1456" positionY="297" width="128" height="343"/>
         <element name="DiscreteHedging" positionX="1629" positionY="297" width="128" height="118"/>
         <element name="Equity" positionX="1044" positionY="297" width="128" height="748"/>

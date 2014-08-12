@@ -108,6 +108,7 @@ DmBond *bondParameters;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    // not to setcon to values view con
     if ([segue.identifier isEqualToString:@"SetBond"]) {
         id destination = segue.destinationViewController;
         
@@ -239,8 +240,6 @@ DmBond *bondParameters;
                 string = [NSString stringWithFormat:@"%f", _floatingRateBondDirtyPrice];
                 if(string)
                     [bondValuesViewController.values addObject:string];
-                
-//                bondValuesViewController.modelData = [[NSMutableArray alloc] initWithObjects:bondParameters.zeroCouponQuote,bondParameters.fix, nil];
                 
                 break;
             case 15:

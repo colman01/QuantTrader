@@ -21,6 +21,7 @@
 {
     // Override point for customization after application launch.
     [NUISettings init];
+//    [NUISettings setGlobalExclusions:@[@"UITableViewCell.accessoryView"]];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;

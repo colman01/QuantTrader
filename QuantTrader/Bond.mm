@@ -685,7 +685,9 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
 
         
 
+        // zeroCouponnpv
         self.zeroCouponBondNPV = [[NSNumber alloc] initWithDouble:zeroCouponBond.NPV()];
+        
         self.fixedRateBondNPV =[[NSNumber alloc] initWithDouble:fixedRateBond.NPV()];
         self.floatingRateBondNPV = [[NSNumber alloc] initWithDouble:floatingRateBond.NPV()];
         

@@ -50,6 +50,40 @@
 @property (nonatomic, retain) NSDate *settlementDate;
 
 
+
+
+// zeroCouponnpv
+@property (nonatomic, retain) NSNumber *zeroCouponBondNPV;
+
+@property (nonatomic, retain) NSNumber *fixedRateBondNPV;
+@property (nonatomic, retain) NSNumber *floatingRateBondNPV;
+
+@property (nonatomic, retain) NSNumber *zeroCouponBondCleanPrice;
+@property (nonatomic, retain) NSNumber *fixedRateBondCleanPrice ;
+@property (nonatomic, retain) NSNumber *floatingRateBondCleanPrice;
+
+@property (nonatomic, retain) NSNumber *zeroCouponBondDirtyPrice ;
+@property (nonatomic, retain) NSNumber *fixedRateBondDirtyPrice ;
+@property (nonatomic, retain) NSNumber *floatingRateBondDirtyPrice;
+
+
+@property (nonatomic, retain) NSNumber *zeroCouponBondAccruedAmount;
+@property (nonatomic, retain) NSNumber *fixedRateBondAccruedAmount;
+@property (nonatomic, retain) NSNumber *floatingRateBondAccruedAmount;
+
+@property (nonatomic, retain) NSNumber *fixedRateBondPreviousCoupon;
+@property (nonatomic, retain) NSNumber *floatingRateBondPreviousCoupon;
+
+
+@property (nonatomic, retain) NSNumber *fixedRateBondNextCoupon;
+@property (nonatomic, retain) NSNumber *floatingRateBondNextCoupon ;
+
+@property (nonatomic, retain) NSNumber *zeroCouponBondYield;
+@property (nonatomic, retain) NSNumber *fixedRateBondYield;
+@property (nonatomic, retain) NSNumber *floatingRateBondYield;
+
+
+
 @end
 
 @interface DmBond (CoreDataGeneratedAccessors)

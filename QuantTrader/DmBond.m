@@ -47,6 +47,26 @@
 @dynamic floatingRateBondScheduleFirstDate;
 @dynamic settlementDate;
 
+@dynamic zeroCouponBondNPV;
+@dynamic fixedRateBondNPV;
+@dynamic floatingRateBondNPV;
+@dynamic zeroCouponBondCleanPrice;
+@dynamic fixedRateBondCleanPrice ;
+@dynamic floatingRateBondCleanPrice;
+@dynamic zeroCouponBondDirtyPrice ;
+@dynamic fixedRateBondDirtyPrice ;
+@dynamic floatingRateBondDirtyPrice;
+@dynamic zeroCouponBondAccruedAmount;
+@dynamic fixedRateBondAccruedAmount;
+@dynamic floatingRateBondAccruedAmount;
+@dynamic fixedRateBondPreviousCoupon;
+@dynamic floatingRateBondPreviousCoupon;
+@dynamic fixedRateBondNextCoupon;
+@dynamic floatingRateBondNextCoupon ;
+@dynamic zeroCouponBondYield;
+@dynamic fixedRateBondYield;
+@dynamic floatingRateBondYield;
+
 
 
 - (void)addZeroCouponQuoteAsNumber:(NSNumber *)value{
