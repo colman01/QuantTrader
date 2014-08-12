@@ -112,7 +112,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         [cal_ setLocale:[NSLocale currentLocale]];
         
         Calendar calendar = TARGET();
-        QuantLib::Month monthC = intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.settlementDate] month]);
+//        QuantLib::Month monthC = intToMonth([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.settlementDate] month]);
 //        Date settlementDate([[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:(NSDate *)[data_ objectAtIndex:0]] day], monthC, [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.settlementDate] year]);
 
         
