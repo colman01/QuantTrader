@@ -22,7 +22,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -33,14 +32,18 @@
 
     [valueField setText:value];
     valueField.delegate = self;
-    // set bond as object
+    
+
+    UIBarButtonItem *saveBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAction)];
+    
+    self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects: saveBarButtonItem, nil];
     
 }
 
 
-//- (void) viewWillDisappear:(BOOL)animated {
-//    DmBond *bond =  [[QuantDao instance] getBond];
-//}
+- (void) saveAction {
+    [[PersistManager instance] save];
+}
 
 - (void)didReceiveMemoryWarning
 {
