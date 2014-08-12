@@ -22,6 +22,9 @@
 @synthesize bond;
 @synthesize bondParameterInit;
 
+
+DmBond *bondParameters;
+
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,7 +39,7 @@
     self.table.delegate = self;
     [self initBond];
     
-    DmBond *bondParameters;
+
     
     NSMutableArray *results = [[QuantDao instance] getBond];
     
@@ -141,11 +144,30 @@
                 [bondValuesViewController.values addObject:string];
                 break;
             case 4:
-                bondValuesViewController.values = bond.formatedIssueDates;
+            {
+                @try {
+                    NSMutableArray *array = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.issueDates];
+                    
+                    bondValuesViewController.values = array;
+                }
+                @catch (NSException *exception) {
+                    return;
+                }
+                @finally {
+                    return;
+                }
+
+            }
+//                bondValuesViewController.values = bond.formatedIssueDates;
                 break;
             case 5:
-                bondValuesViewController.values = bond.formatedMaturiyDates;
-                break;
+            {
+                bondValuesViewController.values = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
+                
+//                bondValuesViewController.values = bond.formatedMaturiyDates;
+                   break;
+            }
+             
             case 6:
                 bondValuesViewController.values = bond.bondCouponRates;
                 break;
@@ -281,6 +303,7 @@
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.tag = indexPath.row;
+
     
     // Configure the cell...
 //    cell.textLabel.text = [NSString stringWithFormat:@"data %i", indexPath.row];
