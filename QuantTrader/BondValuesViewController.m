@@ -72,31 +72,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    if (modelData) {
+
+    if ([modelData isKindOfClass:[NSMutableArray class]]  ) {
         values = modelData;
-        NSDate *value = [values objectAtIndex:indexPath.row];
-        
-        NSString *dateString = [NSDateFormatter localizedStringFromDate:value
-                                                              dateStyle:NSDateFormatterShortStyle
-                                                              timeStyle:NSDateFormatterFullStyle];
-        
-        
-        cell.textLabel.text = dateString;
-    } else if ([ [values objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]) {
-        NSString *value = [values objectAtIndex:indexPath.row];
-        cell.textLabel.text = value;
-    } else if ([ [values objectAtIndex:indexPath.row] isKindOfClass:[NSDate class]]) {
-        NSDate *value = [values objectAtIndex:indexPath.row];
-        
-        NSString *dateString = [NSDateFormatter localizedStringFromDate:value
-                                                              dateStyle:NSDateFormatterShortStyle
-                                                              timeStyle:NSDateFormatterFullStyle];
-        
-        
-        cell.textLabel.text = dateString;
+        if ([[modelData objectAtIndex:indexPath.row] isKindOfClass:[NSDate class]]) {
+            NSDate *value = [modelData objectAtIndex:indexPath.row];
+            NSString *dateString = [NSDateFormatter localizedStringFromDate:value
+                                                                  dateStyle:NSDateFormatterShortStyle
+                                                                  timeStyle:NSDateFormatterFullStyle];
+            cell.textLabel.text = dateString;
+        }
+        if ([[modelData objectAtIndex:indexPath.row]  isKindOfClass: [NSNumber class]])
+            cell.textLabel.text = [[modelData objectAtIndex:indexPath.row] stringValue];
     }
     
-
+    if ([modelData isKindOfClass:[NSNumber class]])
+        cell.textLabel.text = [modelData stringValue];
+    
     return cell;
 }
 
@@ -107,14 +99,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return values.count;
     if(modelData) {
-        NSMutableArray *data = (NSMutableArray * ) modelData;
-        return data.count;
-        
+        if ([modelData  isKindOfClass: [NSMutableArray class]]) {
+            NSMutableArray *data = (NSMutableArray * ) modelData;
+            return data.count;
+        } else {
+            return 1;
+        }
     }
-    
-    return values.count;
+    return 1;
 }
 
-    @end
+@end

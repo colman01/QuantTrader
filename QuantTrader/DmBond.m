@@ -24,7 +24,6 @@
 @dynamic yield;
 @dynamic zeroCouponQuote;
 @dynamic zeroDateCoupon;
-@dynamic liborForcastingCurveQutotes;
 @dynamic issueDates;
 @dynamic maturityDates;
 @dynamic swapQuotes;

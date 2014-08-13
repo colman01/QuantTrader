@@ -13,13 +13,8 @@
 @interface BondValuesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) Bond *bond;
-
 @property (nonatomic, weak) IBOutlet UITableView *table;
 @property (nonatomic, strong) NSMutableArray  *values;
-
 @property (nonatomic) id modelData;
-
-
-
 
 @end

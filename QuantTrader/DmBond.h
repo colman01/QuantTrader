@@ -25,7 +25,7 @@
 @property (nonatomic, retain) NSNumber * yield;
 @property (nonatomic, retain) NSData * zeroCouponQuote;
 @property (nonatomic, retain) NSNumber * zeroDateCoupon;
-@property (nonatomic, retain) NSData * liborForcastingCurveQutotes;
+@property (nonatomic, retain) NSData * liborForcastingCurveQuotes;
 @property (nonatomic, retain) NSData * issueDates;
 @property (nonatomic, retain) NSData * maturityDates;
 @property (nonatomic, retain) NSData * swapQuotes;
@@ -35,7 +35,7 @@
 @property (nonatomic, retain) NSData * couponRates;
 @property (nonatomic, retain) NSSet *fixedBondScheduleRateAndDate;
 @property (nonatomic, retain) NSSet *floatingBondScheduleRateAndDate;
-@property (nonatomic, retain) NSSet *liborForcastingCurveQuotes;
+
 
 @property (nonatomic, retain) NSDate *zeroCouponBondFirstDate            ; // date_1
 @property (nonatomic, retain) NSDate *zeroCouponBondSecondDate           ; // date_2
@@ -52,7 +52,6 @@
 
 
 
-// zeroCouponnpv
 @property (nonatomic, retain) NSNumber *zeroCouponBondNPV;
 
 @property (nonatomic, retain) NSNumber *fixedRateBondNPV;

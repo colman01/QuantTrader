@@ -39,7 +39,7 @@
 @property (nonatomic) int numBonds;
 
 
-@property (nonatomic, strong)  NSMutableArray * issueDates;
+@property (nonatomic, strong) NSMutableArray * issueDates;
 @property (nonatomic, strong) NSMutableArray * maturityDates;
 @property (nonatomic, strong) NSMutableArray * couponRates;
 @property (nonatomic, strong) NSMutableArray * marketQuotes;
