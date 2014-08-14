@@ -11,6 +11,8 @@
 #import "QuantDao.h"
 #import "ParameterInitializer.h"
 
+typedef void (^SetCompletionHandler) (NSString *value);
+
 @interface BondViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) Bond *bond;

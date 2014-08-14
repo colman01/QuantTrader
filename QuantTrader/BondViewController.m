@@ -128,7 +128,22 @@ DmBond *bondParameters;
                 bondValuesViewController.modelData = bondParameters.redemption;
                 break;
             case 2:
+                
+//                NSManagedObjectID *yourManagedObjectID = [yourManagedObject objectID];
+//                int yourManagedObject_PK = [[[[[yourManagedObjectID URIRepresentation] absoluteString] lastPathComponent] substringFromIndex:1] intValue];
+
+                
+//                [bondParameter.fixingDays object]
                 bondValuesViewController.modelData = bondParameters.fixingDays;
+                [bondValuesViewController onComplete:^(NSString *text) {
+                    
+                    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+                    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+                    bondParameters.fixingDays = [f numberFromString:text];
+                    [[PersistManager instance] save];
+                    
+                }];
+                
                 break;
             case 3:
                 bondValuesViewController.modelData = bondParameters.numberOfBonds;

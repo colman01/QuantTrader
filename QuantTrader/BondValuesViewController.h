@@ -10,11 +10,17 @@
 #import "Bond.h"
 #import "ParameterInitializer.h"
 
+typedef void (^SetCompletionHandler) (NSString *value);
+
 @interface BondValuesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) Bond *bond;
 @property (nonatomic, weak) IBOutlet UITableView *table;
 @property (nonatomic, strong) NSMutableArray  *values;
 @property (nonatomic) id modelData;
+
+@property (strong, nonatomic) SetCompletionHandler handler;
+
+- (void) onComplete:(SetCompletionHandler) handler;
 
 @end

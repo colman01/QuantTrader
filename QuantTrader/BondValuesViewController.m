@@ -1,4 +1,4 @@
-//
+    //
 //  BondValuesViewController.m
 //  QuantTrader
 //
@@ -51,6 +51,16 @@
     UITableViewCell *cell = (UITableViewCell *) sender;
     BondSetValueViewController  * dest = [segue destinationViewController];
     dest.value = cell.textLabel.text;
+    if (![modelData isKindOfClass:[NSMutableArray class]]) {
+        dest.item  = modelData;
+    }
+    [dest onComplete:^(NSString* text) {
+        self.handler(text);
+//        [self onComplete:^(NSString *text_) {
+//        }];
+    
+    }];
+
 }
 
 // Override to support conditional editing of the table view.
@@ -109,5 +119,12 @@
     }
     return 1;
 }
+
+#pragma mark
+
+- (void) onComplete:(SetCompletionHandler) handler {
+    self.handler = handler;
+}
+
 
 @end

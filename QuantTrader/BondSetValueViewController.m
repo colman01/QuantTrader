@@ -42,6 +42,29 @@
 
 
 - (void) saveAction {
+    
+//    if ([item  isKindOfClass:[double Class] ]) {
+//        
+//        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+//        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+//        item = [f numberFromString:valueField.text];
+//        
+//    }
+    
+    #define IS_OBJECT(T) _Generic( (T), id: YES, default: NO)
+    if(IS_OBJECT(item)) {
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        item = [f numberFromString:valueField.text];
+    }
+    
+    if ([item  isKindOfClass:[NSNumber class]]) {
+        
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        item = [f numberFromString:valueField.text];
+        
+    }
     if ([item class] == [NSString class]) {
         item = valueField.text;
     }
@@ -59,6 +82,29 @@
     }
     
     [[PersistManager instance] save];
+    
+    self.handler(valueField.text);
+//    [popOver onComplete:^(NSString *value) {
+//        dmImage.text = value;
+//        [[PersistManager instance] save];
+//        textView.text  = dmImage.text;
+//        textView_1.text  = dmImage.text;
+//        textView_2.text  = dmImage.text;
+//        [self showExistingText];
+//        [textView_2 resignFirstResponder];
+//        [textView_1 resignFirstResponder];
+//    }];
+    
+//    [self onComplete:^(NSString *value) {
+//        
+//    }];
+
+    
+    
+    
+
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,6 +123,11 @@
 }
 */
 
+#pragma mark
+
+- (void) onComplete:(SetCompletionHandler) handler {
+    self.handler = handler;
+}
 
 
 
