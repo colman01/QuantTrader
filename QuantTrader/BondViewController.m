@@ -43,23 +43,20 @@ DmBond *bondParameters;
     
     NSMutableArray *results = [[QuantDao instance] getBond];
     
-    if (!bondParameterInit) {
-        bondParameterInit =  [[ParameterInitializer alloc] init];
-        [bondParameterInit setupParameters];
-    }
+
     
 
     // To clear the local store
-    //    results = nil;
-    //    [[PersistManager instance] save ];
-    //    exit(0);
-    //    for (int i=0; i< results.count; i++) {
-    //        DmBond *bond_ = results[i];
-    //        [[QuantDao instance] remove:user];
-    //    }
-    //    [[PersistManager instance] save];
-    //    exit(0);
-    
+//      results = nil;
+//      [[PersistManager instance] save ];
+//      exit(0);
+//      for (int i=0; i< results.count; i++) {
+//          DmBond *bond_ = results[i];
+//          [[QuantDao instance] remove:bond];
+//      }
+//      [[PersistManager instance] save];
+//      exit(0);
+   
 
 //    for (int i=0; i< results.count; i++) {
 //        DmBond *bond_ = results[i];
@@ -70,12 +67,18 @@ DmBond *bondParameters;
     
     @try {
         bondParameters = results[0];
+        if (!bondParameters) {
+            bondParameterInit =  [[ParameterInitializer alloc] init];
+            [bondParameterInit setupParameters];
+        }
     }
     @catch (NSException *exception) {
         bondParameters = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
         bondParameters.fixingDays = [[NSNumber alloc ] initWithDouble:100]  ;
         [[PersistManager instance] save];
     }
+    
+
     
     
 }
