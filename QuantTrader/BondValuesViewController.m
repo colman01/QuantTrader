@@ -30,8 +30,10 @@
     [super viewDidLoad];
     self.table.delegate = self;
     self.table.dataSource = self;
-    
+}
 
+- (void) viewWillAppear:(BOOL)animated {
+    [self.table reloadData];
 }
 
 
@@ -53,13 +55,28 @@
     dest.value = cell.textLabel.text;
     if (![modelData isKindOfClass:[NSMutableArray class]]) {
         dest.item  = modelData;
+        [dest onComplete:^(NSString* text) {
+            
+            [self.table reloadData];
+            self.handler(text);
+        }];
+    } else {
+        UITableViewCell *cell = (UITableViewCell *)sender;
+        dest.postion = cell.tag;
+        
+        [dest onComplete:^(NSString* text) {
+            
+            
+            self.multiValuehandler(text,dest.postion);
+            [self.table reloadData];
+        }];
+        
     }
-    [dest onComplete:^(NSString* text) {
-        self.handler(text);
-//        [self onComplete:^(NSString *text_) {
-//        }];
     
-    }];
+    
+    
+    
+
 
 }
 
@@ -81,10 +98,14 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
 
-    if ([modelData isKindOfClass:[NSMutableArray class]]  ) {
+    if ([modelData isKindOfClass:[NSMutableArray class]]) {
+
         values = modelData;
+        
         if ([[modelData objectAtIndex:indexPath.row] isKindOfClass:[NSDate class]]) {
             NSDate *value = [modelData objectAtIndex:indexPath.row];
             NSString *dateString = [NSDateFormatter localizedStringFromDate:value
@@ -98,6 +119,8 @@
     
     if ([modelData isKindOfClass:[NSNumber class]])
         cell.textLabel.text = [modelData stringValue];
+    
+    cell.tag = indexPath.row;
     
     return cell;
 }
@@ -124,6 +147,10 @@
 
 - (void) onComplete:(SetCompletionHandler) handler {
     self.handler = handler;
+}
+
+- (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler {
+    self.multiValuehandler      = multiValueHandler;
 }
 
 

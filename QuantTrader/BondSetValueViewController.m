@@ -7,6 +7,7 @@
 //
 
 #import "BondSetValueViewController.h"
+#import "BondValuesViewController.h"
 #import "QuantDao.h"
 #import "DmBond.h"
 
@@ -42,69 +43,30 @@
 
 
 - (void) saveAction {
-    
-//    if ([item  isKindOfClass:[double Class] ]) {
-//        
-//        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-//        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-//        item = [f numberFromString:valueField.text];
-//        
+    self.handler(valueField.text);
+//    id parent = [self parentViewController];
+//    NSArray *cons = [parent childViewControllers];
+//    for (UIViewController *vc in cons) {
+//        if ([vc isKindOfClass:[BondValuesViewController class]]) {
+//            
+//            BondValuesViewController *con = (BondValuesViewController *)vc;
+//            
+//            
+//            if ([con.modelData isKindOfClass:[NSMutableArray class]]) {
+//                self.multiValuehandler(valueField.text, self.postion);
+//            } else {
+//                self.handler(valueField.text);
+//            }
+//        }
 //    }
     
-    #define IS_OBJECT(T) _Generic( (T), id: YES, default: NO)
-    if(IS_OBJECT(item)) {
-        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        item = [f numberFromString:valueField.text];
-    }
+//    BondValuesViewController *con = (BondValuesViewController *)parent;
+//    if ([con.modelData isKindOfClass:[NSMutableArray class]]) {
+//        self.multiValuehandler(valueField.text, self.postion);
+//    } else {
+//        self.handler(valueField.text);
+//    }
     
-    if ([item  isKindOfClass:[NSNumber class]]) {
-        
-        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        item = [f numberFromString:valueField.text];
-        
-    }
-    if ([item class] == [NSString class]) {
-        item = valueField.text;
-    }
-    if ([item class] == [NSNumber class]) {
-
-        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        item = [f numberFromString:valueField.text];
-
-    }
-    if ([item class] == [NSDate class]) {
-        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-        [formatter setDateFormat:@"dd/mmm/yyyy"];
-        item = [formatter dateFromString:valueField.text];
-    }
-    
-    [[PersistManager instance] save];
-    
-    self.handler(valueField.text);
-//    [popOver onComplete:^(NSString *value) {
-//        dmImage.text = value;
-//        [[PersistManager instance] save];
-//        textView.text  = dmImage.text;
-//        textView_1.text  = dmImage.text;
-//        textView_2.text  = dmImage.text;
-//        [self showExistingText];
-//        [textView_2 resignFirstResponder];
-//        [textView_1 resignFirstResponder];
-//    }];
-    
-//    [self onComplete:^(NSString *value) {
-//        
-//    }];
-
-    
-    
-    
-
-    
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,6 +89,10 @@
 
 - (void) onComplete:(SetCompletionHandler) handler {
     self.handler = handler;
+}
+
+- (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler {
+    self.multiValuehandler  = multiValueHandler;
 }
 
 

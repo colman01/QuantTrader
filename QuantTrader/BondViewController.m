@@ -125,32 +125,52 @@ DmBond *bondParameters;
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.zeroCouponQuote];
                 break;
             case 1:
+            {
                 bondValuesViewController.modelData = bondParameters.redemption;
-                break;
-            case 2:
-                
-//                NSManagedObjectID *yourManagedObjectID = [yourManagedObject objectID];
-//                int yourManagedObject_PK = [[[[[yourManagedObjectID URIRepresentation] absoluteString] lastPathComponent] substringFromIndex:1] intValue];
-
-                
-//                [bondParameter.fixingDays object]
-                bondValuesViewController.modelData = bondParameters.fixingDays;
                 [bondValuesViewController onComplete:^(NSString *text) {
+                    
                     
                     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
                     [f setNumberStyle:NSNumberFormatterDecimalStyle];
-                    bondParameters.fixingDays = [f numberFromString:text];
+                    bondParameters.redemption = [f numberFromString:text];
+                    bondValuesViewController.modelData = bondParameters.redemption ;
+                    [bondValuesViewController.table reloadData];
                     [[PersistManager instance] save];
                     
                 }];
+                break;
+            }
+            case 2:
+            {
+                bondValuesViewController.modelData = bondParameters.fixingDays;
+                [bondValuesViewController onComplete:^(NSString *text) {
+                    id result = [self saveValue:text withAttribute:bondParameters.fixingDays];
+                    bondParameters.fixingDays = result;
+                    [[PersistManager instance] save];
+                    
+                    
+                }];
+            }
                 
                 break;
             case 3:
+            {
                 bondValuesViewController.modelData = bondParameters.numberOfBonds;
+                [bondValuesViewController onComplete:^(NSString *text) {
+                    [self saveValue:text withAttribute:bondParameters.numberOfBonds];
+                    
+                }];
+            }
                 break;
+                
+                
             case 4:
             {
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.issueDates];
+                [bondValuesViewController onCompleteMany:^(NSString *text, int position) {
+                    [self saveValue:text withAttribute:bondParameters.issueDates];
+                    [self saveValue:text withAttribute:bondParameters.issueDates andPosition:position];
+                }];
 
             }
                 break;
@@ -158,23 +178,63 @@ DmBond *bondParameters;
             {
 
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
+                [bondValuesViewController onComplete:^(NSString *text) {
+                    [self saveValue:text withAttribute:bondParameters.maturityDates];
+                    
+                }];
                    break;
             }
              
             case 6:
+            {
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData: bondParameters.couponRates];
+                [bondValuesViewController onCompleteMany:^(NSString *text, int position) {
+                    NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.couponRates];
+                    entries = [self saveValue:text withAttribute:entries andPosition:position];
+                    bondParameters.couponRates = [NSKeyedArchiver archivedDataWithRootObject:entries];
+                    
+                    [[PersistManager instance] save];
+                    
+                    bondValuesViewController.modelData = entries;
+                    [bondValuesViewController.table reloadData];
+                }];
+            }
                 break;
             case 7:
+            {
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData: bondParameters.marketQuotes];
+                [bondValuesViewController onComplete:^(NSString *text) {
+                    [self saveValue:text withAttribute:bondParameters.marketQuotes];
+                    
+                }];
+            }
                 break;
             case 8:
+            {
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData: bondParameters.liborForcastingCurveQuotes];
+                [bondValuesViewController onComplete:^(NSString *text) {
+                    [self saveValue:text withAttribute:bondParameters.liborForcastingCurveQuotes];
+                    
+                }];
+            }
                 break;
             case 9:
+            {
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData: bondParameters.swapQuotes];
+                [bondValuesViewController onComplete:^(NSString *text) {
+                    [self saveValue:text withAttribute:bondParameters.swapQuotes];
+                    
+                }];
+            }
                 break;
             case 10:
+            {
                 bondValuesViewController.modelData = bondParameters.faceAmount;
+                [bondValuesViewController onComplete:^(NSString *text) {
+                    [self saveValue:text withAttribute:bondParameters.faceAmount];
+                    
+                }];
+            }
                 break;
             case 11:
             {
@@ -188,6 +248,11 @@ DmBond *bondParameters;
                 [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
                 [dateFormatter setDateFormat:@"dd-MM-yy"];
                 bondValuesViewController.modelData = bondParameters.fixedRateBondFirstDate;
+                [bondValuesViewController onComplete:^(NSString *text) {
+                    [self saveValue:text withAttribute:bondParameters.fixedRateBondFirstDate];
+                    
+                }];
+                
                 
                 break;
             }
@@ -197,6 +262,10 @@ DmBond *bondParameters;
                 [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
                 [dateFormatter setDateFormat:@"dd-MM-yy"];
                 bondValuesViewController.modelData = [[NSMutableArray alloc] initWithObjects:bondParameters.floatingBondScheduleFirstDate,bondParameters.floatingBondScheduleSecondDate, nil];
+                [bondValuesViewController onComplete:^(NSString *text) {
+//                    [self saveValue:text withAttribute:bondParameters.fixingDays];
+                    
+                }];
                 break;
             }
                 
@@ -205,12 +274,83 @@ DmBond *bondParameters;
                     [bondValuesViewController.values addObject:string];
                 break;
         }
-        
-        
-        
+        [bondValuesViewController.table reloadData];
     }
 }
 
+
+-(id) saveValue:(NSString *)textToSave withAttribute:(id)item {
+    
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    
+#define IS_OBJECT(T) _Generic( (T), id: YES, default: NO)
+    if(IS_OBJECT(item)) {
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        item = [f numberFromString:textToSave];
+    }
+    
+    if ([item  isKindOfClass:[NSNumber class]]) {
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        item = [f numberFromString:textToSave];
+        
+    }
+    if ([item class] == [NSString class]) {
+        item = textToSave;
+    }
+    if ([item class] == [NSNumber class]) {
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        item = [f numberFromString:textToSave];
+        
+    }
+    if ([item class] == [NSDate class]) {
+        [formatter setDateFormat:@"dd/mmm/yyyy"];
+        item = [formatter dateFromString:textToSave];
+    }
+    
+//    [[PersistManager instance] save];
+    
+    return item;
+}
+
+-(id) saveValue:(NSString *)textToSave withAttribute:(NSMutableArray *)entries andPosition:(int) position {
+    
+//    NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:item];
+    id entry = [entries objectAtIndex:position];
+    
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    
+#define IS_OBJECT(T) _Generic( (T), id: YES, default: NO)
+    if(IS_OBJECT(entry)) {
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        entry = [f numberFromString:textToSave];
+    }
+    
+    if ([entry  isKindOfClass:[NSNumber class]]) {
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        entry = [f numberFromString:textToSave];
+        
+    }
+    if ([entry class] == [NSString class]) {
+        entry = textToSave;
+    }
+    if ([entry class] == [NSNumber class]) {
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        entry = [f numberFromString:textToSave];
+        
+    }
+    if ([entry class] == [NSDate class]) {
+        [formatter setDateFormat:@"dd/mmm/yyyy"];
+        entry = [formatter dateFromString:textToSave];
+    }
+    
+//    [entries insertObject:entry atIndex:position];
+    [entries replaceObjectAtIndex:position withObject:entry];
+    
+    
+    return entries;
+}
 
 #pragma mark - Table view data source
 

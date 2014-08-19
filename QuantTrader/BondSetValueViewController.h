@@ -10,10 +10,11 @@
 #import "PersistManager.h"
 
 typedef void (^SetCompletionHandler) (NSString *value);
+typedef void (^SetManyCompletionHandler) (NSString *value, int position);
 
 
 @interface BondSetValueViewController : UIViewController <UITextFieldDelegate>
-
+@property int postion;
 
 @property (strong, nonatomic) IBOutlet UITextField *valueField;
 @property (nonatomic) id item;
@@ -21,5 +22,9 @@ typedef void (^SetCompletionHandler) (NSString *value);
 @property (strong, nonatomic) SetCompletionHandler handler;
 
 - (void) onComplete:(SetCompletionHandler) handler;
+
+@property (strong, nonatomic) SetManyCompletionHandler multiValuehandler;
+
+- (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler;
 
 @end

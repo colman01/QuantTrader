@@ -303,7 +303,6 @@
     [[PersistManager instance] save];
 }
 
-
 - (void) removeCouponRateAsNumber:(NSNumber *)value {
     NSMutableArray *quotes_;
     quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.couponRates];

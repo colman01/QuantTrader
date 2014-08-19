@@ -11,6 +11,7 @@
 #import "ParameterInitializer.h"
 
 typedef void (^SetCompletionHandler) (NSString *value);
+typedef void (^SetManyCompletionHandler) (NSString *value, int position);
 
 @interface BondValuesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
@@ -20,7 +21,9 @@ typedef void (^SetCompletionHandler) (NSString *value);
 @property (nonatomic) id modelData;
 
 @property (strong, nonatomic) SetCompletionHandler handler;
+@property (strong, nonatomic) SetManyCompletionHandler multiValuehandler;
 
 - (void) onComplete:(SetCompletionHandler) handler;
+- (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler;
 
 @end

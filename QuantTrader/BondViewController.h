@@ -90,6 +90,6 @@ typedef void (^SetCompletionHandler) (NSString *value);
 @property (nonatomic) double floatingRateBondYieldActual360CompoundedAnnual;
 
 
-
+-(id) saveValue:(NSString *)textToSave withAttribute:(id)item ;
 
 @end
