@@ -84,10 +84,10 @@ DmBond *bondParameters;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    if (!bondParameterInit) {
-        bondParameterInit =  [[ParameterInitializer alloc] init];
-        [bondParameterInit setupParameters];
-    }
+//    if (!bondParameterInit) {
+//        bondParameterInit =  [[ParameterInitializer alloc] init];
+//        [bondParameterInit setupParameters];
+//    }
 }
 
 - (void) initBond {

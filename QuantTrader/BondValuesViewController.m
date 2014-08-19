@@ -33,7 +33,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    [self.table reloadData];
+//    [self.table reloadData];
 }
 
 
@@ -72,12 +72,6 @@
         }];
         
     }
-    
-    
-    
-    
-
-
 }
 
 // Override to support conditional editing of the table view.
