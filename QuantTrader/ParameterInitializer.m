@@ -13,7 +13,6 @@
 
 
 - (void) setupParameters {
-//    using namespace QuantLib;
     DmBond *bondParameters;
     
     NSMutableArray *results = [[QuantDao instance] getBond];
@@ -62,27 +61,17 @@
     str =@"31/08/2011";
     date = [formatter dateFromString:str];
     [bondParameters addMaturityDateAsDate:date];
-//    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     str =@"30/08/2013";
     [bondParameters addMaturityDateAsDate:[formatter dateFromString:str]];
-//    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     str =@"15/08/2018";
     [bondParameters addMaturityDateAsDate:[formatter dateFromString:str]];
-//    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     str =@"15/08/2038";
     [bondParameters addMaturityDateAsDate:[formatter dateFromString:str]];
-//    [bondParameters addDate:[formatter dateFromString:str] toData:bondParameters.maturityDates];
     
     
     if (!bondParameters.couponRates)
         bondParameters.couponRates = [[NSData alloc] init];
-    
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.02375] toData:bondParameters.couponRates];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.04625] toData:bondParameters.couponRates];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.03125] toData:bondParameters.couponRates];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.04000] toData:bondParameters.couponRates];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.04500] toData:bondParameters.couponRates];
-    
+
     [bondParameters addCouponRateAsNumber:[NSNumber numberWithDouble:0.02375] ];
     [bondParameters addCouponRateAsNumber:[NSNumber numberWithDouble:0.04625] ];
     [bondParameters addCouponRateAsNumber:[NSNumber numberWithDouble:0.03125] ];
@@ -97,28 +86,8 @@
     [bondParameters addMarketQuoteAsNumber:[NSNumber numberWithDouble:101.6875]   ];
     [bondParameters addMarketQuoteAsNumber:[NSNumber numberWithDouble:102.140625] ];
     
-//    [bondParameters addValue:[NSNumber numberWithDouble:100.390625] ];
-//    [bondParameters addValue:[NSNumber numberWithDouble:106.21875]  ];
-//    [bondParameters addValue:[NSNumber numberWithDouble:100.59375]  ];
-//    [bondParameters addValue:[NSNumber numberWithDouble:101.6875]   ];
-//    [bondParameters addValue:[NSNumber numberWithDouble:102.140625] ];
-    
     if (!bondParameters.depositQuotes)
         bondParameters.depositQuotes = [[NSData alloc] init];
-
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.043375]   toData:bondParameters.depositQuotes];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.031875]   toData:bondParameters.depositQuotes];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.0320375]  toData:bondParameters.depositQuotes];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.03385]    toData:bondParameters.depositQuotes];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.0338125]  toData:bondParameters.depositQuotes];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.0335125]  toData:bondParameters.depositQuotes];
-    
-//    [bondParameters addNumber:[NSNumber numberWithDouble:0.043375] toData:bondParameters.depositQuotes];
-//    [bondParameters addNumber:[NSNumber numberWithDouble:0.031875] toData:bondParameters.depositQuotes];
-//    [bondParameters addNumber:[NSNumber numberWithDouble:0.0320375] toData:bondParameters.depositQuotes];
-//    [bondParameters addNumber:[NSNumber numberWithDouble:0.03385] toData:bondParameters.depositQuotes];
-//    [bondParameters addNumber:[NSNumber numberWithDouble:0.0338125] toData:bondParameters.depositQuotes];
-//    [bondParameters addNumber:[NSNumber numberWithDouble:0.0335125] toData:bondParameters.depositQuotes];
     
     [bondParameters addDepositQuoteAsNumber:[NSNumber numberWithDouble:0.043375]];
     [bondParameters addDepositQuoteAsNumber:[NSNumber numberWithDouble:0.031875]];
@@ -126,24 +95,7 @@
     [bondParameters addDepositQuoteAsNumber:[NSNumber numberWithDouble:0.03385]];
     [bondParameters addDepositQuoteAsNumber:[NSNumber numberWithDouble:0.0338125]];
     [bondParameters addDepositQuoteAsNumber:[NSNumber numberWithDouble:0.0338125]];    
-//    NSMutableArray *data_;
-//    data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.swapQuotes];
     
-//    if (!bondParameters.swapQuotes) {
-//        bondParameters.swapQuotes = [[NSData alloc] init];
-//        [[PersistManager instance ] save];
-//    }
-//        bondParameters.swapQuotes = [NSKeyedArchiver archivedDataWithRootObject:@""];
-    
-
-    
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.0295] toData:bondParameters.swapQuotes];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.0323] toData:bondParameters.swapQuotes];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.0359] toData:bondParameters.swapQuotes];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.0412] toData:bondParameters.swapQuotes];
-//    [bondParameters addValue:[NSNumber numberWithDouble:0.0433] toData:bondParameters.swapQuotes];
-    
-//    - (void)addSwapQuoteAsNumber:(NSNumber *)value{
     [bondParameters addSwapQuoteAsNumber:[NSNumber numberWithDouble:0.0295]];
     [bondParameters addSwapQuoteAsNumber:[NSNumber numberWithDouble:0.0323]];
     [bondParameters addSwapQuoteAsNumber:[NSNumber numberWithDouble:0.0359]];
@@ -154,14 +106,6 @@
 //     * BONDS TO BE PRICED *
 //     **********************/
          bondParameters.faceAmount = [NSNumber numberWithInt:100];
-//    
-//    // Pricing engine
-//    boost::shared_ptr<PricingEngine> bondEngine(
-//                                                new DiscountingBondEngine(discountingTermStructure));
-// Zero coupon bond
-//    ZeroCouponBond zeroCouponBond();
-    
-    
     str =@"15/08/2013";
     if(!bondParameters.zeroCouponBondFirstDate)
         bondParameters.zeroCouponBondFirstDate = [[NSDate alloc] init];
@@ -169,8 +113,6 @@
     str =@"15/08/2003";
     bondParameters.zeroCouponBondSecondDate  = [formatter dateFromString:str]; // date_2
 
-    
-//    zeroCouponBond.setPricingEngine(bondEngine);
 //    // Fixed 4.5% US Treasury Note
 //    Schedule fixedBondSchedule(;
     
@@ -178,7 +120,6 @@
     bondParameters.fixedBondScheduleFirstDate  = [formatter dateFromString:str]; // date_3
     str =@"15/05/2017";
     bondParameters.fixedBondScheduleSecondDate  = [formatter dateFromString:str]; // date_4
-//    FixedRateBond fixedRateBond(;
     
     str =@"15/05/2007";
     bondParameters.fixedRateBondFirstDate  = [formatter dateFromString:str]; // date_5
@@ -191,21 +132,14 @@
 //    libor3m->addFixing(Date(17, July, 2008),0.0278625);
     str =@"17/07/2008";
     bondParameters.addFixingFirstDate  = [formatter dateFromString:str]; // date_6
-//
-//    Schedule floatingBondSchedule();
     str =@"21/10/2005";
     bondParameters.floatingBondScheduleFirstDate  = [formatter dateFromString:str]; // date_7
     str =@"21/10/2010";
     bondParameters.floatingBondScheduleSecondDate  = [formatter dateFromString:str]; // date_8
-//
-//    FloatingRateBond floatingRateBond();
     
     str =@"21/10/2005";
     bondParameters.floatingRateBondScheduleFirstDate  = [formatter dateFromString:str]; // date_9
     
-//    
-//    floatingRateBond.setPricingEngine(bondEngine);
-//    
 //    // Coupon pricers
 //    boost::shared_ptr<IborCouponPricer> pricer(new BlackIborCouponPricer);
 //    

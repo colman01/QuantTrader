@@ -30,43 +30,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [valueField setText:value];
     valueField.delegate = self;
-    
-
     UIBarButtonItem *saveBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAction)];
-    
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects: saveBarButtonItem, nil];
-    
 }
 
 
 - (void) saveAction {
     self.handler(valueField.text);
-//    id parent = [self parentViewController];
-//    NSArray *cons = [parent childViewControllers];
-//    for (UIViewController *vc in cons) {
-//        if ([vc isKindOfClass:[BondValuesViewController class]]) {
-//            
-//            BondValuesViewController *con = (BondValuesViewController *)vc;
-//            
-//            
-//            if ([con.modelData isKindOfClass:[NSMutableArray class]]) {
-//                self.multiValuehandler(valueField.text, self.postion);
-//            } else {
-//                self.handler(valueField.text);
-//            }
-//        }
-//    }
-    
-//    BondValuesViewController *con = (BondValuesViewController *)parent;
-//    if ([con.modelData isKindOfClass:[NSMutableArray class]]) {
-//        self.multiValuehandler(valueField.text, self.postion);
-//    } else {
-//        self.handler(valueField.text);
-//    }
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,11 +49,8 @@
 /*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 */
 
@@ -94,8 +63,6 @@
 - (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler {
     self.multiValuehandler  = multiValueHandler;
 }
-
-
 
 
 @end

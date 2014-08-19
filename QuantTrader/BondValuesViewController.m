@@ -33,12 +33,10 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-//    [self.table reloadData];
 }
 
 
 - (void) viewWillDisappear:(BOOL)animated   {
-    modelData = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,8 +63,6 @@
         dest.postion = cell.tag;
         
         [dest onComplete:^(NSString* text) {
-            
-            
             self.multiValuehandler(text,dest.postion);
             [self.table reloadData];
         }];
@@ -74,15 +70,11 @@
     }
 }
 
-// Override to support conditional editing of the table view.
-// This only needs to be implemented if you are going to be returning NO
-// for some items. By default, all items are editable.
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return YES if you want the specified item to be editable.
     return YES;
 }
 
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
     }
@@ -94,12 +86,8 @@
 {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-
     if ([modelData isKindOfClass:[NSMutableArray class]]) {
-
         values = modelData;
-        
         if ([[modelData objectAtIndex:indexPath.row] isKindOfClass:[NSDate class]]) {
             NSDate *value = [modelData objectAtIndex:indexPath.row];
             NSString *dateString = [NSDateFormatter localizedStringFromDate:value
@@ -113,9 +101,7 @@
     
     if ([modelData isKindOfClass:[NSNumber class]])
         cell.textLabel.text = [modelData stringValue];
-    
     cell.tag = indexPath.row;
-    
     return cell;
 }
 
@@ -144,7 +130,7 @@
 }
 
 - (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler {
-    self.multiValuehandler      = multiValueHandler;
+    self.multiValuehandler = multiValueHandler;
 }
 
 
