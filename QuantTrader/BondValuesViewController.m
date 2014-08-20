@@ -77,6 +77,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        self.removeHandler(indexPath.row);
     }
 }
 
@@ -132,6 +133,12 @@
 - (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler {
     self.multiValuehandler = multiValueHandler;
 }
+
+- (void) onRemove:(RemoveCompletionHandler) removeHandler {
+    self.removeHandler = removeHandler;
+}
+
+
 
 
 @end

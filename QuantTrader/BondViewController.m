@@ -46,6 +46,7 @@ DmBond *bondParameters;
 //    }
 //    [[PersistManager instance] save];
 //    exit(0);
+
     
     @try {
         bondParameters = results[0];
@@ -56,12 +57,18 @@ DmBond *bondParameters;
     }
     @catch (NSException *exception) {
         bondParameters = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
-        bondParameters.fixingDays = [[NSNumber alloc ] initWithDouble:100]  ;
+//        bondParameters.fixingDays = [[NSNumber alloc ] initWithDouble:100];
         [[PersistManager instance] save];
     }
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
+    if (entries.count < 2) {
+        NSLog(@"out");
+        bondParameterInit =  [[ParameterInitializer alloc] init];
+        [bondParameterInit setupParameters];
+    }
 }
 
 - (void) initBond {
@@ -86,18 +93,28 @@ DmBond *bondParameters;
     // not to setcon to values view con
     if ([segue.identifier isEqualToString:@"SetBond"]) {
         id destination = segue.destinationViewController;
-        
         BondValuesViewController *bondValuesViewController = (BondValuesViewController *) destination;
-        
         bondValuesViewController.bond = self.bond;
         if (!bondValuesViewController.values )
             bondValuesViewController.values = [[NSMutableArray alloc] init];
-        
+
         UITableViewCell *cell = (UITableViewCell *) sender;
         NSString *string = [NSString stringWithFormat:@"%i", cell.tag];
         switch (cell.tag) {
             case 0:
+            {
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.zeroCouponQuote];
+                
+                [bondValuesViewController onCompleteMany:^(NSString *text, int position) {
+                    NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.zeroCouponQuote];
+                    entries = [self saveValue:text withAttribute:entries andPosition:position];
+                    bondParameters.zeroCouponQuote = [NSKeyedArchiver archivedDataWithRootObject:entries];
+                    [[PersistManager instance] save];
+                    bondValuesViewController.modelData = entries;
+                    [bondValuesViewController.table reloadData];
+                }];
+            }
+                
                 break;
             case 1:
             {
@@ -119,6 +136,8 @@ DmBond *bondParameters;
                 [bondValuesViewController onComplete:^(NSString *text) {
                     id result = [self saveValue:text withAttribute:bondParameters.fixingDays];
                     bondParameters.fixingDays = result;
+                    bondValuesViewController.modelData = result;
+                    [bondValuesViewController.table reloadData];
                     [[PersistManager instance] save];
                 }];
             }
@@ -128,7 +147,11 @@ DmBond *bondParameters;
             {
                 bondValuesViewController.modelData = bondParameters.numberOfBonds;
                 [bondValuesViewController onComplete:^(NSString *text) {
-                    [self saveValue:text withAttribute:bondParameters.numberOfBonds];
+                    id result = [self saveValue:text withAttribute:bondParameters.numberOfBonds];
+                    bondParameters.numberOfBonds = result;
+                    bondValuesViewController.modelData = result;
+                    [bondValuesViewController.table reloadData];
+                    [[PersistManager instance] save];
                     
                 }];
             }
@@ -138,8 +161,12 @@ DmBond *bondParameters;
             {
                 bondValuesViewController.modelData = bondParameters.faceAmount;
                 [bondValuesViewController onComplete:^(NSString *text) {
-                    [self saveValue:text withAttribute:bondParameters.faceAmount];
+                    id result = [self saveValue:text withAttribute:bondParameters.faceAmount];
                     
+                    bondParameters.faceAmount = result;
+                    bondValuesViewController.modelData = result;
+                    [bondValuesViewController.table reloadData];
+                    [[PersistManager instance] save];
                 }];
             }
                 break;
@@ -148,7 +175,15 @@ DmBond *bondParameters;
             {
 
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
-
+                
+                [bondValuesViewController onRemove:^(int position) {
+                    NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
+                    [entries removeObjectAtIndex:position];
+                    bondParameters.maturityDates = [NSKeyedArchiver archivedDataWithRootObject:entries];
+                    [[PersistManager instance] save];
+                    bondValuesViewController.modelData = entries;
+                    [bondValuesViewController.table reloadData];
+                }];
                 [bondValuesViewController onCompleteMany:^(NSString *text, int position) {
                     NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
                     entries = [self saveValue:text withAttribute:entries andPosition:position];
@@ -449,6 +484,20 @@ DmBond *bondParameters;
     return 14;
 }
 
-
+- (IBAction) resetBond {
+    NSMutableArray *results = [[QuantDao instance] getBond];
+    // To clear the local store
+    for (int i=0; i< results.count; i++) {
+        DmBond *bond_ = results[i];
+        [[QuantDao instance] remove:bond_];
+    }
+    [[PersistManager instance] save];
+    exit(0);
+    
+    bondParameters = results[0];
+    bondParameterInit =  [[ParameterInitializer alloc] init];
+    [bondParameterInit setupParameters];
+    
+}
 
 @end

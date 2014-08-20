@@ -12,6 +12,8 @@
 
 typedef void (^SetCompletionHandler) (NSString *value);
 typedef void (^SetManyCompletionHandler) (NSString *value, int position);
+typedef void (^RemoveCompletionHandler) (int position);
+
 
 @interface BondValuesViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
@@ -22,8 +24,10 @@ typedef void (^SetManyCompletionHandler) (NSString *value, int position);
 
 @property (strong, nonatomic) SetCompletionHandler handler;
 @property (strong, nonatomic) SetManyCompletionHandler multiValuehandler;
+@property (strong, nonatomic) RemoveCompletionHandler removeHandler;
 
 - (void) onComplete:(SetCompletionHandler) handler;
 - (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler;
+- (void) onRemove:(RemoveCompletionHandler) removeHandler;
 
 @end
