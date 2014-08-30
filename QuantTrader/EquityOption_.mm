@@ -103,7 +103,7 @@ maturityDate_3
     qlMonth =  intToQLMonth__(month);
     
 //    Date todaysDate(day, qlMonth, year);
-    Date todaysDate(30, August, 2014);
+    Date todaysDate(30, January, 1998);
     
         Settings::instance().evaluationDate() = todaysDate;
         
