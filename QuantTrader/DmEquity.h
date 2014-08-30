@@ -13,19 +13,29 @@
 @interface DmEquity : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * quote;
+
+// Strike
 @property (nonatomic, retain) NSNumber * strikePrice;
 @property (nonatomic, retain) NSNumber * dividentYieldValue;
-@property (nonatomic, retain) NSData * settlementDate_1;
-@property (nonatomic, retain) NSData * settlementDate_2;
+
+// Settlement Date 1
+@property (nonatomic, retain) NSDate * settlementDate_1; // 15-3-2012
+
+@property (nonatomic, retain) NSDate * settlementDate_2;
 @property (nonatomic, retain) NSDate * settlementDate_3;
-@property (nonatomic, retain) NSData * maturityDate_1;
-@property (nonatomic, retain) NSData * maturityDate_2;
-@property (nonatomic, retain) NSData * maturityDate_3;
-@property (nonatomic, retain) NSNumber * underlying_eq;
-@property (nonatomic, retain) NSNumber * strike_eq;
-@property (nonatomic, retain) NSNumber * dividendYield_eq;
-@property (nonatomic, retain) NSNumber * riskFreeRate_eq;
-@property (nonatomic, retain) NSNumber * volatility_eq;
+
+// Maturity Date 1
+@property (nonatomic, retain) NSDate * maturityDate_1; // 1-1-2013
+
+@property (nonatomic, retain) NSDate * maturityDate_2;
+@property (nonatomic, retain) NSDate * maturityDate_3;
+@property (nonatomic, retain) NSNumber * underlying_eq; //36
+
+@property (nonatomic, retain) NSNumber * strike_eq; // 40
+
+@property (nonatomic, retain) NSNumber * dividendYield_eq; // 0,00
+@property (nonatomic, retain) NSNumber * riskFreeRate_eq; // 0,06
+@property (nonatomic, retain) NSNumber * volatility_eq; // 0,02
 @property (nonatomic, retain) NSNumber * blackScholes_eo;
 @property (nonatomic, retain) NSNumber * hestonSemiAnalytic_eo;
 @property (nonatomic, retain) NSNumber * batesSemiAna_eo;

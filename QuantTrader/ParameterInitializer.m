@@ -10,9 +10,41 @@
 
 @implementation ParameterInitializer
 
-
-
 - (void) setupParameters {
+    [self setupBond];
+    [self setupEquity];
+}
+
+-(void) setupEquity {
+    DmEquity *equityParameters;
+    
+    NSMutableArray *results = [[QuantDao instance] getEquity];
+    
+    @try {
+        equityParameters = results[0];
+    }
+    @catch (NSException *exception) {
+    }
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"dd/mm/yyyy"];
+    NSString *str =@"15/3/2012";
+    equityParameters.settlementDate_1 = [formatter dateFromString:str];
+    str =@"1/1/2013";
+    equityParameters.maturityDate_1 = [formatter dateFromString:str];
+    equityParameters.strike_eq = [NSNumber numberWithInt:40];
+    equityParameters.dividendYield_eq    = [NSNumber numberWithFloat:0.00];
+    equityParameters.riskFreeRate_eq = [NSNumber numberWithFloat:0.06];
+    equityParameters.volatility_eq = [NSNumber numberWithFloat:0.02];
+    equityParameters.underlying_eq = [NSNumber numberWithDouble:36];
+    
+    [[PersistManager instance] save];
+
+    
+}
+
+
+- (void) setupBond {
     DmBond *bondParameters;
     
     NSMutableArray *results = [[QuantDao instance] getBond];

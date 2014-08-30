@@ -48,17 +48,16 @@ mcCrude_eo,
 qmcSobol_eo,
 mcLongstaffSchwatz_ao;
 
+DmEquity *equityParameters;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     showResults.titleLabel.numberOfLines = 0;
     showResults.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     showResults.titleLabel.textAlignment = NSTextAlignmentCenter;
-//    showResults.titleLabel.text = @"Show results";
     
     return self;
 }
@@ -66,10 +65,94 @@ mcLongstaffSchwatz_ao;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    
+    
+    
+    NSMutableArray *equityObjects = [[QuantDao instance] getEquity];
+    
+    // To clear the local store
+    //    for (int i=0; i< results.count; i++) {
+    //        DmBond *bond_ = results[i];
+    //        [[QuantDao instance] remove:bond_];
+    //    }
+    //    [[PersistManager instance] save];
+    //    exit(0);
+
+
+    ParameterInitializer *parameterInit;
+    
+    parameterInit =  [[ParameterInitializer alloc] init];
+    [parameterInit setupParameters];
+    
+    @try {
+        equityParameters = equityObjects[0];
+        if (!equityParameters) {
+            parameterInit =  [[ParameterInitializer alloc] init];
+            [parameterInit setupParameters];
+        } else {
+
+        }
+    }
+    @catch (NSException *exception) {
+        equityParameters = [NSEntityDescription insertNewObjectForEntityForName:@"Equity" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
+
+        [[PersistManager instance] save];
+    }
+
     eq = [[EquityOption_ alloc] init];
     
 }
+
+
+
+//- (IBAction) resetBond {
+//    NSMutableArray *results = [[QuantDao instance] getBond];
+//    // To clear the local store
+//    for (int i=0; i< results.count; i++) {
+//        DmBond *bond_ = results[i];
+//        [[QuantDao instance] remove:bond_];
+//    }
+//    [[PersistManager instance] save];
+//    exit(0);
+//    
+//    bondParameters = results[0];
+//    bondParameterInit =  [[ParameterInitializer alloc] init];
+//    [bondParameterInit setupParameters];
+//    
+//}
+//
+//- (void)viewDidLoad
+//{
+//    [super viewDidLoad];
+//    self.table.delegate = self;
+//    [self initBond];
+//    
+//    NSMutableArray *results = [[QuantDao instance] getBond];
+//    
+//     To clear the local store
+//        for (int i=0; i< results.count; i++) {
+//            DmBond *bond_ = results[i];
+//            [[QuantDao instance] remove:bond_];
+//        }
+//        [[PersistManager instance] save];
+//        exit(0);
+//
+//    
+//    @try {
+//        bondParameters = results[0];
+//        if (!bondParameters) {
+//            bondParameterInit =  [[ParameterInitializer alloc] init];
+//            [bondParameterInit setupParameters];
+//        }
+//    }
+//    @catch (NSException *exception) {
+//        bondParameters = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
+//        //        bondParameters.fixingDays = [[NSNumber alloc ] initWithDouble:100];
+//        [[PersistManager instance] save];
+//    }
+//}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -81,7 +164,6 @@ mcLongstaffSchwatz_ao;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(IBAction)textEntered:(UITextField *)sender:(id)sender {
@@ -89,11 +171,19 @@ mcLongstaffSchwatz_ao;
 }
 
 -(void) setCalcValues {
-    eq.underlying_eq = [self.underlying.text doubleValue];
-    eq.strikePrice = [self.strike.text doubleValue];
-    eq.dividendYield_eq = [self.dividendYield.text doubleValue];
-    eq.riskFreeRate_eq = [self.riskFreeRate.text doubleValue];
-    eq.volatility_eq = [self.volatility.text doubleValue];
+//    eq.underlying_eq = [self.underlying.text doubleValue];
+//    eq.strikePrice = [self.strike.text doubleValue];
+//    eq.dividendYield_eq = [self.dividendYield.text doubleValue];
+//    eq.riskFreeRate_eq = [self.riskFreeRate.text doubleValue];
+//    eq.volatility_eq = [self.volatility.text doubleValue];
+    
+    equityParameters.underlying_eq = [NSNumber numberWithDouble:[self.underlying.text doubleValue]];
+    equityParameters.strike_eq= [NSNumber numberWithDouble:[self.strike.text doubleValue]];
+    equityParameters.dividendYield_eq= [NSNumber numberWithDouble:[self.dividendYield.text doubleValue]];
+    equityParameters.riskFreeRate_eq= [NSNumber numberWithDouble:[self.riskFreeRate.text doubleValue]];
+    equityParameters.volatility_eq= [NSNumber numberWithDouble:[self.volatility.text doubleValue]];
+
+    [[PersistManager instance] save];
     
     
 }

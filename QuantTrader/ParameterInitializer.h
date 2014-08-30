@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "QuantDao.h"
+#import "DmEquity.h"
 
 @interface ParameterInitializer : NSObject
 
 
 - (void) setupParameters;
+-(void) setupBond;
+-(void) setupEquity;
     
 @end

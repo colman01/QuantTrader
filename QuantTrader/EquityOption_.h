@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DmEquity.h"
+#import "QuantDao.h"
 
 @interface EquityOption_ : NSObject {
     

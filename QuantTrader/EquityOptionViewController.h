@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EquityOption_.h"
+#import "ParameterInitializer.h"
 
 @interface EquityOptionViewController : UIViewController {
 

@@ -62,8 +62,24 @@ maturityDate_3
 
 -(void) calculate {
         using namespace QuantLib;
+    
+    
+    
+    
+    DmEquity *equityParameters;
+    
+    NSMutableArray *results = [[QuantDao instance] getEquity];
+    
+    @try {
+        equityParameters = results[0];
+    }
+    @catch (NSException *exception) {
+    }
+    
+    
+    
         //    try {
-        
+    
         boost::timer timer;
 //        std::cout << std::endl;
         std::string method;
@@ -98,13 +114,12 @@ maturityDate_3
         
         // our options
         Option::Type type(Option::Put);
-    
-    
-        Real underlying = underlying_eq;
-        Real strike = strikePrice;
-        Spread dividendYield = dividendYield_eq;
-        Rate riskFreeRate = riskFreeRate_eq;  
-        Volatility volatility = volatility_eq;
+
+        Real underlying = [equityParameters.underlying_eq doubleValue] ;
+        Real strike = [equityParameters.strike_eq doubleValue];
+        Spread dividendYield = [equityParameters.dividendYield_eq floatValue];
+        Rate riskFreeRate = [equityParameters.riskFreeRate_eq floatValue];
+        Volatility volatility = [equityParameters.volatility_eq floatValue];
     
         Date maturity(17, May, 1999);
 //        Date maturity(m_day, m_month, m_year);

@@ -19,6 +19,7 @@
 - (NSMutableArray*) getBond;
 - (DmBond *) loadById:(NSNumber *) id;
 - (void)remove:(DmBond *)bond;
+- (NSMutableArray*) getEquity;
 
 
 @end

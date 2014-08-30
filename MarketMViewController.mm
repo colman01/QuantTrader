@@ -82,10 +82,14 @@
 }
 
 -(IBAction)btnCalc:(id)sender {
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Calculation running" message:@"" delegate:self cancelButtonTitle:@"" otherButtonTitles:@"Ok", nil];
+    [alert show];
     [market calcHit];
+
     for (NSNumber *num in market.delta) {
         NSLog(@"calculation finished %@", num);
     }
+    
 }
 
 -(IBAction)quitCalc:(id)sender {
