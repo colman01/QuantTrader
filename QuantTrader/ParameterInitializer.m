@@ -28,9 +28,9 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"dd/mm/yyyy"];
-    NSString *str =@"15/9/2014";
+    NSString *str =@"15/3/2012";
     equityParameters.settlementDate_1 = [formatter dateFromString:str];
-    str =@"1/12/2014";
+    str =@"1/1/2013";
     equityParameters.maturityDate_1 = [formatter dateFromString:str];
     equityParameters.strike_eq = [NSNumber numberWithInt:40];
     equityParameters.dividendYield_eq    = [NSNumber numberWithFloat:0.00];
