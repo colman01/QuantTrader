@@ -61,55 +61,50 @@ maturityDate_3
 ;
 
 -(void) calculate {
-        using namespace QuantLib;
-    
-    
-    
+    using namespace QuantLib;
     
     DmEquity *equityParameters;
     
     NSMutableArray *results = [[QuantDao instance] getEquity];
+    boost::timer timer;
+    std::string method;
     
     @try {
         equityParameters = results[0];
-    }
-    @catch (NSException *exception) {
-    }
-    
-    
-    
-        //    try {
-    
-        boost::timer timer;
-//        std::cout << std::endl;
-        std::string method;
+        Calendar calendar = TARGET();
 
-    
-    
         // set up dates
-    
 //        NSDate *currentDate = [NSDate date];
 //        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
-//    
 //        NSInteger day = [components day];
 //        NSInteger month = [components month];
 //        NSInteger year = [components year];
-//    
-//        int s_day = settlementDate_1;
-//        Month s_month = intToQLMonth__(settlementDate_2);
-//        Year s_year = settlementDate_3;
-//    
-//        int m_day = maturityDate_1;
-//        Month m_month = intToQLMonth__(maturityDate_2);
-//        Year m_year = maturityDate_3;
-    
-    
-        Calendar calendar = TARGET();
-        Date todaysDate(15, May, 1998);
+
 //        QuantLib::Month thisMonth = intToQLMonth__(month);
 //        Date todaysDate((int)day, thisMonth, (int)year);
-        Date settlementDate(17, May, 1998);
-//        Date settlementDate(s_day, s_month, s_year);
+    
+    NSCalendar *cal_ = [NSCalendar currentCalendar];
+    [cal_ setTimeZone:[NSTimeZone localTimeZone]];
+    [cal_ setLocale:[NSLocale currentLocale]];
+    
+    int day = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.settlementDate_1] day];
+    int month = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.settlementDate_1] month];
+    int year = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.settlementDate_1] year];
+
+    QuantLib::Month qlMonth =  intToQLMonth__(month);
+
+//    Date settlementDate(day, qlMonth, year);
+//     Date settlementDate(17, May, 1998);
+
+    Date settlementDate(day, qlMonth, year);
+    day = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]] day];
+    month = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]] month];
+    year = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]] year];
+    qlMonth =  intToQLMonth__(month);
+    
+//    Date todaysDate(day, qlMonth, year);
+    Date todaysDate(30, August, 2014);
+    
         Settings::instance().evaluationDate() = todaysDate;
         
         // our options
@@ -121,8 +116,15 @@ maturityDate_3
         Rate riskFreeRate = [equityParameters.riskFreeRate_eq floatValue];
         Volatility volatility = [equityParameters.volatility_eq floatValue];
     
-        Date maturity(17, May, 1999);
-//        Date maturity(m_day, m_month, m_year);
+    
+        day = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.maturityDate_1] day];
+        month = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.maturityDate_1] month];
+        year = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.maturityDate_1] year];
+        qlMonth =  intToQLMonth__(month);
+    
+        Date maturity(day, qlMonth, year);
+    
+    
         DayCounter dayCounter = Actual365Fixed();
         
         std::vector<Date> exerciseDates;
@@ -155,7 +157,6 @@ maturityDate_3
         // Black-Scholes for European
         method = "Black-Scholes";
         europeanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new AnalyticEuropeanEngine(bsmProcess)));
-//        NSLog(@"Black-Scholes Euro option %f" , europeanOption.NPV());
         blackScholes_eo = europeanOption.NPV();
     
         // semi-analytic Heston for European
@@ -165,7 +166,6 @@ maturityDate_3
                                                                          1.0, volatility*volatility, 0.001, 0.0));
         boost::shared_ptr<HestonModel> hestonModel(new HestonModel(hestonProcess));
         europeanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new AnalyticHestonEngine(hestonModel)));
-//        NSLog(@"Heston semi-analytic Euro option %f" , europeanOption.NPV());
         hestonSemiAnalytic_eo = europeanOption.NPV();
     
         
@@ -177,7 +177,6 @@ maturityDate_3
                                                                       1e-14, 1e-14, 1e-14));
         boost::shared_ptr<BatesModel> batesModel(new BatesModel(batesProcess));
         europeanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BatesEngine(batesModel)));
-//        NSLog(@"Bates semi-analytic Euro option %f" , europeanOption.NPV());
         batesSemiAna_eo = europeanOption.NPV();
     
     
@@ -185,19 +184,16 @@ maturityDate_3
         // Barone-Adesi and Whaley approximation for American
         method = "Barone-Adesi/Whaley";
         americanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BaroneAdesiWhaleyApproximationEngine(bsmProcess)));
-//        NSLog(@"Barone-Adesi/Whaley semi-analytic Euro option %f" , europeanOption.NPV());
         baroneAdesiWhaleySemiAna_eo = europeanOption.NPV();
     
         // Bjerksund and Stensland approximation for American
         method = "Bjerksund/Stensland";
         americanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BjerksundStenslandApproximationEngine(bsmProcess)));
-//        NSLog(@"Bjerksund/Stensland semi-analytic Euro option %f" , europeanOption.NPV());
         bjerksundStenslandSemiAna_eo = europeanOption.NPV();
     
         // Integral
         method = "Integral";
         europeanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new IntegralEngine(bsmProcess)));
-//        NSLog(@"Integral Euro option %f" , europeanOption.NPV());
         integral_eo = europeanOption.NPV();
     
         // Finite differences
@@ -210,7 +206,6 @@ maturityDate_3
                                                                                                              timeSteps,timeSteps-1)));
         americanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new FDAmericanEngine<CrankNicolson>(bsmProcess,
                                                                                                              timeSteps,timeSteps-1)));
-//        NSLog(@"Finite differences %f %f %f" , europeanOption.NPV(), bermudanOption.NPV(), americanOption.NPV());
         finiteDifference_eo = europeanOption.NPV();
         finiteDifference_bo = bermudanOption.NPV();
         finiteDifference_ao = americanOption.NPV();
@@ -220,7 +215,6 @@ maturityDate_3
         europeanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<JarrowRudd>(bsmProcess,timeSteps)));
         bermudanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<JarrowRudd>(bsmProcess,timeSteps)));
         americanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<JarrowRudd>(bsmProcess,timeSteps)));
-//        NSLog(@"Binomial Jarrow-Rudd %f %f %f" , europeanOption.NPV(), bermudanOption.NPV(), americanOption.NPV());
         binomialJarrowRudd_eo = europeanOption.NPV();
         binomialJarrowRudd_bo = bermudanOption.NPV();
         binomialJarrowRudd_ao = americanOption.NPV();
@@ -232,7 +226,6 @@ maturityDate_3
                                                                                                                       timeSteps)));
         americanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<CoxRossRubinstein>(bsmProcess,
                                                                                                                       timeSteps)));
-//        NSLog(@"Binomial Cox-Ross-Rubinstein %f %f %f" , europeanOption.NPV(), bermudanOption.NPV(), americanOption.NPV());
         binomialCoxRossRubinstein_eo = europeanOption.NPV();
         binomialCoxRossRubinstein_bo = bermudanOption.NPV();
         binomialCoxRossRubinstein_ao = americanOption.NPV();
@@ -245,7 +238,6 @@ maturityDate_3
                                                                                                                             timeSteps)));
         americanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<AdditiveEQPBinomialTree>(bsmProcess,
                                                                                                                             timeSteps)));
-//        NSLog(@"Additive equiprobabilities %f %f %f" , europeanOption.NPV(), bermudanOption.NPV(), americanOption.NPV());
         additiveEquiprobabilities_eo = europeanOption.NPV();
         additiveEquiprobabilities_bo = bermudanOption.NPV();
         additiveEquiprobabilities_ao = americanOption.NPV();
@@ -255,7 +247,6 @@ maturityDate_3
         europeanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<Trigeorgis>(bsmProcess,timeSteps)));
         bermudanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<Trigeorgis>(bsmProcess,timeSteps)));
         americanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<Trigeorgis>(bsmProcess,timeSteps)));
-//        NSLog(@"Binomial Trigeorgis %f %f %f" , europeanOption.NPV(), bermudanOption.NPV(), americanOption.NPV());
         binomialTrigeorgis_eo = europeanOption.NPV();
         binomialTrigeorgis_bo = bermudanOption.NPV();
         binomialTrigeorgis_ao = americanOption.NPV();
@@ -266,7 +257,6 @@ maturityDate_3
         europeanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<Tian>(bsmProcess,timeSteps)));
         bermudanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<Tian>(bsmProcess,timeSteps)));
         americanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<Tian>(bsmProcess,timeSteps)));
-//        NSLog(@"Binomial Tian %f %f %f" , europeanOption.NPV(), bermudanOption.NPV(), americanOption.NPV());
         binomialTian_eo = europeanOption.NPV();
         binomialTian_bo = bermudanOption.NPV();
         binomialTian_ao = americanOption.NPV();
@@ -276,7 +266,6 @@ maturityDate_3
         europeanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<LeisenReimer>(bsmProcess,timeSteps)));
         bermudanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<LeisenReimer>(bsmProcess,timeSteps)));
         americanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<LeisenReimer>(bsmProcess,timeSteps)));
-//        NSLog(@"Binomial Leisen-Reimer %f %f %f" , europeanOption.NPV(), bermudanOption.NPV(), americanOption.NPV());
         binomialLeisenReimer_eo = europeanOption.NPV();
         binomialLeisenReimer_bo = bermudanOption.NPV();
         binomialLeisenReimer_ao = americanOption.NPV();
@@ -287,7 +276,6 @@ maturityDate_3
         europeanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<Joshi4>(bsmProcess,timeSteps)));
         bermudanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<Joshi4>(bsmProcess,timeSteps)));
         americanOption.setPricingEngine(boost::shared_ptr<PricingEngine>(new BinomialVanillaEngine<Joshi4>(bsmProcess,timeSteps)));
-//        NSLog(@"Binomial Joshi %f %f %f" , europeanOption.NPV(), bermudanOption.NPV(), americanOption.NPV());
         binomialJoshi_eo = europeanOption.NPV();
         binomialJoshi_bo = bermudanOption.NPV();
         binomialJoshi_ao = americanOption.NPV();
@@ -295,7 +283,6 @@ maturityDate_3
         // Monte Carlo Method: MC (crude)
         timeSteps = 1;
         method = "MC (crude)";
-        //        Size mcSeed = 42;
         int mcSeed = 42;
         boost::shared_ptr<PricingEngine> mcengine1;
         mcengine1 = MakeMCEuropeanEngine<PseudoRandom>(bsmProcess)
@@ -303,7 +290,6 @@ maturityDate_3
         .withAbsoluteTolerance(0.02)
         .withSeed(mcSeed);
         europeanOption.setPricingEngine(mcengine1);
-//        NSLog(@"MC (crude) %f " , europeanOption.NPV());
         mcCrude_eo = europeanOption.NPV();
     
         // Monte Carlo Method: QMC (Sobol)
@@ -316,9 +302,24 @@ maturityDate_3
         .withSteps(timeSteps)
         .withSamples(nSamples);
         europeanOption.setPricingEngine(mcengine2);
-//        NSLog(@"QMC (Sobol) %f " , europeanOption.NPV());
         qmcSobol_eo = europeanOption.NPV();
+    }
+    @catch (NSException *exception) {
+        return;
+    }
     
+    Real seconds = timer.elapsed();
+    Integer hours = int(seconds/3600);
+    seconds -= hours * 3600;
+    Integer minutes = int(seconds/60);
+    seconds -= minutes * 60;
+    if (hours > 0)
+        NSLog(@"hours %i", hours);
+    if (hours > 0 || minutes > 0)
+        NSLog(@"minutes %i", minutes);
+    
+    
+
         // Monte Carlo Method: MC (Longstaff Schwartz)
 //        method = "MC (Longstaff Schwartz)";
 //        boost::shared_ptr<PricingEngine> mcengine3;
@@ -332,19 +333,25 @@ maturityDate_3
 //         NSLog(@"MC (Longstaff Schwartz) %f " , americanOption.NPV());
 //        mcLongstaffSchwatz_ao = americanOption.NPV();
     
-        // End test
-        Real seconds = timer.elapsed();
-        Integer hours = int(seconds/3600);
-        seconds -= hours * 3600;
-        Integer minutes = int(seconds/60);
-        seconds -= minutes * 60;
-//        std::cout << " \nRun completed in ";
-        if (hours > 0)
-            //            std::cout << hours << " h ";
-            NSLog(@"hours %i", hours);
-        if (hours > 0 || minutes > 0)
-            NSLog(@"minutes %i", minutes);
-    }
+//        // End test
+//        Real seconds = timer.elapsed();
+//        Integer hours = int(seconds/3600);
+//        seconds -= hours * 3600;
+//        Integer minutes = int(seconds/60);
+//        seconds -= minutes * 60;
+////        std::cout << " \nRun completed in ";
+//        if (hours > 0)
+//            //            std::cout << hours << " h ";
+//            NSLog(@"hours %i", hours);
+//        if (hours > 0 || minutes > 0)
+//            NSLog(@"minutes %i", minutes);
+}
+
+
+
+
+
+
 
 QuantLib::Month intToQLMonth__(int monthAsInteger)
 {
