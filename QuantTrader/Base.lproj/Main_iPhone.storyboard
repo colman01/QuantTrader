@@ -491,8 +491,11 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hS4-4j-cx3">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hS4-4j-cx3">
                                         <rect key="frame" x="203" y="830" width="97" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="ybP-cW-ryP"/>
+                                        </constraints>
                                         <segments>
                                             <segment title="Call"/>
                                             <segment title="Put"/>
