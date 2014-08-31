@@ -141,37 +141,22 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     
     NSMutableArray *results = [[QuantDao instance] getMarketModel];
 
-    
     @try {
         marketParameters = results[0];
-        
     }
     @catch(NSException *exception) {
-        
     }
-    
     
     std::vector<Real> rateTimes([marketParameters.numberRates doubleValue]+1);
     for (int i=0; i < rateTimes.size(); ++i)
         rateTimes[i] = [marketParameters.firstTime doubleValue] + i*[marketParameters.accrual doubleValue];
     
     std::vector<Real> paymentTimes([marketParameters.numberRates doubleValue]);
-//    Real temp = [marketParameters.accrual doubleValue];
-//    Real temp2 = [marketParameters.numberRates doubleValue];
-////    std::vector<Real> accruals(temp2,temp);
-//    std::vector<Real> accruals(numberRates,accrual);
     std::vector<Real> accruals([marketParameters.numberRates intValue],[marketParameters.accrual intValue]);
     for (int i=0; i < paymentTimes.size(); ++i)
         paymentTimes[i] = [marketParameters.firstTime doubleValue] + (i+1)*[marketParameters.accrual doubleValue];
     
-    
-    
-    
-//    Real fixedRate = 0.05;
-//    std::vector<Real> strikes(numberRates,fixedRate);
     std::vector<Real> strikes([marketParameters.numberRates intValue],[marketParameters.fixedRate intValue]);
-//    Real receive = -1.0;
-    Real receive = [marketParameters.receive doubleValue];
     
     
     // 0. a payer swap
@@ -233,9 +218,6 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     int paths = 3276;
     int vegaPaths = 3276*64;
 
-    
-    
-    
     std::cout << "training paths, " << trainingPaths << "\n";
     std::cout << "paths, " << paths << "\n";
     std::cout << "vega Paths, " << vegaPaths << "\n";
@@ -244,20 +226,14 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     paths = 1024;
     vegaPaths = 1024;
 #endif
-    
-    
     // set up a calibration, this would typically be done by using a calibrator
-    
-    
-    
+
 //    Real rateLevel =0.05;
-//    
-//    
 //    Real initialNumeraireValue = 0.95;
-//    
 //    Real volLevel = 0.11;
 //    Real beta = 0.2;
 //    Real gamma = 1.0;
+    
     int numberOfFactors = std::min<int>(5,[marketParameters.numberRates intValue]);
     
 //    Spread displacementLevel =0.02;
@@ -846,8 +822,6 @@ NSThread * thread ;
 
 -(void) stopCalc {  
     [thread cancel];
-//    thread = nil;
-    
 }
 
 
