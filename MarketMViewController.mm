@@ -123,6 +123,58 @@
 -(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceDownEvent:(id)event atPoint:(CGPoint)point{
     NSLog(@"point down");
     
+    
+    
+    
+    
+//    
+//    NSNumber * theValue = [[self.graphDataSource.timeSeries objectAtIndex:index] observationValue];
+//    
+//    // if the annotations already exist, remove them
+//    if ( self.valueTextAnnotation ) {
+//        [self.graph.plotAreaFrame.plotArea removeAnnotation:self.valueTextAnnotation];
+//        self.valueTextAnnotation = nil;
+//    }
+//    
+//    // Setup a style for the annotation
+//    CPTMutableTextStyle *annotationTextStyle = [CPTMutableTextStyle textStyle];
+//    annotationTextStyle.color = [CPTColor whiteColor];
+//    annotationTextStyle.fontSize = 14.0f;
+//    annotationTextStyle.fontName = @"Helvetica-Bold";
+//    
+//    // Add annotation
+//    // First make a string for the y value
+//    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+//    [formatter setMaximumFractionDigits:2];
+//    NSString *currentValue = [formatter stringFromNumber:theValue];
+//    
+//    NSNumber *x            = [NSNumber numberWithDouble:[theDate timeIntervalSince1970]];
+//    NSNumber *y            = [NSNumber numberWithFloat:self.graphDataSource.maxValue];
+//    NSArray *anchorPoint = [NSArray arrayWithObjects:x, y, nil];
+//    
+//    // Then add the value annotation to the plot area
+//    float valueLayerWidth = 50.0f;
+//    float valueLayerHeight = 20.0f;
+//    CPTTextLayer *valueLayer = [[CPTTextLayer alloc] initWithFrame:CGRectMake(0,0,valueLayerWidth,valueLayerHeight)];
+//    
+//    valueLayer.text = currentValue;
+//    valueLayer.textStyle = annotationTextStyle;
+//    valueLayer.backgroundColor = [UIColor blueColor].CGColor;
+//    
+//    self.valueTextAnnotation  = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:self.graph.defaultPlotSpace anchorPlotPoint:anchorPoint];
+//    
+//    self.valueTextAnnotation.contentLayer = valueLayer;
+//    
+//    // modify the displacement if we are close to either edge
+//    float xDisplacement = 0.0;
+//    ...
+//    self.valueTextAnnotation.displacement = CGPointMake(xDisplacement, 8.0f);
+//    
+//    [self.graph.plotAreaFrame.plotArea addAnnotation:self.valueTextAnnotation]
+    
+    
+    
+    
 //    CPTGraph *graph = self.hostView.hostedGraph;
 //    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
 //    

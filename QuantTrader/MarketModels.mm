@@ -137,26 +137,47 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 //    Real accrual = 0.5;
 //    Real firstTime = 0.5;
     
+    DmMarketModel *marketParameters;
     
-    std::vector<Real> rateTimes(numberRates+1);
+    NSMutableArray *results = [[QuantDao instance] getMarketModel];
+
+    
+    @try {
+        marketParameters = results[0];
+        
+    }
+    @catch(NSException *exception) {
+        
+    }
+    
+    
+    std::vector<Real> rateTimes([marketParameters.numberRates doubleValue]+1);
     for (int i=0; i < rateTimes.size(); ++i)
-        rateTimes[i] = firstTime + i*accrual;
+        rateTimes[i] = [marketParameters.firstTime doubleValue] + i*[marketParameters.accrual doubleValue];
     
-    std::vector<Real> paymentTimes(numberRates);
-    std::vector<Real> accruals(numberRates,accrual);
+    std::vector<Real> paymentTimes([marketParameters.numberRates doubleValue]);
+//    Real temp = [marketParameters.accrual doubleValue];
+//    Real temp2 = [marketParameters.numberRates doubleValue];
+////    std::vector<Real> accruals(temp2,temp);
+//    std::vector<Real> accruals(numberRates,accrual);
+    std::vector<Real> accruals([marketParameters.numberRates intValue],[marketParameters.accrual intValue]);
     for (int i=0; i < paymentTimes.size(); ++i)
-        paymentTimes[i] = firstTime + (i+1)*accrual;
+        paymentTimes[i] = [marketParameters.firstTime doubleValue] + (i+1)*[marketParameters.accrual doubleValue];
     
     
     
     
 //    Real fixedRate = 0.05;
-    std::vector<Real> strikes(numberRates,fixedRate);
-    Real receive = -1.0;
+//    std::vector<Real> strikes(numberRates,fixedRate);
+    std::vector<Real> strikes([marketParameters.numberRates intValue],[marketParameters.fixedRate intValue]);
+//    Real receive = -1.0;
+    Real receive = [marketParameters.receive doubleValue];
+    
     
     // 0. a payer swap
     MultiStepSwap payerSwap(rateTimes, accruals, accruals, paymentTimes,
-                            fixedRate, true);
+                            [marketParameters.fixedRate doubleValue], true);
+
     
     // 1. the equivalent receiver swap
     MultiStepSwap receiverSwap(rateTimes, accruals, accruals, paymentTimes,
