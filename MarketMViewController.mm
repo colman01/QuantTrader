@@ -42,6 +42,8 @@
 
 @synthesize graphContainer;
 
+@synthesize priceAnnotation = priceAnnotation_;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     
@@ -65,7 +67,6 @@
     
     self.numberRates = 1;
     self.accrual = 1;
-    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -102,6 +103,117 @@
 -(IBAction)reloadGraph:(id)sender {
     [self.hostView.hostedGraph reloadData];
 }
+
+
+#pragma mark - Touch
+
+
+
+-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceUpEvent:(id)event atPoint:(CGPoint)point {
+    
+    return YES;
+}
+
+-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceCancelledEvent:(id)event{
+    return YES;
+}
+
+
+
+-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceDownEvent:(id)event atPoint:(CGPoint)point{
+    NSLog(@"point down");
+    
+//    CPTGraph *graph = self.hostView.hostedGraph;
+//    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
+//    
+//
+//    // 2 - Create style, if necessary
+//    static CPTMutableTextStyle *style = nil;
+//    if (!style) {
+//        style = [CPTMutableTextStyle textStyle];
+//        style.color= [CPTColor yellowColor];
+//        style.fontSize = 16.0f;
+//        style.fontName = @"Helvetica-Bold";
+//    }
+//    // 3 - Create annotation, if necessary
+//    NSNumber *price = [NSNumber numberWithDouble:100];
+//    
+//    if (!self.priceAnnotation) {
+//        NSNumber *x = [NSNumber numberWithInt:0];
+//        NSNumber *y = [NSNumber numberWithInt:0];
+//        NSArray *anchorPoint = [NSArray arrayWithObjects:x, y, nil];
+//        self.priceAnnotation = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:plotSpace anchorPlotPoint:anchorPoint];
+//    }
+//    // 4 - Create number formatter, if needed
+//    static NSNumberFormatter *formatter = nil;
+//    if (!formatter) {
+//        formatter = [[NSNumberFormatter alloc] init];
+//        [formatter setMaximumFractionDigits:2];
+//    }
+//    // 5 - Create text layer for annotation
+//    NSString *priceValue = [formatter stringFromNumber:price];
+//    CPTTextLayer *textLayer = [[CPTTextLayer alloc] initWithText:priceValue style:style];
+//    textLayer.text = @"some data";
+//    self.priceAnnotation.contentLayer = textLayer;
+//    
+//    // 6 - Get plot index based on identifier
+////    NSInteger plotIndex = 0;
+////    if ([plot.identifier isEqual:CPDTickerSymbolAAPL] == YES) {
+////        plotIndex = 0;
+////    } else if ([plot.identifier isEqual:CPDTickerSymbolGOOG] == YES) {
+////        plotIndex = 1;
+////    } else if ([plot.identifier isEqual:CPDTickerSymbolMSFT] == YES) {
+////        plotIndex = 2;
+////    }
+//    // 7 - Get the anchor point for annotation
+////    CGFloat x = index + CPDBarInitialX + (plotIndex * CPDBarWidth);
+////    NSNumber *anchorX = [NSNumber numberWithFloat:x];
+////    CGFloat y = [price floatValue] + 40.0f;
+////    NSNumber *anchorY = [NSNumber numberWithFloat:y];
+//    
+//    CGFloat x ;
+//    NSNumber *anchorX = [NSNumber numberWithFloat:point.x];
+//    CGFloat y = point.y;
+//    NSNumber *anchorY = [NSNumber numberWithFloat:y];
+//    
+//    
+//    self.priceAnnotation.anchorPlotPoint = [NSArray arrayWithObjects:anchorX, anchorY, nil];
+//    // 8 - Add the annotation 
+//    [self.hostView.hostedGraph.plotAreaFrame.plotArea addAnnotation:self.priceAnnotation];
+    
+    
+    
+    
+    return YES;
+}
+
+-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceDraggedEvent:(id)event atPoint:(CGPoint)point {
+    NSLog(@"point dragged");
+    return YES;
+}
+
+
+-(void)plot:(CPTPlot *)plot dataLabelWasSelectedAtRecordIndex:(NSUInteger)idx {
+    CPTLayerAnnotation *annot = [[CPTLayerAnnotation alloc]initWithAnchorLayer:self.hostView.hostedGraph];
+    CPTBorderedLayer * logoLayer = [(CPTBorderedLayer *) [CPTBorderedLayer alloc] initWithFrame:CGRectMake(10,10,100,50)] ;
+    //    CPTFill *fillImage = [CPTFill fillWithImage:[CPTImage imageForPNGFile:@"whatEver!"]];
+    //    logoLayer.fill = fillImage;
+    annot.contentLayer = logoLayer;
+    annot.rectAnchor=CPTRectAnchorTop;
+    [self.hostView.hostedGraph addAnnotation:annot];
+}
+
+- (void)scatterPlot:(CPTScatterPlot *)plot plotSymbolWasSelectedAtRecordIndex:(NSUInteger)index
+{
+    CPTLayerAnnotation *annot = [[CPTLayerAnnotation alloc]initWithAnchorLayer:self.hostView.hostedGraph];
+    CPTBorderedLayer * logoLayer = [(CPTBorderedLayer *) [CPTBorderedLayer alloc] initWithFrame:CGRectMake(10,10,100,50)] ;
+//    CPTFill *fillImage = [CPTFill fillWithImage:[CPTImage imageForPNGFile:@"whatEver!"]];
+//    logoLayer.fill = fillImage;
+    annot.contentLayer = logoLayer;
+    annot.rectAnchor=CPTRectAnchorTop;
+    [self.hostView.hostedGraph addAnnotation:annot];
+}
+
 
 #pragma mark - Chart behavior
 -(void)initPlot {
@@ -147,6 +259,8 @@
 	plotSpace.allowsUserInteraction = YES;
     graph.plotAreaFrame.borderLineStyle = nil;
     self.hostView.hostedGraph.borderLineStyle = nil;
+
+    self.hostView.hostedGraph.delegate = self;
 //    [graph applyTheme:nil];
 
 }
@@ -164,6 +278,8 @@
 	CPTScatterPlot *googPlot = [[CPTScatterPlot alloc] init];
 	googPlot.dataSource = self;
 //	CPTColor *googColor = [CPTColor greenColor];
+    
+    plotSpace.delegate = self;
 //	[graph addPlot:googPlot toPlotSpace:plotSpace];
 //	CPTScatterPlot *msftPlot = [[CPTScatterPlot alloc] init];
 //	msftPlot.dataSource = self;
@@ -190,6 +306,8 @@
 	aaplSymbol.lineStyle = aaplSymbolLineStyle;
 	aaplSymbol.size = CGSizeMake(6.0f, 6.0f);
 	aaplPlot.plotSymbol = aaplSymbol;
+    
+    
 }
 
 -(void)configureAxes {

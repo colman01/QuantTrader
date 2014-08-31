@@ -9,12 +9,14 @@
 //#import "ViewController.h"
 #import "MarketModels.h"
 
-@interface MarketMViewController : UIViewController <CPTPlotDataSource> {
+@interface MarketMViewController : UIViewController <CPTPlotDataSource, CPTPlotSpaceDelegate> {
 //    MarketModels * market;
 }
-@property (nonatomic, strong) MarketModels * market;;
+@property (nonatomic, strong) MarketModels * market;
 
 @property (nonatomic, strong) CPTGraphHostingView *hostView;
+@property (nonatomic, strong) CPTPlotSpaceAnnotation *priceAnnotation;
+
 
 @property (nonatomic, strong) IBOutlet UIView *graphContainer;
 
