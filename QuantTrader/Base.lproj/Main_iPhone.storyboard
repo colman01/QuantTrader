@@ -494,8 +494,8 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hS4-4j-cx3">
                                         <rect key="frame" x="203" y="830" width="97" height="29"/>
                                         <segments>
-                                            <segment title="True"/>
-                                            <segment title="False"/>
+                                            <segment title="Call"/>
+                                            <segment title="Put"/>
                                         </segments>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0u-4m-bGE">
