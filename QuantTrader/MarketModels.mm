@@ -181,14 +181,14 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     
     // 1. the equivalent receiver swap
     MultiStepSwap receiverSwap(rateTimes, accruals, accruals, paymentTimes,
-                               fixedRate, false);
+                               [marketParameters.fixedRate intValue], false);
     
     //exercise schedule, we can exercise on any rate time except the last one
     std::vector<Rate> exerciseTimes(rateTimes);
     exerciseTimes.pop_back();
     
     // naive exercise strategy, exercise above a trigger level
-    std::vector<Rate> swapTriggers(exerciseTimes.size(), fixedRate);
+    std::vector<Rate> swapTriggers(exerciseTimes.size(), [marketParameters.fixedRate intValue]);
     SwapRateTrigger naifStrategy(rateTimes, swapTriggers, exerciseTimes);
     
     // Longstaff-Schwartz exercise strategy
@@ -258,18 +258,18 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 //    Real volLevel = 0.11;
 //    Real beta = 0.2;
 //    Real gamma = 1.0;
-    int numberOfFactors = std::min<int>(5,numberRates);
+    int numberOfFactors = std::min<int>(5,[marketParameters.numberRates intValue]);
     
 //    Spread displacementLevel =0.02;
     Spread displacementLevel =self.displacementLevel;
     
     // set up vectors
-    std::vector<Rate> initialRates(numberRates,rateLevel);
-    std::vector<Volatility> volatilities(numberRates, volLevel);
-    std::vector<Spread> displacements(numberRates, displacementLevel);
+    std::vector<Rate> initialRates([marketParameters.numberRates intValue],[marketParameters.rateLevel intValue]);
+    std::vector<Volatility> volatilities([marketParameters.numberRates intValue], [marketParameters.volLevel intValue]);
+    std::vector<Spread> displacements([marketParameters.numberRates intValue], displacementLevel);
     
     ExponentialForwardCorrelation correlations(
-                                               rateTimes,volLevel, beta,gamma);
+                                               rateTimes,[marketParameters.volLevel doubleValue], [marketParameters.beta doubleValue],[marketParameters.gamma doubleValue]);
     
     
     
@@ -306,7 +306,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                     basisSystem,
                     nullRebate,
                     control,
-                    trainingPaths,
+                    [marketParameters.trainingPaths intValue],
                     collectedData);
     
     int t2 = clock();
@@ -349,7 +349,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     
     SequenceStatisticsInc stats;
     
-    accounter.multiplePathValues (stats,paths);
+    accounter.multiplePathValues (stats,[marketParameters.paths intValue]);
     
     int t3 = clock();
     
@@ -380,7 +380,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         MarketModelPathwiseSwap receiverPathwiseSwap(  rateTimes,
                                                      accruals,
                                                      strikes,
-                                                     receive);
+                                                     [marketParameters.receive doubleValue]);
         Clone<MarketModelPathwiseMultiProduct> receiverPathwiseSwapPtr(receiverPathwiseSwap.clone());
         
         //  callable receiver swap
@@ -414,7 +414,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         
         std::cout << " price estimate, " << values[r++] << "\n";
         
-        for (int i=0; i < numberRates; ++i, ++r) {
+        for (int i=0; i < [marketParameters.numberRates intValue]; ++i, ++r) {
             std::cout << " Delta, " << i << ", " << values[r] << ", " << errors[r] << "\n";
             
             std::cout << " Delta will be added, " << i << ", " << values[r] << ", " << errors[r] << "\n";
@@ -425,7 +425,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         
         for (r=r;r < values.size(); ++r)
         {
-            std::cout << " vega, " << r - 1 -  numberRates<< ", " << values[r] << " ," << errors[r] << "\n";
+            std::cout << " vega, " << r - 1 -  [marketParameters.numberRates intValue]<< ", " << values[r] << " ," << errors[r] << "\n";
             totalVega +=  values[r];
         }
         
@@ -451,7 +451,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         {
             if (isExerciseTime[s])
             {
-                MTBrownianGeneratorFactory iFactory(seed+s);
+                MTBrownianGeneratorFactory iFactory([marketParameters.seed intValue]+s);
                 boost::shared_ptr<MarketModelEvolver> e =boost::shared_ptr<MarketModelEvolver> (static_cast<MarketModelEvolver*>(new   LogNormalFwdRatePc(boost::shared_ptr<MarketModel>(new FlatVol(calibration)),
                                                                                                                                                           uFactory,
                                                                                                                                                           numeraires ,  // numeraires for each step
