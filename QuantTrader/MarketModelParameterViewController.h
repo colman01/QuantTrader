@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QuantDao.h"
+#import "ParameterInitializer.h"
 
 @interface MarketModelParameterViewController : UIViewController
 

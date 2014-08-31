@@ -82,7 +82,7 @@
 }
 
 -(IBAction)btnCalc:(id)sender {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Calculation running" message:@"" delegate:self cancelButtonTitle:@"" otherButtonTitles:@"Ok", nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Calculation running" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
     [alert show];
     [market calcHit];
 

@@ -13,7 +13,50 @@
 - (void) setupParameters {
     [self setupBond];
     [self setupEquity];
+    [self setupMarketModel];
 }
+
+-(void) setupMarketModel {
+    DmMarketModel *marketParameters;
+    NSMutableArray *results = [[QuantDao instance] getMarketModel];
+    
+    @try {
+        marketParameters = results[0];
+    }
+    @catch (NSException *exception) {
+    }
+    
+    marketParameters.strike = [NSNumber numberWithDouble:200];
+    marketParameters.numberRates = [NSNumber numberWithDouble:20];
+    marketParameters.accrual = [NSNumber numberWithDouble:.5];
+
+    marketParameters.firstTime = [NSNumber numberWithFloat:0.5];
+    marketParameters.fixedRate = [NSNumber numberWithDouble:20];
+    marketParameters.receive = [NSNumber numberWithDouble:-1.0];
+    marketParameters.seed = [NSNumber numberWithDouble:12332];
+    marketParameters.trainingPaths = [NSNumber numberWithDouble:13107];
+    marketParameters.paths = [NSNumber numberWithDouble:13107];
+    
+    marketParameters.vegaPaths = [NSNumber numberWithDouble:(2*64)];
+    marketParameters.rateLevel = [NSNumber numberWithDouble:0.05];
+    marketParameters.initialNumeraireValue = [NSNumber numberWithDouble:.95];
+    marketParameters.volLevel = [NSNumber numberWithDouble:.11];
+    marketParameters.gamma = [NSNumber numberWithDouble:1.0];
+    marketParameters.beta = [NSNumber numberWithDouble:0.2];
+    
+    marketParameters.numberOfFactors = [NSNumber numberWithDouble:5];
+    marketParameters.displacementLevel = [NSNumber numberWithDouble:.02];
+    marketParameters.innerPaths = [NSNumber numberWithDouble:255];
+    marketParameters.outterPaths = [NSNumber numberWithDouble:256];
+
+
+    
+    
+    
+}
+
+
+
 
 -(void) setupEquity {
     DmEquity *equityParameters;
@@ -37,10 +80,7 @@
     equityParameters.riskFreeRate_eq = [NSNumber numberWithFloat:0.06];
     equityParameters.volatility_eq = [NSNumber numberWithFloat:0.02];
     equityParameters.underlying_eq = [NSNumber numberWithDouble:36];
-    
     [[PersistManager instance] save];
-
-    
 }
 
 

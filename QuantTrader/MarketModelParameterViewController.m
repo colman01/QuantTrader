@@ -39,6 +39,8 @@
 @synthesize floatingSpread;
 @synthesize payer;
 
+    DmMarketModel *marketParameters;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -54,6 +56,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupParameters];
     [self setValues];
 }
 
@@ -63,27 +66,61 @@
 }
 
 
-- (void) setValues{
-    strike.placeholder = @"200";
-    numberRates.placeholder = @"20";
-    accrual.placeholder = @".5";
-    firstTime.placeholder = @".5";
-    fixedRate.placeholder = @"20";
+
+- (void) setupParameters {
     
-    receive.placeholder = @"-1.0";
-    seed.placeholder = @"12332";
-    trainingPaths.placeholder = @"13107";
-    paths.placeholder = @"13107";
-    vegaPaths.placeholder = @"2*64";
-    rateLevel.placeholder = @"0.05";
-    initialNumeraireValue.placeholder = @"0.95";
-    volLevel.placeholder = @"0.11";
-    gamma.placeholder = @"1.0";
-    beta.placeholder = @"0.2";
-    numberOfFactors.placeholder = @"5";
-    displacementLevel.placeholder = @"0.02";
-    innerPaths.placeholder = @"255";
-    outerPaths.placeholder = @"256";
+    NSMutableArray *equityObjects = [[QuantDao instance] getMarketModel];
+    
+    // To clear the local store
+    //    for (int i=0; i< results.count; i++) {
+    //        DmBond *bond_ = results[i];
+    //        [[QuantDao instance] remove:bond_];
+    //    }
+    //    [[PersistManager instance] save];
+    //    exit(0);
+    
+
+    ParameterInitializer *parameterInit;
+    
+    parameterInit =  [[ParameterInitializer alloc] init];
+    [parameterInit setupParameters];
+    
+    @try {
+        marketParameters = equityObjects[0];
+        if (!marketParameters) {
+            parameterInit =  [[ParameterInitializer alloc] init];
+            [parameterInit setupParameters];
+        } else {
+            
+        }
+    }
+    @catch (NSException *exception) {
+        marketParameters = [NSEntityDescription insertNewObjectForEntityForName:@"MarketModel" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
+        
+        [[PersistManager instance] save];
+    }
+}
+
+- (void) setValues{
+    strike.placeholder          = [marketParameters.strike stringValue];
+    numberRates.placeholder     = [marketParameters.numberRates stringValue];
+    accrual.placeholder         = [marketParameters.accrual stringValue];
+    firstTime.placeholder       = [marketParameters.firstTime stringValue];
+    fixedRate.placeholder       = [marketParameters.fixedRate stringValue];
+    receive.placeholder         = [marketParameters.receive stringValue];
+    seed.placeholder            = [marketParameters.seed stringValue];
+    trainingPaths.placeholder   = [marketParameters.trainingPaths stringValue];
+    paths.placeholder           = [marketParameters.paths stringValue];
+    vegaPaths.placeholder       = [marketParameters.vegaPaths stringValue];
+    rateLevel.placeholder       = [marketParameters.rateLevel stringValue];
+    initialNumeraireValue.placeholder = [marketParameters.initialNumeraireValue stringValue];
+    volLevel.placeholder        = [marketParameters.volLevel stringValue];
+    gamma.placeholder           = [marketParameters.gamma stringValue];
+    beta.placeholder            = [marketParameters.beta stringValue];
+    numberOfFactors.placeholder = [marketParameters.numberOfFactors stringValue];
+    displacementLevel.placeholder = [marketParameters.displacementLevel stringValue];
+    innerPaths.placeholder      = [marketParameters.innerPaths stringValue];
+    outerPaths.placeholder      = [marketParameters.outterPaths stringValue];
 }
 
 
@@ -270,6 +307,7 @@
         MarketMViewController *marketModel = [[MarketMViewController alloc] init];
         id dest = segue.destinationViewController;
         marketModel = dest;
+        
         [self setupMarketModelParameters:marketModel];
         
     }

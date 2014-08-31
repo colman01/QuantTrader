@@ -9,3 +9,4 @@
 #import "DmSwapQuotes.h"
 #import "DmMaturityDates.h"
 #import "PersistManager.h"
+#import "DmMarketModel.h"

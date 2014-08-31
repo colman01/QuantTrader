@@ -20,6 +20,9 @@
 - (DmBond *) loadById:(NSNumber *) id;
 - (void)remove:(DmBond *)bond;
 - (NSMutableArray*) getEquity;
+- (void)removeMarketModel:(DmMarketModel *)market;
+- (NSMutableArray*) getMarketModel;
+- (void)removeMarketModel:(DmMarketModel *)market;
 
 
 @end
