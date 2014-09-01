@@ -30,8 +30,6 @@
 @property float multiplierCutOff;
 @property float projectionTolerance;
 
-
-
 // Bermudan
 
 @property (nonatomic, assign) int numberRates;
@@ -39,7 +37,7 @@
 @property float firstTime;
 
 
-@property float fixedRate;
+//@property float fixedRate;
 @property float receive;
 @property int seed;
 //int seed = 12332; // for Sobol generator
@@ -61,7 +59,7 @@
 @property int fixedMultiplier;
 
 @property float floatingSpread;
-@property bool payer;
+
 
 
 @end

@@ -160,11 +160,9 @@
     }
     
     if (self.fixedRate.text.length > 0) {
-        num = [f numberFromString:self.fixedRate.text];
-        market.market.fixedRate = [num floatValue];
+        marketParameters.fixedRate = [f numberFromString:self.fixedRate.text];
     } else {
-        num = [f numberFromString:self.fixedRate.placeholder];
-        market.market.fixedRate = [num intValue];
+        marketParameters.fixedRate = [f numberFromString:self.fixedRate.placeholder];
     }
     
     if (self.receive.text.length > 0) {
@@ -294,6 +292,8 @@
         num = [f numberFromString:self.floatingSpread.placeholder];
         market.market.floatingSpread = [num intValue];
     }
+    
+    [[PersistManager instance] save];
     
     self.payer.selected = market.payer;
 }

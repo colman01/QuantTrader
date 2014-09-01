@@ -58,7 +58,7 @@ namespace QuantLib {
 @synthesize numberRates;
 @synthesize accrual;
 @synthesize firstTime;
-@synthesize fixedRate;
+//@synthesize fixedRate;
 @synthesize receive;
 @synthesize seed;
 @synthesize trainingPaths;
@@ -76,7 +76,7 @@ namespace QuantLib {
 @synthesize strike;
 @synthesize fixedMultiplier;
 @synthesize floatingSpread;
-@synthesize payer;
+
 
 
 std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
@@ -132,15 +132,8 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 
 - (int) NewBermudan
 {
-    
-//    int numberRates =20;
-//    Real accrual = 0.5;
-//    Real firstTime = 0.5;
-    
     DmMarketModel *marketParameters;
-    
     NSMutableArray *results = [[QuantDao instance] getMarketModel];
-
     @try {
         marketParameters = results[0];
     }
@@ -195,32 +188,22 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     CallSpecifiedMultiProduct dummyProduct =
     CallSpecifiedMultiProduct(receiverSwap, naifStrategy,
                               ExerciseAdapter(nullRebate));
-    
     EvolutionDescription evolution = dummyProduct.evolution();
     
-    
     // parameters for models
-    
-    
 //    int seed = 12332; // for Sobol generator
 //    int trainingPaths = 65536;
 //    int paths = 16384;
 //    int vegaPaths = 16384*64;
-    
-//    int seed = 12332; // for Sobol generator
-//    int trainingPaths = 10;
-//    int paths = 2;
-//    int vegaPaths = 2*64;
-    
-    
-    int seed = 12332; // for Sobol generator
-    int trainingPaths = 13107;
-    int paths = 3276;
-    int vegaPaths = 3276*64;
 
-    std::cout << "training paths, " << trainingPaths << "\n";
-    std::cout << "paths, " << paths << "\n";
-    std::cout << "vega Paths, " << vegaPaths << "\n";
+//    int seed = 12332; // for Sobol generator
+//    int trainingPaths = 13107;
+//    int paths = 3276;
+//    int vegaPaths = 3276*64;
+
+    std::cout << "training paths, " << [marketParameters.trainingPaths intValue] << "\n";
+    std::cout << "paths, " << [marketParameters.paths intValue] << "\n";
+    std::cout << "vega Paths, " << [marketParameters.vegaPaths intValue] << "\n";
 #ifdef _DEBUG
     trainingPaths = 512;
     paths = 1024;
@@ -234,27 +217,24 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 //    Real beta = 0.2;
 //    Real gamma = 1.0;
     
-    int numberOfFactors = std::min<int>(5,[marketParameters.numberRates intValue]);
+    int numberOfFactors_ = std::min<int>(5,[marketParameters.numberRates intValue]);
     
 //    Spread displacementLevel =0.02;
-    Spread displacementLevel =self.displacementLevel;
+    Spread displacementLevel =[marketParameters.displacementLevel floatValue];
     
     // set up vectors
     std::vector<Rate> initialRates([marketParameters.numberRates intValue],[marketParameters.rateLevel intValue]);
     std::vector<Volatility> volatilities([marketParameters.numberRates intValue], [marketParameters.volLevel intValue]);
-    std::vector<Spread> displacements([marketParameters.numberRates intValue], displacementLevel);
+    std::vector<Spread> displacements([marketParameters.numberRates intValue], [marketParameters.displacementLevel intValue]);
     
     ExponentialForwardCorrelation correlations(
                                                rateTimes,[marketParameters.volLevel doubleValue], [marketParameters.beta doubleValue],[marketParameters.gamma doubleValue]);
-    
-    
-    
     
     FlatVol  calibration(
                          volatilities,
                          boost::shared_ptr<PiecewiseConstantCorrelation>(new  ExponentialForwardCorrelation(correlations)),
                          evolution,
-                         numberOfFactors,
+                         numberOfFactors_,
                          initialRates,
                          displacements);
     
@@ -262,7 +242,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     
     // we use a factory since there is data that will only be known later
     SobolBrownianGeneratorFactory generatorFactory(
-                                                   SobolBrownianGenerator::Diagonal, seed);
+                                                   SobolBrownianGenerator::Diagonal, [marketParameters.seed intValue]);
     
     std::vector<std::size_t> numeraires( moneyMarketMeasure(evolution));
     
@@ -413,7 +393,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     {
         // upper bound
         
-        MTBrownianGeneratorFactory uFactory(seed+142);
+        MTBrownianGeneratorFactory uFactory([marketParameters.seed intValue]+142);
         
         
         boost::shared_ptr<MarketModelEvolver> upperEvolver(new LogNormalFwdRatePc( boost::shared_ptr<MarketModel>(new FlatVol(calibration)),
@@ -447,8 +427,8 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                                  initialNumeraireValue);
         
         Statistics uStats;
-        int innerPaths = 255;
-        int outerPaths =256;
+        int innerPaths = [marketParameters.innerPaths intValue];
+        int outerPaths =[marketParameters.outterPaths intValue];
         
         int t4 = clock();
         
