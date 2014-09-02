@@ -262,9 +262,7 @@
         MarketMViewController *marketModel = [[MarketMViewController alloc] init];
         id dest = segue.destinationViewController;
         marketModel = dest;
-        
         [self setupMarketModelParameters:marketModel];
-        
     }
 }
 

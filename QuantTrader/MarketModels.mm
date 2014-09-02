@@ -492,10 +492,16 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     
     std::vector<Real> rateTimes([marketParameters.numberRates integerValue]+1);
     for (int i=0; i < rateTimes.size(); ++i)
-        rateTimes[i] = firstTime + i*accrual;
+            rateTimes[i] = [marketParameters.firstTime doubleValue] + i*[marketParameters.accrual doubleValue];
+//        rateTimes[i] = firstTime + i*accrual;
     
-    std::vector<Real> paymentTimes(numberRates);
-    std::vector<Real> accruals(numberRates,accrual);
+//    std::vector<Real> paymentTimes(numberRates);
+//    std::vector<Real> accruals(numberRates,accrual);
+//    std::vector<Real> fixedStrikes(numberRates,strike);
+//    std::vector<Real> floatingSpreads(numberRates,floatingSpread);
+//    std::vector<Real> fixedMultipliers(numberRates,fixedMultiplier);
+    std::vector<Real> paymentTimes([marketParameters.numberRates doubleValue]);
+    std::vector<Real> accruals([marketParameters.numberRates intValue],accrual);
     std::vector<Real> fixedStrikes(numberRates,strike);
     std::vector<Real> floatingSpreads(numberRates,floatingSpread);
     std::vector<Real> fixedMultipliers(numberRates,fixedMultiplier);
