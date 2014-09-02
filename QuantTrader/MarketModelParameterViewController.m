@@ -133,32 +133,23 @@
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     
-    NSNumber *num = [[NSNumber alloc] init];
-    
     if (self.numberRates.text.length > 0) {
-        num = [f numberFromString:self.numberRates.text];
-        market.market.numberRates = [num intValue];
+        marketParameters.numberRates = [f numberFromString:self.numberRates.text];
     } else {
-        num = [f numberFromString:self.numberRates.placeholder];
-        market.market.numberRates = [num intValue];
+        marketParameters.numberRates = [f numberFromString:self.numberRates.placeholder];
     }
 
     if (self.accrual.text.length > 0) {
-        num = [f numberFromString:self.accrual.text];
-        market.accrual = [num floatValue];
+        marketParameters.accrual = [f numberFromString:self.accrual.text];
     } else {
-        num = [f numberFromString:self.accrual.placeholder];
-        market.market.accrual = [num intValue];
+        marketParameters.accrual = [f numberFromString:self.accrual.placeholder];
     }
     
-    if (self.accrual.text.length > 0) {
-        num = [f numberFromString:self.firstTime.text];
-        market.market.firstTime = [num floatValue];
+    if (self.firstTime.text.length > 0) {
+        marketParameters.firstTime = [f numberFromString:self.firstTime.text];
     } else {
-        num = [f numberFromString:self.firstTime.placeholder];
-        market.market.firstTime = [num intValue];
+        marketParameters.firstTime = [f numberFromString:self.firstTime.placeholder];
     }
-    
     if (self.fixedRate.text.length > 0) {
         marketParameters.fixedRate = [f numberFromString:self.fixedRate.text];
     } else {
@@ -166,137 +157,101 @@
     }
     
     if (self.receive.text.length > 0) {
-        num = [f numberFromString:self.receive.text];
-        market.market.receive = [num floatValue];
+        marketParameters.receive = [f numberFromString:self.receive.text];
     } else {
-        num = [f numberFromString:self.receive.placeholder];
-        market.market.receive = [num intValue];
+        marketParameters.receive = [f numberFromString:self.receive.placeholder];
     }
-    
     if (self.seed.text.length > 0) {
-        num = [f numberFromString:self.seed.text];
-        market.market.seed = [num intValue];
+        marketParameters.seed = [f numberFromString:self.seed.text];
     } else {
-        num = [f numberFromString:self.seed.placeholder];
-        market.market.seed = [num intValue];
+        marketParameters.seed = [f numberFromString:self.seed.placeholder];
     }
-    
     if (self.paths.text.length > 0) {
-        num = [f numberFromString:self.paths.text];
-        market.market.paths = [num intValue];
+        marketParameters.paths = [f numberFromString:self.paths.text];
     } else {
-        num = [f numberFromString:self.paths.placeholder];
-        market.market.paths = [num intValue];
+        marketParameters.paths = [f numberFromString:self.paths.placeholder];
     }
     
     if (self.vegaPaths.text.length > 0) {
-        num = [f numberFromString:self.vegaPaths.text];
-        market.market.vegaPaths = [num intValue];
+        marketParameters.vegaPaths = [f numberFromString:self.vegaPaths.text];
     } else {
-        num = [f numberFromString:self.vegaPaths.placeholder];
-        market.market.vegaPaths = [num intValue];
+        marketParameters.vegaPaths = [f numberFromString:self.vegaPaths.placeholder];
     }
     
     if (self.rateLevel.text.length > 0) {
-        num = [f numberFromString:self.rateLevel.text];
-        market.market.rateLevel = [num floatValue];
+        marketParameters.rateLevel = [f numberFromString:self.rateLevel.text];
     } else {
-        num = [f numberFromString:self.rateLevel.placeholder];
-        market.market.rateLevel = [num intValue];
+        marketParameters.rateLevel = [f numberFromString:self.rateLevel.placeholder];
     }
-    
     if (self.initialNumeraireValue.text.length > 0) {
-        num = [f numberFromString:self.initialNumeraireValue.text];
-        market.market.initialNumeraireValue = [num floatValue];
+        marketParameters.initialNumeraireValue = [f numberFromString:self.initialNumeraireValue.text];
     } else {
-        num = [f numberFromString:self.initialNumeraireValue.placeholder];
-        market.market.initialNumeraireValue = [num intValue];
+        marketParameters.initialNumeraireValue = [f numberFromString:self.initialNumeraireValue.placeholder];
     }
-    
     if (self.volLevel.text.length > 0) {
-        num = [f numberFromString:self.volLevel.text];
-        market.market.volLevel = [num floatValue];
+        marketParameters.volLevel = [f numberFromString:self.volLevel.text];
     } else {
-        num = [f numberFromString:self.volLevel.placeholder];
-        market.market.volLevel = [num intValue];
+        marketParameters.volLevel = [f numberFromString:self.volLevel.placeholder];
     }
     
     if (self.beta.text.length > 0) {
-        num = [f numberFromString:self.beta.text];
-        market.market.beta = [num floatValue];
+        marketParameters.beta = [f numberFromString:self.beta.text];
     } else {
-        num = [f numberFromString:self.beta.placeholder];
-        market.market.beta = [num intValue];
+        marketParameters.beta = [f numberFromString:self.beta.placeholder];
     }
     
     if (self.gamma.text.length > 0) {
-        num = [f numberFromString:self.gamma.text];
-        market.market.gamma = [num floatValue];
+        marketParameters.gamma = [f numberFromString:self.gamma.text];
     } else {
-        num = [f numberFromString:self.gamma.placeholder];
-        market.market.gamma = [num intValue];
+        marketParameters.gamma = [f numberFromString:self.gamma.placeholder];
     }
     
     if (self.numberOfFactors.text.length > 0) {
-        num = [f numberFromString:self.numberOfFactors.text];
-        market.market.numberOfFactors = [num intValue];
+        marketParameters.numberOfFactors = [f numberFromString:self.numberOfFactors.text];
     } else {
-        num = [f numberFromString:self.numberOfFactors.placeholder];
-        market.market.numberOfFactors = [num intValue];
+        marketParameters.numberOfFactors = [f numberFromString:self.numberOfFactors.placeholder];
     }
-    
     if (self.displacementLevel.text.length > 0) {
-        num = [f numberFromString:self.displacementLevel.text];
-        market.market.displacementLevel = [num floatValue];
+        marketParameters.displacementLevel = [f numberFromString:self.displacementLevel.text];
     } else {
-        num = [f numberFromString:self.displacementLevel.placeholder];
-        market.market.displacementLevel = [num intValue];
+        marketParameters.displacementLevel = [f numberFromString:self.displacementLevel.placeholder];
     }
     
     if (self.innerPaths.text.length > 0) {
-        num = [f numberFromString:self.innerPaths.text];
-        market.market.innerPaths = [num intValue];
+        marketParameters.innerPaths = [f numberFromString:self.innerPaths.text];
     } else {
-        num = [f numberFromString:self.innerPaths.placeholder];
-        market.market.innerPaths = [num intValue];
+        marketParameters.innerPaths = [f numberFromString:self.innerPaths.placeholder];
     }
     
     if (self.outerPaths.text.length > 0) {
-        num = [f numberFromString:self.outerPaths.text];
-        market.market.outterPaths = [num intValue];
+        marketParameters.outterPaths = [f numberFromString:self.outerPaths.text];
     } else {
-        num = [f numberFromString:self.outerPaths.placeholder];
-        market.market.outterPaths = [num intValue];
+        marketParameters.outterPaths = [f numberFromString:self.outerPaths.placeholder];
     }
     
     if (self.strike.text.length > 0) {
-        num = [f numberFromString:self.strike.text];
-        market.market.strike = [num intValue];
+        marketParameters.strike  = [f numberFromString:self.strike.text];
     } else {
-        num = [f numberFromString:self.strike.placeholder];
-        market.market.strike = [num intValue];
+        marketParameters.strike  = [f numberFromString:self.strike.placeholder];
     }
     
     if (self.fixedMultiplier.text.length > 0) {
-        num = [f numberFromString:self.outerPaths.text];
-        market.market.fixedMultiplier = [num intValue];
+        marketParameters.fixedMultiplier =  [f numberFromString:self.outerPaths.text];
     } else {
-        num = [f numberFromString:self.fixedMultiplier.placeholder];
-        market.market.fixedMultiplier = [num intValue];
+        marketParameters.fixedMultiplier =  [f numberFromString:self.outerPaths.placeholder];
     }
     
     if (self.floatingSpread.text.length > 0) {
-        num = [f numberFromString:self.floatingSpread.text];
-        market.market.floatingSpread = [num intValue];
+        marketParameters.floatingSpread = [f numberFromString:self.floatingSpread.text];
     } else {
-        num = [f numberFromString:self.floatingSpread.placeholder];
-        market.market.floatingSpread = [num intValue];
+        [f numberFromString:self.floatingSpread.placeholder];
     }
     
     [[PersistManager instance] save];
     
     self.payer.selected = market.payer;
 }
+
 
 #pragma mark - Navigation
 

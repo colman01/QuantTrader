@@ -130,7 +130,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 
 #pragma mark Objective C convertion
 
-- (int) NewBermudan
+- (int) newBermudan
 {
     DmMarketModel *marketParameters;
     NSMutableArray *results = [[QuantDao instance] getMarketModel];
@@ -220,7 +220,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     int numberOfFactors_ = std::min<int>(5,[marketParameters.numberRates intValue]);
     
 //    Spread displacementLevel =0.02;
-    Spread displacementLevel =[marketParameters.displacementLevel floatValue];
+    Spread displacementLevel =[marketParameters.displacementLevel doubleValue];
     
     // set up vectors
     std::vector<Rate> initialRates([marketParameters.numberRates intValue],[marketParameters.rateLevel intValue]);
@@ -448,17 +448,49 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 
 -(int) newInverseFloater:(NSNumber *) rateLevelParam
 {
-    Real rateLevel = [rateLevelParam floatValue];
-    int numberRates =20;
-    Real accrual = 0.5;
-    Real firstTime = 0.5;
     
-    Real strike =200.15;
-    Real fixedMultiplier = 2.0;
-    Real floatingSpread =0.0;
+    
+    DmMarketModel *marketParameters;
+    NSMutableArray *results = [[QuantDao instance] getMarketModel];
+    @try {
+        marketParameters = results[0];
+    }
+    @catch(NSException *exception) {
+    }
+    
+//    std::vector<Real> rateTimes([marketParameters.numberRates doubleValue]+1);
+//    for (int i=0; i < rateTimes.size(); ++i)
+//        rateTimes[i] = [marketParameters.firstTime doubleValue] + i*[marketParameters.accrual doubleValue];
+    
+    
+//    Real rateLevel = [rateLevelParam floatValue];
+//    int numberRates =20;
+//    Real accrual = 0.5;
+//    Real firstTime = 0.5;
+//    
+//    Real strike =200.15;
+//    Real fixedMultiplier = 2.0;
+//    Real floatingSpread =0.0;
+//    bool payer = true;
+    
+//    Real rateLevel = [rateLevelParam floatValue];
+    Real rateLevel = [marketParameters.rateLevel doubleValue];
+    
+    
+//    int numberRates =20;
+    int numberRates = [marketParameters.numberRates integerValue];
+//    Real accrual = 0.5;
+    Real accrual = [marketParameters.accrual doubleValue];
+//    Real firstTime = 0.5;
+    Real firstTime = [marketParameters.firstTime doubleValue];
+    
+    Real strike =[marketParameters.strike doubleValue];;
+    Real fixedMultiplier = [marketParameters.fixedMultiplier doubleValue];;
+    Real floatingSpread =[marketParameters.floatingSpread doubleValue];;
     bool payer = true;
     
-    std::vector<Real> rateTimes(numberRates+1);
+    
+    std::vector<Real> rateTimes([marketParameters.numberRates integerValue]+1);
     for (int i=0; i < rateTimes.size(); ++i)
         rateTimes[i] = firstTime + i*accrual;
     
@@ -789,6 +821,7 @@ NSThread * thread ;
 }
 
 -(void) demo {
+//    [self newBermudan];
     while (![[NSThread currentThread]  isCancelled]) {
         [self newInverseFloater: [NSNumber numberWithInt:1]];
 //        for (int i=5; i < 10; ++i) {
