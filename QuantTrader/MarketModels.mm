@@ -54,30 +54,12 @@ namespace QuantLib {
 @synthesize hostView;
 @synthesize exitCalc;
 @synthesize delta;
-
-@synthesize numberRates;
-@synthesize accrual;
-@synthesize firstTime;
-//@synthesize fixedRate;
-@synthesize receive;
-@synthesize seed;
-@synthesize trainingPaths;
-@synthesize paths;
-@synthesize vegaPaths;
-@synthesize rateLevel;
-@synthesize initialNumeraireValue;
-@synthesize volLevel;
-@synthesize gamma;
-@synthesize beta;
-@synthesize numberOfFactors;
-@synthesize displacementLevel;
-@synthesize innerPaths;
-@synthesize outterPaths;
-@synthesize strike;
-@synthesize fixedMultiplier;
-@synthesize floatingSpread;
+@synthesize handler;
 
 
+- (void) graphReady:(GraphCompletionHandler)handler {
+    self.handler = handler;
+}
 
 std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                                                boost::shared_ptr<MarketModel> marketModel,
@@ -299,9 +281,12 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     allProducts.add(callableProduct);
     allProducts.finalize();
     
+//    AccountingEngine accounter(evolverPtr,
+//                               Clone<MarketModelMultiProduct>(allProducts),
+//                               initialNumeraireValue);
     AccountingEngine accounter(evolverPtr,
                                Clone<MarketModelMultiProduct>(allProducts),
-                               initialNumeraireValue);
+                               [marketParameters.initialNumeraireValue doubleValue]);
     
     SequenceStatisticsInc stats;
     
@@ -319,7 +304,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     
     // vegas
     // do it twice once with factorwise bumping, once without
-    int pathsToDoVegas = vegaPaths;
+    int pathsToDoVegas = [marketParameters.vegaPaths intValue];
     
     for (int i=0; i < 4; ++i)
     {
@@ -355,7 +340,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                               callableProductPathwisePtr,
                               marketModel,
                               theBumps,
-                              initialNumeraireValue);
+                              [marketParameters.initialNumeraireValue doubleValue]);
         
         std::vector<Real> values,errors;
         accountingEngineVegas.multiplePathValues(values,errors,pathsToDoVegas);
@@ -424,7 +409,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                                  receiverSwap,
                                  nullRebate,
                                  exerciseStrategy,
-                                 initialNumeraireValue);
+                                 [marketParameters.initialNumeraireValue doubleValue]);
         
         Statistics uStats;
         int innerPaths = [marketParameters.innerPaths intValue];
@@ -669,6 +654,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         std::vector<Real> values,errors;
         accountingEngineVegas.multiplePathValues(values,errors,pathsToDoVegas);
         [self.hostView.hostedGraph reloadData];
+        self.handler();
         std::cout << "vega output \n";
         std::cout << " factorwise bumping " << allowFactorwiseBumping << "\n";
         std::cout << " doCaps " << doCaps << "\n";
@@ -755,13 +741,13 @@ NSThread * thread ;
 -(void) demo {
 //    [self newBermudan];
     while (![[NSThread currentThread]  isCancelled]) {
-        [self newInverseFloater: [NSNumber numberWithInt:1]];
-//        for (int i=5; i < 10; ++i) {
-//            if([[NSThread currentThread]  isCancelled]) {
-//                return;
-//            }
-//            [self newInverseFloater:[NSNumber numberWithInt:1]];
-//        }
+//        [self newInverseFloater: [NSNumber numberWithInt:1]];
+        for (int i=5; i < 10; ++i) {
+            if([[NSThread currentThread]  isCancelled]) {
+                return;
+            }
+            [self newInverseFloater:[NSNumber numberWithInt:i]];
+        }
     }
 }
 
