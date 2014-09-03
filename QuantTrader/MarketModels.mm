@@ -458,56 +458,20 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     @catch(NSException *exception) {
     }
     
-//    std::vector<Real> rateTimes([marketParameters.numberRates doubleValue]+1);
-//    for (int i=0; i < rateTimes.size(); ++i)
-//        rateTimes[i] = [marketParameters.firstTime doubleValue] + i*[marketParameters.accrual doubleValue];
-    
-    
-//    Real rateLevel = [rateLevelParam floatValue];
-//    int numberRates =20;
-//    Real accrual = 0.5;
-//    Real firstTime = 0.5;
-//    
-//    Real strike =200.15;
-//    Real fixedMultiplier = 2.0;
-//    Real floatingSpread =0.0;
-//    bool payer = true;
-    
-//    Real rateLevel = [rateLevelParam floatValue];
-    Real rateLevel = [marketParameters.rateLevel doubleValue];
-    
-    
-//    int numberRates =20;
-    int numberRates = [marketParameters.numberRates integerValue];
-//    Real accrual = 0.5;
-    Real accrual = [marketParameters.accrual doubleValue];
-//    Real firstTime = 0.5;
-    Real firstTime = [marketParameters.firstTime doubleValue];
-    
-    Real strike =[marketParameters.strike doubleValue];;
-    Real fixedMultiplier = [marketParameters.fixedMultiplier doubleValue];;
-    Real floatingSpread =[marketParameters.floatingSpread doubleValue];;
     bool payer = true;
     
     
     std::vector<Real> rateTimes([marketParameters.numberRates integerValue]+1);
     for (int i=0; i < rateTimes.size(); ++i)
             rateTimes[i] = [marketParameters.firstTime doubleValue] + i*[marketParameters.accrual doubleValue];
-//        rateTimes[i] = firstTime + i*accrual;
-    
-//    std::vector<Real> paymentTimes(numberRates);
-//    std::vector<Real> accruals(numberRates,accrual);
-//    std::vector<Real> fixedStrikes(numberRates,strike);
-//    std::vector<Real> floatingSpreads(numberRates,floatingSpread);
-//    std::vector<Real> fixedMultipliers(numberRates,fixedMultiplier);
     std::vector<Real> paymentTimes([marketParameters.numberRates doubleValue]);
-    std::vector<Real> accruals([marketParameters.numberRates intValue],accrual);
-    std::vector<Real> fixedStrikes(numberRates,strike);
-    std::vector<Real> floatingSpreads(numberRates,floatingSpread);
-    std::vector<Real> fixedMultipliers(numberRates,fixedMultiplier);
+    std::vector<Real> accruals([marketParameters.numberRates intValue],[marketParameters.accrual doubleValue]);
+    std::vector<Real> fixedStrikes([marketParameters.numberRates intValue],[marketParameters.strike doubleValue]);
+    std::vector<Real> floatingSpreads([marketParameters.numberRates intValue],[marketParameters.floatingSpread doubleValue]);
+    std::vector<Real> fixedMultipliers([marketParameters.numberRates intValue],[marketParameters.fixedMultiplier doubleValue]);
     
     for (int i=0; i < paymentTimes.size(); ++i)
-        paymentTimes[i] = firstTime + (i+1)*accrual;
+        paymentTimes[i] = [marketParameters.firstTime doubleValue] + (i+1)*[marketParameters.accrual doubleValue];
     
     MultiStepInverseFloater inverseFloater(
                                            rateTimes,
@@ -548,22 +512,6 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     EvolutionDescription evolution = dummyProduct.evolution();
     
     // parameters for models
-    
-    
-//    int seed = 12332; // for Sobol generator
-//    int trainingPaths = 65536;
-//    int paths = 65536;
-//    int vegaPaths =16384;
-    
-//    int seed = 12332; // for Sobol generator
-//    int trainingPaths = 10;
-//    int paths = 10;
-//    int vegaPaths =2;
-    
-    int seed = 12332; // for Sobol generator
-    int trainingPaths = 13107;
-    int paths = 13107;
-    int vegaPaths = 3276;
 
     
 #ifdef _DEBUG
@@ -573,47 +521,31 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 #endif
     
     std::cout << " inverse floater \n";
-    std::cout << " fixed strikes :  "  << strike << "\n";
-    std::cout << " number rates :  " << numberRates << "\n";
+    std::cout << " fixed strikes :  "  << [marketParameters.strike doubleValue] << "\n";
+    std::cout << " number rates :  " << [marketParameters.numberRates doubleValue] << "\n";
     
-    std::cout << "training paths, " << trainingPaths << "\n";
-    std::cout << "paths, " << paths << "\n";
-    std::cout << "vega Paths, " << vegaPaths << "\n";
+    std::cout << "training paths, " << [marketParameters.trainingPaths doubleValue] << "\n";
+    std::cout << "paths, " << [marketParameters.paths doubleValue] << "\n";
+    std::cout << "vega Paths, " << [marketParameters.vegaPaths doubleValue] << "\n";
     
     
     // set up a calibration, this would typically be done by using a calibrator
-    
-    
-    
-    //Real rateLevel =0.08;
-    
-    std::cout << " rate level " <<  rateLevel << "\n";
-    
-    Real initialNumeraireValue = 0.95;
-    
-    Real volLevel = 0.11;
-    Real beta = 0.2;
-    Real gamma = 1.0;
-    int numberOfFactors = std::min<int>(5,numberRates);
-    
-    Spread displacementLevel =0.02;
+    std::cout << " rate level " <<  [marketParameters.rateLevel doubleValue]<< "\n";
+    int numberOfFactorsLocal = std::min<int>(5,[marketParameters.numberRates intValue]);
     
     // set up vectors
-    std::vector<Rate> initialRates(numberRates,rateLevel);
-    std::vector<Volatility> volatilities(numberRates, volLevel);
-    std::vector<Spread> displacements(numberRates, displacementLevel);
+    std::vector<Rate> initialRates([marketParameters.numberRates intValue],[marketParameters.rateLevel doubleValue]);
+    std::vector<Volatility> volatilities([marketParameters.numberRates intValue], [marketParameters.volLevel doubleValue]);
+    std::vector<Spread> displacements([marketParameters.numberRates intValue], [marketParameters.displacementLevel doubleValue]);
     
     ExponentialForwardCorrelation correlations(
-                                               rateTimes,volLevel, beta,gamma);
-    
-    
-    
+                                               rateTimes,[marketParameters.volLevel doubleValue], [marketParameters.beta doubleValue],[marketParameters.gamma doubleValue]);
     
     FlatVol  calibration(
                          volatilities,
                          boost::shared_ptr<PiecewiseConstantCorrelation>(new  ExponentialForwardCorrelation(correlations)),
                          evolution,
-                         numberOfFactors,
+                         numberOfFactorsLocal,
                          initialRates,
                          displacements);
     
@@ -621,7 +553,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     
     // we use a factory since there is data that will only be known later
     SobolBrownianGeneratorFactory generatorFactory(
-                                                   SobolBrownianGenerator::Diagonal, seed);
+                                                   SobolBrownianGenerator::Diagonal, [marketParameters.seed doubleValue]);
     
     std::vector<std::size_t> numeraires( moneyMarketMeasure(evolution));
     
@@ -634,14 +566,13 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     boost::shared_ptr<MarketModelEvolver> evolverPtr(new LogNormalFwdRatePc(evolver));
     
     int t1= clock();
-    
     // gather data before computing exercise strategy
     collectNodeData(evolver,
                     inverseFloater,
                     basisSystem,
                     nullRebate,
                     control,
-                    trainingPaths,
+                    [marketParameters.trainingPaths intValue],
                     collectedData);
     
     int t2 = clock();
@@ -670,14 +601,13 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     allProducts.add(callableProduct);
     allProducts.finalize();
     
-    
     AccountingEngine accounter(evolverPtr,
                                Clone<MarketModelMultiProduct>(allProducts),
-                               initialNumeraireValue);
+                               [marketParameters.initialNumeraireValue doubleValue]);
     
     SequenceStatisticsInc stats;
     
-    accounter.multiplePathValues (stats,paths);
+    accounter.multiplePathValues (stats,[marketParameters.paths intValue]);
     
     int t3 = clock();
     
@@ -690,9 +620,8 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     std::cout << " time to price, " << (t3-t2)/static_cast<Real>(CLOCKS_PER_SEC)<< ", seconds.\n";
     
     // vegas
-    
     // do it twice once with factorwise bumping, once without
-    int pathsToDoVegas = vegaPaths;
+    int pathsToDoVegas = [marketParameters.vegaPaths intValue];
     
     for (int i=0; i < 4; ++i)
     {
@@ -736,7 +665,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                               callableProductPathwisePtr,
                               marketModel,
                               theBumps,
-                              initialNumeraireValue);
+                              [marketParameters.initialNumeraireValue doubleValue]);
         std::vector<Real> values,errors;
         accountingEngineVegas.multiplePathValues(values,errors,pathsToDoVegas);
         [self.hostView.hostedGraph reloadData];
@@ -749,7 +678,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         
         if(!self.delta)
             self.delta = [[NSMutableArray alloc] init];
-        for (int i=0; i < numberRates; ++i, ++r) {
+        for (int i=0; i < [marketParameters.numberRates intValue]; ++i, ++r) {
             [self.delta addObject:[NSNumber numberWithFloat:values[r] ]];
             std::cout << "Delta, " << i << ", " << values[r] << ", " << errors[r] << "\n";
         }
@@ -758,7 +687,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         
         for (; r < values.size(); ++r)
         {
-            std::cout << " vega, " << r - 1 -  numberRates<< ", " << values[r] << " ," << errors[r] << "\n";
+            std::cout << " vega, " << r - 1 -  [marketParameters.numberRates intValue]<< ", " << values[r] << " ," << errors[r] << "\n";
             totalVega +=  values[r];
         }
         
@@ -770,7 +699,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     if (doUpperBound)
     {
         // upper bound
-        MTBrownianGeneratorFactory uFactory(seed+142);
+        MTBrownianGeneratorFactory uFactory([marketParameters.seed intValue]+142);
         boost::shared_ptr<MarketModelEvolver> upperEvolver(new LogNormalFwdRatePc( boost::shared_ptr<MarketModel>(new FlatVol(calibration)),
                                                                                   uFactory,
                                                                                   numeraires   // numeraires for each step
@@ -784,7 +713,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         {
             if (isExerciseTime[s])
             {
-                MTBrownianGeneratorFactory iFactory(seed+s);
+                MTBrownianGeneratorFactory iFactory([marketParameters.seed intValue]+s);
                 boost::shared_ptr<MarketModelEvolver> e =boost::shared_ptr<MarketModelEvolver> (static_cast<MarketModelEvolver*>(new   LogNormalFwdRatePc(boost::shared_ptr<MarketModel>(new FlatVol(calibration)),
                                                                                                                                                           uFactory,
                                                                                                                                                           numeraires ,  // numeraires for each step
@@ -800,15 +729,12 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                                  inverseFloater,
                                  nullRebate,
                                  exerciseStrategy,
-                                 initialNumeraireValue);
+                                 [marketParameters.initialNumeraireValue doubleValue]);
         
         Statistics uStats;
-        int innerPaths = 255;
-        int outerPaths =256;
-        
         int t4 = clock();
         
-        uEngine.multiplePathValues(uStats,outerPaths,innerPaths);
+        uEngine.multiplePathValues(uStats,[marketParameters.outterPaths intValue],[marketParameters.innerPaths intValue]);
         Real upperBound = uStats.mean();
         Real upperSE = uStats.errorEstimate();
         

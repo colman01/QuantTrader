@@ -121,6 +121,8 @@
     displacementLevel.placeholder = [marketParameters.displacementLevel stringValue];
     innerPaths.placeholder      = [marketParameters.innerPaths stringValue];
     outerPaths.placeholder      = [marketParameters.outterPaths stringValue];
+    fixedMultiplier.placeholder = [marketParameters.fixedMultiplier stringValue];
+    floatingSpread.placeholder = [marketParameters.floatingSpread stringValue];
 }
 
 
@@ -246,6 +248,13 @@
     } else {
         [f numberFromString:self.floatingSpread.placeholder];
     }
+    
+    if (self.trainingPaths.text.length > 0) {
+        marketParameters.trainingPaths = [f numberFromString:self.trainingPaths.text];
+    } else {
+        [f numberFromString:self.trainingPaths.placeholder];
+    }
+    
     
     [[PersistManager instance] save];
     

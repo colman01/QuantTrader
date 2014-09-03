@@ -48,6 +48,9 @@
     marketParameters.displacementLevel = [NSNumber numberWithDouble:.02];
     marketParameters.innerPaths = [NSNumber numberWithDouble:255];
     marketParameters.outterPaths = [NSNumber numberWithDouble:256];
+    marketParameters.fixedMultiplier = [NSNumber numberWithDouble:2.0];
+    marketParameters.floatingSpread = [NSNumber numberWithDouble:0.0];
+    
 
 
     
