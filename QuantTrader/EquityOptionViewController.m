@@ -129,18 +129,23 @@ DmEquity *equityParameters;
 }
 
 - (IBAction)calculate {
+    
+    
     [self setCalcValues];
     
-    NSArray * nibObjects = [[NSBundle mainBundle] loadNibNamed:@"EquityOptionResults" owner:self options:nil];
-    UIView * nibVC = [nibObjects objectAtIndex:0];
-    results = [[UIViewController alloc] init];
-    [results setView:nibVC];
-    [self setResultsVC];
-    [results setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+    [self performSegueWithIdentifier:@"EquityResults" sender:nil];
 
-    [eq calculate];
-    [self setResultsVC];
-    [[self navigationController] pushViewController:results animated:YES ];
+//    
+//    NSArray * nibObjects = [[NSBundle mainBundle] loadNibNamed:@"EquityOptionResults" owner:self options:nil];
+//    UIView * nibVC = [nibObjects objectAtIndex:0];
+//    results = [[UIViewController alloc] init];
+//    [results setView:nibVC];
+//    [self setResultsVC];
+//    [results setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
+//
+//    [eq calculate];
+//    [self setResultsVC];
+//    [[self navigationController] pushViewController:results animated:YES ];
     
 //    [self dismissViewControllerAnimated:YES
 //                             completion:^{

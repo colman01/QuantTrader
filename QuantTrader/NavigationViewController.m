@@ -1,5 +1,3 @@
-//
-//  NavigationViewController.m
 //  QuantTrader
 //
 //  Created by colman on 17/07/14.
@@ -8,7 +6,6 @@
 
 #import "NavigationViewController.h"
 #import "BondSetValueViewController.h"
-#import "EquityOptionViewController.h"
 
 @interface NavigationViewController ()
 
@@ -39,22 +36,16 @@
 - (BOOL) shouldAutorotate {
     UIViewController *vc = self.topViewController;
     
-    if ( [vc isKindOfClass:[EquityOptionViewController class]]) {
-        
-        return NO;
-    }
-
     if ( ![vc isKindOfClass:[BondSetValueViewController class]]) {
         
         return YES;
     }
-
     return NO;
 }
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     UIViewController *vc = self.topViewController;
-    if ([vc isKindOfClass:[BondSetValueViewController class]] || [vc isKindOfClass:[EquityOptionViewController class]])
+    if ([vc isKindOfClass:[BondSetValueViewController class]])
         if (toInterfaceOrientation != UIInterfaceOrientationPortrait) {
             return NO;
         }
@@ -62,37 +53,15 @@
     
 }
 
-
-- (NSUInteger)supportedInterfaceOrientations {
-    if ([self.topViewController isMemberOfClass:[EquityOptionViewController class]] ){
-        return UIInterfaceOrientationMaskPortrait;
-    }
-    return [[UIDevice currentDevice] orientation];
-//    return UIInterfaceOrientationMaskLandscapeRight | UIInterfaceOrientationMaskLandscapeLeft   | UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
-//    else if([self.topViewController isMemberOfClass:[EquityOptionViewController class]]) {
-//        return UIInterfaceOrientationMaskLandscapeLeft;
-//    }else{
-//        return UIInterfaceOrientationMaskAllButUpsideDown;
-//    }
-//    if (![self.topViewController isMemberOfClass:[EquityOptionViewController class]] ){
-//        return UIInterfaceOrientationMaskPortrait;
-//    
-//    }else if([self.topViewController isMemberOfClass:[EquityOptionViewController class]]) {
-//        return UIInterfaceOrientationMaskLandscapeLeft;
-//    }else{
-//        return UIInterfaceOrientationMaskAllButUpsideDown;
-//    }
-}
-
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
