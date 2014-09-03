@@ -127,10 +127,8 @@
 
 
 - (void) setupMarketModelParameters:(MarketMViewController  *) market {
-    
-    if (!market.market) {
+    if (!market.market)
         market.market = [[MarketModels alloc] init];
-    }
 
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -263,8 +261,6 @@
 
 
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"MarketModelResult"]) {

@@ -64,10 +64,6 @@
     IBOutlet UILabel * mcCrude_eo;
     IBOutlet UILabel * qmcSobol_eo;
     IBOutlet UILabel * mcLongstaffSchwatz_ao;
-    
-    
-    
-    
     EquityOption_ * eq;
     
     
@@ -76,8 +72,6 @@
 @property (nonatomic, retain) IBOutlet UIViewController *waiting;
 @property (nonatomic, retain) IBOutlet UIViewController *results;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
-
-
 
 @property (nonatomic, retain) IBOutlet UITextField * settlementDate_1;
 @property (nonatomic, retain) IBOutlet UITextField * settlementDate_2;
@@ -135,110 +129,9 @@
 @property (nonatomic, retain) IBOutlet UIButton * showResults;
 
 - (IBAction)textEntered:(UITextField *)sender;
-
 - (IBAction)calculate;
-
+- (IBAction)calculateWithSegue;
 - (IBAction)hide:(id)sender;
 
 
-
-
 @end
-
-
-
-
-
-
-//    integral_eo,
-//    finiteDifference_eo,
-//    finiteDifference_bo,
-//    //finiteDifference_ao,
-//    binomialJarrowRudd_eo,
-//    binomialJarrowRudd_bo,
-//    binomialJarrowRudd_ao,
-//    binomialCoxRossRubinstein_eo,
-//    binomialCoxRossRubinstein_bo,
-//    binomialCoxRossRubinstein_ao,
-//    additiveEquiprobabilities_eo,
-//    additiveEquiprobabilities_bo,
-//    additiveEquiprobabilities_ao,
-//    binomialTrigeorgis_eo,
-//    binomialTrigeorgis_bo,
-//    binomialTrigeorgis_ao,
-//    binomialTian_eo,
-//    binomialTian_bo,
-//    binomialTian_ao,
-//    binomialLeisenReimer_eo,
-//    binomialLeisenReimer_bo,
-//    binomialLeisenReimer_ao,
-//    binomialJoshi_eo,
-//    binomialJoshi_bo,
-//    binomialJoshi_ao,
-//    mcCrude_eo,
-//    qmcSobol_eo,
-//    mcLongstaffSchwatz_ao;
-
-
-
-
-//    blackScholes_eo.text = [[NSNumber numberWithDouble:eq.blackScholes_eo] stringValue];
-//    hestonSemiAnalytic_eo.text = [[NSNumber numberWithInt:eq.hestonSemiAnalytic_eo] stringValue];
-
-
-
-//                                     NSArray * nibObjects = [[NSBundle mainBundle] loadNibNamed:@"EquityOptionResults" owner:self options:nil];
-//                                     UIView * nibVC = [nibObjects objectAtIndex:0];
-//                                     results = [[UIViewController alloc] init];
-//                                     [results setView:nibVC];
-//                                     [self setResultsVC];
-//                                     [results setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-//                                     [self presentModalViewController:results animated:YES];
-//
-//                                     UIViewController *eqResults=[[UIViewController  alloc] initWithNibName:@"EquityOptionResults" bundle:nil];
-//                                     [[super navigationController] pushViewController:eqResults animated:YES];
-//                                     [self setResultsVC];
-
-//                                 }];
-
-
-
-//     [self presentModalViewController:results animated:YES];
-
-//     UIViewController *eqResults=[[UIViewController  alloc] initWithNibName:@"EquityOptionResults" bundle:nil];
-//     [[super navigationController] pushViewController:eqResults animated:YES];
-//     [self setResultsVC];
-
-
-//    UIViewController *eqResults=[[UIViewController  alloc] initWithNibName:@"EquityOptionResults" bundle:nil];
-//    [[super navigationController] pushViewController:eqResults animated:YES];
-//    [self setResultsVC];
-
-
-
-//    [self presentViewController:waiting animated:YES completion:^{
-//        [self setCalcValues];
-//        [eq calculate];
-//
-//
-//        UIViewController *eqResults=[[UIViewController  alloc] initWithNibName:@"EquityOptionResults" bundle:nil];
-//        [[super navigationController] pushViewController:eqResults animated:YES];
-//        [self setResultsVC];
-
-
-//        [self dismissViewControllerAnimated:YES
-//                                 completion:^{
-//                                     NSArray * nibObjects = [[NSBundle mainBundle] loadNibNamed:@"EquityOptionResults" owner:self options:nil];
-//                                      UIView * nibVC = [nibObjects objectAtIndex:0];
-//                                     results = [[UIViewController alloc] init];
-//                                     [results setView:nibVC];
-//                                     [self setResultsVC];
-//                                     [results setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-//                                     [self presentModalViewController:results animated:YES];
-//
-//                                     UIViewController *eqResults=[[UIViewController  alloc] initWithNibName:@"EquityOptionResults" bundle:nil];
-//                                     [[super navigationController] pushViewController:eqResults animated:YES];
-//                                     [self setResultsVC];
-//
-//                                 }];
-//    }];

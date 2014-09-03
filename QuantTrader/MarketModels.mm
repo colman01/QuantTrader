@@ -57,8 +57,8 @@ namespace QuantLib {
 @synthesize handler;
 
 
-- (void) graphReady:(GraphCompletionHandler)handler {
-    self.handler = handler;
+- (void) graphReady:(GraphCompletionHandler)handler_ {
+    self.handler = handler_;
 }
 
 std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
@@ -171,17 +171,6 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     CallSpecifiedMultiProduct(receiverSwap, naifStrategy,
                               ExerciseAdapter(nullRebate));
     EvolutionDescription evolution = dummyProduct.evolution();
-    
-    // parameters for models
-//    int seed = 12332; // for Sobol generator
-//    int trainingPaths = 65536;
-//    int paths = 16384;
-//    int vegaPaths = 16384*64;
-
-//    int seed = 12332; // for Sobol generator
-//    int trainingPaths = 13107;
-//    int paths = 3276;
-//    int vegaPaths = 3276*64;
 
     std::cout << "training paths, " << [marketParameters.trainingPaths intValue] << "\n";
     std::cout << "paths, " << [marketParameters.paths intValue] << "\n";
@@ -192,16 +181,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     vegaPaths = 1024;
 #endif
     // set up a calibration, this would typically be done by using a calibrator
-
-//    Real rateLevel =0.05;
-//    Real initialNumeraireValue = 0.95;
-//    Real volLevel = 0.11;
-//    Real beta = 0.2;
-//    Real gamma = 1.0;
-    
     int numberOfFactors_ = std::min<int>(5,[marketParameters.numberRates intValue]);
-    
-//    Spread displacementLevel =0.02;
     Spread displacementLevel =[marketParameters.displacementLevel doubleValue];
     
     // set up vectors
@@ -280,10 +260,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     allProducts.add(bermudanProduct);
     allProducts.add(callableProduct);
     allProducts.finalize();
-    
-//    AccountingEngine accounter(evolverPtr,
-//                               Clone<MarketModelMultiProduct>(allProducts),
-//                               initialNumeraireValue);
+
     AccountingEngine accounter(evolverPtr,
                                Clone<MarketModelMultiProduct>(allProducts),
                                [marketParameters.initialNumeraireValue doubleValue]);
@@ -739,9 +716,7 @@ NSThread * thread ;
 }
 
 -(void) demo {
-//    [self newBermudan];
     while (![[NSThread currentThread]  isCancelled]) {
-//        [self newInverseFloater: [NSNumber numberWithInt:1]];
         for (int i=5; i < 10; ++i) {
             if([[NSThread currentThread]  isCancelled]) {
                 return;

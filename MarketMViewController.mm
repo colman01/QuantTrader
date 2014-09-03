@@ -44,16 +44,6 @@
 }
 
 -(IBAction)btnCalc:(id)sender {
-    
-//    [dest onComplete:^(NSString* text) {
-//        self.multiValuehandler(text,dest.postion);
-//        [self.table reloadData];
-//    }];
-
-    //    [self graphReady:^() {
-//        [self reloadGraph:nil];
-//        
-//    }];
     [market graphReady:^() {
         [self reloadGraph:nil];
     }];
@@ -75,14 +65,6 @@
 -(IBAction)reloadGraph:(id)sender {
     [self.hostView.hostedGraph reloadData];
 }
-
-
-//#pragma mark Graph handler
-//- (void) graphReady:(GraphCompletionHandler) handler{
-//    self.handler = handler;
-//}
-
-
 
 #pragma mark - Chart behavior
 -(void)initPlot {

@@ -58,17 +58,12 @@ DmEquity *equityParameters;
     showResults.titleLabel.numberOfLines = 0;
     showResults.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     showResults.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    
-    
     NSMutableArray *equityObjects = [[QuantDao instance] getEquity];
     
     // To clear the local store
@@ -105,55 +100,6 @@ DmEquity *equityParameters;
 }
 
 
-
-//- (IBAction) resetBond {
-//    NSMutableArray *results = [[QuantDao instance] getBond];
-//    // To clear the local store
-//    for (int i=0; i< results.count; i++) {
-//        DmBond *bond_ = results[i];
-//        [[QuantDao instance] remove:bond_];
-//    }
-//    [[PersistManager instance] save];
-//    exit(0);
-//    
-//    bondParameters = results[0];
-//    bondParameterInit =  [[ParameterInitializer alloc] init];
-//    [bondParameterInit setupParameters];
-//    
-//}
-//
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//    self.table.delegate = self;
-//    [self initBond];
-//    
-//    NSMutableArray *results = [[QuantDao instance] getBond];
-//    
-//     To clear the local store
-//        for (int i=0; i< results.count; i++) {
-//            DmBond *bond_ = results[i];
-//            [[QuantDao instance] remove:bond_];
-//        }
-//        [[PersistManager instance] save];
-//        exit(0);
-//
-//    
-//    @try {
-//        bondParameters = results[0];
-//        if (!bondParameters) {
-//            bondParameterInit =  [[ParameterInitializer alloc] init];
-//            [bondParameterInit setupParameters];
-//        }
-//    }
-//    @catch (NSException *exception) {
-//        bondParameters = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
-//        //        bondParameters.fixingDays = [[NSNumber alloc ] initWithDouble:100];
-//        [[PersistManager instance] save];
-//    }
-//}
-
-
 -(void)viewWillAppear:(BOOL)animated{
     
     [scroll setContentOffset:CGPointMake(0,0)];
@@ -166,17 +112,11 @@ DmEquity *equityParameters;
     [super didReceiveMemoryWarning];
 }
 
--(IBAction)textEntered:(UITextField *)sender:(id)sender {
-    [sender resignFirstResponder];
+-(IBAction)textEntered:(UITextField *)send {
+    [send resignFirstResponder];
 }
 
 -(void) setCalcValues {
-//    eq.underlying_eq = [self.underlying.text doubleValue];
-//    eq.strikePrice = [self.strike.text doubleValue];
-//    eq.dividendYield_eq = [self.dividendYield.text doubleValue];
-//    eq.riskFreeRate_eq = [self.riskFreeRate.text doubleValue];
-//    eq.volatility_eq = [self.volatility.text doubleValue];
-    
     equityParameters.underlying_eq = [NSNumber numberWithDouble:[self.underlying.text doubleValue]];
     equityParameters.strike_eq= [NSNumber numberWithDouble:[self.strike.text doubleValue]];
     equityParameters.dividendYield_eq= [NSNumber numberWithDouble:[self.dividendYield.text doubleValue]];
@@ -189,14 +129,6 @@ DmEquity *equityParameters;
 }
 
 - (IBAction)calculate {
-    
-//    NSArray *nibObjects_wait = [[NSBundle mainBundle] loadNibNamed:@"Waiting" owner:self options:nil];
-//    UIView *nibVC_wait = [nibObjects_wait objectAtIndex:0];
-//    waiting = [[UIViewController alloc] init];
-//    [waiting setView:nibVC_wait];
-//    [waiting setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-//    [self performSegueWithIdentifier:@"Waiting" sender:nil];
-    
     [self setCalcValues];
     
     NSArray * nibObjects = [[NSBundle mainBundle] loadNibNamed:@"EquityOptionResults" owner:self options:nil];
@@ -228,6 +160,10 @@ DmEquity *equityParameters;
     
     
 
+}
+
+- (IBAction)calculateWithSegue {
+    
 }
 
 
@@ -314,8 +250,7 @@ DmEquity *equityParameters;
 }
 
 -(IBAction)show:(id)sender {
-//    [self presentViewController:results animated:YES completion:nil];
-//    [[super navigationController] pushViewController:results animated:YES];
+
     if (results != nil) {
         [[super navigationController] pushViewController:results animated:YES];
     } else {
