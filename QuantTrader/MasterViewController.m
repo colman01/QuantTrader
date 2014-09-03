@@ -36,6 +36,12 @@
     [super viewDidLoad];
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    [[UIDevice currentDevice] setValue:
+     [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
+                                forKey:@"orientation"];
+}   
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

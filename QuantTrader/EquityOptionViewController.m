@@ -61,8 +61,11 @@ DmEquity *equityParameters;
     return self;
 }
 
+
 - (void)viewDidLoad
 {
+    
+    
     [super viewDidLoad];
     NSMutableArray *equityObjects = [[QuantDao instance] getEquity];
     
@@ -101,6 +104,10 @@ DmEquity *equityParameters;
 
 
 -(void)viewWillAppear:(BOOL)animated{
+    [[UIDevice currentDevice] setValue:
+     [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
+                                forKey:@"orientation"];
+    
     
     [scroll setContentOffset:CGPointMake(0,0)];
     

@@ -28,6 +28,7 @@ NSNumber *num;
 
 }
 - (void) viewDidAppear:(BOOL)animated {
+
     
     activity.hidden = NO;
     [activity startAnimating];

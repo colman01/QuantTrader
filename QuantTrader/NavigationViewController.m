@@ -1,3 +1,5 @@
+//
+//  NavigationViewController.m
 //  QuantTrader
 //
 //  Created by colman on 17/07/14.
@@ -6,6 +8,7 @@
 
 #import "NavigationViewController.h"
 #import "BondSetValueViewController.h"
+#import "MasterViewController.h"
 
 @interface NavigationViewController ()
 
@@ -36,6 +39,10 @@
 - (BOOL) shouldAutorotate {
     UIViewController *vc = self.topViewController;
     
+    if ( [vc isKindOfClass:[MasterViewController class]]) {
+        return NO;
+    }
+    
     if ( ![vc isKindOfClass:[BondSetValueViewController class]]) {
         
         return YES;
@@ -45,7 +52,7 @@
 
 - (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     UIViewController *vc = self.topViewController;
-    if ([vc isKindOfClass:[BondSetValueViewController class]])
+    if ([vc isKindOfClass:[BondSetValueViewController class]] || [vc isKindOfClass:[MasterViewController class]])
         if (toInterfaceOrientation != UIInterfaceOrientationPortrait) {
             return NO;
         }
