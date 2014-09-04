@@ -91,21 +91,13 @@
     }
     @catch (NSException *exception) {
     }
-    
-//    if ([bondParameters.zeroCouponBondAccruedAmount floatValue] >= 0) {
-//        return;
-//    }
-    
+
     NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
-    
     
     if (entries.count > 2) {
         return;
     }
 
-
-    
-    
     [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0096]];
     [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0145]];
     [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0194]];
