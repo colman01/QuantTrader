@@ -9,6 +9,7 @@
 #import "NavigationViewController.h"
 #import "BondSetValueViewController.h"
 #import "MasterViewController.h"
+#import "EquityOptionViewController.h"
 
 @interface NavigationViewController ()
 
@@ -38,6 +39,10 @@
 
 - (BOOL) shouldAutorotate {
     UIViewController *vc = self.topViewController;
+    
+    if ( [vc isKindOfClass:[EquityOptionViewController class]]) {
+        return NO;
+    }
     
     if ( [vc isKindOfClass:[MasterViewController class]]) {
         return NO;

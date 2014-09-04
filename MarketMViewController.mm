@@ -44,20 +44,32 @@
 }
 
 -(IBAction)btnCalc:(id)sender {
-    [market graphReady:^() {
-        [self reloadGraph:nil];
-    }];
     
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Calculation running" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
-    [alert show];
-    [market calcHit];
-    for (NSNumber *num in market.delta) {
-        NSLog(@"calculation finished %@", num);
+    [[UIDevice currentDevice].systemVersion floatValue];
+    #define _kisiOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    
+    if (_kisiOS8) {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"iOS 8+" message:@"Sorry this tool is not yet supported" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"Ok", nil];
+        [alert show];
+        
+    }
+    else {
+        NSLog(@"Less than iOS8");
+        [market graphReady:^() {
+            [self reloadGraph:nil];
+        }];
+        
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Calculation running" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+        [alert show];
+        [market calcHit];
+        for (NSNumber *num in market.delta) {
+            NSLog(@"calculation finished %@", num);
+        }
     }
 }
 
 -(IBAction)quitCalc:(id)sender {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Cancel Computation" message:@"press to cancel" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"", nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Cancel Computation" message:@"press to cancel" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"", nil];
     [alert show];
     [market stopCalc];
 }
@@ -74,12 +86,10 @@
     [self configureAxes];
 }
 
-
 -(void)configureHost {
 	self.hostView = [(CPTGraphHostingView *) [CPTGraphHostingView alloc] initWithFrame:graphContainer.bounds];
     self.market.hostView = self.hostView;
 	self.hostView.allowPinchScaling = YES;
-
     self.hostView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [graphContainer addSubview:self.hostView];
 }
