@@ -7,6 +7,8 @@
 //
 
 #import "MarketMViewController.h"
+#import "CorePlot-CocoaTouch.h"
+
 @interface MarketMViewController ()
 @end
 
@@ -30,12 +32,6 @@
     if (!market)
         market = [[MarketModels alloc] init];
     [self initPlot];
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-}
-
-- (void) viewDidAppear:(BOOL)animated {
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,15 +88,30 @@
 	self.hostView.allowPinchScaling = YES;
     self.hostView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [graphContainer addSubview:self.hostView];
+
+    
+
+    
 }
 
 
 -(void)configureGraph {
 	// 1 - Create the graph
+    
+    self.hostView.hostedGraph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
+    
 	CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
+    
+    
+    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) self.hostView.hostedGraph.defaultPlotSpace;
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-6)
+                                                    length:CPTDecimalFromFloat(12)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-5)
+                                                    length:CPTDecimalFromFloat(30)];
+    
+    
 //	[graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
-   [graph applyTheme:[CPTTheme themeNamed:kCPTStocksTheme]];
-	self.hostView.hostedGraph = graph;
+   [self.hostView.hostedGraph applyTheme:[CPTTheme themeNamed:kCPTStocksTheme]];
 	// 2 - Set graph title
 //	NSString *title = @"Portfolio Prices: April 2012";
 //	graph.title = title;
@@ -109,19 +120,48 @@
 	titleStyle.color = [CPTColor whiteColor];
 	titleStyle.fontName = @"Helvetica-Bold";
 	titleStyle.fontSize = 16.0f;
-	graph.titleTextStyle = titleStyle;
-	graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
-	graph.titleDisplacement = CGPointMake(0.0f, 10.0f);
+	self.hostView.hostedGraph.titleTextStyle = titleStyle;
+	self.hostView.hostedGraph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
+	self.hostView.hostedGraph.titleDisplacement = CGPointMake(0.0f, 10.0f);
 	// 4 - Set padding for plot area
-	[graph.plotAreaFrame setPaddingLeft:1.0f];
-	[graph.plotAreaFrame setPaddingBottom:1.0f];
+	[self.hostView.hostedGraph.plotAreaFrame setPaddingLeft:1.0f];
+	[self.hostView.hostedGraph.plotAreaFrame setPaddingBottom:1.0f];
 	// 5 - Enable user interactions for plot space
-	CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
+//	CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
 	plotSpace.allowsUserInteraction = YES;
-    graph.plotAreaFrame.borderLineStyle = nil;
-    self.hostView.hostedGraph.borderLineStyle = nil;
-    self.hostView.hostedGraph.delegate = self;
+    self.hostView.hostedGraph.plotAreaFrame.borderLineStyle = nil;
+//    self.hostView.hostedGraph.borderLineStyle = nil;
+//    self.hostView.hostedGraph.delegate = self;
 //    [graph applyTheme:nil];
+    
+//    CPTMutableLineStyle *lineStyle = [CPTLineStyle lineStyle];
+//    
+//    
+//    
+//    lineStyle.lineColor = [CPTColor blackColor];
+//    lineStyle.lineWidth = 2.0f;
+//    
+//    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
+//    
+////    axisSet.xAxis.majorIntervalLength = [NSDecimalNumber decimalNumberWithString:@"5"];
+////    axisSet.xAxis.majorIntervalLength = (NSDecimal)[NSDecimalNumber decimalNumberWithString:@"5"];
+//    axisSet.xAxis.minorTicksPerInterval = 4;
+//    axisSet.xAxis.majorTickLineStyle = lineStyle;
+//    axisSet.xAxis.minorTickLineStyle = lineStyle;
+//    axisSet.xAxis.axisLineStyle = lineStyle;
+//    axisSet.xAxis.minorTickLength = 5.0f;
+//    axisSet.xAxis.majorTickLength = 7.0f;
+////    axisSet.xAxis.axisLabelOffset = 3.0f;
+//    
+////    axisSet.yAxis.majorIntervalLength = [NSDecimalNumber decimalNumberWithString:@"5"];
+//    axisSet.yAxis.minorTicksPerInterval = 4;
+//    axisSet.yAxis.majorTickLineStyle = lineStyle;
+//    axisSet.yAxis.minorTickLineStyle = lineStyle;
+//    axisSet.yAxis.axisLineStyle = lineStyle;
+//    axisSet.yAxis.minorTickLength = 5.0f;
+//    axisSet.yAxis.majorTickLength = 7.0f;
+//    axisSet.yAxis.axisLabelOffset = 3.0f;
+    
 
 }
 
@@ -275,147 +315,147 @@
 	return [NSDecimalNumber zero];
 }
 
-#pragma mark - Touch
-
--(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceUpEvent:(id)event atPoint:(CGPoint)point {
-    return YES;
-}
-
--(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceCancelledEvent:(id)event{
-    return YES;
-}
-
--(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceDownEvent:(id)event atPoint:(CGPoint)point{
-    NSLog(@"point down");
-    //    NSNumber * theValue = [[self.graphDataSource.timeSeries objectAtIndex:index] observationValue];
-    //
-    //    // if the annotations already exist, remove them
-    //    if ( self.valueTextAnnotation ) {
-    //        [self.graph.plotAreaFrame.plotArea removeAnnotation:self.valueTextAnnotation];
-    //        self.valueTextAnnotation = nil;
-    //    }
-    //
-    //    // Setup a style for the annotation
-    //    CPTMutableTextStyle *annotationTextStyle = [CPTMutableTextStyle textStyle];
-    //    annotationTextStyle.color = [CPTColor whiteColor];
-    //    annotationTextStyle.fontSize = 14.0f;
-    //    annotationTextStyle.fontName = @"Helvetica-Bold";
-    //
-    //    // Add annotation
-    //    // First make a string for the y value
-    //    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    //    [formatter setMaximumFractionDigits:2];
-    //    NSString *currentValue = [formatter stringFromNumber:theValue];
-    //
-    //    NSNumber *x            = [NSNumber numberWithDouble:[theDate timeIntervalSince1970]];
-    //    NSNumber *y            = [NSNumber numberWithFloat:self.graphDataSource.maxValue];
-    //    NSArray *anchorPoint = [NSArray arrayWithObjects:x, y, nil];
-    //
-    //    // Then add the value annotation to the plot area
-    //    float valueLayerWidth = 50.0f;
-    //    float valueLayerHeight = 20.0f;
-    //    CPTTextLayer *valueLayer = [[CPTTextLayer alloc] initWithFrame:CGRectMake(0,0,valueLayerWidth,valueLayerHeight)];
-    //
-    //    valueLayer.text = currentValue;
-    //    valueLayer.textStyle = annotationTextStyle;
-    //    valueLayer.backgroundColor = [UIColor blueColor].CGColor;
-    //
-    //    self.valueTextAnnotation  = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:self.graph.defaultPlotSpace anchorPlotPoint:anchorPoint];
-    //
-    //    self.valueTextAnnotation.contentLayer = valueLayer;
-    //
-    //    // modify the displacement if we are close to either edge
-    //    float xDisplacement = 0.0;
-    //    ...
-    //    self.valueTextAnnotation.displacement = CGPointMake(xDisplacement, 8.0f);
-    //
-    //    [self.graph.plotAreaFrame.plotArea addAnnotation:self.valueTextAnnotation]
-    //    CPTGraph *graph = self.hostView.hostedGraph;
-    //    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
-    //
-    //
-    //    // 2 - Create style, if necessary
-    //    static CPTMutableTextStyle *style = nil;
-    //    if (!style) {
-    //        style = [CPTMutableTextStyle textStyle];
-    //        style.color= [CPTColor yellowColor];
-    //        style.fontSize = 16.0f;
-    //        style.fontName = @"Helvetica-Bold";
-    //    }
-    //    // 3 - Create annotation, if necessary
-    //    NSNumber *price = [NSNumber numberWithDouble:100];
-    //
-    //    if (!self.priceAnnotation) {
-    //        NSNumber *x = [NSNumber numberWithInt:0];
-    //        NSNumber *y = [NSNumber numberWithInt:0];
-    //        NSArray *anchorPoint = [NSArray arrayWithObjects:x, y, nil];
-    //        self.priceAnnotation = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:plotSpace anchorPlotPoint:anchorPoint];
-    //    }
-    //    // 4 - Create number formatter, if needed
-    //    static NSNumberFormatter *formatter = nil;
-    //    if (!formatter) {
-    //        formatter = [[NSNumberFormatter alloc] init];
-    //        [formatter setMaximumFractionDigits:2];
-    //    }
-    //    // 5 - Create text layer for annotation
-    //    NSString *priceValue = [formatter stringFromNumber:price];
-    //    CPTTextLayer *textLayer = [[CPTTextLayer alloc] initWithText:priceValue style:style];
-    //    textLayer.text = @"some data";
-    //    self.priceAnnotation.contentLayer = textLayer;
-    //
-    //    // 6 - Get plot index based on identifier
-    ////    NSInteger plotIndex = 0;
-    ////    if ([plot.identifier isEqual:CPDTickerSymbolAAPL] == YES) {
-    ////        plotIndex = 0;
-    ////    } else if ([plot.identifier isEqual:CPDTickerSymbolGOOG] == YES) {
-    ////        plotIndex = 1;
-    ////    } else if ([plot.identifier isEqual:CPDTickerSymbolMSFT] == YES) {
-    ////        plotIndex = 2;
-    ////    }
-    //    // 7 - Get the anchor point for annotation
-    ////    CGFloat x = index + CPDBarInitialX + (plotIndex * CPDBarWidth);
-    ////    NSNumber *anchorX = [NSNumber numberWithFloat:x];
-    ////    CGFloat y = [price floatValue] + 40.0f;
-    ////    NSNumber *anchorY = [NSNumber numberWithFloat:y];
-    //
-    //    CGFloat x ;
-    //    NSNumber *anchorX = [NSNumber numberWithFloat:point.x];
-    //    CGFloat y = point.y;
-    //    NSNumber *anchorY = [NSNumber numberWithFloat:y];
-    //
-    //
-    //    self.priceAnnotation.anchorPlotPoint = [NSArray arrayWithObjects:anchorX, anchorY, nil];
-    //    // 8 - Add the annotation
-    //    [self.hostView.hostedGraph.plotAreaFrame.plotArea addAnnotation:self.priceAnnotation];
-    return YES;
-}
-
--(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceDraggedEvent:(id)event atPoint:(CGPoint)point {
-    NSLog(@"point dragged");
-    return YES;
-}
-
-
--(void)plot:(CPTPlot *)plot dataLabelWasSelectedAtRecordIndex:(NSUInteger)idx {
-    CPTLayerAnnotation *annot = [[CPTLayerAnnotation alloc]initWithAnchorLayer:self.hostView.hostedGraph];
-    CPTBorderedLayer * logoLayer = [(CPTBorderedLayer *) [CPTBorderedLayer alloc] initWithFrame:CGRectMake(10,10,100,50)] ;
-    //    CPTFill *fillImage = [CPTFill fillWithImage:[CPTImage imageForPNGFile:@"whatEver!"]];
-    //    logoLayer.fill = fillImage;
-    annot.contentLayer = logoLayer;
-    annot.rectAnchor=CPTRectAnchorTop;
-    [self.hostView.hostedGraph addAnnotation:annot];
-}
-
-- (void)scatterPlot:(CPTScatterPlot *)plot plotSymbolWasSelectedAtRecordIndex:(NSUInteger)index
-{
-    CPTLayerAnnotation *annot = [[CPTLayerAnnotation alloc]initWithAnchorLayer:self.hostView.hostedGraph];
-    CPTBorderedLayer * logoLayer = [(CPTBorderedLayer *) [CPTBorderedLayer alloc] initWithFrame:CGRectMake(10,10,100,50)] ;
-    //    CPTFill *fillImage = [CPTFill fillWithImage:[CPTImage imageForPNGFile:@"whatEver!"]];
-    //    logoLayer.fill = fillImage;
-    annot.contentLayer = logoLayer;
-    annot.rectAnchor=CPTRectAnchorTop;
-    [self.hostView.hostedGraph addAnnotation:annot];
-}
+//#pragma mark - Touch
+//
+//-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceUpEvent:(id)event atPoint:(CGPoint)point {
+//    return YES;
+//}
+//
+//-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceCancelledEvent:(id)event{
+//    return YES;
+//}
+//
+//-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceDownEvent:(id)event atPoint:(CGPoint)point{
+//    NSLog(@"point down");
+//    //    NSNumber * theValue = [[self.graphDataSource.timeSeries objectAtIndex:index] observationValue];
+//    //
+//    //    // if the annotations already exist, remove them
+//    //    if ( self.valueTextAnnotation ) {
+//    //        [self.graph.plotAreaFrame.plotArea removeAnnotation:self.valueTextAnnotation];
+//    //        self.valueTextAnnotation = nil;
+//    //    }
+//    //
+//    //    // Setup a style for the annotation
+//    //    CPTMutableTextStyle *annotationTextStyle = [CPTMutableTextStyle textStyle];
+//    //    annotationTextStyle.color = [CPTColor whiteColor];
+//    //    annotationTextStyle.fontSize = 14.0f;
+//    //    annotationTextStyle.fontName = @"Helvetica-Bold";
+//    //
+//    //    // Add annotation
+//    //    // First make a string for the y value
+//    //    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+//    //    [formatter setMaximumFractionDigits:2];
+//    //    NSString *currentValue = [formatter stringFromNumber:theValue];
+//    //
+//    //    NSNumber *x            = [NSNumber numberWithDouble:[theDate timeIntervalSince1970]];
+//    //    NSNumber *y            = [NSNumber numberWithFloat:self.graphDataSource.maxValue];
+//    //    NSArray *anchorPoint = [NSArray arrayWithObjects:x, y, nil];
+//    //
+//    //    // Then add the value annotation to the plot area
+//    //    float valueLayerWidth = 50.0f;
+//    //    float valueLayerHeight = 20.0f;
+//    //    CPTTextLayer *valueLayer = [[CPTTextLayer alloc] initWithFrame:CGRectMake(0,0,valueLayerWidth,valueLayerHeight)];
+//    //
+//    //    valueLayer.text = currentValue;
+//    //    valueLayer.textStyle = annotationTextStyle;
+//    //    valueLayer.backgroundColor = [UIColor blueColor].CGColor;
+//    //
+//    //    self.valueTextAnnotation  = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:self.graph.defaultPlotSpace anchorPlotPoint:anchorPoint];
+//    //
+//    //    self.valueTextAnnotation.contentLayer = valueLayer;
+//    //
+//    //    // modify the displacement if we are close to either edge
+//    //    float xDisplacement = 0.0;
+//    //    ...
+//    //    self.valueTextAnnotation.displacement = CGPointMake(xDisplacement, 8.0f);
+//    //
+//    //    [self.graph.plotAreaFrame.plotArea addAnnotation:self.valueTextAnnotation]
+//    //    CPTGraph *graph = self.hostView.hostedGraph;
+//    //    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
+//    //
+//    //
+//    //    // 2 - Create style, if necessary
+//    //    static CPTMutableTextStyle *style = nil;
+//    //    if (!style) {
+//    //        style = [CPTMutableTextStyle textStyle];
+//    //        style.color= [CPTColor yellowColor];
+//    //        style.fontSize = 16.0f;
+//    //        style.fontName = @"Helvetica-Bold";
+//    //    }
+//    //    // 3 - Create annotation, if necessary
+//    //    NSNumber *price = [NSNumber numberWithDouble:100];
+//    //
+//    //    if (!self.priceAnnotation) {
+//    //        NSNumber *x = [NSNumber numberWithInt:0];
+//    //        NSNumber *y = [NSNumber numberWithInt:0];
+//    //        NSArray *anchorPoint = [NSArray arrayWithObjects:x, y, nil];
+//    //        self.priceAnnotation = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:plotSpace anchorPlotPoint:anchorPoint];
+//    //    }
+//    //    // 4 - Create number formatter, if needed
+//    //    static NSNumberFormatter *formatter = nil;
+//    //    if (!formatter) {
+//    //        formatter = [[NSNumberFormatter alloc] init];
+//    //        [formatter setMaximumFractionDigits:2];
+//    //    }
+//    //    // 5 - Create text layer for annotation
+//    //    NSString *priceValue = [formatter stringFromNumber:price];
+//    //    CPTTextLayer *textLayer = [[CPTTextLayer alloc] initWithText:priceValue style:style];
+//    //    textLayer.text = @"some data";
+//    //    self.priceAnnotation.contentLayer = textLayer;
+//    //
+//    //    // 6 - Get plot index based on identifier
+//    ////    NSInteger plotIndex = 0;
+//    ////    if ([plot.identifier isEqual:CPDTickerSymbolAAPL] == YES) {
+//    ////        plotIndex = 0;
+//    ////    } else if ([plot.identifier isEqual:CPDTickerSymbolGOOG] == YES) {
+//    ////        plotIndex = 1;
+//    ////    } else if ([plot.identifier isEqual:CPDTickerSymbolMSFT] == YES) {
+//    ////        plotIndex = 2;
+//    ////    }
+//    //    // 7 - Get the anchor point for annotation
+//    ////    CGFloat x = index + CPDBarInitialX + (plotIndex * CPDBarWidth);
+//    ////    NSNumber *anchorX = [NSNumber numberWithFloat:x];
+//    ////    CGFloat y = [price floatValue] + 40.0f;
+//    ////    NSNumber *anchorY = [NSNumber numberWithFloat:y];
+//    //
+//    //    CGFloat x ;
+//    //    NSNumber *anchorX = [NSNumber numberWithFloat:point.x];
+//    //    CGFloat y = point.y;
+//    //    NSNumber *anchorY = [NSNumber numberWithFloat:y];
+//    //
+//    //
+//    //    self.priceAnnotation.anchorPlotPoint = [NSArray arrayWithObjects:anchorX, anchorY, nil];
+//    //    // 8 - Add the annotation
+//    //    [self.hostView.hostedGraph.plotAreaFrame.plotArea addAnnotation:self.priceAnnotation];
+//    return YES;
+//}
+//
+//-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceDraggedEvent:(id)event atPoint:(CGPoint)point {
+//    NSLog(@"point dragged");
+//    return YES;
+//}
+//
+//
+//-(void)plot:(CPTPlot *)plot dataLabelWasSelectedAtRecordIndex:(NSUInteger)idx {
+//    CPTLayerAnnotation *annot = [[CPTLayerAnnotation alloc]initWithAnchorLayer:self.hostView.hostedGraph];
+//    CPTBorderedLayer * logoLayer = [(CPTBorderedLayer *) [CPTBorderedLayer alloc] initWithFrame:CGRectMake(10,10,100,50)] ;
+//    //    CPTFill *fillImage = [CPTFill fillWithImage:[CPTImage imageForPNGFile:@"whatEver!"]];
+//    //    logoLayer.fill = fillImage;
+//    annot.contentLayer = logoLayer;
+//    annot.rectAnchor=CPTRectAnchorTop;
+//    [self.hostView.hostedGraph addAnnotation:annot];
+//}
+//
+//- (void)scatterPlot:(CPTScatterPlot *)plot plotSymbolWasSelectedAtRecordIndex:(NSUInteger)index
+//{
+//    CPTLayerAnnotation *annot = [[CPTLayerAnnotation alloc]initWithAnchorLayer:self.hostView.hostedGraph];
+//    CPTBorderedLayer * logoLayer = [(CPTBorderedLayer *) [CPTBorderedLayer alloc] initWithFrame:CGRectMake(10,10,100,50)] ;
+//    //    CPTFill *fillImage = [CPTFill fillWithImage:[CPTImage imageForPNGFile:@"whatEver!"]];
+//    //    logoLayer.fill = fillImage;
+//    annot.contentLayer = logoLayer;
+//    annot.rectAnchor=CPTRectAnchorTop;
+//    [self.hostView.hostedGraph addAnnotation:annot];
+//}
 
 @end
 

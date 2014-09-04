@@ -645,7 +645,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
                               [marketParameters.initialNumeraireValue doubleValue]);
         std::vector<Real> values,errors;
         accountingEngineVegas.multiplePathValues(values,errors,pathsToDoVegas);
-        [self.hostView.hostedGraph reloadData];
+//        [self.hostView.hostedGraph reloadData];
         self.handler();
         std::cout << "vega output \n";
         std::cout << " factorwise bumping " << allowFactorwiseBumping << "\n";
