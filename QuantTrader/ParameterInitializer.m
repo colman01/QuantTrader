@@ -50,12 +50,6 @@
     marketParameters.outterPaths = [NSNumber numberWithDouble:256];
     marketParameters.fixedMultiplier = [NSNumber numberWithDouble:2.0];
     marketParameters.floatingSpread = [NSNumber numberWithDouble:0.0];
-    
-
-
-    
-    
-    
 }
 
 
@@ -97,6 +91,20 @@
     }
     @catch (NSException *exception) {
     }
+    
+//    if ([bondParameters.zeroCouponBondAccruedAmount floatValue] >= 0) {
+//        return;
+//    }
+    
+    NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
+    
+    
+    if (entries.count > 2) {
+        return;
+    }
+
+
+    
     
     [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0096]];
     [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0145]];
