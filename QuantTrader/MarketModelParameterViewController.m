@@ -132,7 +132,8 @@
 
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
-    
+    [f setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
+
     if (self.numberRates.text.length > 0) {
         marketParameters.numberRates = [f numberFromString:self.numberRates.text];
     } else {

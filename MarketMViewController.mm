@@ -41,27 +41,29 @@
 
 -(IBAction)btnCalc:(id)sender {
     
-    [[UIDevice currentDevice].systemVersion floatValue];
-    #define _kisiOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+//    [[UIDevice currentDevice].systemVersion floatValue];
+//    #define _kisiOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+//    
+//    if (_kisiOS8) {
+//        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"iOS 8+" message:@"Sorry this tool is not yet supported" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"Ok", nil];
+//        [alert show];
+//        
+//    }
+//    else {
+//        NSLog(@"Less than iOS8");
+//
+//        for (NSNumber *num in market.delta) {
+//            NSLog(@"calculation finished %@", num);
+//        }
+//    }
     
-    if (_kisiOS8) {
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"iOS 8+" message:@"Sorry this tool is not yet supported" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"Ok", nil];
-        [alert show];
-        
-    }
-    else {
-        NSLog(@"Less than iOS8");
-        [market graphReady:^() {
-            [self reloadGraph:nil];
-        }];
-        
-        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Calculation running" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
-        [alert show];
-        [market calcHit];
-        for (NSNumber *num in market.delta) {
-            NSLog(@"calculation finished %@", num);
-        }
-    }
+    [market graphReady:^() {
+        [self reloadGraph:nil];
+    }];
+    
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Calculation running" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    [alert show];
+    [market calcHit];
 }
 
 -(IBAction)quitCalc:(id)sender {
