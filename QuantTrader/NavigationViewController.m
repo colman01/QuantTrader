@@ -41,6 +41,14 @@
     UIViewController *vc = self.topViewController;
     
     if ( [vc isKindOfClass:[EquityOptionViewController class]]) {
+//        [[UIDevice currentDevice] setValue:
+//         [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
+//                                    forKey:@"orientation"];
+        
+        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+            return YES;
+        }
+        
         return NO;
     }
     

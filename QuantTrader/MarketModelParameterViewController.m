@@ -58,6 +58,40 @@
     [super viewDidLoad];
     [self setupParameters];
     [self setValues];
+    
+    for (UIView *view in self.view.subviews) {
+        if ([view class] == [UITextView class]) {
+            UITextField *textField = (UITextField *) view;
+            textField.keyboardType = UIKeyboardTypeDecimalPad;
+        }
+    }
+    
+    numberRates.keyboardType = UIKeyboardTypeDecimalPad;
+    accrual.keyboardType = UIKeyboardTypeDecimalPad;
+    firstTime.keyboardType = UIKeyboardTypeDecimalPad;
+    fixedRate.keyboardType = UIKeyboardTypeDecimalPad;
+    receive.keyboardType = UIKeyboardTypeDecimalPad;
+    
+    seed.keyboardType = UIKeyboardTypeDecimalPad;
+    trainingPaths.keyboardType = UIKeyboardTypeDecimalPad;
+    paths.keyboardType = UIKeyboardTypeDecimalPad;
+    vegaPaths.keyboardType = UIKeyboardTypeDecimalPad;
+    rateLevel.keyboardType = UIKeyboardTypeDecimalPad;
+    
+    initialNumeraireValue.keyboardType = UIKeyboardTypeDecimalPad;
+    volLevel.keyboardType = UIKeyboardTypeDecimalPad;
+    gamma.keyboardType = UIKeyboardTypeDecimalPad;
+    beta.keyboardType = UIKeyboardTypeDecimalPad;
+    numberOfFactors.keyboardType = UIKeyboardTypeDecimalPad;
+    
+    displacementLevel.keyboardType = UIKeyboardTypeDecimalPad;
+    innerPaths.keyboardType = UIKeyboardTypeDecimalPad;
+    outerPaths.keyboardType = UIKeyboardTypeDecimalPad;
+    strike.keyboardType = UIKeyboardTypeDecimalPad;
+    fixedMultiplier.keyboardType = UIKeyboardTypeDecimalPad;
+    
+    floatingSpread.keyboardType = UIKeyboardTypeDecimalPad;
+
 }
 
 - (void)didReceiveMemoryWarning
