@@ -363,6 +363,7 @@ DmBond *bondParameters;
     
     if ([item  isKindOfClass:[NSNumber class]]) {
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        [f setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         item = [f numberFromString:textToSave];
         
     }
@@ -391,11 +392,13 @@ DmBond *bondParameters;
 #define IS_OBJECT(T) _Generic( (T), id: YES, default: NO)
     if(IS_OBJECT(entry)) {
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        [f setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         entry = [f numberFromString:textToSave];
     }
     
     if ([entry  isKindOfClass:[NSNumber class]]) {
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        [f setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         entry = [f numberFromString:textToSave];
         
     }
@@ -404,6 +407,7 @@ DmBond *bondParameters;
     }
     if ([entry class] == [NSNumber class]) {
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        [f setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         entry = [f numberFromString:textToSave];
         
     }

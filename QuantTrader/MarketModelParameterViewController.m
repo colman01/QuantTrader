@@ -91,7 +91,6 @@
     fixedMultiplier.keyboardType = UIKeyboardTypeDecimalPad;
     
     floatingSpread.keyboardType = UIKeyboardTypeDecimalPad;
-
 }
 
 - (void)didReceiveMemoryWarning

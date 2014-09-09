@@ -32,6 +32,7 @@
     [super viewDidLoad];
     [valueField setText:value];
     valueField.delegate = self;
+    valueField.keyboardType = UIKeyboardTypeDecimalPad;
     UIBarButtonItem *saveBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAction)];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects: saveBarButtonItem, nil];
 }
