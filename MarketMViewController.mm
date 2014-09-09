@@ -104,12 +104,73 @@
     
 	CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
     
+    graph.paddingLeft = 20.0;
+    graph.paddingTop = 20.0;
+    graph.paddingRight = 20.0;
+    graph.paddingBottom = 20.0;
+    
+    graph.plotAreaFrame.paddingTop    = 20.0;
+    graph.plotAreaFrame.paddingBottom = 50.0;
+    graph.plotAreaFrame.paddingLeft   = 50.0;
+    graph.plotAreaFrame.paddingRight  = 50.0;
+    
+    graph.plotAreaFrame.masksToBorder = NO;
+    
+    
+//    CPTAxisSet *axisSet = graph.axisSet;
+    
+//    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
+        CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.hostView.hostedGraph.axisSet;
+    CPTLineStyle *lineStyle = [CPTLineStyle lineStyle];
+//    CPTColor *aaplColor = [CPTColor redColor];
+//    lineStyle.lineColor = aaplColor;
+//    lineStyle.lineWidth = 2.0f;
+    
+//    [NSDecimal decimalNumberWithString:@"5"];
+//    axisSet.yAxis.majorIntervalLength = [NSDecimalNumber decimalNumberWithString:@"5"];
+
+    CPTMutableLineStyle *lineStyleThick = [CPTMutableLineStyle lineStyle];
+    lineStyleThick.lineColor = [CPTColor whiteColor];
+    lineStyleThick.lineWidth = 2.0f;
+    
+    CPTMutableLineStyle *lineStyleThin = [CPTMutableLineStyle lineStyle];
+    lineStyleThin.lineColor = [CPTColor whiteColor];
+    lineStyleThin.lineWidth = 1.0f;
+    
+    axisSet.yAxis.majorIntervalLength = [[NSDecimalNumber decimalNumberWithString:@"10"] decimalValue];
+    axisSet.yAxis.minorTicksPerInterval = 4;
+    axisSet.yAxis.majorTickLineStyle = lineStyleThick;
+    axisSet.yAxis.minorTickLineStyle = lineStyleThin;
+    axisSet.yAxis.axisLineStyle = lineStyleThick;
+    axisSet.yAxis.minorTickLength = 4.0f;
+    axisSet.yAxis.majorTickLength = 5.0f;
+    axisSet.yAxis.labelOffset = 0.0f;
+//    axisSet.yAxis.labelFormatter = integerLabelFormat;
+    
+    axisSet.yAxis.majorIntervalLength = CPTDecimalFromString(@"5");
+    axisSet.yAxis.minorTicksPerInterval = 4;
+    axisSet.yAxis.majorTickLineStyle = lineStyle;
+    axisSet.yAxis.minorTickLineStyle = lineStyle;
+    axisSet.yAxis.axisLineStyle = lineStyle;
+    axisSet.yAxis.minorTickLength = 5.0f;
+    axisSet.yAxis.majorTickLength = 7.0f;
+//    axisSet.yAxis.axisLabelOffset = 3.0f;
+//    CPTXYAxis *x          = axisSet.xAxis;
+//    x.majorIntervalLength         = CPTDecimalFromString(@"4");
+//    x.minorTicksPerInterval = 4;
+//    x.minorTickLength = 5.0f;
+//    x.majorTickLength = 7.0f;
+//    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
+//    x.minorTicksPerInterval       = 10;
+
     
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) self.hostView.hostedGraph.defaultPlotSpace;
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-6)
                                                     length:CPTDecimalFromFloat(12)];
-    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-5)
-                                                    length:CPTDecimalFromFloat(30)];
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-0.9)
+                                                    length:CPTDecimalFromFloat(0.9)];
+//    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-5)
+//                                                    length:CPTDecimalFromFloat(30)];
     
     
 //	[graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
