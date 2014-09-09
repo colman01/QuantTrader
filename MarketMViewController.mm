@@ -40,7 +40,6 @@
 }
 
 -(IBAction)btnCalc:(id)sender {
-    
 //    [[UIDevice currentDevice].systemVersion floatValue];
 //    #define _kisiOS8 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 //    
@@ -90,18 +89,11 @@
 	self.hostView.allowPinchScaling = YES;
     self.hostView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [graphContainer addSubview:self.hostView];
-
-    
-
-    
 }
-
 
 -(void)configureGraph {
 	// 1 - Create the graph
-    
     self.hostView.hostedGraph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
-    
 	CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
     
     graph.paddingLeft = 20.0;
@@ -115,19 +107,9 @@
     graph.plotAreaFrame.paddingRight  = 50.0;
     
     graph.plotAreaFrame.masksToBorder = NO;
-    
-    
-//    CPTAxisSet *axisSet = graph.axisSet;
-    
-//    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
-        CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.hostView.hostedGraph.axisSet;
+
+    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.hostView.hostedGraph.axisSet;
     CPTLineStyle *lineStyle = [CPTLineStyle lineStyle];
-//    CPTColor *aaplColor = [CPTColor redColor];
-//    lineStyle.lineColor = aaplColor;
-//    lineStyle.lineWidth = 2.0f;
-    
-//    [NSDecimal decimalNumberWithString:@"5"];
-//    axisSet.yAxis.majorIntervalLength = [NSDecimalNumber decimalNumberWithString:@"5"];
 
     CPTMutableLineStyle *lineStyleThick = [CPTMutableLineStyle lineStyle];
     lineStyleThick.lineColor = [CPTColor whiteColor];
@@ -145,7 +127,6 @@
     axisSet.yAxis.minorTickLength = 4.0f;
     axisSet.yAxis.majorTickLength = 5.0f;
     axisSet.yAxis.labelOffset = 0.0f;
-//    axisSet.yAxis.labelFormatter = integerLabelFormat;
     
     axisSet.yAxis.majorIntervalLength = CPTDecimalFromString(@"5");
     axisSet.yAxis.minorTicksPerInterval = 4;
@@ -154,30 +135,16 @@
     axisSet.yAxis.axisLineStyle = lineStyle;
     axisSet.yAxis.minorTickLength = 5.0f;
     axisSet.yAxis.majorTickLength = 7.0f;
-//    axisSet.yAxis.axisLabelOffset = 3.0f;
-//    CPTXYAxis *x          = axisSet.xAxis;
-//    x.majorIntervalLength         = CPTDecimalFromString(@"4");
-//    x.minorTicksPerInterval = 4;
-//    x.minorTickLength = 5.0f;
-//    x.majorTickLength = 7.0f;
-//    x.orthogonalCoordinateDecimal = CPTDecimalFromString(@"0");
-//    x.minorTicksPerInterval       = 10;
 
-    
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) self.hostView.hostedGraph.defaultPlotSpace;
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-6)
                                                     length:CPTDecimalFromFloat(12)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-0.9)
                                                     length:CPTDecimalFromFloat(0.9)];
-//    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-5)
-//                                                    length:CPTDecimalFromFloat(30)];
-    
-    
-//	[graph applyTheme:[CPTTheme themeNamed:kCPTDarkGradientTheme]];
    [self.hostView.hostedGraph applyTheme:[CPTTheme themeNamed:kCPTStocksTheme]];
 	// 2 - Set graph title
-//	NSString *title = @"Portfolio Prices: April 2012";
-//	graph.title = title;
+	NSString *title = @"Market Models - Delta Computation";
+	graph.title = title;
 	// 3 - Create and set text style
 	CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
 	titleStyle.color = [CPTColor whiteColor];
@@ -190,42 +157,8 @@
 	[self.hostView.hostedGraph.plotAreaFrame setPaddingLeft:1.0f];
 	[self.hostView.hostedGraph.plotAreaFrame setPaddingBottom:1.0f];
 	// 5 - Enable user interactions for plot space
-//	CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
 	plotSpace.allowsUserInteraction = YES;
     self.hostView.hostedGraph.plotAreaFrame.borderLineStyle = nil;
-//    self.hostView.hostedGraph.borderLineStyle = nil;
-//    self.hostView.hostedGraph.delegate = self;
-//    [graph applyTheme:nil];
-    
-//    CPTMutableLineStyle *lineStyle = [CPTLineStyle lineStyle];
-//    
-//    
-//    
-//    lineStyle.lineColor = [CPTColor blackColor];
-//    lineStyle.lineWidth = 2.0f;
-//    
-//    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
-//    
-////    axisSet.xAxis.majorIntervalLength = [NSDecimalNumber decimalNumberWithString:@"5"];
-////    axisSet.xAxis.majorIntervalLength = (NSDecimal)[NSDecimalNumber decimalNumberWithString:@"5"];
-//    axisSet.xAxis.minorTicksPerInterval = 4;
-//    axisSet.xAxis.majorTickLineStyle = lineStyle;
-//    axisSet.xAxis.minorTickLineStyle = lineStyle;
-//    axisSet.xAxis.axisLineStyle = lineStyle;
-//    axisSet.xAxis.minorTickLength = 5.0f;
-//    axisSet.xAxis.majorTickLength = 7.0f;
-////    axisSet.xAxis.axisLabelOffset = 3.0f;
-//    
-////    axisSet.yAxis.majorIntervalLength = [NSDecimalNumber decimalNumberWithString:@"5"];
-//    axisSet.yAxis.minorTicksPerInterval = 4;
-//    axisSet.yAxis.majorTickLineStyle = lineStyle;
-//    axisSet.yAxis.minorTickLineStyle = lineStyle;
-//    axisSet.yAxis.axisLineStyle = lineStyle;
-//    axisSet.yAxis.minorTickLength = 5.0f;
-//    axisSet.yAxis.majorTickLength = 7.0f;
-//    axisSet.yAxis.axisLabelOffset = 3.0f;
-    
-
 }
 
 -(void)configurePlots {
@@ -240,16 +173,8 @@
 	[graph addPlot:aaplPlot toPlotSpace:plotSpace];
 	CPTScatterPlot *googPlot = [[CPTScatterPlot alloc] init];
 	googPlot.dataSource = self;
-//	CPTColor *googColor = [CPTColor greenColor];
-    
     plotSpace.delegate = self;
-//	[graph addPlot:googPlot toPlotSpace:plotSpace];
-//	CPTScatterPlot *msftPlot = [[CPTScatterPlot alloc] init];
-//	msftPlot.dataSource = self;
-//	CPTColor *msftColor = [CPTColor blueColor];
-//	[graph addPlot:msftPlot toPlotSpace:plotSpace];
 	// 3 - Set up plot space
-//	[plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, googPlot, msftPlot, nil]];
    [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, nil]];
 	CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
 	[xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
@@ -269,8 +194,6 @@
 	aaplSymbol.lineStyle = aaplSymbolLineStyle;
 	aaplSymbol.size = CGSizeMake(6.0f, 6.0f);
 	aaplPlot.plotSymbol = aaplSymbol;
-    
-    
 }
 
 -(void)configureAxes {
@@ -320,12 +243,9 @@
 	y.majorTickLength = 0.5f;
 	y.minorTickLength = 0.5f;
 	y.tickDirection = CPTSignPositive;
-//	NSInteger majorIncrement = 100;
-//	NSInteger minorIncrement = 50;
+
     NSInteger majorIncrement = 1;
     NSInteger minorIncrement = 1;
-//	CGFloat yMax = 700.0f;  // should determine dynamically based on max price
-//     CGFloat yMax = 10.0f;  // should determine dynamically based on max price
     CGFloat yMax = 0.00001;  // should determine dynamically based on max price
 	NSMutableSet *yLabels = [NSMutableSet set];
 	NSMutableSet *yMajorLocations = [NSMutableSet set];
@@ -353,13 +273,10 @@
 
 #pragma mark - CPTPlotDataSource methods
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
-//	return [[[CPDStockPriceStore sharedInstance] datesInMonth] count];
     return market.delta.count;
 }
 
 -(NSNumber *)numberForPlot:(CPTPlot *)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index {
-    
-//	NSInteger valueCount = [[[CPDStockPriceStore sharedInstance] datesInMonth] count];
     NSInteger valueCount = market.delta.count;
 	switch (fieldEnum) {
 		case CPTScatterPlotFieldX:
