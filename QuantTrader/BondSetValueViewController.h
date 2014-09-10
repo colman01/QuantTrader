@@ -11,20 +11,30 @@
 
 typedef void (^SetCompletionHandler) (NSString *value);
 typedef void (^SetManyCompletionHandler) (NSString *value, int position);
+typedef void (^SetDateManyCompletionHandler) (NSDate *date, int position);
 
 
 @interface BondSetValueViewController : UIViewController <UITextFieldDelegate>
 @property int postion;
+@property BOOL showDate;
+@property (strong, nonatomic) NSDate *date;
 
-@property (strong, nonatomic) IBOutlet UITextField *valueField;
+@property (weak, nonatomic) IBOutlet UITextField *valueField;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic) id item;
 @property (strong, nonatomic) NSString *value;
+
 @property (strong, nonatomic) SetCompletionHandler handler;
+@property (strong, nonatomic) SetDateManyCompletionHandler handlerDate;
 
 - (void) onComplete:(SetCompletionHandler) handler;
 
 @property (strong, nonatomic) SetManyCompletionHandler multiValuehandler;
 
 - (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler;
+
+//@property (strong, nonatomic) SetDateManyCompletionHandler multiDateHandler;
+
+- (void) onCompleteDateMany:(SetDateManyCompletionHandler) multiDateHandler;
 
 @end

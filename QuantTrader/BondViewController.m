@@ -184,9 +184,10 @@ DmBond *bondParameters;
                     bondValuesViewController.modelData = entries;
                     [bondValuesViewController.table reloadData];
                 }];
-                [bondValuesViewController onCompleteMany:^(NSString *text, int position) {
+                [bondValuesViewController onCompleteDateMany:^(NSDate *date, int position) {
                     NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
-                    entries = [self saveValue:text withAttribute:entries andPosition:position];
+                    
+                    entries = [self saveDate:date withAttribute:entries andPosition:position];
                     bondParameters.maturityDates = [NSKeyedArchiver archivedDataWithRootObject:entries];
                     [[PersistManager instance] save];
                     bondValuesViewController.modelData = entries;
@@ -381,6 +382,12 @@ DmBond *bondParameters;
     }
 
     return item;
+}
+
+
+-(id) saveDate:(NSDate *)dateToSave withAttribute:(NSMutableArray *)entries andPosition:(int) position {
+    [entries replaceObjectAtIndex:position withObject:dateToSave];
+    return entries;
 }
 
 -(id) saveValue:(NSString *)textToSave withAttribute:(NSMutableArray *)entries andPosition:(int) position {

@@ -12,6 +12,7 @@
 
 typedef void (^SetCompletionHandler) (NSString *value);
 typedef void (^SetManyCompletionHandler) (NSString *value, int position);
+typedef void (^SetDateManyCompletionHandler) (NSDate *value, int position);
 typedef void (^RemoveCompletionHandler) (int position);
 
 
@@ -24,10 +25,13 @@ typedef void (^RemoveCompletionHandler) (int position);
 
 @property (strong, nonatomic) SetCompletionHandler handler;
 @property (strong, nonatomic) SetManyCompletionHandler multiValuehandler;
+@property (strong, nonatomic) SetDateManyCompletionHandler multiDateHandler;
 @property (strong, nonatomic) RemoveCompletionHandler removeHandler;
+
 
 - (void) onComplete:(SetCompletionHandler) handler;
 - (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler;
+- (void) onCompleteDateMany:(SetDateManyCompletionHandler) multiDateHandler;
 - (void) onRemove:(RemoveCompletionHandler) removeHandler;
 
 @end

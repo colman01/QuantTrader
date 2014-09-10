@@ -51,22 +51,35 @@
     UITableViewCell *cell = (UITableViewCell *) sender;
     BondSetValueViewController  * dest = [segue destinationViewController];
     dest.value = cell.textLabel.text;
+    dest.datePicker.hidden = YES;
     if (![modelData isKindOfClass:[NSMutableArray class]]) {
         dest.item  = modelData;
+        
         [dest onComplete:^(NSString* text) {
             
             [self.table reloadData];
             self.handler(text);
         }];
     } else {
+        
         UITableViewCell *cell = (UITableViewCell *)sender;
         dest.postion = cell.tag;
-        
-        [dest onComplete:^(NSString* text) {
-            self.multiValuehandler(text,dest.postion);
-            [self.table reloadData];
-        }];
-        
+
+        if ([[modelData objectAtIndex:0] isKindOfClass:[NSDate class]]) {
+            dest.showDate = YES;
+            
+            [dest onCompleteDateMany:^(NSDate *date, int position) {
+                self.multiDateHandler(date, position);
+                [self.table reloadData];
+            }];
+            
+        } else {
+            [dest onComplete:^(NSString* text) {
+                self.multiValuehandler(text,dest.postion);
+                [self.table reloadData];
+            }];
+            
+        }
     }
 }
 
@@ -132,6 +145,10 @@
 
 - (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler {
     self.multiValuehandler = multiValueHandler;
+}
+
+- (void) onCompleteDateMany:(SetDateManyCompletionHandler) multiDateHandler {
+    self.multiDateHandler = multiDateHandler;
 }
 
 - (void) onRemove:(RemoveCompletionHandler) removeHandler {

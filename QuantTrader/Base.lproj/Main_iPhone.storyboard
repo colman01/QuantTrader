@@ -130,7 +130,6 @@
         <!--Detail-->
         <scene sceneID="Cn3-H9-jdl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
                 <viewController title="Detail" id="Ah7-4n-0Wa" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cIm-e0-J51"/>
@@ -160,6 +159,7 @@
                         <outlet property="detailDescriptionLabel" destination="Lei-5M-9Gs" id="sCT-F7-F6f"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1067" y="-1090"/>
         </scene>
@@ -1039,7 +1039,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lr-Gb-948" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2096" y="713"/>
+            <point key="canvasLocation" x="1398" y="904"/>
         </scene>
         <!--Bond Result View Controller-->
         <scene sceneID="AeQ-Rf-xub">
@@ -1131,7 +1131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMw-yz-PC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2514" y="712"/>
+            <point key="canvasLocation" x="1816" y="903"/>
         </scene>
         <!--Bond Values View Controller-->
         <scene sceneID="Ytc-cc-NZD">
@@ -1197,7 +1197,7 @@
         <!--Bond Set Value View Controller-->
         <scene sceneID="qsn-Tg-g8B">
             <objects>
-                <viewController id="W3H-u0-DIz" customClass="BondSetValueViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="setBondValue" id="W3H-u0-DIz" customClass="BondSetValueViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fdj-17-kDm"/>
                         <viewControllerLayoutGuide type="bottom" id="vzS-h5-paH"/>
@@ -1224,6 +1224,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="PXH-TQ-dyL">
+                                <rect key="frame" x="0.0" y="152" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="432048221.52866399">
+                                    <!--2014-09-10 13:23:41 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1242,6 +1248,7 @@
                         <size key="landscapeSize" width="480" height="320"/>
                     </simulatedScreenMetrics>
                     <connections>
+                        <outlet property="datePicker" destination="PXH-TQ-dyL" id="RVS-on-B5K"/>
                         <outlet property="valueField" destination="eqD-UM-FNG" id="Xu3-ex-C98"/>
                     </connections>
                 </viewController>
@@ -1340,6 +1347,6 @@
         </simulatedScreenMetrics>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="9bG-7s-GCB"/>
+        <segue reference="kPo-h5-7Nt"/>
     </inferredMetricsTieBreakers>
 </document>

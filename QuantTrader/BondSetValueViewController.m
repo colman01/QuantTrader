@@ -17,7 +17,7 @@
 
 @implementation BondSetValueViewController
 
-@synthesize value, valueField, item;
+@synthesize value, valueField, item, datePicker, showDate, date;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,16 +30,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [valueField setText:value];
     valueField.delegate = self;
     valueField.keyboardType = UIKeyboardTypeDecimalPad;
     UIBarButtonItem *saveBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAction)];
     self.navigationItem.rightBarButtonItems = [[NSArray alloc] initWithObjects: saveBarButtonItem, nil];
+    
+    if (showDate) {
+        datePicker.hidden = NO;
+        valueField.hidden = YES;
+    } else {
+        datePicker.hidden = YES;
+        valueField.hidden = NO;
+    }
+
 }
 
 
 - (void) saveAction {
-    self.handler(valueField.text);
+    
+    if (!datePicker.hidden) {
+        NSDate *l_date = self.datePicker.date;
+        self.handlerDate(l_date, self.postion);
+    } else {
+        self.handler(valueField.text);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,6 +79,10 @@
 
 - (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler {
     self.multiValuehandler  = multiValueHandler;
+}
+
+- (void) onCompleteDateMany:(SetDateManyCompletionHandler) multiDateHandler_ {
+    self.handlerDate  = multiDateHandler_;
 }
 
 
