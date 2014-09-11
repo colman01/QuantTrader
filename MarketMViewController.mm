@@ -80,7 +80,6 @@
     [self configureHost];
     [self configureGraph];
     [self configurePlots];
-//    [self configureAxes];
     [self.hostView.hostedGraph.defaultPlotSpace setAllowsUserInteraction:YES    ];
 }
 
@@ -110,7 +109,7 @@
     graph.plotAreaFrame.masksToBorder = NO;
 
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.hostView.hostedGraph.axisSet;
-    CPTLineStyle *lineStyle = [CPTLineStyle lineStyle];
+//    CPTLineStyle *lineStyle = [CPTLineStyle lineStyle];
 
     CPTMutableLineStyle *lineStyleThick = [CPTMutableLineStyle lineStyle];
     lineStyleThick.lineColor = [CPTColor whiteColor];
@@ -119,24 +118,6 @@
     CPTMutableLineStyle *lineStyleThin = [CPTMutableLineStyle lineStyle];
     lineStyleThin.lineColor = [CPTColor whiteColor];
     lineStyleThin.lineWidth = 1.0f;
-    
-//    axisSet.yAxis.majorIntervalLength = [[NSDecimalNumber decimalNumberWithString:@"10"] decimalValue];
-//    axisSet.yAxis.minorTicksPerInterval = 4;
-//    axisSet.yAxis.majorTickLineStyle = lineStyleThick;
-//    axisSet.yAxis.minorTickLineStyle = lineStyleThin;
-//    axisSet.yAxis.axisLineStyle = lineStyleThick;
-//    axisSet.yAxis.minorTickLength = 4.0f;
-//    axisSet.yAxis.majorTickLength = 5.0f;
-//    axisSet.yAxis.labelOffset = 0.0f;
-//    
-//    axisSet.yAxis.majorIntervalLength = CPTDecimalFromString(@"5");
-//    axisSet.yAxis.minorTicksPerInterval = 4;
-//    axisSet.yAxis.majorTickLineStyle = lineStyle;
-//    axisSet.yAxis.minorTickLineStyle = lineStyle;
-//    axisSet.yAxis.axisLineStyle = lineStyle;
-//    axisSet.yAxis.minorTickLength = 5.0f;
-//    axisSet.yAxis.majorTickLength = 7.0f;
-    
     
     //Grid line styles
     CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
@@ -147,7 +128,6 @@
     minorGridLineStyle.lineColor            = [[CPTColor whiteColor] colorWithAlphaComponent:0.1];
     
     //Axises
-//    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
     
     //X axis
     CPTXYAxis *x                    = axisSet.xAxis;
@@ -200,8 +180,6 @@
     y.majorGridLineStyle    = majorGridLineStyle_;
     y.minorGridLineStyle    = minorGridLineStyle_;
     y.axisConstraints       = [CPTConstraints constraintWithLowerOffset:0.0];
-    
-//   [self.hostView.hostedGraph applyTheme:[CPTTheme themeNamed:kCPTStocksTheme]];
     
     [self.hostView.hostedGraph applyTheme:[CPTTheme themeNamed:kCPTSlateTheme]];
     
@@ -342,7 +320,6 @@
     
     graph                               = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
     [graph applyTheme:[CPTTheme themeNamed:kCPTStocksTheme]];
-    //    self.hostedGraph                    = graph;
     graph.plotAreaFrame.masksToBorder   = NO;
     graph.paddingLeft                   = 0.0f;
     graph.paddingTop                    = 0.0f;
@@ -360,10 +337,7 @@
     
     //Add plot space
     CPTXYPlotSpace *plotSpace       = (CPTXYPlotSpace *)graph.defaultPlotSpace;
-    //    [plotSpace setAllowsUserInteraction:YES ];
     plotSpace.delegate              = self;
-    //    plotSpace.yRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromInt(0)
-    //                                                                   length:CPTDecimalFromInt(10 * sets.count)];
     plotSpace.yRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromInt(0)
                                                                    length:CPTDecimalFromInt(10 * 2)];
     plotSpace.xRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromInt(-1)
@@ -390,16 +364,7 @@
     x.axisConstraints               = [CPTConstraints constraintWithLowerOffset:0.0];
     
     //X labels
-    int labelLocations = 0;
     NSMutableArray *customXLabels = [NSMutableArray array];
-    //    for (NSString *day in dates) {
-    //        CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText:day textStyle:x.labelTextStyle];
-    //        newLabel.tickLocation   = [[NSNumber numberWithInt:labelLocations] decimalValue];
-    //        newLabel.offset         = x.labelOffset + x.majorTickLength;
-    //        newLabel.rotation       = M_PI / 4;
-    //        [customXLabels addObject:newLabel];
-    //        labelLocations++;
-    //    }
     x.axisLabels                    = [NSSet setWithArray:customXLabels];
     
     //Y axis
@@ -419,24 +384,6 @@
     whiteTextStyle.color                = [CPTColor whiteColor];
     
     //Plot
-    BOOL firstPlot = YES;
-    //    for (NSString *set in [[sets allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]) {
-    //        CPTBarPlot *plot        = [CPTBarPlot tubularBarPlotWithColor:[CPTColor blueColor] horizontalBars:NO];
-    //        plot.lineStyle          = barLineStyle;
-    //
-    //        plot.fill               = [CPTFill fillWithColor:[CPTColor colorWithCGColor:color]];
-    //        if (firstPlot) {
-    //            plot.barBasesVary   = NO;
-    //            firstPlot           = NO;
-    //        } else {
-    //            plot.barBasesVary   = YES;
-    //        }
-    //        plot.barWidth           = CPTDecimalFromFloat(0.8f);
-    //        plot.barsAreHorizontal  = NO;
-    //        plot.dataSource         = self;
-    //        plot.identifier         = set;
-    //        [graph addPlot:plot toPlotSpace:plotSpace];
-    //    }
     
     //Add legend
     CPTLegend *theLegend      = [CPTLegend legendWithGraph:graph];
