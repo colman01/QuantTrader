@@ -94,7 +94,7 @@
 -(void)configureGraph {
 	// 1 - Create the graph
     self.hostView.hostedGraph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
-	CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
+//	CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
     
 //    graph.paddingLeft = 20.0;
 //    graph.paddingTop = 20.0;
@@ -200,7 +200,7 @@
 //    y.minorGridLineStyle    = minorGridLineStyle_;
 //    y.axisConstraints       = [CPTConstraints constraintWithLowerOffset:0.0];
 //    
-//    [self.hostView.hostedGraph applyTheme:[CPTTheme themeNamed:kCPTSlateTheme]];
+    [self.hostView.hostedGraph applyTheme:[CPTTheme themeNamed:kCPTSlateTheme]];
 //    
 //	// 2 - Set graph title
 //	NSString *title = @"Market Models - Delta Computation";
