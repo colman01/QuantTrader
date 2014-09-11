@@ -31,6 +31,10 @@
 {
     [super viewDidLoad];
     
+    datePicker.datePickerMode = UIDatePickerModeDate;
+    if (self.date)
+        [datePicker setDate:self.date];
+    
     [valueField setText:value];
     valueField.delegate = self;
     valueField.keyboardType = UIKeyboardTypeDecimalPad;

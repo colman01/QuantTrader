@@ -67,6 +67,7 @@
 
         if ([[modelData objectAtIndex:0] isKindOfClass:[NSDate class]]) {
             dest.showDate = YES;
+            dest.date = [modelData objectAtIndex:cell.tag];
             
             [dest onCompleteDateMany:^(NSDate *date, int position) {
                 self.multiDateHandler(date, position);

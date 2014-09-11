@@ -355,16 +355,6 @@ DmBond *bondParameters;
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     
-//    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc]init];
-//    numberFormatter.locale = [NSLocale currentLocale];// this ensures the right separator behavior
-//    numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-//    numberFormatter.usesGroupingSeparator = YES;
-//    
-//    // example for writing the number object into a label
-//    cell.finalValueLabel.text = [NSString StringWithFormat:@"%@", [numberFormatter stringForObjectValue:numberFromString]]; // your var name is not well chosen
-    
-    
-    
 #define IS_OBJECT(T) _Generic( (T), id: YES, default: NO)
     if(IS_OBJECT(item)) {
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
@@ -373,7 +363,6 @@ DmBond *bondParameters;
     
     if ([item  isKindOfClass:[NSNumber class]]) {
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
-//        [f setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         f.locale = [NSLocale currentLocale];
         item = [f numberFromString:textToSave];
         
@@ -411,14 +400,12 @@ DmBond *bondParameters;
 #define IS_OBJECT(T) _Generic( (T), id: YES, default: NO)
     if(IS_OBJECT(entry)) {
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
-//        [f setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         f.locale = [NSLocale currentLocale];
         entry = [f numberFromString:textToSave];
     }
     
     if ([entry  isKindOfClass:[NSNumber class]]) {
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
-//        [f setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         f.locale = [NSLocale currentLocale];
         entry = [f numberFromString:textToSave];
         
@@ -428,7 +415,6 @@ DmBond *bondParameters;
     }
     if ([entry class] == [NSNumber class]) {
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
-//        [f setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
         f.locale = [NSLocale currentLocale];
         entry = [f numberFromString:textToSave];
         
