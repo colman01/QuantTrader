@@ -80,7 +80,8 @@
     [self configureHost];
     [self configureGraph];
     [self configurePlots];
-    [self configureAxes];
+//    [self configureAxes];
+    [self.hostView.hostedGraph.defaultPlotSpace setAllowsUserInteraction:YES    ];
 }
 
 -(void)configureHost {
@@ -119,29 +120,91 @@
     lineStyleThin.lineColor = [CPTColor whiteColor];
     lineStyleThin.lineWidth = 1.0f;
     
-    axisSet.yAxis.majorIntervalLength = [[NSDecimalNumber decimalNumberWithString:@"10"] decimalValue];
-    axisSet.yAxis.minorTicksPerInterval = 4;
-    axisSet.yAxis.majorTickLineStyle = lineStyleThick;
-    axisSet.yAxis.minorTickLineStyle = lineStyleThin;
-    axisSet.yAxis.axisLineStyle = lineStyleThick;
-    axisSet.yAxis.minorTickLength = 4.0f;
-    axisSet.yAxis.majorTickLength = 5.0f;
-    axisSet.yAxis.labelOffset = 0.0f;
+//    axisSet.yAxis.majorIntervalLength = [[NSDecimalNumber decimalNumberWithString:@"10"] decimalValue];
+//    axisSet.yAxis.minorTicksPerInterval = 4;
+//    axisSet.yAxis.majorTickLineStyle = lineStyleThick;
+//    axisSet.yAxis.minorTickLineStyle = lineStyleThin;
+//    axisSet.yAxis.axisLineStyle = lineStyleThick;
+//    axisSet.yAxis.minorTickLength = 4.0f;
+//    axisSet.yAxis.majorTickLength = 5.0f;
+//    axisSet.yAxis.labelOffset = 0.0f;
+//    
+//    axisSet.yAxis.majorIntervalLength = CPTDecimalFromString(@"5");
+//    axisSet.yAxis.minorTicksPerInterval = 4;
+//    axisSet.yAxis.majorTickLineStyle = lineStyle;
+//    axisSet.yAxis.minorTickLineStyle = lineStyle;
+//    axisSet.yAxis.axisLineStyle = lineStyle;
+//    axisSet.yAxis.minorTickLength = 5.0f;
+//    axisSet.yAxis.majorTickLength = 7.0f;
     
-    axisSet.yAxis.majorIntervalLength = CPTDecimalFromString(@"5");
-    axisSet.yAxis.minorTicksPerInterval = 4;
-    axisSet.yAxis.majorTickLineStyle = lineStyle;
-    axisSet.yAxis.minorTickLineStyle = lineStyle;
-    axisSet.yAxis.axisLineStyle = lineStyle;
-    axisSet.yAxis.minorTickLength = 5.0f;
-    axisSet.yAxis.majorTickLength = 7.0f;
+    
+    //Grid line styles
+    CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
+    majorGridLineStyle.lineWidth            = 0.75;
+    majorGridLineStyle.lineColor            = [[CPTColor whiteColor] colorWithAlphaComponent:0.1];
+    CPTMutableLineStyle *minorGridLineStyle = [CPTMutableLineStyle lineStyle];
+    minorGridLineStyle.lineWidth            = 0.25;
+    minorGridLineStyle.lineColor            = [[CPTColor whiteColor] colorWithAlphaComponent:0.1];
+    
+    //Axises
+//    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
+    
+    //X axis
+    CPTXYAxis *x                    = axisSet.xAxis;
+    x.orthogonalCoordinateDecimal   = CPTDecimalFromInt(0);
+    x.majorIntervalLength           = CPTDecimalFromInt(1);
+    x.minorTicksPerInterval         = 0;
+    x.labelingPolicy                = CPTAxisLabelingPolicyNone;
+    x.majorGridLineStyle            = majorGridLineStyle;
+    x.axisConstraints               = [CPTConstraints constraintWithLowerOffset:0.0];
+    
+    //Y axis
+    CPTXYAxis *y            = axisSet.yAxis;
+    y.title                 = @"Value";
+    y.titleOffset           = 50.0f;
+    y.labelingPolicy        = CPTAxisLabelingPolicyAutomatic;
+    y.majorGridLineStyle    = majorGridLineStyle;
+    y.minorGridLineStyle    = minorGridLineStyle;
+    y.axisConstraints       = [CPTConstraints constraintWithLowerOffset:0.0];
+    
 
     CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) self.hostView.hostedGraph.defaultPlotSpace;
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-6)
                                                     length:CPTDecimalFromFloat(12)];
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(-0.9)
                                                     length:CPTDecimalFromFloat(0.9)];
-   [self.hostView.hostedGraph applyTheme:[CPTTheme themeNamed:kCPTStocksTheme]];
+    
+    
+    //Grid line styles
+    CPTMutableLineStyle *majorGridLineStyle_ = [CPTMutableLineStyle lineStyle];
+    majorGridLineStyle_.lineWidth            = 0.75;
+    majorGridLineStyle_.lineColor            = [[CPTColor whiteColor] colorWithAlphaComponent:0.1];
+    CPTMutableLineStyle *minorGridLineStyle_ = [CPTMutableLineStyle lineStyle];
+    minorGridLineStyle_.lineWidth            = 0.25;
+    minorGridLineStyle_.lineColor            = [[CPTColor whiteColor] colorWithAlphaComponent:0.1];
+    
+    //X axis
+//    CPTXYAxis *x                    = axisSet.xAxis;
+    x.orthogonalCoordinateDecimal   = CPTDecimalFromInt(0);
+    x.majorIntervalLength           = CPTDecimalFromInt(1);
+    x.minorTicksPerInterval         = 0;
+    x.labelingPolicy                = CPTAxisLabelingPolicyNone;
+    x.majorGridLineStyle            = majorGridLineStyle;
+    x.axisConstraints               = [CPTConstraints constraintWithLowerOffset:0.0];
+    
+    //Y axis
+//    CPTXYAxis *y            = axisSet.yAxis;
+    y.title                 = @"Value";
+    y.titleOffset           = 50.0f;
+    y.labelingPolicy        = CPTAxisLabelingPolicyAutomatic;
+    y.majorGridLineStyle    = majorGridLineStyle_;
+    y.minorGridLineStyle    = minorGridLineStyle_;
+    y.axisConstraints       = [CPTConstraints constraintWithLowerOffset:0.0];
+    
+//   [self.hostView.hostedGraph applyTheme:[CPTTheme themeNamed:kCPTStocksTheme]];
+    
+    [self.hostView.hostedGraph applyTheme:[CPTTheme themeNamed:kCPTSlateTheme]];
+    
 	// 2 - Set graph title
 	NSString *title = @"Market Models - Delta Computation";
 	graph.title = title;
@@ -271,6 +334,130 @@
 }
 
 
+- (void)generateLayout
+{
+    //Create graph from theme
+    CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:self.hostView.bounds];
+    
+    
+    graph                               = [[CPTXYGraph alloc] initWithFrame:CGRectZero];
+    [graph applyTheme:[CPTTheme themeNamed:kCPTStocksTheme]];
+    //    self.hostedGraph                    = graph;
+    graph.plotAreaFrame.masksToBorder   = NO;
+    graph.paddingLeft                   = 0.0f;
+    graph.paddingTop                    = 0.0f;
+    graph.paddingRight                  = 0.0f;
+    graph.paddingBottom                 = 0.0f;
+    
+    CPTMutableLineStyle *borderLineStyle    = [CPTMutableLineStyle lineStyle];
+    borderLineStyle.lineColor               = [CPTColor whiteColor];
+    borderLineStyle.lineWidth               = 2.0f;
+    graph.plotAreaFrame.borderLineStyle     = borderLineStyle;
+    graph.plotAreaFrame.paddingTop          = 10.0;
+    graph.plotAreaFrame.paddingRight        = 10.0;
+    graph.plotAreaFrame.paddingBottom       = 80.0;
+    graph.plotAreaFrame.paddingLeft         = 70.0;
+    
+    //Add plot space
+    CPTXYPlotSpace *plotSpace       = (CPTXYPlotSpace *)graph.defaultPlotSpace;
+    //    [plotSpace setAllowsUserInteraction:YES ];
+    plotSpace.delegate              = self;
+    //    plotSpace.yRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromInt(0)
+    //                                                                   length:CPTDecimalFromInt(10 * sets.count)];
+    plotSpace.yRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromInt(0)
+                                                                   length:CPTDecimalFromInt(10 * 2)];
+    plotSpace.xRange                = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromInt(-1)
+                                                                   length:CPTDecimalFromInt(8)];
+    
+    //Grid line styles
+    CPTMutableLineStyle *majorGridLineStyle = [CPTMutableLineStyle lineStyle];
+    majorGridLineStyle.lineWidth            = 0.75;
+    majorGridLineStyle.lineColor            = [[CPTColor whiteColor] colorWithAlphaComponent:0.1];
+    CPTMutableLineStyle *minorGridLineStyle = [CPTMutableLineStyle lineStyle];
+    minorGridLineStyle.lineWidth            = 0.25;
+    minorGridLineStyle.lineColor            = [[CPTColor whiteColor] colorWithAlphaComponent:0.1];
+    
+    //Axes
+    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)graph.axisSet;
+    
+    //X axis
+    CPTXYAxis *x                    = axisSet.xAxis;
+    x.orthogonalCoordinateDecimal   = CPTDecimalFromInt(0);
+    x.majorIntervalLength           = CPTDecimalFromInt(1);
+    x.minorTicksPerInterval         = 0;
+    x.labelingPolicy                = CPTAxisLabelingPolicyNone;
+    x.majorGridLineStyle            = majorGridLineStyle;
+    x.axisConstraints               = [CPTConstraints constraintWithLowerOffset:0.0];
+    
+    //X labels
+    int labelLocations = 0;
+    NSMutableArray *customXLabels = [NSMutableArray array];
+    //    for (NSString *day in dates) {
+    //        CPTAxisLabel *newLabel = [[CPTAxisLabel alloc] initWithText:day textStyle:x.labelTextStyle];
+    //        newLabel.tickLocation   = [[NSNumber numberWithInt:labelLocations] decimalValue];
+    //        newLabel.offset         = x.labelOffset + x.majorTickLength;
+    //        newLabel.rotation       = M_PI / 4;
+    //        [customXLabels addObject:newLabel];
+    //        labelLocations++;
+    //    }
+    x.axisLabels                    = [NSSet setWithArray:customXLabels];
+    
+    //Y axis
+    CPTXYAxis *y            = axisSet.yAxis;
+    y.title                 = @"Value";
+    y.titleOffset           = 50.0f;
+    y.labelingPolicy        = CPTAxisLabelingPolicyAutomatic;
+    y.majorGridLineStyle    = majorGridLineStyle;
+    y.minorGridLineStyle    = minorGridLineStyle;
+    y.axisConstraints       = [CPTConstraints constraintWithLowerOffset:0.0];
+    
+    //Create a bar line style
+    CPTMutableLineStyle *barLineStyle   = [[CPTMutableLineStyle alloc] init] ;
+    barLineStyle.lineWidth              = 1.0;
+    barLineStyle.lineColor              = [CPTColor whiteColor];
+    CPTMutableTextStyle *whiteTextStyle = [CPTMutableTextStyle textStyle];
+    whiteTextStyle.color                = [CPTColor whiteColor];
+    
+    //Plot
+    BOOL firstPlot = YES;
+    //    for (NSString *set in [[sets allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)]) {
+    //        CPTBarPlot *plot        = [CPTBarPlot tubularBarPlotWithColor:[CPTColor blueColor] horizontalBars:NO];
+    //        plot.lineStyle          = barLineStyle;
+    //
+    //        plot.fill               = [CPTFill fillWithColor:[CPTColor colorWithCGColor:color]];
+    //        if (firstPlot) {
+    //            plot.barBasesVary   = NO;
+    //            firstPlot           = NO;
+    //        } else {
+    //            plot.barBasesVary   = YES;
+    //        }
+    //        plot.barWidth           = CPTDecimalFromFloat(0.8f);
+    //        plot.barsAreHorizontal  = NO;
+    //        plot.dataSource         = self;
+    //        plot.identifier         = set;
+    //        [graph addPlot:plot toPlotSpace:plotSpace];
+    //    }
+    
+    //Add legend
+    CPTLegend *theLegend      = [CPTLegend legendWithGraph:graph];
+    //    theLegend.numberOfRows	  = sets.count;
+    theLegend.fill			  = [CPTFill fillWithColor:[CPTColor colorWithGenericGray:0.15]];
+    theLegend.borderLineStyle = barLineStyle;
+    theLegend.cornerRadius	  = 10.0;
+    theLegend.swatchSize	  = CGSizeMake(15.0, 15.0);
+    whiteTextStyle.fontSize	  = 13.0;
+    theLegend.textStyle		  = whiteTextStyle;
+    theLegend.rowMargin		  = 5.0;
+    theLegend.paddingLeft	  = 10.0;
+    theLegend.paddingTop	  = 10.0;
+    theLegend.paddingRight	  = 10.0;
+    theLegend.paddingBottom	  = 10.0;
+    graph.legend              = theLegend;
+    graph.legendAnchor        = CPTRectAnchorTopLeft;
+    graph.legendDisplacement  = CGPointMake(80.0, -10.0);
+}
+
+
 #pragma mark - CPTPlotDataSource methods
 -(NSUInteger)numberOfRecordsForPlot:(CPTPlot *)plot {
     return market.delta.count;
@@ -294,148 +481,6 @@
 	}
 	return [NSDecimalNumber zero];
 }
-
-//#pragma mark - Touch
-//
-//-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceUpEvent:(id)event atPoint:(CGPoint)point {
-//    return YES;
-//}
-//
-//-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceCancelledEvent:(id)event{
-//    return YES;
-//}
-//
-//-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceDownEvent:(id)event atPoint:(CGPoint)point{
-//    NSLog(@"point down");
-//    //    NSNumber * theValue = [[self.graphDataSource.timeSeries objectAtIndex:index] observationValue];
-//    //
-//    //    // if the annotations already exist, remove them
-//    //    if ( self.valueTextAnnotation ) {
-//    //        [self.graph.plotAreaFrame.plotArea removeAnnotation:self.valueTextAnnotation];
-//    //        self.valueTextAnnotation = nil;
-//    //    }
-//    //
-//    //    // Setup a style for the annotation
-//    //    CPTMutableTextStyle *annotationTextStyle = [CPTMutableTextStyle textStyle];
-//    //    annotationTextStyle.color = [CPTColor whiteColor];
-//    //    annotationTextStyle.fontSize = 14.0f;
-//    //    annotationTextStyle.fontName = @"Helvetica-Bold";
-//    //
-//    //    // Add annotation
-//    //    // First make a string for the y value
-//    //    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-//    //    [formatter setMaximumFractionDigits:2];
-//    //    NSString *currentValue = [formatter stringFromNumber:theValue];
-//    //
-//    //    NSNumber *x            = [NSNumber numberWithDouble:[theDate timeIntervalSince1970]];
-//    //    NSNumber *y            = [NSNumber numberWithFloat:self.graphDataSource.maxValue];
-//    //    NSArray *anchorPoint = [NSArray arrayWithObjects:x, y, nil];
-//    //
-//    //    // Then add the value annotation to the plot area
-//    //    float valueLayerWidth = 50.0f;
-//    //    float valueLayerHeight = 20.0f;
-//    //    CPTTextLayer *valueLayer = [[CPTTextLayer alloc] initWithFrame:CGRectMake(0,0,valueLayerWidth,valueLayerHeight)];
-//    //
-//    //    valueLayer.text = currentValue;
-//    //    valueLayer.textStyle = annotationTextStyle;
-//    //    valueLayer.backgroundColor = [UIColor blueColor].CGColor;
-//    //
-//    //    self.valueTextAnnotation  = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:self.graph.defaultPlotSpace anchorPlotPoint:anchorPoint];
-//    //
-//    //    self.valueTextAnnotation.contentLayer = valueLayer;
-//    //
-//    //    // modify the displacement if we are close to either edge
-//    //    float xDisplacement = 0.0;
-//    //    ...
-//    //    self.valueTextAnnotation.displacement = CGPointMake(xDisplacement, 8.0f);
-//    //
-//    //    [self.graph.plotAreaFrame.plotArea addAnnotation:self.valueTextAnnotation]
-//    //    CPTGraph *graph = self.hostView.hostedGraph;
-//    //    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
-//    //
-//    //
-//    //    // 2 - Create style, if necessary
-//    //    static CPTMutableTextStyle *style = nil;
-//    //    if (!style) {
-//    //        style = [CPTMutableTextStyle textStyle];
-//    //        style.color= [CPTColor yellowColor];
-//    //        style.fontSize = 16.0f;
-//    //        style.fontName = @"Helvetica-Bold";
-//    //    }
-//    //    // 3 - Create annotation, if necessary
-//    //    NSNumber *price = [NSNumber numberWithDouble:100];
-//    //
-//    //    if (!self.priceAnnotation) {
-//    //        NSNumber *x = [NSNumber numberWithInt:0];
-//    //        NSNumber *y = [NSNumber numberWithInt:0];
-//    //        NSArray *anchorPoint = [NSArray arrayWithObjects:x, y, nil];
-//    //        self.priceAnnotation = [[CPTPlotSpaceAnnotation alloc] initWithPlotSpace:plotSpace anchorPlotPoint:anchorPoint];
-//    //    }
-//    //    // 4 - Create number formatter, if needed
-//    //    static NSNumberFormatter *formatter = nil;
-//    //    if (!formatter) {
-//    //        formatter = [[NSNumberFormatter alloc] init];
-//    //        [formatter setMaximumFractionDigits:2];
-//    //    }
-//    //    // 5 - Create text layer for annotation
-//    //    NSString *priceValue = [formatter stringFromNumber:price];
-//    //    CPTTextLayer *textLayer = [[CPTTextLayer alloc] initWithText:priceValue style:style];
-//    //    textLayer.text = @"some data";
-//    //    self.priceAnnotation.contentLayer = textLayer;
-//    //
-//    //    // 6 - Get plot index based on identifier
-//    ////    NSInteger plotIndex = 0;
-//    ////    if ([plot.identifier isEqual:CPDTickerSymbolAAPL] == YES) {
-//    ////        plotIndex = 0;
-//    ////    } else if ([plot.identifier isEqual:CPDTickerSymbolGOOG] == YES) {
-//    ////        plotIndex = 1;
-//    ////    } else if ([plot.identifier isEqual:CPDTickerSymbolMSFT] == YES) {
-//    ////        plotIndex = 2;
-//    ////    }
-//    //    // 7 - Get the anchor point for annotation
-//    ////    CGFloat x = index + CPDBarInitialX + (plotIndex * CPDBarWidth);
-//    ////    NSNumber *anchorX = [NSNumber numberWithFloat:x];
-//    ////    CGFloat y = [price floatValue] + 40.0f;
-//    ////    NSNumber *anchorY = [NSNumber numberWithFloat:y];
-//    //
-//    //    CGFloat x ;
-//    //    NSNumber *anchorX = [NSNumber numberWithFloat:point.x];
-//    //    CGFloat y = point.y;
-//    //    NSNumber *anchorY = [NSNumber numberWithFloat:y];
-//    //
-//    //
-//    //    self.priceAnnotation.anchorPlotPoint = [NSArray arrayWithObjects:anchorX, anchorY, nil];
-//    //    // 8 - Add the annotation
-//    //    [self.hostView.hostedGraph.plotAreaFrame.plotArea addAnnotation:self.priceAnnotation];
-//    return YES;
-//}
-//
-//-(BOOL)plotSpace:(CPTPlotSpace *)space shouldHandlePointingDeviceDraggedEvent:(id)event atPoint:(CGPoint)point {
-//    NSLog(@"point dragged");
-//    return YES;
-//}
-//
-//
-//-(void)plot:(CPTPlot *)plot dataLabelWasSelectedAtRecordIndex:(NSUInteger)idx {
-//    CPTLayerAnnotation *annot = [[CPTLayerAnnotation alloc]initWithAnchorLayer:self.hostView.hostedGraph];
-//    CPTBorderedLayer * logoLayer = [(CPTBorderedLayer *) [CPTBorderedLayer alloc] initWithFrame:CGRectMake(10,10,100,50)] ;
-//    //    CPTFill *fillImage = [CPTFill fillWithImage:[CPTImage imageForPNGFile:@"whatEver!"]];
-//    //    logoLayer.fill = fillImage;
-//    annot.contentLayer = logoLayer;
-//    annot.rectAnchor=CPTRectAnchorTop;
-//    [self.hostView.hostedGraph addAnnotation:annot];
-//}
-//
-//- (void)scatterPlot:(CPTScatterPlot *)plot plotSymbolWasSelectedAtRecordIndex:(NSUInteger)index
-//{
-//    CPTLayerAnnotation *annot = [[CPTLayerAnnotation alloc]initWithAnchorLayer:self.hostView.hostedGraph];
-//    CPTBorderedLayer * logoLayer = [(CPTBorderedLayer *) [CPTBorderedLayer alloc] initWithFrame:CGRectMake(10,10,100,50)] ;
-//    //    CPTFill *fillImage = [CPTFill fillWithImage:[CPTImage imageForPNGFile:@"whatEver!"]];
-//    //    logoLayer.fill = fillImage;
-//    annot.contentLayer = logoLayer;
-//    annot.rectAnchor=CPTRectAnchorTop;
-//    [self.hostView.hostedGraph addAnnotation:annot];
-//}
 
 @end
 

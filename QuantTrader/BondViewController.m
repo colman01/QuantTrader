@@ -57,7 +57,6 @@ DmBond *bondParameters;
     }
     @catch (NSException *exception) {
         bondParameters = [NSEntityDescription insertNewObjectForEntityForName:@"Bond" inManagedObjectContext:[[PersistManager instance] managedObjectContext]];
-//        bondParameters.fixingDays = [[NSNumber alloc ] initWithDouble:100];
         [[PersistManager instance] save];
     }
 }

@@ -33,8 +33,6 @@ typedef void (^SetDateManyCompletionHandler) (NSDate *date, int position);
 
 - (void) onCompleteMany:(SetManyCompletionHandler) multiValueHandler;
 
-//@property (strong, nonatomic) SetDateManyCompletionHandler multiDateHandler;
-
 - (void) onCompleteDateMany:(SetDateManyCompletionHandler) multiDateHandler;
 
 @end
