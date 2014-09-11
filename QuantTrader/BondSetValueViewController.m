@@ -44,12 +44,9 @@
         datePicker.hidden = YES;
         valueField.hidden = NO;
     }
-
 }
 
-
 - (void) saveAction {
-    
     if (!datePicker.hidden) {
         NSDate *l_date = self.datePicker.date;
         self.handlerDate(l_date, self.postion);
@@ -62,14 +59,6 @@
 {
     [super didReceiveMemoryWarning];
 }
-
-/*
-#pragma mark - Navigation
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-}
-*/
 
 #pragma mark
 
