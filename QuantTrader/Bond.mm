@@ -309,7 +309,7 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
                                                                                                                        tolerance));
         
 
-            data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.depositQuotes];
+        data_ = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.depositQuotes];
         num = [data_ objectAtIndex:0];
         Rate d1wQuote=(Rate)[num doubleValue];
         
@@ -577,7 +577,6 @@ std::string dateToString(const QuantLib::Date d, const std::string format)
         m = [components month];
         day = [components day];
         month = intToMonth(m_secondDate);
-//        libor3m->addFixing(Date(17, July, 2008),0.0278625);
         libor3m->addFixing(Date(day, month, year),0.0278625);
 
         components = [cal components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:bondParameters.floatingBondScheduleFirstDate];

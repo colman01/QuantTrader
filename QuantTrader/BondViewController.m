@@ -174,7 +174,6 @@ DmBond *bondParameters;
             {
 
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
-                
                 [bondValuesViewController onRemove:^(int position) {
                     NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.maturityDates];
                     [entries removeObjectAtIndex:position];
@@ -223,19 +222,6 @@ DmBond *bondParameters;
                 break;
             case 8:
             {
-                bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData: bondParameters.liborForcastingCurveQuotes];
-                [bondValuesViewController onCompleteMany:^(NSString *text, int position) {
-                    NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.liborForcastingCurveQuotes];
-                    entries = [self saveValue:text withAttribute:entries andPosition:position];
-                    bondParameters.liborForcastingCurveQuotes = [NSKeyedArchiver archivedDataWithRootObject:entries];
-                    [[PersistManager instance] save];
-                    bondValuesViewController.modelData = entries;
-                    [bondValuesViewController.table reloadData];
-                }];
-            }
-                break;
-            case 9:
-            {
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData: bondParameters.swapQuotes];
                 
                 [bondValuesViewController onCompleteMany:^(NSString *text, int position) {
@@ -248,21 +234,21 @@ DmBond *bondParameters;
                 }];
             }
                 break;
-            case 10:
+            case 9:
             {
                 bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.issueDates];
-                
-                 [bondValuesViewController onCompleteMany:^(NSString *text, int position) {
-                     NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.issueDates];
-                     entries = [self saveValue:text withAttribute:entries andPosition:position];
-                     bondParameters.issueDates = [NSKeyedArchiver archivedDataWithRootObject:entries];
-                     [[PersistManager instance] save];
-                     bondValuesViewController.modelData = entries;
-                     [bondValuesViewController.table reloadData];
-                 }];
-                
+
+                [bondValuesViewController onCompleteDateMany:^(NSDate *date, int position) {
+                    NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.issueDates];
+                    
+                    entries = [self saveDate:date withAttribute:entries andPosition:position];
+                    bondParameters.issueDates = [NSKeyedArchiver archivedDataWithRootObject:entries];
+                    [[PersistManager instance] save];
+                    bondValuesViewController.modelData = entries;
+                    [bondValuesViewController.table reloadData];
+                }];
             }
-            case 11:
+            case 10:
             {
 
                 bondValuesViewController.modelData = [[NSMutableArray alloc] initWithObjects:bondParameters.zeroCouponBondFirstDate,bondParameters.zeroCouponBondSecondDate, nil];
@@ -295,19 +281,22 @@ DmBond *bondParameters;
                 
                 break;
             }
-            case 12:
+            case 11:
             {
-                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-                [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-                [dateFormatter setDateFormat:@"dd-MM-yy"];
-                bondValuesViewController.modelData = bondParameters.fixedRateBondFirstDate;
-                [bondValuesViewController onComplete:^(NSString *text) {
-                    [self saveValue:text withAttribute:bondParameters.fixedRateBondFirstDate];
-                    
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+                [formatter setDateFormat:@"dd-MM-yy"];
+                bondValuesViewController.modelData = [[NSMutableArray alloc] initWithObjects:bondParameters.fixedRateBondFirstDate, nil];
+                
+                [bondValuesViewController onCompleteDateMany:^(NSDate *date, int position) {
+                    bondParameters.fixedRateBondFirstDate = date;
+                    bondValuesViewController.modelData = [[NSMutableArray alloc] initWithObjects:bondParameters.fixedRateBondFirstDate, nil];
+                    [bondValuesViewController.table reloadData];
+                    [[PersistManager instance] save];
                 }];
                 break;
             }
-            case 13:
+            case 12:
             {
                 NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
                 [formatter setDateStyle:NSDateFormatterMediumStyle];
@@ -461,22 +450,22 @@ DmBond *bondParameters;
         case 7:
             cell.textLabel.text = @"Market Quotes";
             break;
+//        case 8:
+//            cell.textLabel.text = @"Libor Forcasting Curve Quotes";
+//            break;
         case 8:
-            cell.textLabel.text = @"Libor Forcasting Curve Quotes";
-            break;
-        case 9:
             cell.textLabel.text = @"Swap Quotes";
             break;
-        case 10:
+        case 9:
             cell.textLabel.text = @"Issue Dates";
             break;
-        case 11:
+        case 10:
             cell.textLabel.text = @"Zero Data Coupon";
             break;
-        case 12:
+        case 11:
             cell.textLabel.text = @"Fixed Bond Schedule Rate and Dates";
             break;
-        case 13:
+        case 12:
             cell.textLabel.text = @"Floating Bond Schedule Rate and Dates";
             break;
         default:
@@ -493,7 +482,7 @@ DmBond *bondParameters;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 14;
+    return 13;
 }
 
 - (IBAction) resetBond {

@@ -189,8 +189,6 @@
         data_ = [[NSMutableArray alloc] init];
     [data_ addObject:value];
     // create nsdata for all dates
-//    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:data_];
-//    dataArray = arrayData;
     dataArray = [NSKeyedArchiver archivedDataWithRootObject:data_];
     [[PersistManager instance] save];
     
@@ -217,14 +215,7 @@
     if (!data_)
         data_ = [[NSMutableArray alloc] init];
     // create nsdata for all dates
-//    NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:data_];
-//    dataArray = arrayData;
     return [data_ objectAtIndex:position];
-    
-    
-    
-    
-    
 }
 
 

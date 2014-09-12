@@ -118,8 +118,6 @@
 
 
 - (void)addSwapQuoteAsNumber:(NSNumber *)value;
-
-
 - (void) removeSwapQuoteAsNumber:(NSNumber *)value;
 
 - (void)addNumber:(NSNumber *)value toData:(NSData *) target;
@@ -130,16 +128,13 @@
 
 
 - (void)addCouponRateAsNumber:(NSNumber *)value;
-
 - (void) removeCouponRateAsNumber:(NSNumber *)value ;
 
 
 - (void)addMarketQuoteAsNumber:(NSNumber *)value;
-
 - (void) removeMarketQuoteAsNumber:(NSNumber *)value;
 
 - (void)addMaturityDateAsDate:(NSDate *)value;
-
 - (void) removeMaturityeDateAsDate:(NSDate *) value;
 
 @end
