@@ -11,14 +11,7 @@
 #import "QuantDao.h"
 
 @interface EquityOption_ : NSObject {
-    
-//    double underlying;
-//    double strike;
-//    double dividendYield;
-//    double riskFreeRate;
-//    double volatility;
 }
-
 
 @property (nonatomic) double quote;
 @property (nonatomic) double strikePrice;
@@ -83,27 +76,6 @@
 @property (nonatomic) double qmcSobol_eo;
 @property (nonatomic) double mcLongstaffSchwatz_ao;
 
-
-
-
-
 -(void) calculate;
-//QuantLib::Month intToQLMonth(int monthAsInteger);
 
 @end
-
-
-
-//        std::cout << "Option type = "  << type << std::endl;
-//        std::cout << "Maturity = "        << maturity << std::endl;
-//        std::cout << "Underlying price = "        << underlying << std::endl;
-//        std::cout << "Strike = "                  << strike << std::endl;
-//        std::cout << "Risk-free interest rate = " << io::rate(riskFreeRate)
-//        << std::endl;
-//        std::cout << "Dividend yield = " << io::rate(dividendYield)
-//        << std::endl;
-//        std::cout << "Volatility = " << io::volatility(volatility)
-//        << std::endl;
-//        std::cout << std::endl;
-//        std::string method;
-//        std::cout << std::endl ;

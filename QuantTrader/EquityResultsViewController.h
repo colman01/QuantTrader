@@ -15,7 +15,10 @@
 @property IBOutlet UITableView *tableView;
 @property IBOutlet UIActivityIndicatorView *activity;
 
+@property (strong)  NSNumber *num;
 
 @property EquityOption_ * eq;
+
+- (void) doCalcInBackground;
 
 @end

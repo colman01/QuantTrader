@@ -17,47 +17,49 @@
 @synthesize tableView;
 @synthesize eq;
 @synthesize activity;
+@synthesize num;
 
 bool done;
 
-NSNumber *num;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    done = NO;
-
+    done = NO;
+    eq = [[EquityOption_ alloc] init];
+    if ([num intValue] == 1 ) {
+        activity.hidden = NO;
+        [activity startAnimating];
+        [self doCalcInBackground];
+    }
 }
-- (void) viewDidAppear:(BOOL)animated {
 
+
+- (void) doCalcInBackground {
     
     activity.hidden = NO;
     [activity startAnimating];
     
-    done = NO;
-    eq = [[EquityOption_ alloc] init];
-    
-    if (!num) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            num = [NSNumber numberWithFloat:0];
-            [eq calculate];
-            // trigger the main completion handler when this completed
-            dispatch_async(dispatch_get_main_queue(), ^{
-                activity.hidden = YES;
-                [activity stopAnimating];
-                done = YES;
-                [tableView reloadData];
-                num = nil;
-            });
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+        [eq calculate];
+        // trigger the main completion handler when this completed
+        dispatch_async(dispatch_get_main_queue(), ^{
+            activity.hidden = YES;
+            [activity stopAnimating];
+            done = YES;
+            [tableView reloadData];
+            num = [NSNumber numberWithInt:2];
         });
-    }
+    });
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return 29;
         return 30;
 }
 

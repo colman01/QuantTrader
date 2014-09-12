@@ -55,10 +55,7 @@ settlementDate_3,
 
 maturityDate_1,
 maturityDate_2,
-maturityDate_3
-
-
-;
+maturityDate_3;
 
 -(void) calculate {
     using namespace QuantLib;
@@ -74,36 +71,23 @@ maturityDate_3
         Calendar calendar = TARGET();
 
         // set up dates
-//        NSDate *currentDate = [NSDate date];
-//        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
-//        NSInteger day = [components day];
-//        NSInteger month = [components month];
-//        NSInteger year = [components year];
-
-//        QuantLib::Month thisMonth = intToQLMonth__(month);
-//        Date todaysDate((int)day, thisMonth, (int)year);
+        NSCalendar *cal_ = [NSCalendar currentCalendar];
+        [cal_ setTimeZone:[NSTimeZone localTimeZone]];
+        [cal_ setLocale:[NSLocale currentLocale]];
     
-    NSCalendar *cal_ = [NSCalendar currentCalendar];
-    [cal_ setTimeZone:[NSTimeZone localTimeZone]];
-    [cal_ setLocale:[NSLocale currentLocale]];
+        int day = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.settlementDate_1] day];
+        int month = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.settlementDate_1] month];
+        int year = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.settlementDate_1] year];
+
+        QuantLib::Month qlMonth =  intToQLMonth__(month);
+
+        Date settlementDate(day, qlMonth, year);
+        day = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]] day];
+        month = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]] month];
+        year = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]] year];
+        qlMonth =  intToQLMonth__(month);
     
-    int day = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.settlementDate_1] day];
-    int month = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.settlementDate_1] month];
-    int year = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:equityParameters.settlementDate_1] year];
-
-    QuantLib::Month qlMonth =  intToQLMonth__(month);
-
-//    Date settlementDate(day, qlMonth, year);
-//     Date settlementDate(17, May, 1998);
-
-    Date settlementDate(day, qlMonth, year);
-    day = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]] day];
-    month = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]] month];
-    year = [[cal_ components:( NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:[NSDate date]] year];
-    qlMonth =  intToQLMonth__(month);
-    
-//    Date todaysDate(day, qlMonth, year);
-    Date todaysDate(30, January, 1998);
+        Date todaysDate(30, January, 1998);
     
         Settings::instance().evaluationDate() = todaysDate;
         
@@ -317,41 +301,7 @@ maturityDate_3
         NSLog(@"hours %i", hours);
     if (hours > 0 || minutes > 0)
         NSLog(@"minutes %i", minutes);
-    
-    
-
-        // Monte Carlo Method: MC (Longstaff Schwartz)
-//        method = "MC (Longstaff Schwartz)";
-//        boost::shared_ptr<PricingEngine> mcengine3;
-//        mcengine3 = MakeMCAmericanEngine<PseudoRandom>(bsmProcess)
-//        .withSteps(100)
-//        .withAntitheticVariate()
-//        .withCalibrationSamples(4096)
-//        .withAbsoluteTolerance(0.02)
-//        .withSeed(mcSeed);
-//        americanOption.setPricingEngine(mcengine3);
-//         NSLog(@"MC (Longstaff Schwartz) %f " , americanOption.NPV());
-//        mcLongstaffSchwatz_ao = americanOption.NPV();
-    
-//        // End test
-//        Real seconds = timer.elapsed();
-//        Integer hours = int(seconds/3600);
-//        seconds -= hours * 3600;
-//        Integer minutes = int(seconds/60);
-//        seconds -= minutes * 60;
-////        std::cout << " \nRun completed in ";
-//        if (hours > 0)
-//            //            std::cout << hours << " h ";
-//            NSLog(@"hours %i", hours);
-//        if (hours > 0 || minutes > 0)
-//            NSLog(@"minutes %i", minutes);
 }
-
-
-
-
-
-
 
 QuantLib::Month intToQLMonth__(int monthAsInteger)
 {

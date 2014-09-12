@@ -126,11 +126,11 @@
 @property (nonatomic, retain) IBOutlet UILabel * qmcSobol_eo;
 @property (nonatomic, retain) IBOutlet UILabel * mcLongstaffSchwatz_ao;
 
-@property (nonatomic, retain) IBOutlet UIButton * showResults;
+//@property (nonatomic, retain) IBOutlet UIButton * showResults;
 
 - (IBAction)textEntered:(UITextField *)sender;
-- (IBAction)calculate;
-- (IBAction)calculateWithSegue;
+//- (IBAction)showResults;
+//- (IBAction)calculateWithSegue;
 - (IBAction)hide:(id)sender;
 
 

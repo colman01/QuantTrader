@@ -7,13 +7,14 @@
 //
 
 #import "EquityOptionViewController.h"
+#import "EquityResultsViewController.h"
 
 @interface EquityOptionViewController ()
 
 @end
 
 @implementation EquityOptionViewController
-@synthesize waiting, results, showResults, scroll;
+@synthesize waiting, results, scroll;
 @synthesize blackScholes_eo,
 hestonSemiAnalytic_eo,
 batesSemiAna_eo,
@@ -46,7 +47,18 @@ binomialJoshi_bo,
 binomialJoshi_ao,
 mcCrude_eo,
 qmcSobol_eo,
-mcLongstaffSchwatz_ao;
+mcLongstaffSchwatz_ao,
+underlying,
+riskFreeRate,
+strike,
+volatility,
+maturityDate_1,
+maturityDate_2,
+maturityDate_3,
+settlementDate_1,
+settlementDate_2,
+settlementDate_3,
+dividendYield;
 
 DmEquity *equityParameters;
 
@@ -55,18 +67,29 @@ DmEquity *equityParameters;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     }
-    showResults.titleLabel.numberOfLines = 0;
-    showResults.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    showResults.titleLabel.textAlignment = NSTextAlignmentCenter;
+//    showResults.titleLabel.numberOfLines = 0;
+//    showResults.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+//    showResults.titleLabel.textAlignment = NSTextAlignmentCenter;
     return self;
 }
 
 
 - (void)viewDidLoad
 {
-    
-    
     [super viewDidLoad];
+    
+    self.settlementDate_1.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    self.settlementDate_2.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    self.settlementDate_3.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+    self.maturityDate_1.keyboardType   = UIKeyboardTypeNumbersAndPunctuation;
+    self.maturityDate_2.keyboardType   = UIKeyboardTypeNumbersAndPunctuation;
+    self.maturityDate_3.keyboardType   = UIKeyboardTypeNumbersAndPunctuation;
+    self.underlying.keyboardType       = UIKeyboardTypeNumbersAndPunctuation;
+    self.strike.keyboardType           = UIKeyboardTypeNumbersAndPunctuation;
+    self.dividendYield.keyboardType    = UIKeyboardTypeNumbersAndPunctuation;
+    self.riskFreeRate.keyboardType     = UIKeyboardTypeNumbersAndPunctuation;
+    self.volatility.keyboardType       = UIKeyboardTypeNumbersAndPunctuation;
+    
     NSMutableArray *equityObjects = [[QuantDao instance] getEquity];
     
     // To clear the local store
@@ -107,10 +130,7 @@ DmEquity *equityParameters;
     [[UIDevice currentDevice] setValue:
      [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
                                 forKey:@"orientation"];
-    
-    
     [scroll setContentOffset:CGPointMake(0,0)];
-    
 }
 
 
@@ -129,53 +149,18 @@ DmEquity *equityParameters;
     equityParameters.dividendYield_eq= [NSNumber numberWithDouble:[self.dividendYield.text doubleValue]];
     equityParameters.riskFreeRate_eq= [NSNumber numberWithDouble:[self.riskFreeRate.text doubleValue]];
     equityParameters.volatility_eq= [NSNumber numberWithDouble:[self.volatility.text doubleValue]];
-
     [[PersistManager instance] save];
-    
-    
 }
 
-- (IBAction)calculate {
-    
-    
-    [self setCalcValues];
-    
-    [self performSegueWithIdentifier:@"EquityResults" sender:nil];
-
-//    
-//    NSArray * nibObjects = [[NSBundle mainBundle] loadNibNamed:@"EquityOptionResults" owner:self options:nil];
-//    UIView * nibVC = [nibObjects objectAtIndex:0];
-//    results = [[UIViewController alloc] init];
-//    [results setView:nibVC];
-//    [self setResultsVC];
-//    [results setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
-//
-//    [eq calculate];
-//    [self setResultsVC];
-//    [[self navigationController] pushViewController:results animated:YES ];
-    
-//    [self dismissViewControllerAnimated:YES
-//                             completion:^{
-//                                 [[super navigationController] pushViewController:results animated:YES ];
-//                             }
-//     ];
-    
-//    [[super navigationController] presentViewController:waiting animated:YES completion:^{
-//        [eq calculate];
-//        [self setResultsVC];
-//        [self dismissViewControllerAnimated:YES
-//                                 completion:^{
-//                                     [[super navigationController] pushViewController:results animated:YES ];
-//                                  }
-//        ];
-//    }];
-    
-    
-
-}
-
-- (IBAction)calculateWithSegue {
-    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"EquityResults"]) {
+        [self setCalcValues];
+        id dest = [segue destinationViewController];
+        EquityResultsViewController *resultsCon = (EquityResultsViewController *) dest;
+        [resultsCon doCalcInBackground];
+        resultsCon.num = [[NSNumber alloc] initWithInt:1];
+    }
 }
 
 

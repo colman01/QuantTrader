@@ -303,11 +303,11 @@ DmBond *bondParameters;
                 [formatter setDateFormat:@"dd-MM-yy"];
                 bondValuesViewController.modelData = [[NSMutableArray alloc] initWithObjects:bondParameters.floatingBondScheduleFirstDate,bondParameters.floatingBondScheduleSecondDate, nil];
                 
-                [bondValuesViewController onCompleteMany:^(NSString *text, int position) {
+                [bondValuesViewController onCompleteDateMany:^(NSDate *date, int position) {
                     switch (position) {
                         case 0:
                         {
-                            bondParameters.floatingBondScheduleFirstDate = [formatter dateFromString:text];
+                            bondParameters.floatingBondScheduleFirstDate = date;
                             [[PersistManager instance] save];
                             bondValuesViewController.modelData[0] = bondParameters.floatingBondScheduleFirstDate;
                             [bondValuesViewController.table reloadData];
@@ -316,7 +316,7 @@ DmBond *bondParameters;
                             
                         case 1:
                         {
-                            bondParameters.floatingBondScheduleSecondDate = [formatter dateFromString:text];
+                            bondParameters.floatingBondScheduleSecondDate = date;
                             [[PersistManager instance] save];
                             bondValuesViewController.modelData[1] = bondParameters.floatingBondScheduleSecondDate;
                             [bondValuesViewController.table reloadData];
@@ -450,9 +450,6 @@ DmBond *bondParameters;
         case 7:
             cell.textLabel.text = @"Market Quotes";
             break;
-//        case 8:
-//            cell.textLabel.text = @"Libor Forcasting Curve Quotes";
-//            break;
         case 8:
             cell.textLabel.text = @"Swap Quotes";
             break;
