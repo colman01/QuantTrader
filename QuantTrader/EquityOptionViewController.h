@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EquityOption_.h"
 #import "ParameterInitializer.h"
+#import "EquityResultsViewController.h"
 
 @interface EquityOptionViewController : UIViewController {
 
@@ -69,6 +70,8 @@
     
 }
 
+@property (strong, nonatomic) EquityResultsViewController *eqResultsCon;
+
 @property (nonatomic, retain) IBOutlet UIViewController *waiting;
 @property (nonatomic, retain) IBOutlet UIViewController *results;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll;
@@ -126,10 +129,9 @@
 @property (nonatomic, retain) IBOutlet UILabel * qmcSobol_eo;
 @property (nonatomic, retain) IBOutlet UILabel * mcLongstaffSchwatz_ao;
 
-//@property (nonatomic, retain) IBOutlet UIButton * showResults;
 
 - (IBAction)textEntered:(UITextField *)sender;
-//- (IBAction)showResults;
+- (IBAction)showResults:(id)sender;
 //- (IBAction)calculateWithSegue;
 - (IBAction)hide:(id)sender;
 

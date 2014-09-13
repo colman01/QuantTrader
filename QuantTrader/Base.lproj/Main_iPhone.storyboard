@@ -812,6 +812,15 @@
                                     <action selector="textEntered::" destination="EyU-7w-Amv" eventType="editingDidEndOnExit" id="SV7-wv-gad"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ln-4j-lJI">
+                                <rect key="frame" x="202" y="442" width="94" height="30"/>
+                                <state key="normal" title="Show Results">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showResults:" destination="EyU-7w-Amv" eventType="touchUpInside" id="Q2l-TO-bYM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>

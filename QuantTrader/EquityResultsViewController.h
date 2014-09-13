@@ -12,7 +12,7 @@
 @interface EquityResultsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 
-@property IBOutlet UITableView *tableView;
+@property(strong, nonatomic)  IBOutlet UITableView *tableView;
 @property IBOutlet UIActivityIndicatorView *activity;
 
 @property (strong)  NSNumber *num;

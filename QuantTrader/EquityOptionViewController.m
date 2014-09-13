@@ -58,7 +58,8 @@ maturityDate_3,
 settlementDate_1,
 settlementDate_2,
 settlementDate_3,
-dividendYield;
+dividendYield,
+eqResultsCon;
 
 DmEquity *equityParameters;
 
@@ -154,13 +155,93 @@ DmEquity *equityParameters;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
+    switch ([self.eqResultsCon.num intValue]) {
+        case 0:
+            NSLog(@"never ran");
+            break;
+        case 1:
+            NSLog(@"is running");
+            break;
+        case 2:
+            NSLog(@"finished runnning");
+            break;
+            
+        default:
+            break;
+    }
+    
+    UIButton *btn = (UIButton *) sender;
+    if ([btn.titleLabel.text isEqualToString:@"Show Results"])
+        return;
+    
     if ([[segue identifier] isEqualToString:@"EquityResults"]) {
-        [self setCalcValues];
         id dest = [segue destinationViewController];
         EquityResultsViewController *resultsCon = (EquityResultsViewController *) dest;
-        [resultsCon doCalcInBackground];
-        resultsCon.num = [[NSNumber alloc] initWithInt:1];
+        
+        if (!self.eqResultsCon)
+            self.eqResultsCon = resultsCon;
+
+        
+  
+        resultsCon.eq = self.eqResultsCon.eq;
+        resultsCon.num = self.eqResultsCon.num;
+        
+        
+        if ([btn.titleLabel.text isEqualToString:@"Run"])
+            if ([resultsCon.num intValue] == 2)
+                resultsCon.num = [NSNumber numberWithInt:0];
+        
+        
+//        self.eqResultsCon = resultsCon;
+        
+
+//        if ([btn.titleLabel.text isEqualToString:@"Run"] && self.eqResultsCon) {
+//            [self.eqResultsCon doCalcInBackground];
+//            return;
+//        }
+        
     }
+    
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
+
+    
+//    UIButton *btn = (UIButton *) sender;
+//    if ([btn.titleLabel.text isEqualToString:@"Show Results"]) {
+//        return NO;
+//    }
+//
+//    if (self.eqResultsCon)
+//        [self setCalcValues];
+    
+    
+    switch ([self.eqResultsCon.num intValue]) {
+        case 0:
+            NSLog(@"never ran");
+            break;
+        case 1:
+            NSLog(@"is running");
+            break;
+        case 2:
+            NSLog(@"finished runnning");
+            break;
+            
+        default:
+            break;
+    }
+
+//    return (self.eqResultsCon == nil);
+//
+//    
+//    if ([identifier isEqualToString:@"showSearchResult"]) {
+//        return [self.results count] > 0;
+//    }
+    
+    return YES;
+    
 }
 
 
@@ -256,6 +337,8 @@ DmEquity *equityParameters;
     }
 }
 
-
+- (IBAction)showResults:(id)sender {
+    [self performSegueWithIdentifier:@"EquityResults" sender:nil];
+}
 
 @end

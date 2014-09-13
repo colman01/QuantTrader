@@ -19,19 +19,37 @@
 @synthesize activity;
 @synthesize num;
 
-bool done;
-
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    done = NO;
-    eq = [[EquityOption_ alloc] init];
-    if ([num intValue] == 1 ) {
-        activity.hidden = NO;
-        [activity startAnimating];
-        [self doCalcInBackground];
+    if (!self.eq)
+        self.eq = [[EquityOption_ alloc] init];
+    
+    
+    switch ([self.num intValue]) {
+        case 0:
+            self.num = [NSNumber numberWithInt:1];
+            [self doCalcInBackground];
+            break;
+        case 1:
+            break;
+        case 2:
+            self.num = [NSNumber numberWithInt:0];
+            
+        default:
+            break;
     }
+    
+//    if ([self.num intValue] == 0 ) {
+//        activity.hidden = NO;
+//        [activity startAnimating];
+//        
+//        self.num = [NSNumber numberWithInt:1];
+//        [self doCalcInBackground];
+//    } else {
+//        return;
+//    }
 }
 
 
@@ -42,14 +60,15 @@ bool done;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
+//        self.num = [NSNumber numberWithInt:1];
         [eq calculate];
         // trigger the main completion handler when this completed
         dispatch_async(dispatch_get_main_queue(), ^{
             activity.hidden = YES;
             [activity stopAnimating];
-            done = YES;
-            [tableView reloadData];
             num = [NSNumber numberWithInt:2];
+            [tableView reloadData];
+            
         });
     });
 }
@@ -70,7 +89,7 @@ bool done;
     cell.textLabel.numberOfLines = 0;
     NSString *value;
     
-    if (done) {
+    if ([self.num intValue] == 2 || [self.num intValue] == 1 || [self.num intValue] == 0) {
         switch (indexPath.row) {
             case 0:
                 [cell.textLabel setText:[@"Black Scholes:\n € " stringByAppendingString:[[NSNumber numberWithDouble:eq.blackScholes_eo] stringValue]]];
@@ -195,8 +214,8 @@ bool done;
                 break;
         }
     }
-    if (!done)
-        [cell.textLabel setText:@" "];
+//    if ([self.num intValue] != 2)
+//        [cell.textLabel setText:@" "];
     
     return cell;
 }
