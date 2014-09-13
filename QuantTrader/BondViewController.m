@@ -250,16 +250,16 @@ DmBond *bondParameters;
             }
             case 10:
             {
-
+                NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+                [formatter setDateFormat:@"dd-MM-yy"];
                 bondValuesViewController.modelData = [[NSMutableArray alloc] initWithObjects:bondParameters.zeroCouponBondFirstDate,bondParameters.zeroCouponBondSecondDate, nil];
-                [bondValuesViewController onCompleteMany:^(NSString *text, int position) {
-                    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-                    [formatter setDateFormat:@"dd/mmm/yyyy"];
-                    
+                
+                [bondValuesViewController onCompleteDateMany:^(NSDate *date, int position) {
                     switch (position) {
                         case 0:
                         {
-                            bondParameters.zeroCouponBondFirstDate = [formatter dateFromString:text];
+                            bondParameters.zeroCouponBondFirstDate = date;
                             [[PersistManager instance] save];
                             bondValuesViewController.modelData[0] = bondParameters.zeroCouponBondFirstDate;
                             [bondValuesViewController.table reloadData];
@@ -268,7 +268,7 @@ DmBond *bondParameters;
                             
                         case 1:
                         {
-                            bondParameters.zeroCouponBondFirstDate = [formatter dateFromString:text];
+                            bondParameters.zeroCouponBondSecondDate = date;
                             [[PersistManager instance] save];
                             bondValuesViewController.modelData[1] = bondParameters.zeroCouponBondSecondDate;
                             [bondValuesViewController.table reloadData];
@@ -278,7 +278,6 @@ DmBond *bondParameters;
                             break;
                     }
                 }];
-                
                 break;
             }
             case 11:

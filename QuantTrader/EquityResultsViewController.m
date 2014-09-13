@@ -35,8 +35,9 @@
         case 1:
             break;
         case 2:
+            activity.hidden = YES;
+            [activity stopAnimating];
             self.num = [NSNumber numberWithInt:0];
-            
         default:
             break;
     }

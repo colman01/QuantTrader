@@ -186,6 +186,7 @@ DmEquity *equityParameters;
   
         resultsCon.eq = self.eqResultsCon.eq;
         resultsCon.num = self.eqResultsCon.num;
+        resultsCon.activity = self.eqResultsCon.activity;
         
         
         if ([btn.titleLabel.text isEqualToString:@"Run"])
