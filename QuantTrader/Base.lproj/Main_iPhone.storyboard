@@ -812,15 +812,6 @@
                                     <action selector="textEntered::" destination="EyU-7w-Amv" eventType="editingDidEndOnExit" id="SV7-wv-gad"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ln-4j-lJI">
-                                <rect key="frame" x="202" y="442" width="94" height="30"/>
-                                <state key="normal" title="Show Results">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showResults:" destination="EyU-7w-Amv" eventType="touchUpInside" id="Q2l-TO-bYM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -938,7 +929,7 @@
                                     <segue destination="sh4-BA-Ex8" kind="push" identifier="ResultBond" id="9bG-7s-GCB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UC2-vE-mVg">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UC2-vE-mVg">
                                 <rect key="frame" x="220" y="443" width="94" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="ATn-HF-tIK"/>
@@ -1291,7 +1282,7 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8QC-6g-7YM">
-                                <rect key="frame" x="141" y="83" width="20" height="20"/>
+                                <rect key="frame" x="280" y="83" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1322,6 +1313,6 @@
         </simulatedScreenMetrics>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kPo-h5-7Nt"/>
+        <segue reference="9bG-7s-GCB"/>
     </inferredMetricsTieBreakers>
 </document>

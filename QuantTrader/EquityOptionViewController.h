@@ -11,7 +11,7 @@
 #import "ParameterInitializer.h"
 #import "EquityResultsViewController.h"
 
-@interface EquityOptionViewController : UIViewController {
+@interface EquityOptionViewController : UIViewController <UITextFieldDelegate> {
 
     IBOutlet UITextField * settlementDate_1;
     IBOutlet UITextField * settlementDate_2;
@@ -132,7 +132,6 @@
 
 - (IBAction)textEntered:(UITextField *)sender;
 - (IBAction)showResults:(id)sender;
-//- (IBAction)calculateWithSegue;
 - (IBAction)hide:(id)sender;
 
 

@@ -91,6 +91,20 @@ DmEquity *equityParameters;
     self.riskFreeRate.keyboardType     = UIKeyboardTypeNumbersAndPunctuation;
     self.volatility.keyboardType       = UIKeyboardTypeNumbersAndPunctuation;
     
+    
+    self.settlementDate_1.delegate = self;
+    self.settlementDate_2.delegate = self;
+    self.settlementDate_3.delegate = self;
+    self.maturityDate_1.delegate   = self;
+    self.maturityDate_2.delegate   = self;
+    self.maturityDate_3.delegate   = self;
+    self.underlying.delegate       = self;
+    self.strike.delegate           = self;
+    self.dividendYield.delegate    = self;
+    self.riskFreeRate.delegate     = self;
+    self.volatility.delegate       = self;
+    
+    
     NSMutableArray *equityObjects = [[QuantDao instance] getEquity];
     
     // To clear the local store
@@ -181,8 +195,6 @@ DmEquity *equityParameters;
         
         if (!self.eqResultsCon)
             self.eqResultsCon = resultsCon;
-
-        
   
         resultsCon.eq = self.eqResultsCon.eq;
         resultsCon.num = self.eqResultsCon.num;
@@ -192,57 +204,12 @@ DmEquity *equityParameters;
         if ([btn.titleLabel.text isEqualToString:@"Run"])
             if ([resultsCon.num intValue] == 2)
                 resultsCon.num = [NSNumber numberWithInt:0];
-        
-        
-//        self.eqResultsCon = resultsCon;
-        
-
-//        if ([btn.titleLabel.text isEqualToString:@"Run"] && self.eqResultsCon) {
-//            [self.eqResultsCon doCalcInBackground];
-//            return;
-//        }
-        
     }
     
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    
-
-    
-//    UIButton *btn = (UIButton *) sender;
-//    if ([btn.titleLabel.text isEqualToString:@"Show Results"]) {
-//        return NO;
-//    }
-//
-//    if (self.eqResultsCon)
-//        [self setCalcValues];
-    
-    
-    switch ([self.eqResultsCon.num intValue]) {
-        case 0:
-            NSLog(@"never ran");
-            break;
-        case 1:
-            NSLog(@"is running");
-            break;
-        case 2:
-            NSLog(@"finished runnning");
-            break;
-            
-        default:
-            break;
-    }
-
-//    return (self.eqResultsCon == nil);
-//
-//    
-//    if ([identifier isEqualToString:@"showSearchResult"]) {
-//        return [self.results count] > 0;
-//    }
-    
-    return YES;
-    
+   return YES;
 }
 
 
@@ -341,5 +308,11 @@ DmEquity *equityParameters;
 - (IBAction)showResults:(id)sender {
     [self performSegueWithIdentifier:@"EquityResults" sender:nil];
 }
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    [self setCalcValues];
+}
+
+
 
 @end

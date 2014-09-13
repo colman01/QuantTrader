@@ -61,7 +61,6 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
 
-//        self.num = [NSNumber numberWithInt:1];
         [eq calculate];
         // trigger the main completion handler when this completed
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -215,8 +214,6 @@
                 break;
         }
     }
-//    if ([self.num intValue] != 2)
-//        [cell.textLabel setText:@" "];
     
     return cell;
 }

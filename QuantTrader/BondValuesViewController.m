@@ -32,13 +32,6 @@
     self.table.dataSource = self;
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-}
-
-
-- (void) viewWillDisappear:(BOOL)animated   {
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

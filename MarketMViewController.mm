@@ -50,7 +50,7 @@
 }
 
 -(IBAction)quitCalc:(id)sender {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Cancel Computation" message:@"press to cancel" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"", nil];
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Cancel Computation" message:@"Cancel" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"", nil];
     [alert show];
     [market stopCalc];
 }
