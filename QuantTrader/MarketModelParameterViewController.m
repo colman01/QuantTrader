@@ -8,8 +8,6 @@
 
 #import "MarketModelParameterViewController.h"
 
-#import "MarketMViewController.h"
-
 @interface MarketModelParameterViewController ()
 
 @end
@@ -298,10 +296,19 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"MarketModelResult"]) {
-        MarketMViewController *marketModel = [[MarketMViewController alloc] init];
-        id dest = segue.destinationViewController;
-        marketModel = dest;
-        [self setupMarketModelParameters:marketModel];
+        
+        [self setupMarketModelParameters:self.marketModelResults];
+        
+        MarketMViewController * dest = (MarketMViewController *)segue.destinationViewController;
+        self.marketModelResults = segue.destinationViewController;
+        
+        dest.market              = self.marketModelResults.market;
+        dest.hostView            = self.marketModelResults.hostView;
+        dest.priceAnnotation     = self.marketModelResults.priceAnnotation;
+        dest.graphContainer      = self.marketModelResults.graphContainer;
+        dest.multiplierCutOff    = self.marketModelResults.multiplierCutOff;
+        dest.projectionTolerance = self.marketModelResults.projectionTolerance;
+        dest.payer               = self.marketModelResults.payer;
     }
 }
 

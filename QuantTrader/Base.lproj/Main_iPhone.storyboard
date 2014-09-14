@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
-        <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation View Controller-->
@@ -119,10 +119,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu" id="tQt-TN-PWz"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics">
-                        <size key="portraitSize" width="320" height="480"/>
-                        <size key="landscapeSize" width="480" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
@@ -164,24 +161,39 @@
             </objects>
             <point key="canvasLocation" x="1067" y="-1090"/>
         </scene>
-        <!--View Controller-->
+        <!--Pdf View Controller-->
         <scene sceneID="qsE-rV-LNR">
             <objects>
-                <viewController id="AOY-Vr-xal" sceneMemberID="viewController">
+                <viewController id="AOY-Vr-xal" customClass="PdfViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ETC-Vn-dbu"/>
                         <viewControllerLayoutGuide type="bottom" id="iMg-S7-OBG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6d7-bB-GMK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3H-rr-NFh">
+                                <rect key="frame" x="-104" y="64" width="528" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="b3H-rr-NFh" secondAttribute="trailing" constant="-120" id="Cwk-oe-kFZ"/>
+                            <constraint firstItem="b3H-rr-NFh" firstAttribute="leading" secondItem="6d7-bB-GMK" secondAttribute="leadingMargin" constant="-120" id="OKJ-MB-okc"/>
+                            <constraint firstItem="b3H-rr-NFh" firstAttribute="top" secondItem="ETC-Vn-dbu" secondAttribute="bottom" id="h2L-TH-ddc"/>
+                            <constraint firstItem="iMg-S7-OBG" firstAttribute="top" secondItem="b3H-rr-NFh" secondAttribute="bottom" id="zbd-AJ-CCR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lBd-U3-ekO"/>
+                    <connections>
+                        <outlet property="pdfWebView" destination="b3H-rr-NFh" id="ZSU-G3-zca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4E-hv-tdk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1573" y="-2182"/>
+            <point key="canvasLocation" x="3087" y="-1202"/>
         </scene>
         <!--MarketM View Controller-->
         <scene sceneID="lAU-IF-Tyo">
@@ -244,10 +256,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7Lm-us-jdA"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics">
-                        <size key="portraitSize" width="320" height="480"/>
-                        <size key="landscapeSize" width="480" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="graphContainer" destination="pmu-z5-etc" id="9q9-7C-fKQ"/>
                     </connections>
@@ -861,10 +870,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1dw-d4-N6F"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics">
-                        <size key="portraitSize" width="320" height="480"/>
-                        <size key="landscapeSize" width="480" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="dividendYield" destination="Xl0-ht-ZLA" id="bNT-vp-Vk0"/>
                         <outlet property="maturityDate_1" destination="qcW-j0-mBo" id="HIV-88-mlg"/>
@@ -965,10 +971,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gJy-2f-ohp"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics">
-                        <size key="portraitSize" width="320" height="480"/>
-                        <size key="landscapeSize" width="480" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="table" destination="nbI-JO-xAp" id="Xr5-eS-ZfV"/>
                     </connections>
@@ -1087,10 +1090,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fAX-5f-kAl"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics">
-                        <size key="portraitSize" width="320" height="480"/>
-                        <size key="landscapeSize" width="480" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="table" destination="kJu-DB-V4x" id="VYS-2y-eq1"/>
                     </connections>
@@ -1148,10 +1148,7 @@
                     <navigationItem key="navigationItem" id="95D-iC-pY3">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="add" id="fNY-Cs-lMj"/>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics">
-                        <size key="portraitSize" width="320" height="480"/>
-                        <size key="landscapeSize" width="480" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="table" destination="1YF-2s-7si" id="cCz-1a-rFb"/>
                     </connections>
@@ -1209,10 +1206,7 @@
                     <navigationItem key="navigationItem" id="8Vc-Qf-zqm">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="myh-Td-eIx"/>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics">
-                        <size key="portraitSize" width="320" height="480"/>
-                        <size key="landscapeSize" width="480" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="datePicker" destination="PXH-TQ-dyL" id="RVS-on-B5K"/>
                         <outlet property="valueField" destination="eqD-UM-FNG" id="Xu3-ex-C98"/>
@@ -1243,10 +1237,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="TSU-aO-JUb"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics">
-                        <size key="portraitSize" width="320" height="480"/>
-                        <size key="landscapeSize" width="480" height="320"/>
-                    </simulatedScreenMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMj-CK-CMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1268,12 +1259,15 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="zhu-S1-h8h">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="zhu-S1-h8h">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zhu-S1-h8h" id="XZi-eO-Hwn">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="AOY-Vr-xal" kind="push" id="x3r-Ug-gt2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1307,10 +1301,7 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4">
-            <size key="portraitSize" width="320" height="568"/>
-            <size key="landscapeSize" width="568" height="320"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="9bG-7s-GCB"/>

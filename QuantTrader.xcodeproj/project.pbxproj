@@ -40,6 +40,8 @@
 		C0094DC3197EBBFA006AAB94 /* DmRepo.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DC2197EBBFA006AAB94 /* DmRepo.m */; };
 		C0094DC6197EBBFA006AAB94 /* DmCallableBonds.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DC5197EBBFA006AAB94 /* DmCallableBonds.m */; };
 		C0094DC9197EBBFA006AAB94 /* DmReplication.m in Sources */ = {isa = PBXBuildFile; fileRef = C0094DC8197EBBFA006AAB94 /* DmReplication.m */; };
+		C01CA3CD19C5A4DD00339259 /* PdfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C01CA3CC19C5A4DD00339259 /* PdfViewController.m */; };
+		C01CA3CF19C5AA1E00339259 /* BinomialTree.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C01CA3CE19C5AA1E00339259 /* BinomialTree.pdf */; };
 		C03CAACE19790DE900BFD8A8 /* DmMaturityDates.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CAACD19790DE900BFD8A8 /* DmMaturityDates.m */; };
 		C03CAAD119790DEA00BFD8A8 /* DmSwapQuotes.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CAAD019790DEA00BFD8A8 /* DmSwapQuotes.m */; };
 		C03CAAD419790DEA00BFD8A8 /* DmAccruedAmount.m in Sources */ = {isa = PBXBuildFile; fileRef = C03CAAD319790DEA00BFD8A8 /* DmAccruedAmount.m */; };
@@ -146,6 +148,9 @@
 		C0094DC5197EBBFA006AAB94 /* DmCallableBonds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmCallableBonds.m; sourceTree = "<group>"; };
 		C0094DC7197EBBFA006AAB94 /* DmReplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmReplication.h; sourceTree = "<group>"; };
 		C0094DC8197EBBFA006AAB94 /* DmReplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmReplication.m; sourceTree = "<group>"; };
+		C01CA3CB19C5A4DD00339259 /* PdfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PdfViewController.h; sourceTree = "<group>"; };
+		C01CA3CC19C5A4DD00339259 /* PdfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PdfViewController.m; sourceTree = "<group>"; };
+		C01CA3CE19C5AA1E00339259 /* BinomialTree.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = BinomialTree.pdf; sourceTree = "<group>"; };
 		C03CAACC19790DE900BFD8A8 /* DmMaturityDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmMaturityDates.h; sourceTree = "<group>"; };
 		C03CAACD19790DE900BFD8A8 /* DmMaturityDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DmMaturityDates.m; sourceTree = "<group>"; };
 		C03CAACF19790DEA00BFD8A8 /* DmSwapQuotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DmSwapQuotes.h; sourceTree = "<group>"; };
@@ -293,6 +298,8 @@
 		339F43DC1934BBC9000F6923 /* QuantTrader */ = {
 			isa = PBXGroup;
 			children = (
+				C01CA3CE19C5AA1E00339259 /* BinomialTree.pdf */,
+				C01CA3CA19C5A4C700339259 /* PDFViewer */,
 				C03CAAEA197923AD00BFD8A8 /* Services */,
 				C0F50296197826E800E8D448 /* Navigaiton Con */,
 				F37DB309193753DD00F91F66 /* CPP Container */,
@@ -339,6 +346,15 @@
 				339F44081934BBC9000F6923 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C01CA3CA19C5A4C700339259 /* PDFViewer */ = {
+			isa = PBXGroup;
+			children = (
+				C01CA3CB19C5A4DD00339259 /* PdfViewController.h */,
+				C01CA3CC19C5A4DD00339259 /* PdfViewController.m */,
+			);
+			name = PDFViewer;
 			sourceTree = "<group>";
 		};
 		C03CAAEA197923AD00BFD8A8 /* Services */ = {
@@ -641,6 +657,7 @@
 				339F43EA1934BBC9000F6923 /* Main_iPhone.storyboard in Resources */,
 				339F43E11934BBC9000F6923 /* InfoPlist.strings in Resources */,
 				F32A9BD11934D92000BDE337 /* EquityOptionResults.xib in Resources */,
+				C01CA3CF19C5AA1E00339259 /* BinomialTree.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -727,6 +744,7 @@
 				C0094DC9197EBBFA006AAB94 /* DmReplication.m in Sources */,
 				C0CE8C3F194F351C009BAD80 /* TableTableViewController.m in Sources */,
 				C0094DC0197EBBFA006AAB94 /* DmMarketModel.m in Sources */,
+				C01CA3CD19C5A4DD00339259 /* PdfViewController.m in Sources */,
 				F32A9BB01934BF6400BDE337 /* DiscreteHedging.mm in Sources */,
 				C03CAADD19790DEB00BFD8A8 /* DmLiborForcastingCurveQutotes.m in Sources */,
 				C03CAAD719790DEA00BFD8A8 /* DmCouponRates.m in Sources */,

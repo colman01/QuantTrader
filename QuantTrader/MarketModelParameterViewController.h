@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "QuantDao.h"
 #import "ParameterInitializer.h"
+#import "MarketMViewController.h"
 
 @interface MarketModelParameterViewController : UIViewController
 
@@ -41,6 +42,8 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *floatingSpread;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *payer;
+
+@property (weak) MarketMViewController *marketModelResults;
 
 
 @end
