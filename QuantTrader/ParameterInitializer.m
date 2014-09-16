@@ -14,6 +14,7 @@
     [self setupBond];
     [self setupEquity];
     [self setupMarketModel];
+    
 }
 
 -(void) setupMarketModel {
@@ -236,6 +237,39 @@
     [[PersistManager instance] save];
 
     
+}
+
+
+- (void) storeFileExamle {
+    // For error information
+    NSError *error;
+    
+    // Create file manager
+    NSFileManager *fileMgr = [NSFileManager defaultManager];
+    
+    // Point to Document directory
+    NSString *documentsDirectory = [NSHomeDirectory()
+                                    
+                                    stringByAppendingPathComponent:@"Documents"];
+    
+    // File we want to create in the documents directory
+    // Result is: /Documents/file1.txt
+    NSString *filePath = [documentsDirectory
+                          stringByAppendingPathComponent:@"components.csv"];
+    
+    // String to write
+    NSString *str = @"iPhone Developer Tips\nhttp://iPhoneDevelopTips,com";
+    
+    // Write the file
+    [str writeToFile:filePath atomically:YES
+            encoding:NSUTF8StringEncoding error:&error];
+    
+    // Show contents of Documents directory
+    NSLog(@"Documents directory: %@",
+          [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);
+    
+    NSArray *array = [[NSArray alloc] initWithObjects:@"1",@"2", nil];
+    [[array componentsJoinedByString:@","] writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:NULL];
 }
 
 @end
