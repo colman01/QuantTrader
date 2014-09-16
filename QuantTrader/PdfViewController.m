@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"BinomialTree" ofType:@"pdf"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"joshi4" ofType:@"pdf"];
     NSURL *targetURL = [NSURL fileURLWithPath:path];
     NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
     [pdfWebView loadRequest:request];
@@ -26,6 +26,13 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [[UIDevice currentDevice] setValue:
+     [NSNumber numberWithInteger: UIInterfaceOrientationLandscapeLeft]
+                                forKey:@"orientation"];
+
 }
 
 /*

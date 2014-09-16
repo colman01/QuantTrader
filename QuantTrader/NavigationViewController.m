@@ -10,6 +10,7 @@
 #import "BondSetValueViewController.h"
 #import "MasterViewController.h"
 #import "EquityOptionViewController.h"
+#import "PdfViewController.h"
 
 @interface NavigationViewController ()
 
@@ -40,7 +41,7 @@
 - (BOOL) shouldAutorotate {
     UIViewController *vc = self.topViewController;
     
-    if ( [vc isKindOfClass:[EquityOptionViewController class]]) {
+    if ( [vc isKindOfClass:[EquityOptionViewController class]] ) {
 //        [[UIDevice currentDevice] setValue:
 //         [NSNumber numberWithInteger: UIInterfaceOrientationPortrait]
 //                                    forKey:@"orientation"];
@@ -50,6 +51,14 @@
         }
         
         return NO;
+    }
+    
+    if ( [vc isKindOfClass:[PdfViewController class]]) {
+        if (UIDeviceOrientationIsPortrait([UIDevice currentDevice].orientation)) {
+            return NO;
+        }
+        
+        return YES;
     }
     
     if ( [vc isKindOfClass:[MasterViewController class]]) {
