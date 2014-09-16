@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -173,15 +174,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b3H-rr-NFh">
-                                <rect key="frame" x="16" y="64" width="448" height="256"/>
+                                <rect key="frame" x="-54" y="64" width="568" height="256"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="b3H-rr-NFh" secondAttribute="trailing" id="BmR-j1-35C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b3H-rr-NFh" secondAttribute="trailing" constant="-50" id="BmR-j1-35C"/>
                             <constraint firstItem="iMg-S7-OBG" firstAttribute="top" secondItem="b3H-rr-NFh" secondAttribute="bottom" id="YDb-fw-q7o"/>
-                            <constraint firstItem="b3H-rr-NFh" firstAttribute="leading" secondItem="6d7-bB-GMK" secondAttribute="leadingMargin" id="rpK-Na-NdU"/>
+                            <constraint firstItem="b3H-rr-NFh" firstAttribute="leading" secondItem="6d7-bB-GMK" secondAttribute="leadingMargin" constant="-70" id="rpK-Na-NdU"/>
                             <constraint firstItem="b3H-rr-NFh" firstAttribute="top" secondItem="ETC-Vn-dbu" secondAttribute="bottom" id="umY-zf-CX5"/>
                         </constraints>
                     </view>

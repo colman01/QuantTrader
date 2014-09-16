@@ -30,7 +30,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [[UIDevice currentDevice] setValue:
-     [NSNumber numberWithInteger: UIInterfaceOrientationLandscapeLeft]
+     [NSNumber numberWithInteger: UIInterfaceOrientationLandscapeRight]
                                 forKey:@"orientation"];
 
 }
