@@ -65,6 +65,8 @@
     [self configureGraph];
     [self configurePlots];
     [self.hostView.hostedGraph.defaultPlotSpace setAllowsUserInteraction:YES    ];
+    
+    
 }
 
 -(void)configureHost {
@@ -138,6 +140,21 @@
                 break;
 	}
 	return [NSDecimalNumber zero];
+}
+
+-(BOOL)plotSpace:(CPTPlotSpace *)space shouldScaleBy:(CGFloat)interactionScale aboutPoint:(CGPoint)interactionPoint {
+    
+    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) self.hostView.hostedGraph.defaultPlotSpace;
+    double lenX = plotSpace.xRange.lengthDouble;
+    
+    if (lenX > 3 && interactionScale < 1.0)
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
 }
 
 @end

@@ -241,6 +241,7 @@
 
 
 - (void) storeFileExamle {
+    
     // For error information
     NSError *error;
     
@@ -265,8 +266,8 @@
             encoding:NSUTF8StringEncoding error:&error];
     
     // Show contents of Documents directory
-    NSLog(@"Documents directory: %@",
-          [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);
+//    NSLog(@"Documents directory: %@",
+//          [fileMgr contentsOfDirectoryAtPath:documentsDirectory error:&error]);
     
     NSArray *array = [[NSArray alloc] initWithObjects:@"1",@"2", nil];
     [[array componentsJoinedByString:@","] writeToFile:filePath atomically:YES encoding:NSUTF8StringEncoding error:NULL];
