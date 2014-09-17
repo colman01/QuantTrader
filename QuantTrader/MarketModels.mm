@@ -421,22 +421,46 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     @catch(NSException *exception) {
     }
     
+//    bool payer = true;
+//
+//    
+//    std::vector<Real> rateTimes([marketParameters.numberRates integerValue]+1);
+//    for (int i=0; i < rateTimes.size(); ++i) {
+//        rateTimes[i] = [marketParameters.firstTime doubleValue] + i*[marketParameters.accrual doubleValue];
+//    }
+//    
+//    std::vector<Real> paymentTimes([marketParameters.numberRates doubleValue]);
+//    std::vector<Real> accruals([marketParameters.numberRates intValue],[marketParameters.accrual doubleValue]);
+//    std::vector<Real> fixedStrikes([marketParameters.numberRates intValue],[marketParameters.strike doubleValue]);
+//    std::vector<Real> floatingSpreads([marketParameters.numberRates intValue],[marketParameters.floatingSpread doubleValue]);
+//    std::vector<Real> fixedMultipliers([marketParameters.numberRates intValue],[marketParameters.fixedMultiplier doubleValue]);
+//    
+//    for (int i=0; i < paymentTimes.size(); ++i)
+//        paymentTimes[i] = [marketParameters.firstTime doubleValue] + (i+1)*[marketParameters.accrual doubleValue];
+    
+    int numberRates =20;
+    Real accrual = 0.5;
+    Real firstTime = 0.5;
+    
+    Real strike =0.15;
+    Real fixedMultiplier = 2.0;
+    Real floatingSpread =0.0;
     bool payer = true;
     
     
-    std::vector<Real> rateTimes([marketParameters.numberRates integerValue]+1);
-    for (int i=0; i < rateTimes.size(); ++i) {
-        rateTimes[i] = [marketParameters.firstTime doubleValue] + i*[marketParameters.accrual doubleValue];
-    }
+    std::vector<Real> rateTimes(numberRates+1);
+    for (int i=0; i < rateTimes.size(); ++i)
+        rateTimes[i] = firstTime + i*accrual;
     
-    std::vector<Real> paymentTimes([marketParameters.numberRates doubleValue]);
-    std::vector<Real> accruals([marketParameters.numberRates intValue],[marketParameters.accrual doubleValue]);
-    std::vector<Real> fixedStrikes([marketParameters.numberRates intValue],[marketParameters.strike doubleValue]);
-    std::vector<Real> floatingSpreads([marketParameters.numberRates intValue],[marketParameters.floatingSpread doubleValue]);
-    std::vector<Real> fixedMultipliers([marketParameters.numberRates intValue],[marketParameters.fixedMultiplier doubleValue]);
+    std::vector<Real> paymentTimes(numberRates);
+    std::vector<Real> accruals(numberRates,accrual);
+    std::vector<Real> fixedStrikes(numberRates,strike);
+    std::vector<Real> floatingSpreads(numberRates,floatingSpread);
+    std::vector<Real> fixedMultipliers(numberRates,fixedMultiplier);
     
     for (int i=0; i < paymentTimes.size(); ++i)
-        paymentTimes[i] = [marketParameters.firstTime doubleValue] + (i+1)*[marketParameters.accrual doubleValue];
+        paymentTimes[i] = firstTime + (i+1)*accrual;
+    
 
     MultiStepInverseFloater inverseFloater(
                                            rateTimes,
@@ -652,6 +676,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
         
         for (; r < values.size(); ++r)
         {
+            [self.vega addObject:[NSNumber numberWithInt:(r - 1 -  [marketParameters.numberRates intValue])]];
             std::cout << " vega, " << r - 1 -  [marketParameters.numberRates intValue]<< ", " << values[r] << " ," << errors[r] << "\n";
             totalVega +=  values[r];
         }

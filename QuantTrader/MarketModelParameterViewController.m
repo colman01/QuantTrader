@@ -303,6 +303,7 @@
         self.marketModelResults = segue.destinationViewController;
         
         dest.market              = self.marketModelResults.market;
+        dest.market.delta        = self.marketModelResults.market.delta;
         dest.hostView            = self.marketModelResults.hostView;
         dest.priceAnnotation     = self.marketModelResults.priceAnnotation;
         dest.graphContainer      = self.marketModelResults.graphContainer;

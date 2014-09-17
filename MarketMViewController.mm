@@ -98,12 +98,26 @@
     plotSpace.delegate = self;
 	// 3 - Set up plot space
    [plotSpace scaleToFitPlots:[NSArray arrayWithObjects:aaplPlot, nil]];
-	CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-	[xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
-	plotSpace.xRange = xRange;
-	CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-	[yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
-	plotSpace.yRange = yRange;
+//	CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
+//	[xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.1f)];
+//	plotSpace.xRange = xRange;
+//	CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
+//	[yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
+
+//    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
+//    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(0.000000001f)];
+//    plotSpace.xRange = xRange;
+//    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
+//    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(0.000000010f)];
+//    plotSpace.yRange = yRange;
+    
+    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
+    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.0f)];
+    plotSpace.xRange = xRange;
+    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
+    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.0f)];
+    plotSpace.yRange = yRange;
+    
 	// 4 - Create styles and symbols
 	CPTMutableLineStyle *aaplLineStyle = [aaplPlot.dataLineStyle mutableCopy];
 	aaplLineStyle.lineWidth = 2.5;
