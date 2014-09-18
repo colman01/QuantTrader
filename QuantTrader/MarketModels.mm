@@ -668,12 +668,14 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
 //        if(!self.delta)
 //            self.delta = [[NSMutableArray alloc] init];
         self.delta = [[NSMutableArray alloc] init];
+        
         for (int i=0; i < [marketParameters.numberRates intValue]; ++i, ++r) {
             [self.delta addObject:[NSNumber numberWithFloat:values[r] ]];
             std::cout << "Delta, " << i << ", " << values[r] << ", " << errors[r] << "\n";
         }
         
         Real totalVega = 0.0;
+        self.vega = [[NSMutableArray alloc] init];
         
         for (; r < values.size(); ++r)
         {

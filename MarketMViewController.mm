@@ -17,6 +17,7 @@
 @synthesize payer;
 @synthesize graphContainer;
 @synthesize priceAnnotation = priceAnnotation_;
+@synthesize activityIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,8 +41,12 @@
 }
 
 -(IBAction)btnCalc:(id)sender {
+    [self.activityIndicator startAnimating];
+    [self.activityIndicator setHidesWhenStopped:YES];
+    
     [market graphReady:^() {
         [self reloadGraph:nil];
+        [self.activityIndicator stopAnimating];
     }];
     
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Calculation running" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
@@ -103,29 +108,15 @@
 //	plotSpace.xRange = xRange;
 //	CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
 //	[yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.2f)];
-
-//    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-//    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(0.000000001f)];
-//    plotSpace.xRange = xRange;
-//    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-//    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(0.000000010f)];
-//    plotSpace.yRange = yRange;
-    
-//    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-//    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(15.0f)];
-//    plotSpace.xRange = xRange;
-//    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-//    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(15.0f)];
-//    plotSpace.yRange = yRange;
     
     //set axes ranges
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:
-                        CPTDecimalFromFloat(-5) //min year minus 1
+                        CPTDecimalFromFloat(-12) //min year minus 1
                                                     length:CPTDecimalFromFloat((40))]; //year difference plus 2
     
     plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:
-                        CPTDecimalFromFloat(-5)
-                                                    length:CPTDecimalFromFloat((18))]; // round up to next 50
+                        CPTDecimalFromFloat(-0.2)
+                                                    length:CPTDecimalFromFloat((1.9))]; // round up to next 50
     
     
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.hostView.hostedGraph.axisSet;
@@ -133,7 +124,30 @@
 //    x.labelingPolicy = CPTAxisLabelingPolicyNone;
     
     axisSet.xAxis.majorIntervalLength = CPTDecimalFromFloat(15.0f);
-    axisSet.yAxis.majorIntervalLength = CPTDecimalFromFloat(15.0f);
+    axisSet.yAxis.majorIntervalLength = CPTDecimalFromFloat(0.5f);
+    
+    
+    
+    NSNumberFormatter * yformatter =  [[NSNumberFormatter alloc] init];
+    [yformatter setUsesSignificantDigits:YES];
+    [yformatter setMaximumSignificantDigits:4];
+    [yformatter setMaximumFractionDigits:1];
+    [yformatter setRoundingMode:NSNumberFormatterRoundCeiling];
+    axisSet.yAxis.labelFormatter = yformatter;
+    
+    
+    axisSet.xAxis.title = @"[Delta Index]";
+    axisSet.yAxis.title = @"[Value of Delta]";
+//    axisSet.xAxis.titleTextStyle = axisStyle;
+//    axisSet.yAxis.titleTextStyle = axisStyle;
+    axisSet.xAxis.titleOffset = 20.0f;
+    axisSet.yAxis.titleOffset = 35.0f;
+//    axisSet.xAxis.labelTextStyle = labelStyle;
+    axisSet.xAxis.labelOffset = 5.0f;
+//    axisSet.yAxis.labelTextStyle = labelStyle;
+    axisSet.yAxis.labelOffset = 5.0f;
+    
+//    axisSet.xAxis.la
 
     
 	// 4 - Create styles and symbols
@@ -167,26 +181,27 @@
 		case CPTScatterPlotFieldY:
                 if (index < valueCount) {
                     NSNumber *num = [market.delta objectAtIndex:index];
-                    return num = [NSNumber numberWithFloat:[num floatValue]*10];
+                    return num = [NSNumber numberWithFloat:[num floatValue]];
+//                    return num = [NSNumber numberWithFloat:[num floatValue]*10];
                 }
                 break;
 	}
 	return [NSDecimalNumber zero];
 }
 
-//-(BOOL)plotSpace:(CPTPlotSpace *)space shouldScaleBy:(CGFloat)interactionScale aboutPoint:(CGPoint)interactionPoint {
-//    
-//    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) self.hostView.hostedGraph.defaultPlotSpace;
-//    double lenX = plotSpace.xRange.lengthDouble;
-//    
-//    if (lenX > 3 && interactionScale < 1.0)
-//    {
-//        return NO;
-//    }
-//    else
-//    {
-//        return YES;
-//    }
-//}
+-(BOOL)plotSpace:(CPTPlotSpace *)space shouldScaleBy:(CGFloat)interactionScale aboutPoint:(CGPoint)interactionPoint {
+    
+    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) self.hostView.hostedGraph.defaultPlotSpace;
+    double lenX = plotSpace.xRange.lengthDouble;
+    
+    if (lenX > 100 && interactionScale < 1.0)
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
 
 @end

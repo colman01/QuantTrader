@@ -236,20 +236,29 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmu-z5-etc">
-                                <rect key="frame" x="0.0" y="62" width="480" height="220"/>
+                                <rect key="frame" x="0.0" y="64" width="480" height="218"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Wv4-j7-VO0">
+                                <rect key="frame" x="186" y="295" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="356-1f-xOh"/>
+                                    <constraint firstAttribute="height" constant="20" id="gy0-d0-xXo"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dr5-AX-Z8v" firstAttribute="top" secondItem="pmu-z5-etc" secondAttribute="bottom" constant="8" id="2RO-lN-nHm"/>
                             <constraint firstAttribute="trailing" secondItem="8AF-h8-hVU" secondAttribute="trailing" constant="36" id="9Di-cE-6Tc"/>
+                            <constraint firstItem="pmu-z5-etc" firstAttribute="top" secondItem="yCQ-pw-Roi" secondAttribute="bottom" id="Boc-qS-ipY"/>
                             <constraint firstAttribute="trailing" secondItem="pmu-z5-etc" secondAttribute="trailing" id="CbX-KK-KWC"/>
                             <constraint firstItem="vne-Ay-iJm" firstAttribute="top" secondItem="8AF-h8-hVU" secondAttribute="bottom" id="Cfc-t8-VEV"/>
                             <constraint firstItem="iV1-qj-b8o" firstAttribute="leading" secondItem="dr5-AX-Z8v" secondAttribute="trailing" constant="17" id="DWQ-p0-Sf6"/>
                             <constraint firstItem="dr5-AX-Z8v" firstAttribute="leading" secondItem="nfJ-wb-T3L" secondAttribute="leading" constant="20" id="WbP-Vz-6Ch"/>
+                            <constraint firstItem="Wv4-j7-VO0" firstAttribute="leading" secondItem="iV1-qj-b8o" secondAttribute="trailing" constant="33" id="XlA-nr-Cke"/>
                             <constraint firstItem="vne-Ay-iJm" firstAttribute="top" secondItem="dr5-AX-Z8v" secondAttribute="bottom" id="aE3-PS-Fak"/>
-                            <constraint firstItem="pmu-z5-etc" firstAttribute="top" secondItem="nfJ-wb-T3L" secondAttribute="top" constant="62" id="b5i-Fz-c1o"/>
+                            <constraint firstItem="vne-Ay-iJm" firstAttribute="top" secondItem="Wv4-j7-VO0" secondAttribute="bottom" constant="5" id="aNf-yg-Cfi"/>
                             <constraint firstItem="8AF-h8-hVU" firstAttribute="top" secondItem="pmu-z5-etc" secondAttribute="bottom" constant="8" id="cyI-WV-XqS"/>
                             <constraint firstItem="vne-Ay-iJm" firstAttribute="top" secondItem="iV1-qj-b8o" secondAttribute="bottom" id="ey1-Iq-ukf"/>
                             <constraint firstItem="pmu-z5-etc" firstAttribute="leading" secondItem="nfJ-wb-T3L" secondAttribute="leading" id="l75-v4-iB8"/>
@@ -259,6 +268,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="Wv4-j7-VO0" id="MFg-SV-Lgq"/>
                         <outlet property="graphContainer" destination="pmu-z5-etc" id="9q9-7C-fKQ"/>
                     </connections>
                 </viewController>

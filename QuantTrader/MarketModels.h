@@ -18,8 +18,8 @@ typedef void (^GraphCompletionHandler) ();
 
 @property (nonatomic, strong) CPTGraphHostingView *hostView;
 
-@property (strong, nonatomic) NSMutableArray *delta;
-@property (weak, nonatomic) NSMutableArray *vega;
+@property  NSMutableArray *delta;
+@property  NSMutableArray *vega;
 @property bool exitCalc;
 @property (strong, nonatomic) GraphCompletionHandler handler;
 

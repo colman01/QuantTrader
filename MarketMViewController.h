@@ -17,6 +17,7 @@
 @property (nonatomic, strong) CPTPlotSpaceAnnotation *priceAnnotation;
 
 @property (nonatomic, strong) IBOutlet UIView *graphContainer;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 -(IBAction)btnCalc:(id)sender;
 -(IBAction)quitCalc:(id)sender;
