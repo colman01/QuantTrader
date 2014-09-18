@@ -41,6 +41,7 @@
 }
 
 -(IBAction)btnCalc:(id)sender {
+    [self.activityIndicator setHidden:NO];
     [self.activityIndicator startAnimating];
     [self.activityIndicator setHidesWhenStopped:YES];
     
