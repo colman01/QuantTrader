@@ -111,18 +111,26 @@
 //    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(0.000000010f)];
 //    plotSpace.yRange = yRange;
     
-    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(15.0f)];
-    plotSpace.xRange = xRange;
-    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(15.0f)];
-    plotSpace.yRange = yRange;
+//    CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
+//    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(15.0f)];
+//    plotSpace.xRange = xRange;
+//    CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
+//    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(15.0f)];
+//    plotSpace.yRange = yRange;
     
-//    CPTAxisLabelingPolicyNone
+    //set axes ranges
+    plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:
+                        CPTDecimalFromFloat(-5) //min year minus 1
+                                                    length:CPTDecimalFromFloat((40))]; //year difference plus 2
+    
+    plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:
+                        CPTDecimalFromFloat(-5)
+                                                    length:CPTDecimalFromFloat((18))]; // round up to next 50
+    
     
     CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.hostView.hostedGraph.axisSet;
-    CPTXYAxis *x                    = axisSet.xAxis;
-    x.labelingPolicy = CPTAxisLabelingPolicyNone;
+//    CPTXYAxis *x                    = axisSet.xAxis;
+//    x.labelingPolicy = CPTAxisLabelingPolicyNone;
     
     axisSet.xAxis.majorIntervalLength = CPTDecimalFromFloat(15.0f);
     axisSet.yAxis.majorIntervalLength = CPTDecimalFromFloat(15.0f);
