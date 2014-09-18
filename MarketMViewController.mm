@@ -30,6 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.activityIndicator setHidden:YES];
     if (!market)
         market = [[MarketModels alloc] init];
     [self initPlot];
