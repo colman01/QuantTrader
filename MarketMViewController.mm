@@ -112,11 +112,21 @@
 //    plotSpace.yRange = yRange;
     
     CPTMutablePlotRange *xRange = [plotSpace.xRange mutableCopy];
-    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(1.0f)];
+    [xRange expandRangeByFactor:CPTDecimalFromCGFloat(15.0f)];
     plotSpace.xRange = xRange;
     CPTMutablePlotRange *yRange = [plotSpace.yRange mutableCopy];
-    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(1.0f)];
+    [yRange expandRangeByFactor:CPTDecimalFromCGFloat(15.0f)];
     plotSpace.yRange = yRange;
+    
+//    CPTAxisLabelingPolicyNone
+    
+    CPTXYAxisSet *axisSet = (CPTXYAxisSet *)self.hostView.hostedGraph.axisSet;
+    CPTXYAxis *x                    = axisSet.xAxis;
+    x.labelingPolicy = CPTAxisLabelingPolicyNone;
+    
+    axisSet.xAxis.majorIntervalLength = CPTDecimalFromFloat(15.0f);
+    axisSet.yAxis.majorIntervalLength = CPTDecimalFromFloat(15.0f);
+
     
 	// 4 - Create styles and symbols
 	CPTMutableLineStyle *aaplLineStyle = [aaplPlot.dataLineStyle mutableCopy];
@@ -156,19 +166,19 @@
 	return [NSDecimalNumber zero];
 }
 
--(BOOL)plotSpace:(CPTPlotSpace *)space shouldScaleBy:(CGFloat)interactionScale aboutPoint:(CGPoint)interactionPoint {
-    
-    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) self.hostView.hostedGraph.defaultPlotSpace;
-    double lenX = plotSpace.xRange.lengthDouble;
-    
-    if (lenX > 3 && interactionScale < 1.0)
-    {
-        return NO;
-    }
-    else
-    {
-        return YES;
-    }
-}
+//-(BOOL)plotSpace:(CPTPlotSpace *)space shouldScaleBy:(CGFloat)interactionScale aboutPoint:(CGPoint)interactionPoint {
+//    
+//    CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) self.hostView.hostedGraph.defaultPlotSpace;
+//    double lenX = plotSpace.xRange.lengthDouble;
+//    
+//    if (lenX > 3 && interactionScale < 1.0)
+//    {
+//        return NO;
+//    }
+//    else
+//    {
+//        return YES;
+//    }
+//}
 
 @end
