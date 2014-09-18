@@ -16,9 +16,7 @@ QuantTrader
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
-Also add information on how to contact you by electronic and paper mail.
-
-If the program does terminal interaction, make it output a short notice like this when it starts in an interactive mode:
+    Contact: colman01@gmail.com
 
     QuantTrader  Copyright (C) 2014  Colman Marcus-Quinn
     This program comes with ABSOLUTELY NO WARRANTY; 
