@@ -272,6 +272,7 @@ std::vector<std::vector<Matrix> > theVegaBumps(bool factorwiseBumping,
     
     int t3 = clock();
     
+    
     std::vector<Real> means(stats.mean());
     
     for (int i=0; i < means.size(); ++i)

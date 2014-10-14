@@ -99,9 +99,9 @@
         return;
     }
 
-    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0096]];
-    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0145]];
-    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithDouble:0.0194]];
+    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithFloat:0.0096]];
+    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithFloat:0.0145]];
+    [bondParameters addZeroCouponQuoteAsNumber:[NSNumber numberWithFloat:0.0194]];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"dd/mmm/yyyy"];

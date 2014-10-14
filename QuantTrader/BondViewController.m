@@ -102,15 +102,15 @@ DmBond *bondParameters;
         switch (cell.tag) {
             case 0:
             {
-                bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.zeroCouponQuote];
+                bondValuesViewController.modelData = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.zeroCouponQuotes];
                 
                 [bondValuesViewController onCompleteMany:^(NSString *text, int position) {
-                    NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.zeroCouponQuote];
+                    NSMutableArray* entries = [NSKeyedUnarchiver unarchiveObjectWithData:bondParameters.zeroCouponQuotes];
                     entries = [self saveValue:text withAttribute:entries andPosition:position];
-                    bondParameters.zeroCouponQuote = [NSKeyedArchiver archivedDataWithRootObject:entries];
-                    [[PersistManager instance] save];
+                    bondParameters.zeroCouponQuotes = [NSKeyedArchiver archivedDataWithRootObject:entries];
                     bondValuesViewController.modelData = entries;
                     [bondValuesViewController.table reloadData];
+                    [[PersistManager instance] save];
                 }];
             }
                 
@@ -392,20 +392,29 @@ DmBond *bondParameters;
         entry = [f numberFromString:textToSave];
     }
     
-    if ([entry  isKindOfClass:[NSNumber class]]) {
-        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        f.locale = [NSLocale currentLocale];
-        entry = [f numberFromString:textToSave];
-        
-    }
+//    if ([entry  isKindOfClass:[NSNumber class]]) {
+//        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+//        f.locale = [NSLocale currentLocale];
+//        entry = [f numberFromString:textToSave];
+//        
+//    }
     if ([entry class] == [NSString class]) {
         entry = textToSave;
     }
     if ([entry class] == [NSNumber class]) {
         [f setNumberStyle:NSNumberFormatterDecimalStyle];
         f.locale = [NSLocale currentLocale];
+        entry = [[NSNumber alloc ] init];
         entry = [f numberFromString:textToSave];
+    }
+    if ([entry isKindOfClass:[NSNumber class]]) {
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        f.locale = [NSLocale currentLocale];
         
+        entry = [f numberFromString:textToSave];
+
+        float value = [textToSave floatValue];
+        entry = [[NSNumber alloc] initWithFloat:value];
     }
     if ([entry class] == [NSDate class]) {
         [formatter setDateFormat:@"dd/mmm/yyyy"];

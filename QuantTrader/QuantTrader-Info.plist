@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>UIFileSharingEnabled</key>
-	<true/>
+	<false/>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>CFBundleDevelopmentRegion</key>

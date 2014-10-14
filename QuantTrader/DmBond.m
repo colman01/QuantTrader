@@ -71,15 +71,15 @@
 - (void)addZeroCouponQuoteAsNumber:(NSNumber *)value{
     
     NSMutableArray *quotes_;
-    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.zeroCouponQuote];
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.zeroCouponQuotes];
     if (!quotes_) {
         quotes_ = [[NSMutableArray alloc] init];
     }
     [quotes_ addObject:value];
-    if (!self.zeroCouponQuote)
-        self.zeroCouponQuote  = [[NSData alloc] init];
+    if (!self.zeroCouponQuotes)
+        self.zeroCouponQuotes  = [[NSData alloc] init];
     NSData *arrayData = [NSKeyedArchiver archivedDataWithRootObject:quotes_];
-    self.zeroCouponQuote = arrayData;
+    self.zeroCouponQuotes = arrayData;
     
     [[PersistManager instance] save];
 }
@@ -87,7 +87,7 @@
 
 - (void) removeZeroCouponQuoteAsNumber:(NSNumber *)value {
     NSMutableArray *quotes_;
-    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.zeroCouponQuote];
+    quotes_ = [NSKeyedUnarchiver unarchiveObjectWithData:self.zeroCouponQuotes];
     
     for (NSNumber *num in quotes_) {
         if ([num doubleValue] == [value doubleValue]) {
