@@ -971,8 +971,12 @@
                                     <segue destination="1RQ-fc-sxD" kind="push" id="T1q-Pu-vBC"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypW-dc-60e">
-                                <rect key="frame" x="137" y="442" width="40" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypW-dc-60e">
+                                <rect key="frame" x="140" y="442" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="LVf-OZ-C8g"/>
+                                    <constraint firstAttribute="height" constant="30" id="pT1-fy-r31"/>
+                                </constraints>
                                 <state key="normal" title="Reset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -984,12 +988,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mrI-yg-vN6" firstAttribute="leading" secondItem="khy-T9-oZd" secondAttribute="leading" id="6sd-pE-Xib"/>
+                            <constraint firstItem="sYf-L3-ctv" firstAttribute="top" secondItem="ypW-dc-60e" secondAttribute="bottom" constant="8" id="9cm-JI-cev"/>
                             <constraint firstItem="sYf-L3-ctv" firstAttribute="top" secondItem="UC2-vE-mVg" secondAttribute="bottom" constant="7" id="DzL-g6-WVx"/>
                             <constraint firstAttribute="trailing" secondItem="UC2-vE-mVg" secondAttribute="trailing" constant="6" id="IbB-dC-QGC"/>
                             <constraint firstAttribute="trailing" secondItem="nbI-JO-xAp" secondAttribute="trailing" id="PL3-8q-Kuj"/>
                             <constraint firstItem="sYf-L3-ctv" firstAttribute="top" secondItem="mrI-yg-vN6" secondAttribute="bottom" id="f5f-Hb-7uK"/>
                             <constraint firstItem="mrI-yg-vN6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="nbI-JO-xAp" secondAttribute="bottom" constant="14" id="ff5-kD-WD1"/>
                             <constraint firstItem="nbI-JO-xAp" firstAttribute="leading" secondItem="khy-T9-oZd" secondAttribute="leading" id="jbh-n6-RN5"/>
+                            <constraint firstItem="ypW-dc-60e" firstAttribute="leading" secondItem="mrI-yg-vN6" secondAttribute="trailing" constant="43" id="kCf-Ib-U4a"/>
                             <constraint firstItem="nbI-JO-xAp" firstAttribute="top" secondItem="khy-T9-oZd" secondAttribute="top" id="qJh-Fe-6hG"/>
                         </constraints>
                     </view>

@@ -51,6 +51,10 @@
 
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -133,27 +137,48 @@
 }
 
 - (void) setValues{
-    strike.placeholder          = [marketParameters.strike stringValue];
-    numberRates.placeholder     = [marketParameters.numberRates stringValue];
-    accrual.placeholder         = [marketParameters.accrual stringValue];
-    firstTime.placeholder       = [marketParameters.firstTime stringValue];
-    fixedRate.placeholder       = [marketParameters.fixedRate stringValue];
-    receive.placeholder         = [marketParameters.receive stringValue];
-    seed.placeholder            = [marketParameters.seed stringValue];
-    trainingPaths.placeholder   = [marketParameters.trainingPaths stringValue];
-    paths.placeholder           = [marketParameters.paths stringValue];
-    vegaPaths.placeholder       = [marketParameters.vegaPaths stringValue];
-    rateLevel.placeholder       = [marketParameters.rateLevel stringValue];
-    initialNumeraireValue.placeholder = [marketParameters.initialNumeraireValue stringValue];
-    volLevel.placeholder        = [marketParameters.volLevel stringValue];
-    gamma.placeholder           = [marketParameters.gamma stringValue];
-    beta.placeholder            = [marketParameters.beta stringValue];
-    numberOfFactors.placeholder = [marketParameters.numberOfFactors stringValue];
-    displacementLevel.placeholder = [marketParameters.displacementLevel stringValue];
-    innerPaths.placeholder      = [marketParameters.innerPaths stringValue];
-    outerPaths.placeholder      = [marketParameters.outterPaths stringValue];
-    fixedMultiplier.placeholder = [marketParameters.fixedMultiplier stringValue];
-    floatingSpread.placeholder = [marketParameters.floatingSpread stringValue];
+//    strike.placeholder          = [marketParameters.strike stringValue];
+//    numberRates.placeholder     = [marketParameters.numberRates stringValue];
+//    accrual.placeholder         = [marketParameters.accrual stringValue];
+//    firstTime.placeholder       = [marketParameters.firstTime stringValue];
+//    fixedRate.placeholder       = [marketParameters.fixedRate stringValue];
+//    receive.placeholder         = [marketParameters.receive stringValue];
+//    seed.placeholder            = [marketParameters.seed stringValue];
+//    trainingPaths.placeholder   = [marketParameters.trainingPaths stringValue];
+//    paths.placeholder           = [marketParameters.paths stringValue];
+//    vegaPaths.placeholder       = [marketParameters.vegaPaths stringValue];
+//    rateLevel.placeholder       = [marketParameters.rateLevel stringValue];
+//    initialNumeraireValue.placeholder = [marketParameters.initialNumeraireValue stringValue];
+//    volLevel.placeholder        = [marketParameters.volLevel stringValue];
+//    gamma.placeholder           = [marketParameters.gamma stringValue];
+//    beta.placeholder            = [marketParameters.beta stringValue];
+//    numberOfFactors.placeholder = [marketParameters.numberOfFactors stringValue];
+//    displacementLevel.placeholder = [marketParameters.displacementLevel stringValue];
+//    innerPaths.placeholder      = [marketParameters.innerPaths stringValue];
+//    outerPaths.placeholder      = [marketParameters.outterPaths stringValue];
+//    fixedMultiplier.placeholder = [marketParameters.fixedMultiplier stringValue];
+//    floatingSpread.placeholder = [marketParameters.floatingSpread stringValue];
+    strike.text          = [marketParameters.strike stringValue];
+    numberRates.text     = [marketParameters.numberRates stringValue];
+    accrual.text         = [marketParameters.accrual stringValue];
+    firstTime.text       = [marketParameters.firstTime stringValue];
+    fixedRate.text       = [marketParameters.fixedRate stringValue];
+    receive.text         = [marketParameters.receive stringValue];
+    seed.text            = [marketParameters.seed stringValue];
+    trainingPaths.text   = [marketParameters.trainingPaths stringValue];
+    paths.text           = [marketParameters.paths stringValue];
+    vegaPaths.text       = [marketParameters.vegaPaths stringValue];
+    rateLevel.text       = [marketParameters.rateLevel stringValue];
+    initialNumeraireValue.text = [marketParameters.initialNumeraireValue stringValue];
+    volLevel.text        = [marketParameters.volLevel stringValue];
+    gamma.text           = [marketParameters.gamma stringValue];
+    beta.text            = [marketParameters.beta stringValue];
+    numberOfFactors.text = [marketParameters.numberOfFactors stringValue];
+    displacementLevel.text = [marketParameters.displacementLevel stringValue];
+    innerPaths.text      = [marketParameters.innerPaths stringValue];
+    outerPaths.text      = [marketParameters.outterPaths stringValue];
+    fixedMultiplier.text = [marketParameters.fixedMultiplier stringValue];
+    floatingSpread.text = [marketParameters.floatingSpread stringValue];
 }
 
 
@@ -164,13 +189,13 @@
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
     [f setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
-
+    
     if (self.numberRates.text.length > 0) {
         marketParameters.numberRates = [f numberFromString:self.numberRates.text];
     } else {
         marketParameters.numberRates = [f numberFromString:self.numberRates.placeholder];
     }
-
+    
     if (self.accrual.text.length > 0) {
         marketParameters.accrual = [f numberFromString:self.accrual.text];
     } else {
@@ -284,6 +309,127 @@
     } else {
         [f numberFromString:self.trainingPaths.placeholder];
     }
+
+
+//    if (self.numberRates.text.length > 0) {
+//        marketParameters.numberRates = [f numberFromString:self.numberRates.text];
+//    } else {
+//        marketParameters.numberRates = [f numberFromString:self.numberRates.placeholder];
+//    }
+//
+//    if (self.accrual.text.length > 0) {
+//        marketParameters.accrual = [f numberFromString:self.accrual.text];
+//    } else {
+//        marketParameters.accrual = [f numberFromString:self.accrual.placeholder];
+//    }
+//    
+//    if (self.firstTime.text.length > 0) {
+//        marketParameters.firstTime = [f numberFromString:self.firstTime.text];
+//    } else {
+//        marketParameters.firstTime = [f numberFromString:self.firstTime.placeholder];
+//    }
+//    if (self.fixedRate.text.length > 0) {
+//        marketParameters.fixedRate = [f numberFromString:self.fixedRate.text];
+//    } else {
+//        marketParameters.fixedRate = [f numberFromString:self.fixedRate.placeholder];
+//    }
+//    
+//    if (self.receive.text.length > 0) {
+//        marketParameters.receive = [f numberFromString:self.receive.text];
+//    } else {
+//        marketParameters.receive = [f numberFromString:self.receive.placeholder];
+//    }
+//    if (self.seed.text.length > 0) {
+//        marketParameters.seed = [f numberFromString:self.seed.text];
+//    } else {
+//        marketParameters.seed = [f numberFromString:self.seed.placeholder];
+//    }
+//    if (self.paths.text.length > 0) {
+//        marketParameters.paths = [f numberFromString:self.paths.text];
+//    } else {
+//        marketParameters.paths = [f numberFromString:self.paths.placeholder];
+//    }
+//    
+//    if (self.vegaPaths.text.length > 0) {
+//        marketParameters.vegaPaths = [f numberFromString:self.vegaPaths.text];
+//    } else {
+//        marketParameters.vegaPaths = [f numberFromString:self.vegaPaths.placeholder];
+//    }
+//    
+//    if (self.rateLevel.text.length > 0) {
+//        marketParameters.rateLevel = [f numberFromString:self.rateLevel.text];
+//    } else {
+//        marketParameters.rateLevel = [f numberFromString:self.rateLevel.placeholder];
+//    }
+//    if (self.initialNumeraireValue.text.length > 0) {
+//        marketParameters.initialNumeraireValue = [f numberFromString:self.initialNumeraireValue.text];
+//    } else {
+//        marketParameters.initialNumeraireValue = [f numberFromString:self.initialNumeraireValue.placeholder];
+//    }
+//    if (self.volLevel.text.length > 0) {
+//        marketParameters.volLevel = [f numberFromString:self.volLevel.text];
+//    } else {
+//        marketParameters.volLevel = [f numberFromString:self.volLevel.placeholder];
+//    }
+//    
+//    if (self.beta.text.length > 0) {
+//        marketParameters.beta = [f numberFromString:self.beta.text];
+//    } else {
+//        marketParameters.beta = [f numberFromString:self.beta.placeholder];
+//    }
+//    
+//    if (self.gamma.text.length > 0) {
+//        marketParameters.gamma = [f numberFromString:self.gamma.text];
+//    } else {
+//        marketParameters.gamma = [f numberFromString:self.gamma.placeholder];
+//    }
+//    
+//    if (self.numberOfFactors.text.length > 0) {
+//        marketParameters.numberOfFactors = [f numberFromString:self.numberOfFactors.text];
+//    } else {
+//        marketParameters.numberOfFactors = [f numberFromString:self.numberOfFactors.placeholder];
+//    }
+//    if (self.displacementLevel.text.length > 0) {
+//        marketParameters.displacementLevel = [f numberFromString:self.displacementLevel.text];
+//    } else {
+//        marketParameters.displacementLevel = [f numberFromString:self.displacementLevel.placeholder];
+//    }
+//    
+//    if (self.innerPaths.text.length > 0) {
+//        marketParameters.innerPaths = [f numberFromString:self.innerPaths.text];
+//    } else {
+//        marketParameters.innerPaths = [f numberFromString:self.innerPaths.placeholder];
+//    }
+//    
+//    if (self.outerPaths.text.length > 0) {
+//        marketParameters.outterPaths = [f numberFromString:self.outerPaths.text];
+//    } else {
+//        marketParameters.outterPaths = [f numberFromString:self.outerPaths.placeholder];
+//    }
+//    
+//    if (self.strike.text.length > 0) {
+//        marketParameters.strike  = [f numberFromString:self.strike.text];
+//    } else {
+//        marketParameters.strike  = [f numberFromString:self.strike.placeholder];
+//    }
+//    
+//    if (self.fixedMultiplier.text.length > 0) {
+//        marketParameters.fixedMultiplier =  [f numberFromString:self.outerPaths.text];
+//    } else {
+//        marketParameters.fixedMultiplier =  [f numberFromString:self.outerPaths.placeholder];
+//    }
+//    
+//    if (self.floatingSpread.text.length > 0) {
+//        marketParameters.floatingSpread = [f numberFromString:self.floatingSpread.text];
+//    } else {
+//        [f numberFromString:self.floatingSpread.placeholder];
+//    }
+//    
+//    if (self.trainingPaths.text.length > 0) {
+//        marketParameters.trainingPaths = [f numberFromString:self.trainingPaths.text];
+//    } else {
+//        [f numberFromString:self.trainingPaths.placeholder];
+//    }
     
     
     [[PersistManager instance] save];
